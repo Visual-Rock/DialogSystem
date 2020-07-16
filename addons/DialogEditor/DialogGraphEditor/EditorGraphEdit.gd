@@ -1,6 +1,12 @@
 tool
 extends GraphEdit
 
+enum NODES {
+	START
+}
+
+var nodes = [load("res://addons/DialogEditor/DialogGraphEditor/Nodes/StartDialogNode.tscn")]
+
 # Stores all Node Connections in an exportet var
 export (Array) var connections
 
@@ -27,9 +33,18 @@ func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
 	# disconnects two nodes
 	disconnect_node(from, from_slot, to, to_slot)
 
+func add_node(node):
+	
+	var n = nodes[node].instance()
+	n.connect("deleted_node", self, "node_deleted")
+	self.add_child(n)
+	
+	match node:
+		NODES.START:
+			print(" [ Dialog Editor ] added Start Node!")
 
-
-
+func node_deleted(node_type):
+	pass
 
 
 
