@@ -36,5 +36,8 @@ func get_plugin_name() -> String:
 	return "Dialog Editor"
 
 # Returns the Icon for the Editor Tab
-func get_plugin_icon() -> Texture:
+func get_plugin_icon():
 	return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
+
+func has_main_screen():
+	return true

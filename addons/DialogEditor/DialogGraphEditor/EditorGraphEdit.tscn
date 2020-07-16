@@ -3,8 +3,8 @@
 [ext_resource path="res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.gd" type="Script" id=1]
 
 [node name="GraphEdit" type="GraphEdit"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -12,3 +12,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="connection_request" from="." to="." method="_on_GraphEdit_connection_request"]
+[connection signal="disconnection_request" from="." to="." method="_on_GraphEdit_disconnection_request"]
+[connection signal="mouse_entered" from="." to="." method="_on_GraphEdit_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_GraphEdit_mouse_exited"]

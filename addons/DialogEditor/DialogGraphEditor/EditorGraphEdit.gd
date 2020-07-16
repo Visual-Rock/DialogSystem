@@ -1,16 +1,47 @@
+tool
 extends GraphEdit
 
+# Stores all Node Connections in an exportet var
+export (Array) var connections
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# is mouse over node
+var MouseOnNode : bool = false
 
-
-# Called when the node enters the scene tree for the first time.
+# called when childrens and this node entered the SceneTree
 func _ready():
-	pass # Replace with function body.
+	
+	# checks if the connection array is not an empty array
+	if connections != []:
+		# goes through the connections array
+		for c in connections:
+			#connects nodes together
+			connect_node(c["from"], c["from_port"], c["to"], c["to_port"])
+
+# gets called when user wants to connect two nodes
+func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
+	# connects two nodes
+	connect_node(from, from_slot, to, to_slot)
+
+# gets called when user wants to disconnect two nodes
+func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
+	# disconnects two nodes
+	disconnect_node(from, from_slot, to, to_slot)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+
+
+
+
+func _on_GraphEdit_mouse_entered():
+	MouseOnNode = true
+
+func _on_GraphEdit_mouse_exited():
+	MouseOnNode = false
+
+
+
+
+
+
