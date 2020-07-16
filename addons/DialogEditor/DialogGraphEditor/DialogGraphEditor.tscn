@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/DialogEditor/DialogGraphEditor/DialogGraphEditor.gd" type="Script" id=2]
+[ext_resource path="res://addons/DialogEditor/icons/Add.svg" type="Texture" id=3]
 
 [node name="DialogGraphEditor" type="Control"]
 anchor_right = 1.0
@@ -13,32 +14,252 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+split_offset = 600
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToolBar" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1024.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+margin_right = 806.0
+margin_bottom = 594.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolBar" type="HBoxContainer" parent="HSplitContainer/VBoxContainer"]
+margin_right = 806.0
 margin_bottom = 20.0
 
-[node name="AddNodeMenu" type="MenuButton" parent="VBoxContainer/ToolBar"]
+[node name="AddNodeMenu" type="MenuButton" parent="HSplitContainer/VBoxContainer/ToolBar"]
 margin_right = 82.0
 margin_bottom = 20.0
 text = "Add Nodes"
 items = [ "Start Dialog", null, 0, false, false, 0, 0, null, "", false ]
 
-[node name="GraphEdit" parent="VBoxContainer" instance=ExtResource( 1 )]
+[node name="GraphEdit" parent="HSplitContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 24.0
-margin_right = 1024.0
-margin_bottom = 596.0
+margin_right = 806.0
+margin_bottom = 590.0
 scroll_offset = Vector2( -300, -100 )
 
-[node name="Debug" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 600.0
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="Debug" type="HBoxContainer" parent="HSplitContainer/VBoxContainer"]
+margin_top = 594.0
+margin_right = 806.0
+margin_bottom = 594.0
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer"]
+margin_left = 818.0
+margin_right = 1018.0
+margin_bottom = 594.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Variables" type="VSplitContainer" parent="HSplitContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 587.0
+
+[node name="Variables" type="Panel" parent="HSplitContainer/PanelContainer/Variables"]
+margin_right = 186.0
+margin_bottom = 284.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/PanelContainer/Variables/Variables"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer"]
+margin_right = 180.0
+margin_bottom = 278.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VarTypeTab" type="Tabs" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer"]
+margin_right = 180.0
+margin_bottom = 24.0
+tab_align = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 180.0
+margin_bottom = 44.0
+
+[node name="AddVar" type="TextureButton" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 3 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 180.0
+margin_bottom = 278.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NodeVar" type="VBoxContainer" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer/ScrollContainer"]
+visible = false
+margin_right = 180.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EditorVar" type="VBoxContainer" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 180.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tree" type="Tree" parent="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer/ScrollContainer/EditorVar"]
+margin_right = 180.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+hide_root = true
+
+[node name="VariablesSettings" type="Panel" parent="HSplitContainer/PanelContainer/Variables"]
+margin_top = 296.0
+margin_right = 186.0
+margin_bottom = 580.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer"]
+margin_right = 176.0
+margin_bottom = 274.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer"]
+margin_right = 176.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="var" type="Label" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 14.0
+text = "Variable"
+align = 1
+
+[node name="VarName" type="HBoxContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 176.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/VarName"]
+margin_top = 5.0
+margin_right = 42.0
+margin_bottom = 19.0
+text = "Name:"
+
+[node name="Name" type="LineEdit" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/VarName"]
+margin_left = 46.0
+margin_right = 176.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Vartype" type="HBoxContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 176.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/Vartype"]
+margin_top = 3.0
+margin_right = 34.0
+margin_bottom = 17.0
+text = "Type:"
+
+[node name="Type" type="OptionButton" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/Vartype"]
+margin_left = 38.0
+margin_right = 176.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Name"
+items = [ "Name", null, false, 0, null, "String", null, false, 1, null, "Multiline String", null, false, 2, null, "Integer", null, false, 3, null, "float", null, false, 4, null, "bool", null, false, 5, null, "Texture", null, false, 6, null, "Sound", null, false, 7, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="val" type="Label" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 70.0
+margin_right = 176.0
+margin_bottom = 84.0
+text = "Value"
+align = 1
+
+[node name="Name" type="VBoxContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 176.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/Name"]
+margin_right = 176.0
+margin_bottom = 16.0
+
+[node name="Label" type="Label" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/Name/HBoxContainer"]
+margin_top = 1.0
+margin_right = 156.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Names:"
+
+[node name="AddName" type="TextureButton" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/Name/HBoxContainer"]
+margin_left = 160.0
+margin_right = 176.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/PanelContainer/Variables/VariablesSettings/MarginContainer/ScrollContainer/VBoxContainer/Name"]
+margin_top = 20.0
+margin_right = 176.0
+margin_bottom = 186.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="tab_changed" from="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer/VarTypeTab" to="." method="_on_VarTypeTab_tab_changed"]
+[connection signal="pressed" from="HSplitContainer/PanelContainer/Variables/Variables/MarginContainer/VBoxContainer/HBoxContainer/AddVar" to="." method="_on_AddVar_pressed"]

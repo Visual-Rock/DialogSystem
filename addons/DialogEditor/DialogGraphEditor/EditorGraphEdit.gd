@@ -5,7 +5,7 @@ enum NODES {
 	START
 }
 
-var nodes = [load("res://addons/DialogEditor/DialogGraphEditor/Nodes/StartDialogNode.tscn")]
+var nodes = [load("res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/StartDialogNode.tscn")]
 
 # Stores all Node Connections in an exportet var
 export (Array) var connections
@@ -33,16 +33,24 @@ func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
 	# disconnects two nodes
 	disconnect_node(from, from_slot, to, to_slot)
 
+# called when to add node
 func add_node(node):
 	
+	# instances the node
 	var n = nodes[node].instance()
+	# connects the deleted_node signal to node_deleted
 	n.connect("deleted_node", self, "node_deleted")
+	# adds the node to self
 	self.add_child(n)
 	
+	# matches the node
 	match node:
+		# when node is NODES.START (0)
 		NODES.START:
+			# prints for debuging
 			print(" [ Dialog Editor ] added Start Node!")
 
+# called when node is deleted
 func node_deleted(node_type):
 	pass
 
