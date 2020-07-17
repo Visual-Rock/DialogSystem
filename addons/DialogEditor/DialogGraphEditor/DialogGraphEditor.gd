@@ -56,9 +56,10 @@ func _ready():
 		f.close()
 		if EditorVariables != {}:
 			for Var in EditorVariables:
-				var item : TreeItem = EditorVars.create_item(EditorVarRoot)
-				item.set_text(0, EditorVariables[Var]["name"])
-				item.set_metadata(0, EditorVariables[Var]["id"])
+				if EditorVariables[Var]["name"] != "":
+					var item : TreeItem = EditorVars.create_item(EditorVarRoot)
+					item.set_text(0, EditorVariables[Var]["name"])
+					item.set_metadata(0, EditorVariables[Var]["id"])
 	
 	Graph = $HSplitContainer/VBoxContainer/GraphEdit
 
@@ -130,6 +131,8 @@ func save_var(VarToSave : int = SelectedVariable) -> void:
 	f.open(str(SavePath, VarFileName), f.WRITE)
 	f.store_var(EditorVariables)
 	f.close()
+	
+	open_var(VarToSave)
 
 
 func get_new_id(start : int = 0) -> int:
@@ -150,7 +153,12 @@ func _on_AddName_pressed():
 	Names.add_child(le)
 
 func _on_AddGraphNode_pressed():
+	save_var()
 	Graph.add_node(EditorVariables[str(SelectedVariable)]["type"], "value", EditorVariables[str(SelectedVariable)], self)
 
 func _on_Type_item_selected(index):
 	save_var()
+
+func _on_Name_text_entered(new_text):
+	save_var()
+	EditorVars.get_selected().set_text(0, new_text)

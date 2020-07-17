@@ -193,7 +193,6 @@ margin_left = 46.0
 margin_right = 148.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Vartype" type="HBoxContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
 margin_top = 50.0
@@ -312,6 +311,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 [connection signal="pressed" from="HSplitContainer/Variables/Variables/Editor/HBoxContainer/AddVar" to="." method="_on_AddVar_pressed"]
 [connection signal="cell_selected" from="HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar/Tree" to="." method="_on_Tree_cell_selected"]
+[connection signal="text_entered" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName/Name" to="." method="_on_Name_text_entered"]
 [connection signal="item_selected" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype/Type" to="." method="_on_Type_item_selected"]
 [connection signal="pressed" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/AddGraphNode/AddGraphNode" to="." method="_on_AddGraphNode_pressed"]
 [connection signal="pressed" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Name/HBoxContainer/AddName" to="." method="_on_AddName_pressed"]
