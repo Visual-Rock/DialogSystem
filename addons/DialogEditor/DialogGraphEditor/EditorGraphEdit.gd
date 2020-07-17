@@ -6,7 +6,8 @@ enum NODES {
 }
 
 var DialogNodes =  [load("res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/StartDialogNode.tscn"),
-					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/TextDialogNode.tscn")]
+					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/TextDialogNode.tscn"),
+					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/BranchDialogNode.tscn")]
 var ValueNodes  = [ load("res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/NameNode.tscn"),
 					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/StringEditorValueNode.tscn"),
 					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/MultiStringEditorValueNode.tscn")]

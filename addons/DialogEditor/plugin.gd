@@ -2,7 +2,7 @@ tool
 extends EditorPlugin
 
 # DialogEditor Referencen 
-const DialogEditor         : Resource = preload("res://addons/DialogEditor/DialogGraphEditor/DialogGraphEditor.tscn")
+const DialogEditor         : Resource = preload("res://addons/DialogEditor/DialogEditor.tscn")
 var   DialogEditorInstance : Node
 
 # called when Plugin Enters Scene Tree

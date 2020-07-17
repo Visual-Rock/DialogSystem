@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/DialogEditor/icons/Folder.svg" type="Texture" id=1]
+[ext_resource path="res://addons/DialogEditor/icons/Reload.svg" type="Texture" id=2]
+[ext_resource path="res://addons/DialogEditor/DialogEditorSettings.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="DialogEditorSettings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 10.0
+margin_right = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+margin_right = 984.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+margin_right = 984.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 14.0
+text = "Dialog Editor Settings"
+
+[node name="BakePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_left = 20.0
+margin_top = 18.0
+margin_right = 984.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath"]
+margin_top = 5.0
+margin_right = 480.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Bake Save Path"
+
+[node name="Path" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath"]
+margin_left = 484.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Reset" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path"]
+visible = false
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path"]
+margin_right = 452.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "res://"
+placeholder_text = "Folder where Bakes are Saved"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path"]
+margin_left = 452.0
+margin_right = 480.0
+margin_bottom = 24.0
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectBakePath" type="FileDialog" parent="."]
+margin_right = 554.0
+margin_bottom = 309.0
+window_title = "Bake Path"
+resizable = true
+mode = 2
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path/Reset" to="." method="_on_Reset_pressed"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path/Button" to="." method="_on_Button_pressed"]
+[connection signal="dir_selected" from="SelectBakePath" to="." method="_on_SelectBakePath_dir_selected"]

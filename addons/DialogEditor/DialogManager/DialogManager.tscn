@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/DialogEditor/DialogManager/DialogManager.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/icons/Add.svg" type="Texture" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="DialogManager" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+split_offset = 326
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="PanelContainer" parent="HSplitContainer"]
+margin_right = 832.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Main"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 825.0
+margin_bottom = 593.0
+
+[node name="ToolBar" type="HBoxContainer" parent="HSplitContainer/Main/VBoxContainer"]
+margin_right = 818.0
+margin_bottom = 16.0
+
+[node name="Add" type="Button" parent="HSplitContainer/Main/VBoxContainer/ToolBar"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 2 )
+expand_icon = true
+
+[node name="Dialogs" type="VBoxContainer" parent="HSplitContainer/Main/VBoxContainer"]
+margin_top = 20.0
+margin_right = 818.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Main/VBoxContainer/Dialogs"]
+margin_right = 818.0
+margin_bottom = 566.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="HSplitContainer/Main/VBoxContainer/Dialogs/ScrollContainer"]
+margin_right = 818.0
+margin_bottom = 566.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="SideBar" type="TabContainer" parent="HSplitContainer"]
+margin_left = 844.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="pressed" from="HSplitContainer/Main/VBoxContainer/ToolBar/Add" to="." method="_on_Add_pressed"]

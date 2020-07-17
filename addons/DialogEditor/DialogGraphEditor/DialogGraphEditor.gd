@@ -61,7 +61,7 @@ func _ready():
 					item.set_text(0, EditorVariables[Var]["name"])
 					item.set_metadata(0, EditorVariables[Var]["id"])
 	
-	Graph = $HSplitContainer/VBoxContainer/GraphEdit
+	Graph = $HSplitContainer/VBoxContainer/TabContainer/Empty
 
 func add_node_menu_pressed(id):
 	# calles the add_node function on the graph

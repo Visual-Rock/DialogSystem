@@ -16,8 +16,6 @@ func update_connections(new_connection):
 			self.get_children()[new_connection["to_slot"]].get_children()[1].hide()
 	else:
 		pass
-	
-	print("new connection", new_connection)
 
 func update_disconnection(new_disconnection):
 	dialog_connections.erase(new_disconnection)
@@ -26,5 +24,3 @@ func update_disconnection(new_disconnection):
 			self.get_children()[new_disconnection["to_slot"]].get_children()[1].show()
 	else:
 		pass
-	
-	print("new disconnection ", new_disconnection)

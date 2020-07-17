@@ -19,6 +19,12 @@ slot/1/left_color = Color( 0, 1, 0.486275, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+dialog_connections = [ {
+"from": "StartDialogNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 0
+} ]
 
 [node name="Name" type="VBoxContainer" parent="." index="0"]
 margin_left = 16.0
