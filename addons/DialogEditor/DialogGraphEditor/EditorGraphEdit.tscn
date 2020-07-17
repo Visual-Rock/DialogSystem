@@ -8,6 +8,7 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+right_disconnects = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

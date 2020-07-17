@@ -29,6 +29,12 @@ func close_node() -> void:
 func resize_node(new_minsize) -> void:
 	pass
 
+func update_connections(new_connection):
+	pass
+
+func update_disconnection(new_disconnection):
+	pass
+
 # used for saving
 func set_owner(new_owner):
 	pass
