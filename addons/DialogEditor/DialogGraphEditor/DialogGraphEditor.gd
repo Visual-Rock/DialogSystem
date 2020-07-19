@@ -19,6 +19,7 @@ enum VARIABLES {
 
 enum DIALOGMENU {
 	SAVEALL,
+	BAKE
 }
 
 var SavePath : String = "res://addons/DialogEditor/"
@@ -44,6 +45,7 @@ var CurrentVarType : int
 onready var AddNodeMenu : MenuButton   = self.get_node("HSplitContainer/VBoxContainer/ToolBar/AddNodeMenu")
 onready var DialogMenu  : MenuButton   = self.get_node("HSplitContainer/VBoxContainer/ToolBar/DialogMenu")
 onready var EditorTab   : TabContainer = self.get_node("HSplitContainer/VBoxContainer/TabContainer")
+onready var DebugLabel  : Label        = self.get_node("HSplitContainer/VBoxContainer/Debug/Label")
 
 var Graph : GraphEdit
 
@@ -79,6 +81,8 @@ func dialog_menu_pressed(id):
 	match id:
 		DIALOGMENU.SAVEALL:
 			save_all_graphs()
+		DIALOGMENU.BAKE:
+			Graph.bake_dialog()
 
 # Variables stuff
 
@@ -190,12 +194,17 @@ func open_new_graph(graph_name):
 			SavePath = "res://addons/DialogEditor/Saves/"
 		
 		if f.file_exists(str(SavePath, graph_name, ".tscn")):
-			EditorTab.add_child(load(str(SavePath, graph_name, ".tscn")).instance())
+			var e = load(str(SavePath, graph_name, ".tscn")).instance()
+			EditorTab.add_child(e)
+			e.connect("debug_text", self, "debug_message")
 		else:
 			var e = load("res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.tscn").instance()
 			e.GraphName = graph_name
 			e.name = graph_name
 			EditorTab.add_child(e)
+			e.connect("debug_text", self, "debug_message")
+		
+		
 
 func save_all_graphs() -> void:
 	for c in EditorTab.get_children():
@@ -214,9 +223,8 @@ func _on_TabContainer_tab_changed(tab):
 		Graph.save_graph()
 	Graph = EditorTab.get_children()[tab]
 
-
-
-
+func debug_message(msg):
+	DebugLabel.text = msg
 
 
 

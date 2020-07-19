@@ -18,27 +18,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-split_offset = 474
+split_offset = 714
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
-margin_right = 612.0
+margin_right = 852.0
 margin_bottom = 600.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ToolBar" type="HBoxContainer" parent="HSplitContainer/VBoxContainer"]
-margin_right = 612.0
+margin_right = 852.0
 margin_bottom = 20.0
 
 [node name="DialogMenu" type="MenuButton" parent="HSplitContainer/VBoxContainer/ToolBar"]
 margin_right = 52.0
 margin_bottom = 20.0
 text = "Dialog"
-items = [ "Save All", null, 0, false, false, 0, 0, null, "", false ]
+items = [ "Save All", null, 0, false, false, 0, 0, null, "", false, "Bake", null, 0, false, false, 1, 0, null, "", false ]
 
 [node name="AddNodeMenu" type="MenuButton" parent="HSplitContainer/VBoxContainer/ToolBar"]
 margin_left = 56.0
@@ -49,26 +49,32 @@ items = [ "Dialog Start", null, 0, false, false, 0, 0, null, "", false, "Dialog 
 
 [node name="TabContainer" type="TabContainer" parent="HSplitContainer/VBoxContainer"]
 margin_top = 24.0
-margin_right = 612.0
-margin_bottom = 596.0
+margin_right = 852.0
+margin_bottom = 582.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 drag_to_rearrange_enabled = true
 
 [node name="Debug" type="HBoxContainer" parent="HSplitContainer/VBoxContainer"]
-margin_top = 600.0
-margin_right = 612.0
+margin_top = 586.0
+margin_right = 852.0
 margin_bottom = 600.0
 
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/Debug"]
+margin_left = 10.0
+margin_right = 852.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
 [node name="Variables" type="VSplitContainer" parent="HSplitContainer"]
-margin_left = 624.0
+margin_left = 864.0
 margin_right = 1024.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 0, 200 )
 
 [node name="Variables" type="TabContainer" parent="HSplitContainer/Variables"]
-margin_right = 400.0
+margin_right = 160.0
 margin_bottom = 294.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -92,7 +98,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Variables/Variables/Editor"]
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 16.0
 
 [node name="AddVar" type="TextureButton" parent="HSplitContainer/Variables/Variables/Editor/HBoxContainer"]
@@ -102,13 +108,13 @@ texture_normal = ExtResource( 3 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Variables/Variables/Editor"]
 margin_top = 20.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="EditorVar" type="VBoxContainer" parent="HSplitContainer/Variables/Variables/Editor/ScrollContainer"]
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -117,7 +123,7 @@ __meta__ = {
 }
 
 [node name="Tree" type="Tree" parent="HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar"]
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -143,7 +149,7 @@ size_flags_vertical = 3
 
 [node name="VariablesSettings" type="TabContainer" parent="HSplitContainer/Variables"]
 margin_top = 306.0
-margin_right = 400.0
+margin_right = 160.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -161,28 +167,28 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor"]
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 258.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer"]
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 6
 
 [node name="var" type="Label" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 14.0
 text = "Variable"
 align = 1
 
 [node name="VarName" type="HBoxContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
 margin_top = 20.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 44.0
 
 [node name="Label" type="Label" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName"]
@@ -193,13 +199,13 @@ text = "Name:"
 
 [node name="Name" type="LineEdit" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName"]
 margin_left = 46.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="Vartype" type="HBoxContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
 margin_top = 50.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 70.0
 
 [node name="Label" type="Label" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype"]
@@ -210,7 +216,7 @@ text = "Type:"
 
 [node name="Type" type="OptionButton" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype"]
 margin_left = 38.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Name"
@@ -222,19 +228,19 @@ __meta__ = {
 
 [node name="AddGraphNode" type="HBoxContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
 margin_top = 76.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 96.0
 alignment = 1
 
 [node name="AddGraphNode" type="Button" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/AddGraphNode"]
-margin_left = 137.0
-margin_right = 254.0
+margin_left = 17.0
+margin_right = 134.0
 margin_bottom = 20.0
 text = "Add Graph Node"
 
 [node name="val" type="Label" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
 margin_top = 102.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 116.0
 text = "Value"
 align = 1
@@ -277,7 +283,7 @@ margin_bottom = 113.0
 
 [node name="String" type="HBoxContainer" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer"]
 margin_top = 122.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 146.0
 
 [node name="Label" type="Label" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/String"]
@@ -288,7 +294,7 @@ text = "text:"
 
 [node name="LineEdit" type="LineEdit" parent="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/String"]
 margin_left = 33.0
-margin_right = 392.0
+margin_right = 152.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 

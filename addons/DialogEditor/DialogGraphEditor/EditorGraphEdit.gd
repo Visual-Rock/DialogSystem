@@ -1,8 +1,15 @@
 tool
 extends GraphEdit
 
+signal debug_text(text)
+
 enum NODES {
-	START
+	START     = 0,
+	TEXT      = 1,
+	
+	NAME      = 10,
+	STRING    = 11,
+	MLSTRING  = 12
 }
 
 var DialogNodes =  [load("res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/StartDialogNode.tscn"),
@@ -17,11 +24,19 @@ var ValueNodes  = [ load("res://addons/DialogEditor/DialogGraphEditor/Nodes/Edit
 export (Array) var connections
 export (String) var GraphName
 
+var StartNode : GraphNode
+
 # is mouse over node
 var MouseOnNode : bool = false
 
 # called when childrens and this node entered the SceneTree
 func _ready():
+	
+	for c in self.get_children():
+		if c is GraphNode:
+			if c.get_node_type() == NODES.START:
+				StartNode = c
+				break
 	
 	# checks if the connection array is not an empty array
 	if connections != []:
@@ -48,19 +63,24 @@ func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
 func add_node(node, type, data = null, GraphEditor = null):
 	
 	if type == "dialog":
-		# instances the node
-		var n = DialogNodes[node].instance()
-		# connects the deleted_node signal to node_deleted
-		n.connect("deleted_node", self, "node_deleted")
-		# adds the node to self
-		self.add_child(n)
 		
-		# matches the node
-		match node:
-			# when node is NODES.START (0)
-			NODES.START:
-				# prints for debuging
-				print(" [ Dialog Editor ] added Start Node!")
+		if node == NODES.START && StartNode != null:
+			emit_signal("debug_text", "StartNode Already Exists")
+		else:
+			# instances the node
+			var n = DialogNodes[node].instance()
+			# connects the deleted_node signal to node_deleted
+			n.connect("deleted_node", self, "node_deleted")
+			# adds the node to self
+			self.add_child(n)
+			
+			# matches the node
+			match node:
+				# when node is NODES.START (0)
+				NODES.START:
+					# prints for debuging
+					print(" [ Dialog Editor ] added Start Node!")
+					StartNode = n
 	elif type == "value":
 		
 		var n = ValueNodes[node].instance()
@@ -72,10 +92,9 @@ func add_node(node, type, data = null, GraphEditor = null):
 
 # called when node is deleted
 func node_deleted(node_type):
-	pass
-
-func open_graph(graph_name):
-	pass
+	match node_type:
+		NODES.START:
+			StartNode = null
 
 func _on_GraphEdit_mouse_entered():
 	MouseOnNode = true
@@ -103,7 +122,12 @@ func save_graph() -> void:
 	scene.pack(self)
 	ResourceSaver.save(str(SavePath, GraphName, ".tscn"), scene)
 
-
+func bake_dialog() -> void:
+	
+	if StartNode:
+		emit_signal("debug_text", "Start Baking")
+	else:
+		emit_signal("debug_text", "No StartNode!")
 
 
 

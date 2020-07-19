@@ -12,6 +12,7 @@ slot/0/right_enabled = true
 slot/0/right_type = 3
 slot/0/right_color = Color( 0, 1, 0.486275, 1 )
 script = ExtResource( 2 )
+node_id = 12
 values = {
 
 }
