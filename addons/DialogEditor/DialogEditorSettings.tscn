@@ -54,22 +54,26 @@ margin_right = 984.0
 margin_bottom = 14.0
 text = "Dialog Editor Settings"
 
-[node name="BakePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-margin_left = 20.0
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 margin_top = 18.0
 margin_right = 984.0
-margin_bottom = 42.0
+margin_bottom = 22.0
+
+[node name="BakePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 984.0
+margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath"]
 margin_top = 5.0
-margin_right = 480.0
+margin_right = 490.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "Bake Save Path"
 
 [node name="Path" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath"]
-margin_left = 484.0
-margin_right = 964.0
+margin_left = 494.0
+margin_right = 984.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 custom_constants/separation = 0
@@ -87,18 +91,68 @@ custom_styles/normal = SubResource( 5 )
 icon = ExtResource( 2 )
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path"]
-margin_right = 452.0
+margin_right = 462.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-text = "res://"
+text = "res://Example/Bakes"
 placeholder_text = "Folder where Bakes are Saved"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path"]
-margin_left = 452.0
-margin_right = 480.0
+margin_left = 462.0
+margin_right = 490.0
+margin_bottom = 24.0
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SavePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 984.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/SavePath"]
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Graph Save Path"
+
+[node name="Path" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/SavePath"]
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Reset" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path"]
+visible = false
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path"]
+margin_right = 462.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "res://addons/DialogEditor/Saves/"
+placeholder_text = "Folder where Bakes are Saved"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path"]
+margin_left = 462.0
+margin_right = 490.0
 margin_bottom = 24.0
 icon = ExtResource( 1 )
 __meta__ = {
@@ -108,10 +162,20 @@ __meta__ = {
 [node name="SelectBakePath" type="FileDialog" parent="."]
 margin_right = 554.0
 margin_bottom = 309.0
-window_title = "Bake Path"
+window_title = "Verzeichnis wählen"
 resizable = true
+mode = 2
+
+[node name="SelectSavePath" type="FileDialog" parent="."]
+margin_right = 508.0
+margin_bottom = 292.0
+window_title = "Verzeichnis wählen"
 mode = 2
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path/Reset" to="." method="_on_Reset_pressed"]
 [connection signal="text_changed" from="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/BakePath/Path/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path/Reset" to="." method="_on_Reset_SavePath_pressed"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path/LineEdit" to="." method="_on_LineEdit_SavePath_text_changed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path/Button" to="." method="_on_Button_SavePath_pressed"]
 [connection signal="dir_selected" from="SelectBakePath" to="." method="_on_SelectBakePath_dir_selected"]
+[connection signal="dir_selected" from="SelectSavePath" to="." method="_on_SelectSavePath_dir_selected"]

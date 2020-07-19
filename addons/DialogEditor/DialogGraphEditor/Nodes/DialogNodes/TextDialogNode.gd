@@ -1,9 +1,8 @@
 tool
 extends "res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/BaseDialogNode.gd"
 
-export (String) var dialog_name = ""
-export (String, MULTILINE) var dialog_text = ""
 export (Array) var dialog_connections = []
+export (Dictionary) var data = {}
 
 # called when node is resized
 func resize_node(new_minsize) -> void:
@@ -24,3 +23,9 @@ func update_disconnection(new_disconnection):
 			self.get_children()[new_disconnection["to_slot"]].get_children()[1].show()
 	else:
 		pass
+
+func update_data() -> void:
+	for c in self.get_children():
+		var nc : Array = c.get_children()
+		if nc.size() != 0:
+			data[nc[0].text] = nc[1].text

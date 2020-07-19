@@ -40,9 +40,11 @@ func update_disconnection(new_disconnection):
 
 # used for saving
 func set_owner(new_owner):
+	self.owner = new_owner
+	update_data()
+
+func update_data():
 	pass
-
-
 
 
 

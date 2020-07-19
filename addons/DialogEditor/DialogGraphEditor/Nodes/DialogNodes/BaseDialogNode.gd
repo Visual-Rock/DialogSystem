@@ -30,14 +30,20 @@ func resize_node(new_minsize) -> void:
 	pass
 
 func update_connections(new_connection):
-	pass
+	
+	get_parent().update()
 
 func update_disconnection(new_disconnection):
-	pass
+	
+	get_parent().update()
 
 # used for saving
 func set_owner(new_owner):
-	pass
+	self.owner = new_owner
+	update_data()
 
 func get_dialog() -> Dictionary:
 	return {}
+
+func update_data() -> void:
+	pass

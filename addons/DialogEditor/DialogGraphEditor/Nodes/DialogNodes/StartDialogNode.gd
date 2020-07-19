@@ -2,6 +2,14 @@ tool
 extends "res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/BaseDialogNode.gd"
 
 export (Array) var dialog_connections = []
+export (String) var dialog_name = ""
+export (String, MULTILINE) var dialog_text = ""
+
+func _ready():
+	
+	$Name/Name.text = dialog_name
+	$Text/Text.text = dialog_text
+
 
 # called when node is resized
 func resize_node(new_minsize) -> void:
@@ -14,6 +22,8 @@ func update_connections(new_connection):
 		self.get_children()[new_connection["to_slot"]].get_children()[1].hide()
 	else:
 		pass
+	
+	.update_connections(new_connection)
 
 func update_disconnection(new_disconnection):
 	dialog_connections.erase(new_disconnection)
@@ -22,3 +32,10 @@ func update_disconnection(new_disconnection):
 			self.get_children()[new_disconnection["to_slot"]].get_children()[1].show()
 	else:
 		pass
+	
+	.update_disconnection(new_disconnection)
+
+func update_data() -> void:
+	dialog_name = $Name/Name.text
+	dialog_text = $Text/Text.text
+	

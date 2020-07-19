@@ -17,6 +17,10 @@ enum VARIABLES {
 	SOUND
 }
 
+enum DIALOGMENU {
+	SAVEALL,
+}
+
 var SavePath : String = "res://addons/DialogEditor/"
 var VarFileName : String = "variable.save"
 
@@ -37,7 +41,9 @@ onready var msTextEdit  : TextEdit      = self.get_node("HSplitContainer/Variabl
 
 var CurrentVarType : int
 
-onready var AddNodeMenu : MenuButton = self.get_node("HSplitContainer/VBoxContainer/ToolBar/AddNodeMenu")
+onready var AddNodeMenu : MenuButton   = self.get_node("HSplitContainer/VBoxContainer/ToolBar/AddNodeMenu")
+onready var DialogMenu  : MenuButton   = self.get_node("HSplitContainer/VBoxContainer/ToolBar/DialogMenu")
+onready var EditorTab   : TabContainer = self.get_node("HSplitContainer/VBoxContainer/TabContainer")
 
 var Graph : GraphEdit
 
@@ -45,6 +51,7 @@ var Graph : GraphEdit
 func _ready():
 	#connects the id_pressed signal to add_node_menu_pressed
 	AddNodeMenu.get_popup().connect("id_pressed", self, "add_node_menu_pressed")
+	DialogMenu.get_popup().connect("id_pressed", self, "dialog_menu_pressed")
 	
 	EditorVarRoot = EditorVars.create_item()
 	EditorVars
@@ -64,8 +71,14 @@ func _ready():
 	Graph = $HSplitContainer/VBoxContainer/TabContainer/Empty
 
 func add_node_menu_pressed(id):
-	# calles the add_node function on the graph
-	Graph.add_node(id, "dialog")
+	if Graph:
+		# calles the add_node function on the graph
+		Graph.add_node(id, "dialog")
+
+func dialog_menu_pressed(id):
+	match id:
+		DIALOGMENU.SAVEALL:
+			save_all_graphs()
 
 # Variables stuff
 
@@ -153,8 +166,9 @@ func _on_AddName_pressed():
 	Names.add_child(le)
 
 func _on_AddGraphNode_pressed():
-	save_var()
-	Graph.add_node(EditorVariables[str(SelectedVariable)]["type"], "value", EditorVariables[str(SelectedVariable)], self)
+	if Graph:
+		save_var()
+		Graph.add_node(EditorVariables[str(SelectedVariable)]["type"], "value", EditorVariables[str(SelectedVariable)], self)
 
 func _on_Type_item_selected(index):
 	save_var()
@@ -162,3 +176,47 @@ func _on_Type_item_selected(index):
 func _on_Name_text_entered(new_text):
 	save_var()
 	EditorVars.get_selected().set_text(0, new_text)
+
+func open_new_graph(graph_name):
+	var SavePath
+	var f = File.new()
+	if f.file_exists("res://addons/DialogEditor/settings.json"):
+		f.open("res://addons/DialogEditor/settings.json", f.READ)
+		SavePath = parse_json(f.get_as_text())["SavePath"]
+		f.close()
+	else:
+		SavePath = "res://addons/DialogEditor/Saves/"
+	
+	if f.file_exists(str(SavePath, graph_name, ".tscn")):
+		EditorTab.add_child(load(str(SavePath, graph_name, ".tscn")).instance())
+	else:
+		var e = load("res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.tscn").instance()
+		e.GraphName = graph_name
+		EditorTab.add_child(e)
+
+func save_all_graphs() -> void:
+	for c in EditorTab.get_children():
+		c.save_graph()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

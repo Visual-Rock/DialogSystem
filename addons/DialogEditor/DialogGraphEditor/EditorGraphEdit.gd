@@ -11,8 +11,11 @@ var DialogNodes =  [load("res://addons/DialogEditor/DialogGraphEditor/Nodes/Dial
 var ValueNodes  = [ load("res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/NameNode.tscn"),
 					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/StringEditorValueNode.tscn"),
 					load("res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/MultiStringEditorValueNode.tscn")]
+
+
 # Stores all Node Connections in an exportet var
 export (Array) var connections
+export (String) var GraphName
 
 # is mouse over node
 var MouseOnNode : bool = false
@@ -71,13 +74,34 @@ func add_node(node, type, data = null, GraphEditor = null):
 func node_deleted(node_type):
 	pass
 
+func open_graph(graph_name):
+	pass
+
 func _on_GraphEdit_mouse_entered():
 	MouseOnNode = true
 
 func _on_GraphEdit_mouse_exited():
 	MouseOnNode = false
 
-
+func save_graph() -> void:
+	connections = self.get_connection_list()
+	var SavePath
+	var f = File.new()
+	if f.file_exists("res://addons/DialogEditor/settings.json"):
+		f.open("res://addons/DialogEditor/settings.json", f.READ)
+		SavePath = parse_json(f.get_as_text())["SavePath"]
+		f.close()
+	else:
+		SavePath = "res://addons/DialogEditor/Saves/"
+	
+	var scene = PackedScene.new()
+	
+	for c in self.get_children():
+		if c is GraphNode:
+			c.set_owner(self)
+	
+	scene.pack(self)
+	ResourceSaver.save(str(SavePath, GraphName, ".tscn"), scene)
 
 
 

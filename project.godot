@@ -23,6 +23,13 @@ config/icon="res://icon.png"
 
 enabled=PoolStringArray( "DialogEditor" )
 
+[locale]
+
+translations=PoolStringArray(  )
+translation_remaps={
+
+}
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

@@ -121,7 +121,6 @@ __meta__ = {
 }
 
 [node name="RenameDialog" type="ConfirmationDialog" parent="."]
-visible = true
 margin_right = 200.0
 margin_bottom = 86.0
 window_title = "New Name"
