@@ -41,15 +41,26 @@ func update_display() -> void:
 	$HBoxContainer/Name.text = DialogName
 	$HBoxContainer/Id.text   = str(DialogID)
 
+func _on_Save_pressed():
+	save_dialog()
+
+func _on_Delete_pressed():
+	$DeleteDialog.popup_centered()
+
+func _on_DeleteDialog_confirmed():
+	delete_dialog()
+
+func delete_dialog() -> void:
+	var dir : Directory = Directory.new()
+	var savepath = manager.get_save_path()
+	if dir.file_exists(str(savepath, DialogName, ".data")):
+		dir.remove(str(savepath, DialogName, ".data"))
+	if $DeleteDialog/CheckBox.pressed == true && dir.file_exists(str(savepath, DialogName, ".tscn")):
+		dir.remove(str(savepath, DialogName, ".tscn"))
+	self.queue_free()
+
 func get_id() -> int:
 	return DialogID
 
-
-
-
-
-
-
-
-
-
+func _on_Open_pressed():
+	manager.emit_signal("open_dialog", DialogName)

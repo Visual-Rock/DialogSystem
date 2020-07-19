@@ -49,9 +49,11 @@ var Graph : GraphEdit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#connects the id_pressed signal to add_node_menu_pressed
+	# connects the id_pressed signal to add_node_menu_pressed
 	AddNodeMenu.get_popup().connect("id_pressed", self, "add_node_menu_pressed")
 	DialogMenu.get_popup().connect("id_pressed", self, "dialog_menu_pressed")
+	get_parent().get_children()[1].connect("open_dialog", self, "open_new_graph")
+	
 	
 	EditorVarRoot = EditorVars.create_item()
 	EditorVars
@@ -67,8 +69,6 @@ func _ready():
 					var item : TreeItem = EditorVars.create_item(EditorVarRoot)
 					item.set_text(0, EditorVariables[Var]["name"])
 					item.set_metadata(0, EditorVariables[Var]["id"])
-	
-	Graph = $HSplitContainer/VBoxContainer/TabContainer/Empty
 
 func add_node_menu_pressed(id):
 	if Graph:
@@ -178,26 +178,41 @@ func _on_Name_text_entered(new_text):
 	EditorVars.get_selected().set_text(0, new_text)
 
 func open_new_graph(graph_name):
-	var SavePath
-	var f = File.new()
-	if f.file_exists("res://addons/DialogEditor/settings.json"):
-		f.open("res://addons/DialogEditor/settings.json", f.READ)
-		SavePath = parse_json(f.get_as_text())["SavePath"]
-		f.close()
-	else:
-		SavePath = "res://addons/DialogEditor/Saves/"
 	
-	if f.file_exists(str(SavePath, graph_name, ".tscn")):
-		EditorTab.add_child(load(str(SavePath, graph_name, ".tscn")).instance())
-	else:
-		var e = load("res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.tscn").instance()
-		e.GraphName = graph_name
-		EditorTab.add_child(e)
+	if !graph_already_exists(graph_name):
+		var SavePath
+		var f = File.new()
+		if f.file_exists("res://addons/DialogEditor/settings.json"):
+			f.open("res://addons/DialogEditor/settings.json", f.READ)
+			SavePath = parse_json(f.get_as_text())["SavePath"]
+			f.close()
+		else:
+			SavePath = "res://addons/DialogEditor/Saves/"
+		
+		if f.file_exists(str(SavePath, graph_name, ".tscn")):
+			EditorTab.add_child(load(str(SavePath, graph_name, ".tscn")).instance())
+		else:
+			var e = load("res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.tscn").instance()
+			e.GraphName = graph_name
+			e.name = graph_name
+			EditorTab.add_child(e)
 
 func save_all_graphs() -> void:
 	for c in EditorTab.get_children():
 		c.save_graph()
 
+func graph_already_exists(graph_name) -> bool:
+	
+	for c in EditorTab.get_children():
+		if c.name == graph_name:
+			return true
+			break
+	return false
+
+func _on_TabContainer_tab_changed(tab):
+	if Graph:
+		Graph.save_graph()
+	Graph = EditorTab.get_children()[tab]
 
 
 

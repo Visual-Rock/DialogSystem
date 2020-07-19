@@ -1,16 +1,17 @@
 tool
 extends Control
 
+signal open_dialog(dialog_name)
+
 var SavePath : String = "res://"
 
 var dialog : Resource = load("res://addons/DialogEditor/DialogManager/DialogInstance.tscn")
 
 onready var CreateNewDialogDialog : WindowDialog  = self.get_node("CreateNewDialogDialog")
-onready var DialogList            : VBoxContainer = self.get_node("HSplitContainer/Main/VBoxContainer/Dialogs/ScrollContainer/List")
+onready var DialogList            : VBoxContainer = self.get_node("HSplitContainer/Main/VBoxContainer/Dialogs/TextEdit/ScrollContainer/List")
 
 func _ready() -> void:
-	
-	pass
+	load_dialogs()
 
 func _on_Add_pressed() -> void:
 	CreateNewDialogDialog.popup_centered()
@@ -71,3 +72,44 @@ func check_dialog_file_exists(FileName : String) -> bool:
 		return true
 	else:
 		return false
+
+func load_dialogs() -> void:
+	
+	if DialogList.get_child_count() != 0:
+		for c in DialogList.get_children():
+			c.save_dialog()
+			c.queue_free()
+	
+	var dir : Directory = Directory.new()
+	var f   : File      = File.new()
+	
+	if dir.open(get_save_path()) == OK:
+		dir.list_dir_begin()
+		var FileName : String = dir.get_next()
+		while FileName != "":
+			if !dir.current_is_dir():
+				if FileName.ends_with(".data"):
+					var d = dialog.instance()
+					f.open(str(SavePath, FileName), f.READ)
+					var data = f.get_var()
+					d._on_load(data, self)
+					f.close()
+					DialogList.add_child(d)
+			FileName = dir.get_next()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
