@@ -13,7 +13,8 @@ func _ready():
 func update_node(new_values : Dictionary):
 	
 	if Names:
-		value = Names.get_item_metadata(Names.selected)
+		if Names.selected != -1:
+			value = Names.get_item_metadata(Names.selected)
 		Names.queue_free()
 	
 	var ob : OptionButton = OptionButton.new()

@@ -1,9 +1,26 @@
 tool
 extends GraphNode
 
+var Colors : Array = [
+	Color(1,1,1,1),         # Dialog
+	Color(0,1,0.85,1),      # Name
+	Color(0,1,0.5,1),       # String
+	Color(0,1,0.5,1),       # Multiline String
+	Color(0.25,0.5,0.85,1), # Integer
+	Color(0.4,0.85,0.25,1), # float
+	Color(0.9,0.2,0.2,1),   # bool
+	Color(0.7,0.2,0.9,1),   # Texture
+	Color(0.9,0.9,0.2,1)    # Sound
+]
+
 signal deleted_node(node_type)
 
 export (int) var NodeIndexNumber
+
+func _ready():
+	
+	self.connect("resize_request", self, "_on_BaseDialogNode_resize_request")
+	self.connect("close_request", self, "_on_BaseDialogNode_close_request")
 
 func get_node_type() -> int:
 	return NodeIndexNumber

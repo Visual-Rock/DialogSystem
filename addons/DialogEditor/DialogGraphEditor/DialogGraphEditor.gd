@@ -102,6 +102,9 @@ func _on_AddVar_pressed():
 func _on_AddVar_Node_pressed():
 	print("Hi")
 
+func _on_Delete_pressed():
+	pass # Replace with function body.
+
 func open_var(VarToOpen : int) -> void:
 	
 	if SelectedVariable != VarToOpen:
@@ -230,6 +233,8 @@ func _on_TabContainer_tab_changed(tab):
 
 func debug_message(msg):
 	DebugLabel.text = msg
+
+
 
 
 

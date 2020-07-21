@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/StartDialogNode.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/BaseDialogNode.gd" type="Script" id=1]
 
 [node name="BaseDialogNode" type="GraphNode"]
-margin_right = 32.0
-margin_bottom = 30.0
+margin_right = 221.0
+margin_bottom = 88.0
 show_close = true
 resizable = true
 selected = true
@@ -12,5 +12,3 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="close_request" from="." to="." method="_on_BaseDialogNode_close_request"]
-[connection signal="resize_request" from="." to="." method="_on_BaseDialogNode_resize_request"]
