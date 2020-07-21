@@ -6,6 +6,7 @@ signal debug_text(text)
 enum NODES {
 	START     = 0,
 	TEXT      = 1,
+	END       = 9,
 	
 	NAME      = 10,
 	STRING    = 11,
@@ -113,7 +114,7 @@ func _on_GraphEdit_mouse_exited():
 
 func save_graph() -> void:
 	connections = self.get_connection_list()
-	var SavePath
+	var SavePath : String
 	var f = File.new()
 	if f.file_exists("res://addons/DialogEditor/settings.json"):
 		f.open("res://addons/DialogEditor/settings.json", f.READ)
@@ -121,6 +122,9 @@ func save_graph() -> void:
 		f.close()
 	else:
 		SavePath = "res://addons/DialogEditor/Saves/"
+	
+	if !SavePath.ends_with("/"):
+		SavePath = str(SavePath, "/")
 	
 	var scene = PackedScene.new()
 	
@@ -155,7 +159,7 @@ func get_left_connected_node(node_name, port) -> Dictionary:
 
 func get_right_connected_node(node_name, port) -> Dictionary:
 	for connection in connections:
-		if connection["from"] == node_name && connection["from"] == port:
+		if connection["from"] == node_name && connection["from_port"] == port:
 			return connection
 			break
 	return {}

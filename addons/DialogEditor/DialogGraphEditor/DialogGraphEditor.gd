@@ -99,6 +99,9 @@ func _on_AddVar_pressed():
 			EditorVariables[str(id)] = { "name": "NewVar", "type": VARIABLES.NAME, "id": id, "value": [] }
 			open_var(id)
 
+func _on_AddVar_Node_pressed():
+	print("Hi")
+
 func open_var(VarToOpen : int) -> void:
 	
 	if SelectedVariable != VarToOpen:
@@ -151,7 +154,6 @@ func save_var(VarToSave : int = SelectedVariable) -> void:
 	
 	open_var(VarToSave)
 
-
 func get_new_id(start : int = 0) -> int:
 	
 	var rtrn : int = start + EditorVariables.size() + 1
@@ -193,6 +195,9 @@ func open_new_graph(graph_name):
 		else:
 			SavePath = "res://addons/DialogEditor/Saves/"
 		
+		if !SavePath.ends_with("/"):
+			SavePath = str(SavePath, "/")
+		
 		if f.file_exists(str(SavePath, graph_name, ".tscn")):
 			var e = load(str(SavePath, graph_name, ".tscn")).instance()
 			e.GraphEditor = self
@@ -225,6 +230,9 @@ func _on_TabContainer_tab_changed(tab):
 
 func debug_message(msg):
 	DebugLabel.text = msg
+
+
+
 
 
 

@@ -12,3 +12,4 @@ data_*/
 *.save
 *.data
 addons/DialogEditor/settings.json
+addons/DialogEditor/Saves/
