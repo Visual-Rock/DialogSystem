@@ -195,16 +195,16 @@ func open_new_graph(graph_name):
 		
 		if f.file_exists(str(SavePath, graph_name, ".tscn")):
 			var e = load(str(SavePath, graph_name, ".tscn")).instance()
+			e.GraphEditor = self
 			EditorTab.add_child(e)
 			e.connect("debug_text", self, "debug_message")
 		else:
 			var e = load("res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.tscn").instance()
+			e.GraphEditor = self
 			e.GraphName = graph_name
 			e.name = graph_name
 			EditorTab.add_child(e)
 			e.connect("debug_text", self, "debug_message")
-		
-		
 
 func save_all_graphs() -> void:
 	for c in EditorTab.get_children():

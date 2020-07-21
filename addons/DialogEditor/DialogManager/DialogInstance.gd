@@ -15,10 +15,14 @@ func _on_create(_name : String, _id : int, _manager):
 	save_dialog()
 	update_display()
 
-func _on_load(_data : Dictionary, _manager : Control):
+func _on_load(_data, _manager : Control):
 	
-	DialogName = _data["name"]
-	DialogID = _data["id"]
+	if _data != {} && _data != null:
+		DialogName = _data["name"]
+		DialogID = _data["id"]
+	else:
+		DialogName = "Err"
+		DialogID = -1
 	
 	manager = _manager
 	update_display()

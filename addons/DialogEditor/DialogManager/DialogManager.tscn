@@ -73,6 +73,7 @@ margin_right = 818.0
 margin_bottom = 566.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+readonly = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Main/VBoxContainer/Dialogs/TextEdit"]
 anchor_right = 1.0

@@ -94,7 +94,7 @@ icon = ExtResource( 2 )
 margin_right = 462.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-text = "res://Example/Bakes"
+text = "res://"
 placeholder_text = "Folder where Bakes are Saved"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -159,6 +159,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SkipEmpty" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 82.0
+margin_right = 984.0
+margin_bottom = 106.0
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty"]
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Skip Empty Dialog Nodes"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty"]
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Reset" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty/HBoxContainer"]
+visible = false
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 2 )
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+pressed = true
+
 [node name="SelectBakePath" type="FileDialog" parent="."]
 margin_right = 554.0
 margin_bottom = 309.0
@@ -177,5 +212,7 @@ mode = 2
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path/Reset" to="." method="_on_Reset_SavePath_pressed"]
 [connection signal="text_changed" from="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path/LineEdit" to="." method="_on_LineEdit_SavePath_text_changed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/SavePath/Path/Button" to="." method="_on_Button_SavePath_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty/HBoxContainer/Reset" to="." method="_on_Reset_SkipEmpty_pressed"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty/HBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="dir_selected" from="SelectBakePath" to="." method="_on_SelectBakePath_dir_selected"]
 [connection signal="dir_selected" from="SelectSavePath" to="." method="_on_SelectSavePath_dir_selected"]

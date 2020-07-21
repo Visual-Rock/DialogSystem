@@ -18,4 +18,4 @@ func resize_node(new_minsize) -> void:
 
 func get_value() -> String:
 	_on_TextureButton_pressed()
-	return values["value"]
+	return values["value"][0]

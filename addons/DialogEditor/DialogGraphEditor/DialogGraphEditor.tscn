@@ -62,7 +62,6 @@ margin_right = 852.0
 margin_bottom = 600.0
 
 [node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/Debug"]
-margin_left = 10.0
 margin_right = 852.0
 margin_bottom = 14.0
 size_flags_horizontal = 3

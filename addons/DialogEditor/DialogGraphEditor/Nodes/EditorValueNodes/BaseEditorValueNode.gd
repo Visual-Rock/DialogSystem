@@ -19,7 +19,8 @@ func _on_BaseEditorValueNode_resize_request(new_minsize):
 	self.rect_size = new_minsize
 
 func _on_TextureButton_pressed():
-	update_node(GraphEditor.EditorVariables[str(value_id)])
+	if GraphEditor:
+		update_node(GraphEditor.EditorVariables[str(value_id)])
 
 # called when node closes
 func close_node() -> void:
@@ -46,5 +47,8 @@ func set_owner(new_owner):
 func update_data():
 	pass
 
+func get_node_type() -> int:
+	return node_id
 
-
+func get_node_groupe() -> int:
+	return 1

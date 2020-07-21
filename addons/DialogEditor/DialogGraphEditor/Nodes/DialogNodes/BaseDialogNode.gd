@@ -47,3 +47,26 @@ func get_dialog() -> Dictionary:
 
 func update_data() -> void:
 	pass
+
+func get_parents_childe_by_name(childe_name : String):
+	var children = get_parent().get_children()
+	for child in children:
+		if child.name == childe_name:
+			return child
+			break
+
+func get_node_groupe() -> int:
+	return 0
+
+
+
+
+
+
+
+
+
+
+
+
+

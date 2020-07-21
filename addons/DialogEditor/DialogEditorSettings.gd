@@ -2,10 +2,12 @@ tool
 extends Control
 
 var SettingsSavePath = "res://addons/DialogEditor/settings.json"
-var DefaultBakePath  = "res://"
-var DefaultSavePath  = "res://addons/DialogEditor/Saves/"
 
-var settings : Dictionary = { "BakePath": "res://" , "SavePath": "res://addons/DialogEditor/Saves/"}
+var DefaultBakePath  = "res://"
+var DefaultSavePath  = "res://addons/DialogEditor/Saves"
+var DefaultSkipEmpty = true
+
+var settings : Dictionary = { "BakePath": DefaultBakePath , "SavePath": DefaultSavePath, "SkipEmpty": DefaultSkipEmpty}
 
 func _ready():
 	load_settings()
@@ -32,6 +34,11 @@ func load_settings() -> void:
 		SavePathReset.show()
 	else:
 		SavePathReset.hide()
+	SkipEmptyCheckBox.pressed = settings["SkipEmpty"]
+	if settings["SkipEmpty"] != DefaultSkipEmpty:
+		SkipEmptyReset.show()
+	else:
+		SkipEmptyReset.hide()
 
 # Select Bake Path
 onready var BakePathPopup : FileDialog = self.get_node("SelectBakePath")
@@ -90,7 +97,25 @@ func _on_SelectSavePath_dir_selected(dir):
 	save_settings()
 
 func _on_Reset_SavePath_pressed():
-	BakePathLine.text = DefaultSavePath
+	SavePathLine.text = DefaultSavePath
 	settings["BakePath"] = DefaultSavePath
 	SavePathReset.hide()
+	save_settings()
+
+# Skip Empty
+onready var SkipEmptyCheckBox : CheckBox = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty/HBoxContainer/CheckBox")
+onready var SkipEmptyReset    : Button   = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/SkipEmpty/HBoxContainer/Reset")
+
+func _on_CheckBox_toggled(button_pressed):
+	settings["SkipEmpty"] = button_pressed
+	if button_pressed != DefaultSkipEmpty:
+		SkipEmptyReset.show()
+	else:
+		SkipEmptyReset.hide()
+	save_settings()
+
+func _on_Reset_SkipEmpty_pressed():
+	SkipEmptyCheckBox.pressed = DefaultSkipEmpty
+	settings["SkipEmpty"] = DefaultSkipEmpty
+	SkipEmptyReset.hide()
 	save_settings()

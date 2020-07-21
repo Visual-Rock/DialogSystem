@@ -1,0 +1,268 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/StartDialogNode.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/NameNode.gd" type="Script" id=2]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/StartDialogNode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/EditorGraphEdit.gd" type="Script" id=4]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/NameNode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/MultiStringEditorValueNode.gd" type="Script" id=6]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/EditorValueNodes/MultiStringEditorValueNode.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/TextDialogNode.gd" type="Script" id=8]
+[ext_resource path="res://addons/DialogEditor/DialogGraphEditor/Nodes/DialogNodes/TextDialogNode.tscn" type="PackedScene" id=9]
+
+[node name="Test" type="GraphEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+right_disconnects = true
+scroll_offset = Vector2( -401, -217 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+connections = [ {
+"from": "NameNode",
+"from_port": 0,
+"to": "StartDialogNode",
+"to_port": 0
+}, {
+"from": "MultiStringEditorValueNode",
+"from_port": 0,
+"to": "StartDialogNode",
+"to_port": 1
+}, {
+"from": "NameNode",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 1
+}, {
+"from": "MultiStringEditorValueNode",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 2
+}, {
+"from": "StartDialogNode",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+} ]
+GraphName = "Test"
+
+[node name="NameNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 61.0
+margin_top = 197.0
+margin_right = 267.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 185, 75 )
+mouse_filter = 1
+title = "Name"
+offset = Vector2( -340, -20 )
+show_close = true
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 0, 1, 0.847059, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+value_id = 1
+node_id = 10
+value = "Bilbo"
+
+[node name="MultiStringEditorValueNode" type="GraphNode" parent="." instance=ExtResource( 7 )]
+margin_left = 61.0
+margin_top = 257.0
+margin_right = 261.0
+margin_bottom = 357.0
+rect_min_size = Vector2( 200, 100 )
+mouse_filter = 1
+title = "Multiline String"
+offset = Vector2( -340, 40 )
+show_close = true
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 3
+slot/0/right_color = Color( 0, 1, 0.486275, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+value_id = 3
+node_id = 12
+values = {
+"id": 3,
+"name": "JustText",
+"type": 2,
+"value": [ "Just a  bit of Text
+for Testing" ]
+}
+
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 361.0
+margin_top = 157.0
+margin_right = 578.0
+margin_bottom = 296.0
+rect_min_size = Vector2( 205, 120 )
+mouse_filter = 1
+title = "Dialog Start"
+offset = Vector2( -40, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 0, 1, 0.847059, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 3
+slot/1/left_color = Color( 0, 1, 0.486275, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+NodeIndexNumber = 0
+dialog_connections = [ {
+"from": "NameNode",
+"from_slot": 0,
+"to": "StartDialogNode",
+"to_slot": 0
+}, {
+"from": "NameNode",
+"from_slot": 0,
+"to": "StartDialogNode",
+"to_slot": 0
+}, {
+"from": "MultiStringEditorValueNode",
+"from_slot": 0,
+"to": "StartDialogNode",
+"to_slot": 1
+}, {
+"from": "NameNode",
+"from_slot": 0,
+"to": "StartDialogNode",
+"to_slot": 0
+}, {
+"from": "MultiStringEditorValueNode",
+"from_slot": 0,
+"to": "StartDialogNode",
+"to_slot": 1
+}, {
+"from": "StartDialogNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 0
+} ]
+dialog_name = "Test"
+dialog_text = "xfjsfj
+yftzjytj"
+
+[node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 9 )]
+margin_left = 621.0
+margin_top = 157.0
+margin_right = 887.0
+margin_bottom = 280.0
+mouse_filter = 1
+title = "Dialog Text"
+offset = Vector2( 220, -60 )
+show_close = true
+resizable = true
+selected = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 1
+slot/1/left_color = Color( 0, 1, 0.847059, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 3
+slot/2/left_color = Color( 0, 1, 0.486275, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+NodeIndexNumber = 1
+dialog_connections = [ {
+"from": "StartDialogNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 0
+}, {
+"from": "NameNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 1
+}, {
+"from": "MultiStringEditorValueNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 2
+}, {
+"from": "StartDialogNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 0
+}, {
+"from": "NameNode2",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 1
+}, {
+"from": "MultiStringEditorValueNode",
+"from_slot": 0,
+"to": "TextDialogNode",
+"to_slot": 2
+} ]
+data = {
+"Name:": "",
+"Text:": ""
+}
+[connection signal="connection_request" from="." to="." method="_on_GraphEdit_connection_request"]
+[connection signal="disconnection_request" from="." to="." method="_on_GraphEdit_disconnection_request"]
+[connection signal="mouse_entered" from="." to="." method="_on_GraphEdit_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_GraphEdit_mouse_exited"]
+[connection signal="close_request" from="NameNode" to="NameNode" method="_on_BaseEditorValueNode_close_request"]
+[connection signal="resize_request" from="NameNode" to="NameNode" method="_on_BaseEditorValueNode_resize_request"]
+[connection signal="close_request" from="MultiStringEditorValueNode" to="MultiStringEditorValueNode" method="_on_BaseEditorValueNode_close_request"]
+[connection signal="resize_request" from="MultiStringEditorValueNode" to="MultiStringEditorValueNode" method="_on_BaseEditorValueNode_resize_request"]
+[connection signal="close_request" from="StartDialogNode" to="StartDialogNode" method="_on_BaseDialogNode_close_request"]
+[connection signal="resize_request" from="StartDialogNode" to="StartDialogNode" method="_on_BaseDialogNode_resize_request"]
+[connection signal="close_request" from="TextDialogNode" to="TextDialogNode" method="_on_BaseDialogNode_close_request"]
+[connection signal="resize_request" from="TextDialogNode" to="TextDialogNode" method="_on_BaseDialogNode_resize_request"]

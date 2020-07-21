@@ -23,8 +23,11 @@ var ValueNodes  = [ load("res://addons/DialogEditor/DialogGraphEditor/Nodes/Edit
 # Stores all Node Connections in an exportet var
 export (Array) var connections
 export (String) var GraphName
+var GraphEditor
 
 var StartNode : GraphNode
+
+var SkipEmptyNodes = true
 
 # is mouse over node
 var MouseOnNode : bool = false
@@ -36,7 +39,9 @@ func _ready():
 		if c is GraphNode:
 			if c.get_node_type() == NODES.START:
 				StartNode = c
-				break
+			elif c.get_node_groupe() == 1:
+				c.GraphEditor = GraphEditor
+				c._on_TextureButton_pressed()
 	
 	# checks if the connection array is not an empty array
 	if connections != []:
@@ -44,6 +49,8 @@ func _ready():
 		for c in connections:
 			#connects nodes together
 			connect_node(c["from"], c["from_port"], c["to"], c["to_port"])
+	
+	connections = get_connection_list()
 
 # gets called when user wants to connect two nodes
 func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
@@ -51,6 +58,7 @@ func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
 	connect_node(from, from_slot, to, to_slot)
 	self.get_node(from).update_connections( {"from": from, "from_slot": from_slot, "to": to, "to_slot": to_slot} )
 	self.get_node(to).update_connections( {"from": from, "from_slot": from_slot, "to": to, "to_slot": to_slot} )
+	connections = get_connection_list()
 
 # gets called when user wants to disconnect two nodes
 func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
@@ -58,6 +66,7 @@ func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
 	disconnect_node(from, from_slot, to, to_slot)
 	self.get_node(from).update_disconnection( {"from": from, "from_slot": from_slot, "to": to, "to_slot": to_slot} )
 	self.get_node(to).update_disconnection( {"from": from, "from_slot": from_slot, "to": to, "to_slot": to_slot} )
+	connections = get_connection_list()
 
 # called when to add node
 func add_node(node, type, data = null, GraphEditor = null):
@@ -124,10 +133,44 @@ func save_graph() -> void:
 
 func bake_dialog() -> void:
 	
+	var f = File.new()
+	if f.file_exists("res://addons/DialogEditor/settings.json"):
+		f.open("res://addons/DialogEditor/settings.json", f.READ)
+		SkipEmptyNodes = parse_json(f.get_as_text())["SkipEmpty"]
+		f.close()
+	
 	if StartNode:
 		emit_signal("debug_text", "Start Baking")
+		StartNode.get_dialog()
 	else:
 		emit_signal("debug_text", "No StartNode!")
+
+func get_left_connected_node(node_name, port) -> Dictionary:
+	
+	for connection in connections:
+		if connection["to"] == node_name && connection["to_port"] == port:
+			return connection
+			break
+	return {}
+
+func get_right_connected_node(node_name, port) -> Dictionary:
+	for connection in connections:
+		if connection["from"] == node_name && connection["from"] == port:
+			return connection
+			break
+	return {}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

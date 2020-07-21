@@ -25,7 +25,10 @@ func get_save_path() -> String:
 		SavePath = parse_json(f.get_as_text())["SavePath"]
 		f.close()
 	else:
-		SavePath = "res://addons/DialogEditor/Saves/"
+		SavePath = "res://addons/DialogEditor/Saves"
+	
+	if !SavePath.ends_with("/"):
+		SavePath = str(SavePath, "/")
 	
 	return SavePath
 
@@ -90,6 +93,7 @@ func load_dialogs() -> void:
 			if !dir.current_is_dir():
 				if FileName.ends_with(".data"):
 					var d = dialog.instance()
+					print(str(SavePath, FileName))
 					f.open(str(SavePath, FileName), f.READ)
 					var data = f.get_var()
 					d._on_load(data, self)
