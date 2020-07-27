@@ -80,7 +80,7 @@ func get_dialog() -> Dictionary:
 				var RightNode : Dictionary = get_parent().get_right_connected_node(self.name, 0)
 				if RightNode.has("to") && RightNode != {}:
 					 rtrn["dialog"]["node_id"] = get_parent().NODES.TEXT
-					 rtrn["dialog"]["options"] = [ get_parents_childe_by_name(RightNode["to"]).get_dialog() ]
+					 rtrn["dialog"]["options"] = { " ": get_parents_childe_by_name(RightNode["to"]).get_dialog() }
 				else:
 					rtrn["dialog"]["node_id"] = get_parent().NODES.TEXT
 					rtrn["dialog"]["options"] = [ { "node_id": get_parent().NODES.END } ]

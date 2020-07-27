@@ -105,7 +105,6 @@ __meta__ = {
 }
 
 [node name="Editor" type="VBoxContainer" parent="HSplitContainer/Variables/Variables"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -119,7 +118,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Variables/Variables/Editor"]
-margin_right = 152.0
+margin_right = 192.0
 margin_bottom = 16.0
 
 [node name="AddVar" type="TextureButton" parent="HSplitContainer/Variables/Variables/Editor/HBoxContainer"]
@@ -129,13 +128,13 @@ texture_normal = ExtResource( 3 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Variables/Variables/Editor"]
 margin_top = 20.0
-margin_right = 152.0
+margin_right = 192.0
 margin_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="EditorVar" type="VBoxContainer" parent="HSplitContainer/Variables/Variables/Editor/ScrollContainer"]
-margin_right = 152.0
+margin_right = 192.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -144,13 +143,14 @@ __meta__ = {
 }
 
 [node name="Tree" type="Tree" parent="HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar"]
-margin_right = 152.0
+margin_right = 192.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 hide_root = true
 
 [node name="Node" type="VBoxContainer" parent="HSplitContainer/Variables/Variables"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -373,6 +373,12 @@ margin_bottom = 113.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="DeleteVariableDialog" type="ConfirmationDialog" parent="."]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "Bitte bestätigen..."
+dialog_text = "Delete Variable?"
 [connection signal="tab_changed" from="HSplitContainer/VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="pressed" from="HSplitContainer/Variables/Variables/Editor/HBoxContainer/AddVar" to="." method="_on_AddVar_pressed"]
 [connection signal="cell_selected" from="HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar/Tree" to="." method="_on_Tree_cell_selected"]
@@ -382,3 +388,4 @@ size_flags_vertical = 3
 [connection signal="item_selected" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype/Type" to="." method="_on_Type_item_selected"]
 [connection signal="pressed" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/AddGraphNode/AddGraphNode" to="." method="_on_AddGraphNode_pressed"]
 [connection signal="pressed" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Name/HBoxContainer/AddName" to="." method="_on_AddName_pressed"]
+[connection signal="confirmed" from="DeleteVariableDialog" to="." method="_on_DeleteVariableDialog_confirmed"]

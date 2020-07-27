@@ -26,19 +26,20 @@ var SavePath : String = "res://addons/DialogEditor/"
 var VarFileName : String = "variable.save"
 
 var EditorVariables  : Dictionary = {}
-var SelectedVariable : int        
+var SelectedVariable         
 
 var EditorVarRoot : TreeItem
 
-onready var EditorVars  : Tree          = self.get_node("HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar/Tree")
-onready var VarName     : LineEdit      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName/Name")
-onready var VarType     : OptionButton  = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype/Type")
-onready var Name        : VBoxContainer = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Name")
-onready var Names       : VBoxContainer = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Name/MarginContainer/Names")
-onready var string      : HBoxContainer = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/String")
-onready var stringLE    : LineEdit      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/String/LineEdit")
-onready var multistring : VBoxContainer = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/MultiLineString")
-onready var msTextEdit  : TextEdit      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/MultiLineString/TextEdit")
+onready var EditorVars   : Tree               = self.get_node("HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar/Tree")
+onready var VarName      : LineEdit           = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName/Name")
+onready var VarType      : OptionButton       = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype/Type")
+onready var VarDelDialog : ConfirmationDialog = self.get_node("DeleteVariableDialog")
+onready var Name         : VBoxContainer      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Name")
+onready var Names        : VBoxContainer      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Name/MarginContainer/Names")
+onready var string       : HBoxContainer      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/String")
+onready var stringLE     : LineEdit           = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/String/LineEdit")
+onready var multistring  : VBoxContainer      = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/MultiLineString")
+onready var msTextEdit   : TextEdit           = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/MultiLineString/TextEdit")
 
 var CurrentVarType : int
 
@@ -55,7 +56,6 @@ func _ready():
 	AddNodeMenu.get_popup().connect("id_pressed", self, "add_node_menu_pressed")
 	DialogMenu.get_popup().connect("id_pressed", self, "dialog_menu_pressed")
 	get_parent().get_children()[1].connect("open_dialog", self, "open_new_graph")
-	
 	
 	EditorVarRoot = EditorVars.create_item()
 	EditorVars
@@ -97,23 +97,26 @@ func _on_AddVar_pressed():
 			item.set_text(0, "NewVar")
 			item.set_metadata(0, id)
 			EditorVariables[str(id)] = { "name": "NewVar", "type": VARIABLES.NAME, "id": id, "value": [] }
-			open_var(id)
+			item.select(0)
 
 func _on_AddVar_Node_pressed():
 	print("Hi")
 
 func _on_Delete_pressed():
-	pass # Replace with function body.
+	VarDelDialog.popup_centered()
 
 func open_var(VarToOpen : int) -> void:
 	
 	if SelectedVariable != VarToOpen:
 		save_var()
 	
-	var nv = EditorVariables[str(VarToOpen)]
-	SelectedVariable = VarToOpen
-	VarName.text = nv["name"]
-	VarType.selected = nv["type"]
+	var nv
+	
+	if EditorVariables.has(str(VarToOpen)):
+		nv = EditorVariables[str(VarToOpen)]
+		SelectedVariable = VarToOpen
+		VarName.text = nv["name"]
+		VarType.selected = nv["type"]
 	
 	Name.hide()
 	for c in Names.get_children():
@@ -137,25 +140,30 @@ func open_var(VarToOpen : int) -> void:
 
 func save_var(VarToSave : int = SelectedVariable) -> void:
 	
-	var values = []
-	
-	match VarType.selected:
-		VARIABLES.NAME:
-			for c in Names.get_children():
-				values.append(c.text)
-		VARIABLES.STRING:
-			values.append("")
-		VARIABLES.MULTILINESTRING:
-			values.append(msTextEdit.text)
-	
-	EditorVariables[str(VarToSave)] = { "name": VarName.text, "type": VarType.selected, "id": VarToSave, "value": values }
-	
-	var f = File.new()
-	f.open(str(SavePath, VarFileName), f.WRITE)
-	f.store_var(EditorVariables)
-	f.close()
-	
-	open_var(VarToSave)
+	if VarToSave != null:
+		var values = []
+		
+		match VarType.selected:
+			VARIABLES.NAME:
+				if Names.get_child_count() != 0:
+					for c in Names.get_children():
+						values.append(c.text)
+			VARIABLES.STRING:
+				values.append("")
+			VARIABLES.MULTILINESTRING:
+				values.append(msTextEdit.text)
+		
+		EditorVariables[str(VarToSave)] = { "name": VarName.text, "type": VarType.selected, "id": VarToSave, "value": values }
+		
+		var f = File.new()
+		f.open(str(SavePath, VarFileName), f.WRITE)
+		f.store_var(EditorVariables)
+		f.close()
+	else:
+		var f = File.new()
+		f.open(str(SavePath, VarFileName), f.WRITE)
+		f.store_var(EditorVariables)
+		f.close()
 
 func get_new_id(start : int = 0) -> int:
 	
@@ -233,6 +241,26 @@ func _on_TabContainer_tab_changed(tab):
 
 func debug_message(msg):
 	DebugLabel.text = msg
+
+func _on_DeleteVariableDialog_confirmed():
+	match CurrentVarType:
+		VARTYPES.EDITOR:
+			EditorVarRoot.remove_child(EditorVars.get_selected())
+			EditorVars.get_selected().deselect(0)
+			EditorVariables.erase(str(SelectedVariable))
+			
+			SelectedVariable = null
+			save_var()
+			
+			var children = EditorVarRoot.get_children()
+			if children != null:
+				children.select(0)
+				SelectedVariable = children.get_metadata(0)
+			else:
+				SelectedVariable = null
+			
+			print(EditorVariables)
+
 
 
 

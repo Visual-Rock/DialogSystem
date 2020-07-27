@@ -11,6 +11,10 @@ onready var CreateNewDialogDialog : WindowDialog  = self.get_node("CreateNewDial
 onready var DialogList            : VBoxContainer = self.get_node("HSplitContainer/Main/VBoxContainer/Dialogs/TextEdit/ScrollContainer/List")
 
 func _ready() -> void:
+	
+	var dir = Directory.new()
+	if !dir.dir_exists("res://addons/DialogEditor/Saves"):
+		dir.make_dir_recursive("res://addons/DialogEditor/Saves")
 	load_dialogs()
 
 func _on_Add_pressed() -> void:
