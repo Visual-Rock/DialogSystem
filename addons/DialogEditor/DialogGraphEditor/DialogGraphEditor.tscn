@@ -190,6 +190,7 @@ margin_right = 192.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+hide_root = true
 
 [node name="VariablesSettings" type="TabContainer" parent="HSplitContainer/Variables"]
 margin_top = 306.0
@@ -380,9 +381,11 @@ margin_bottom = 70.0
 window_title = "Bitte bestätigen..."
 dialog_text = "Delete Variable?"
 [connection signal="tab_changed" from="HSplitContainer/VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="tab_changed" from="HSplitContainer/Variables/Variables" to="." method="_on_VarTypeTab_tab_changed"]
 [connection signal="pressed" from="HSplitContainer/Variables/Variables/Editor/HBoxContainer/AddVar" to="." method="_on_AddVar_pressed"]
 [connection signal="cell_selected" from="HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar/Tree" to="." method="_on_Tree_cell_selected"]
 [connection signal="pressed" from="HSplitContainer/Variables/Variables/Node/HBoxContainer/AddVar_Node" to="." method="_on_AddVar_Node_pressed"]
+[connection signal="cell_selected" from="HSplitContainer/Variables/Variables/Node/ScrollContainer/VBoxContainer/Tree" to="." method="_on_Tree_cell_selected"]
 [connection signal="text_entered" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName/Name" to="." method="_on_Name_text_entered"]
 [connection signal="pressed" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName/Delete" to="." method="_on_Delete_pressed"]
 [connection signal="item_selected" from="HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype/Type" to="." method="_on_Type_item_selected"]

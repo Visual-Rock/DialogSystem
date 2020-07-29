@@ -26,11 +26,14 @@ var SavePath : String = "res://addons/DialogEditor/"
 var VarFileName : String = "variable.save"
 
 var EditorVariables  : Dictionary = {}
+var NodeVariables    : Dictionary = {}
 var SelectedVariable         
 
 var EditorVarRoot : TreeItem
+var NodeVarRoot   : TreeItem
 
 onready var EditorVars   : Tree               = self.get_node("HSplitContainer/Variables/Variables/Editor/ScrollContainer/EditorVar/Tree")
+onready var NodeVars     : Tree               = self.get_node("HSplitContainer/Variables/Variables/Node/ScrollContainer/VBoxContainer/Tree")
 onready var VarName      : LineEdit           = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/VarName/Name")
 onready var VarType      : OptionButton       = self.get_node("HSplitContainer/Variables/VariablesSettings/Inspektor/ScrollContainer/VBoxContainer/Vartype/Type")
 onready var VarDelDialog : ConfirmationDialog = self.get_node("DeleteVariableDialog")
@@ -55,15 +58,18 @@ func _ready():
 	# connects the id_pressed signal to add_node_menu_pressed
 	AddNodeMenu.get_popup().connect("id_pressed", self, "add_node_menu_pressed")
 	DialogMenu.get_popup().connect("id_pressed", self, "dialog_menu_pressed")
-	get_parent().get_children()[1].connect("open_dialog", self, "open_new_graph")
+	
+	if get_parent().get_children()[1] != null:
+		get_parent().get_children()[1].connect("open_dialog", self, "open_new_graph")
 	
 	EditorVarRoot = EditorVars.create_item()
-	EditorVars
+	NodeVarRoot   = NodeVars.create_item()
 	
 	var f = File.new()
 	if f.file_exists(str(SavePath, VarFileName)):
 		f.open(str(SavePath, VarFileName), f.READ)
 		EditorVariables = f.get_var()
+		NodeVariables   = f.get_var()
 		f.close()
 		if EditorVariables != {}:
 			for Var in EditorVariables:
@@ -88,6 +94,7 @@ func dialog_menu_pressed(id):
 
 func _on_VarTypeTab_tab_changed(tab):
 	CurrentVarType = tab
+	print(CurrentVarType)
 
 func _on_AddVar_pressed():
 	match CurrentVarType:
@@ -100,7 +107,14 @@ func _on_AddVar_pressed():
 			item.select(0)
 
 func _on_AddVar_Node_pressed():
-	print("Hi")
+	match CurrentVarType:
+		VARTYPES.NODE:
+			var id = get_new_id()
+			var item : TreeItem = NodeVars.create_item(NodeVarRoot)
+			item.set_text(0, "NewVar")
+			item.set_metadata(0, id)
+			NodeVariables[str(id)] = { "name": "NewVar", "type": VARIABLES.NAME, "id": id, "value": [] }
+			item.select(0)
 
 func _on_Delete_pressed():
 	VarDelDialog.popup_centered()
@@ -112,11 +126,19 @@ func open_var(VarToOpen : int) -> void:
 	
 	var nv
 	
-	if EditorVariables.has(str(VarToOpen)):
-		nv = EditorVariables[str(VarToOpen)]
-		SelectedVariable = VarToOpen
-		VarName.text = nv["name"]
-		VarType.selected = nv["type"]
+	match CurrentVarType:
+		VARTYPES.EDITOR:
+			if EditorVariables.has(str(VarToOpen)):
+				nv = EditorVariables[str(VarToOpen)]
+				SelectedVariable = VarToOpen
+				VarName.text = nv["name"]
+				VarType.selected = nv["type"]
+		VARTYPES.NODE:
+			if NodeVariables.has(str(VarToOpen)):
+				nv = NodeVariables[str(VarToOpen)]
+				SelectedVariable = VarToOpen
+				VarName.text = nv["name"]
+				VarType.selected = nv["type"]
 	
 	Name.hide()
 	for c in Names.get_children():
@@ -153,29 +175,46 @@ func save_var(VarToSave : int = SelectedVariable) -> void:
 			VARIABLES.MULTILINESTRING:
 				values.append(msTextEdit.text)
 		
-		EditorVariables[str(VarToSave)] = { "name": VarName.text, "type": VarType.selected, "id": VarToSave, "value": values }
+		match CurrentVarType:
+			VARTYPES.EDITOR:
+				EditorVariables[str(VarToSave)] = { "name": VarName.text, "type": VarType.selected, "id": VarToSave, "value": values }
+			VARTYPES.NODE:
+				NodeVariables[str(VarToSave)] = { "name": VarName.text, "type": VarType.selected, "id": VarToSave, "value": values }
 		
 		var f = File.new()
 		f.open(str(SavePath, VarFileName), f.WRITE)
 		f.store_var(EditorVariables)
+		f.store_var(NodeVariables)
 		f.close()
 	else:
 		var f = File.new()
 		f.open(str(SavePath, VarFileName), f.WRITE)
 		f.store_var(EditorVariables)
+		f.store_var(NodeVariables)
 		f.close()
 
 func get_new_id(start : int = 0) -> int:
 	
-	var rtrn : int = start + EditorVariables.size() + 1
+	match CurrentVarType:
+		VARTYPES.EDITOR:
+			var rtrn : int = start + EditorVariables.size() + 1
+			if EditorVariables.has(str(rtrn)) || rtrn == 0:
+				rtrn = get_new_id(rtrn)
+			return rtrn
+		VARTYPES.NODE:
+			var rtrn : int = start + NodeVariables.size() + 1
+			if EditorVariables.has(str(rtrn)) || rtrn == 0:
+				rtrn = get_new_id(rtrn)
+			return rtrn
 	
-	if EditorVariables.has(str(rtrn)) || rtrn == 0:
-		rtrn = get_new_id(rtrn)
-	
-	return rtrn 
+	return 0
 
 func _on_Tree_cell_selected() -> void:
-	open_var(EditorVars.get_selected().get_metadata(0))
+	match CurrentVarType:
+		VARTYPES.EDITOR:
+			open_var(EditorVars.get_selected().get_metadata(0))
+		VARTYPES.NODE:
+			open_var(NodeVars.get_selected().get_metadata(0))
 
 func _on_AddName_pressed():
 	var le : LineEdit = LineEdit.new()
