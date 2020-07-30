@@ -1,10 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/DialogEditor/Buttons/PathSelect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/DialogEditor/EditorSettings/EditorSettings.gd" type="Script" id=2]
+[ext_resource path="res://addons/DialogEditor/Buttons/CheckBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/DialogEditor/Buttons/LanguageSelecte.tscn" type="PackedScene" id=4]
 
 [node name="EditorSettings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,6 +40,7 @@ margin_bottom = 580.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 15
 
 [node name="Title" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 margin_right = 984.0
@@ -46,8 +53,7 @@ margin_bottom = 14.0
 text = "Dialog Editor Settings"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-margin_left = 20.0
-margin_top = 25.0
+margin_top = 29.0
 margin_right = 984.0
 margin_bottom = 580.0
 mouse_filter = 2
@@ -55,58 +61,101 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
-margin_right = 964.0
-margin_bottom = 555.0
+margin_right = 984.0
+margin_bottom = 551.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SavePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_right = 964.0
-margin_bottom = 14.0
+margin_right = 984.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SavePath"]
-margin_right = 61.0
-margin_bottom = 14.0
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
 hint_tooltip = "Defines the Save Path for Dialogs"
 mouse_filter = 0
+size_flags_horizontal = 3
 text = "Save Path"
 
+[node name="PathSelect" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SavePath" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0
+default_path = "res://addons/DialogEditor/Saves"
+path_name = "Save Path"
+current_path = "res://"
+
 [node name="BakePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 964.0
-margin_bottom = 32.0
+margin_top = 28.0
+margin_right = 984.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/BakePath"]
-margin_right = 63.0
-margin_bottom = 14.0
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
 hint_tooltip = "Selects the Root Directory for baking"
 mouse_filter = 0
+size_flags_horizontal = 3
 text = "Bake Path"
 
+[node name="PathSelect" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/BakePath" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0
+default_path = "res://"
+path_name = "Bake Path"
+current_path = "res://"
+
 [node name="SkipEmptyNodes" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 964.0
-margin_bottom = 50.0
+margin_top = 56.0
+margin_right = 984.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SkipEmptyNodes"]
-margin_right = 115.0
-margin_bottom = 14.0
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
 hint_tooltip = "Skip Nodes that are Empty "
 mouse_filter = 0
+size_flags_horizontal = 3
 text = "Skip Empty Nodes"
 
+[node name="CheckBox" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SkipEmptyNodes" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0
+current = true
+
 [node name="DefaultLanguage" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 54.0
-margin_right = 964.0
-margin_bottom = 68.0
+margin_top = 84.0
+margin_right = 984.0
+margin_bottom = 108.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultLanguage"]
-margin_right = 144.0
-margin_bottom = 14.0
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
 hint_tooltip = "The Default Language Dialogs get Baked to"
 mouse_filter = 0
+size_flags_horizontal = 3
 text = "Default Bake Language"
+
+[node name="LanguageSelect" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultLanguage" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/DialogEditor/Buttons/CheckBox.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/icons/Reload.svg" type="Texture" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="CheckBox" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="."]
+margin_right = 24.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 24, 24 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 2 )
+expand_icon = true
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 28.0
+margin_right = 52.0
+margin_bottom = 600.0
