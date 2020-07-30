@@ -21,11 +21,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+default_language = 0
 
 [node name="Reset" type="Button" parent="."]
-margin_right = 24.0
+margin_right = 20.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 24, 24 )
+rect_min_size = Vector2( 20, 20 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -35,11 +36,10 @@ icon = ExtResource( 1 )
 expand_icon = true
 
 [node name="Languages" type="OptionButton" parent="."]
-margin_left = 28.0
+margin_left = 24.0
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 text = "aa"
 align = 2
-items = [ "aa", null, false, 0, null, "aa_DJ", null, false, 1, null, "aa_ER", null, false, 2, null, "aa_ET", null, false, 3, null, "af", null, false, 4, null, "af_ZA", null, false, 5, null, "agr_PE", null, false, 6, null, "ak_GH", null, false, 7, null, "am_ET", null, false, 8, null, "an_ES", null, false, 9, null, "anp_IN", null, false, 10, null ]
 selected = 0

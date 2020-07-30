@@ -59,6 +59,9 @@ func set_value(path : String) -> void:
 		# Hides the Reset button
 		Reset.hide()
 
+func get_value() -> String:
+	return current_path
+
 # shows the SelectDialog in the center with Selected Dialog Size as its size
 func show_file_dialog() -> void:
 	SelectDialog.popup_centered(selecte_dialog_size)

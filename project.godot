@@ -29,6 +29,7 @@ translations=PoolStringArray(  )
 translation_remaps={
 
 }
+locale_filter=[ 0, [  ] ]
 
 [rendering]
 

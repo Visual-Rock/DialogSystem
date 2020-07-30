@@ -40,3 +40,6 @@ func set_value(new_value : bool) -> void:
 	else:
 		# Hides the Reset Button
 		Reset.hide()
+
+func get_value() -> bool:
+	return current
