@@ -175,7 +175,9 @@ func save_selected_dialogs() -> void:
 			dialog.save_dialog()
 
 func set_selected_all_dialogs(selected : bool = true):
+	# goes thrue all the childrens of the DialogList
 	for dialog in DialogList.get_children():
+		# sets selected
 		dialog.set_selected(selected)
 
 

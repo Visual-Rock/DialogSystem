@@ -26,23 +26,40 @@ var dialog_name : String = ""
 var dialog_des  : String = ""
 
 func _ready() -> void:
-	
-	SelectedBox.connect("toggled", self, "set_selected")
-	RenameButton.connect("pressed", self, "rename")
-	RenameDialog.connect("confirmed", self, "rename_name")
-	Save.connect("pressed", self, "save_dialog")
-	Delete.connect("pressed", self, "popup_delete_dialog")
-	DeleteDialog.connect("confirmed", self, "delete")
-	
+	# checks if SelectedBox is valid
+	if SelectedBox:
+		# connects the toggled signal of SelectedBox to set_selected
+		SelectedBox.connect("toggled", self, "set_selected")
+	# checks if RenameButton is valid
+	if RenameButton:
+		# connects the pressed signal of RenameButton to rename
+		RenameButton.connect("pressed", self, "rename")
+	# checks if RenameDialog is valid
+	if RenameDialog:
+		# connects the confirmed signal of RenameDialog to rename_name
+		RenameDialog.connect("confirmed", self, "rename_name")
+	# checks if Save is valid
+	if Save:
+		# connects the pressed signal of Save to save_dialog
+		Save.connect("pressed", self, "save_dialog")
+	# checks if Delete is valid
+	if Delete:
+		# connects the pressed signal of Delete to popup_delete_dialog
+		Delete.connect("pressed", self, "popup_delete_dialog")
+	# checks if DeleteDialog is valid
+	if DeleteDialog:
+		# connects the confirmed signal of DeleteDialog to delete
+		DeleteDialog.connect("confirmed", self, "delete")
+	# calles all setters to update UI
 	set_des(dialog_des)
 	set_name(dialog_name)
 	set_id(dialog_id)
 
 func dialog(data : Dictionary, manager : Control) -> void:
+	# sets all the data
 	dialog_name = data["name"]
 	dialog_id   = data["id"]
 	dialog_des  = data["description"]
-	
 	dialog_manager = manager
 
 func set_selected(_selected : bool) -> void:
@@ -80,37 +97,52 @@ func get_des() -> String:
 		return dialog_des
 
 func rename() -> void:
+	# Popup in the center of the screen relative to its current canvas transform
 	RenameDialog.popup_centered(rename_dialog_size)
 
 func rename_name() -> void:
+	# checks if dialog does not exists
 	if !dialog_manager.dialog_exists(RenameLine.text):
+		# sets the name
 		set_name(RenameLine.text)
 	else:
+		# emit the debug text signal
 		emit_signal("debug_text", "Dialog name already taken!")
 
 func save_dialog() -> void:
+	# creates data Dictionary
 	var data = {
 		"id":           get_id(),
 		"name":         get_name(),
 		"description":  get_des()
 	}
-	
+	# crears a new instance of File
 	var f : File = File.new()
+	# opens the savefile (or creates it if it does not exist) in Write mode
 	f.open(str(dialog_manager.get_save_path(), dialog_name, ".data"), f.WRITE)
+	# stores the data
 	f.store_var(data)
+	# closes the file
 	f.close()
 	
 	print("Saved ", dialog_name)
 
 func popup_delete_dialog() -> void:
+	# Popup in the center of the screen relative to its current canvas transform
 	DeleteDialog.popup_centered()
 
 func delete() -> void:
+	# Creates new instance of Directory and gets savepath
 	var dir      : Directory = Directory.new()
 	var savepath : String    = dialog_manager.get_save_path()
+	# checks if data file exists
 	if dir.file_exists(str(savepath, dialog_name, ".data")):
+		# removes the data file
 		dir.remove(str(savepath, dialog_name, ".data"))
+	# checks if dialog graph exist
 	if dir.file_exists(str(savepath, dialog_name, ".tscn")):
+		# removes the dialog graph
 		dir.remove(str(savepath, dialog_name, ".tscn"))
+	# queues it's self for deletion
 	self.queue_free()
 	print("Delete ", dialog_name)
