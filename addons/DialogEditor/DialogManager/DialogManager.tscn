@@ -1,8 +1,156 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/DialogEditor/icons/Add.svg" type="Texture" id=2]
+[ext_resource path="res://addons/DialogEditor/DialogManager/DialogManager.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="DialogManager" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Dialog" type="VBoxContainer" parent="HSplitContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolBar" type="HBoxContainer" parent="HSplitContainer/Dialog"]
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="AddDialog" type="Button" parent="HSplitContainer/Dialog/ToolBar"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+icon = ExtResource( 2 )
+
+[node name="MenuButton" type="MenuButton" parent="HSplitContainer/Dialog/ToolBar"]
+margin_left = 24.0
+margin_right = 76.0
+margin_bottom = 20.0
+text = "Dialog"
+items = [ "Select All", null, 0, false, false, 0, 0, null, "", false, "Deselecte All", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Selected", null, 0, false, false, 3, 0, null, "", false, "Bake All", null, 0, false, false, 4, 0, null, "", false, "Save Selected", null, 0, false, false, 5, 0, null, "", false, "Save All", null, 0, false, false, 6, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/Dialog"]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 582.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextEdit" type="TextEdit" parent="HSplitContainer/Dialog/HSplitContainer"]
+margin_right = 862.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+readonly = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/Dialog/HSplitContainer/TextEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogs" type="ScrollContainer" parent="HSplitContainer/Dialog/HSplitContainer/TextEdit/MarginContainer"]
+margin_right = 852.0
+margin_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="List" type="VBoxContainer" parent="HSplitContainer/Dialog/HSplitContainer/TextEdit/MarginContainer/Dialogs"]
+margin_right = 852.0
+margin_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tag" type="VBoxContainer" parent="HSplitContainer/Dialog/HSplitContainer"]
+margin_left = 874.0
+margin_right = 1024.0
+margin_bottom = 558.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/Dialog/HSplitContainer/Tag"]
+margin_right = 150.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer"]
+margin_right = 150.0
+margin_bottom = 558.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 24.0
+
+[node name="AddTag" type="Button" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+icon = ExtResource( 2 )
+
+[node name="Tree" type="Tree" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 150.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="debug" type="Label" parent="HSplitContainer/Dialog"]
+margin_top = 586.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="NewDialog" type="ConfirmationDialog" parent="."]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "Bitte bestätigen..."
+
+[node name="LineEdit" type="LineEdit" parent="NewDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -36.0
+placeholder_text = "Name"
