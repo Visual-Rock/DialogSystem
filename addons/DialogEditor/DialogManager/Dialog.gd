@@ -16,6 +16,7 @@ onready var RenameDialog : ConfirmationDialog = self.get_node("RenameDialog")
 onready var RenameLine   : LineEdit           = RenameDialog.get_node("VBoxContainer/LineEdit")
 
 var rename_dialog_size : Vector2 = Vector2(250, 125)
+var delete_dialog_size : Vector2 = Vector2(250, 125)
 
 var dialog_manager : Control = null
 
@@ -30,6 +31,8 @@ func _ready() -> void:
 	RenameButton.connect("pressed", self, "rename")
 	RenameDialog.connect("confirmed", self, "rename_name")
 	Save.connect("pressed", self, "save_dialog")
+	Delete.connect("pressed", self, "popup_delete_dialog")
+	DeleteDialog.connect("confirmed", self, "delete")
 	
 	set_des(dialog_des)
 	set_name(dialog_name)
@@ -98,3 +101,16 @@ func save_dialog() -> void:
 	f.close()
 	
 	print("Saved ", dialog_name)
+
+func popup_delete_dialog() -> void:
+	DeleteDialog.popup_centered()
+
+func delete() -> void:
+	var dir      : Directory = Directory.new()
+	var savepath : String    = dialog_manager.get_save_path()
+	if dir.file_exists(str(savepath, dialog_name, ".data")):
+		dir.remove(str(savepath, dialog_name, ".data"))
+	if dir.file_exists(str(savepath, dialog_name, ".tscn")):
+		dir.remove(str(savepath, dialog_name, ".tscn"))
+	self.queue_free()
+	print("Delete ", dialog_name)

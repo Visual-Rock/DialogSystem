@@ -116,8 +116,9 @@ custom_styles/normal = SubResource( 1 )
 icon = ExtResource( 4 )
 
 [node name="DeleteDialog" type="ConfirmationDialog" parent="."]
-margin_right = 200.0
-margin_bottom = 70.0
+margin_left = 824.0
+margin_right = 1024.0
+margin_bottom = 75.0
 window_title = "Delete Dialog"
 resizable = true
 dialog_text = "Do you want to Delete this Dialog?"
