@@ -21,8 +21,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+current = true
 
 [node name="Reset" type="Button" parent="."]
+visible = false
 margin_right = 24.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 24, 24 )
@@ -32,9 +34,8 @@ custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 icon = ExtResource( 2 )
-expand_icon = true
 
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 28.0
-margin_right = 52.0
+margin_right = 24.0
 margin_bottom = 600.0
+pressed = true

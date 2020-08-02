@@ -124,5 +124,6 @@ func set_value(new_value : int) -> void:
 	# prints the selected language
 	print(languages[new_value])
 
+# Return selected Language as a String
 func get_value() -> String:
 	return languages[Language.selected]

@@ -25,6 +25,7 @@ __meta__ = {
 }
 
 [node name="Reset" type="Button" parent="."]
+visible = false
 margin_right = 24.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 24, 24 )
@@ -34,28 +35,26 @@ custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 icon = ExtResource( 1 )
-expand_icon = true
 
 [node name="Path" type="LineEdit" parent="."]
-margin_left = 24.0
-margin_right = 1000.0
+margin_right = 996.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="SelectFolder" type="Button" parent="."]
-margin_left = 1000.0
+margin_left = 996.0
 margin_right = 1024.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 24, 24 )
+custom_constants/hseparation = 0
 icon = ExtResource( 2 )
-expand_icon = true
 
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_left = 664.0
 margin_right = 1024.0
 margin_bottom = 600.0
-window_title = "Select Folder"
+window_title = "Verzeichnis wählen"
 resizable = true
 mode = 2
