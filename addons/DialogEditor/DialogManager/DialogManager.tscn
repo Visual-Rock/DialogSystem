@@ -47,13 +47,23 @@ custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 icon = ExtResource( 2 )
 
-[node name="MenuButton" type="MenuButton" parent="HSplitContainer/Dialog/ToolBar"]
+[node name="DialogMenu" type="MenuButton" parent="HSplitContainer/Dialog/ToolBar"]
 margin_left = 24.0
 margin_right = 76.0
 margin_bottom = 20.0
 text = "Dialog"
 items = [ "Select All", null, 0, false, false, 0, 0, null, "", false, "Deselecte All", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Selected", null, 0, false, false, 3, 0, null, "", false, "Bake All", null, 0, false, false, 4, 0, null, "", false, "Save Selected", null, 0, false, false, 5, 0, null, "", false, "Save All", null, 0, false, false, 6, 0, null, "", false ]
 switch_on_hover = true
+
+[node name="SortMenu" type="OptionButton" parent="HSplitContainer/Dialog/ToolBar"]
+margin_left = 80.0
+margin_right = 155.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 75, 20 )
+hint_tooltip = "Sort Menu"
+text = "None"
+items = [ "None", null, false, 0, null, "Name", null, false, 1, null, "ID", null, false, 2, null ]
+selected = 0
 
 [node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/Dialog"]
 margin_top = 24.0
@@ -142,15 +152,42 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="NewDialog" type="ConfirmationDialog" parent="."]
+visible = true
 margin_right = 200.0
-margin_bottom = 70.0
+margin_bottom = 96.0
 window_title = "Bitte bestätigen..."
 
-[node name="LineEdit" type="LineEdit" parent="NewDialog"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NewDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="NewDialog/VBoxContainer"]
+margin_right = 184.0
+margin_bottom = 24.0
 placeholder_text = "Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NewDialog/VBoxContainer"]
+margin_top = 28.0
+margin_right = 184.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="NewDialog/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 19.0
+margin_bottom = 19.0
+text = "ID:"
+
+[node name="SpinBox" type="SpinBox" parent="NewDialog/VBoxContainer/HBoxContainer"]
+margin_left = 23.0
+margin_right = 184.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -9.22337e+18
+max_value = 9.22337e+18

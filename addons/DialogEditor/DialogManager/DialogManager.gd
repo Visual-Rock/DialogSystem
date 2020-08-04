@@ -1,3 +1,4 @@
+tool
 extends Control
 
 enum DIALOGMENU {
@@ -10,8 +11,13 @@ enum DIALOGMENU {
 	SAVEALL
 }
 
+enum SORTTYPES {
+	NAME,
+	ID
+}
+
 onready var Debug      : Label              = self.get_node("HSplitContainer/Dialog/debug")
-onready var DialogMenu : MenuButton         = self.get_node("HSplitContainer/Dialog/ToolBar/MenuButton")
+onready var DialogMenu : MenuButton         = self.get_node("HSplitContainer/Dialog/ToolBar/DialogMenu")
 
 onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/ToolBar/AddDialog")
 onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
@@ -44,6 +50,7 @@ func _ready() -> void:
 		dir.make_dir_recursive(get_save_path())
 	# loads all dialogs
 	load_dialogs()
+	sort_dialogs(SORTTYPES.NAME, true)
 
 # returns the save path
 func get_save_path() -> String:
@@ -68,7 +75,7 @@ func create_new_dialog() -> void:
 
 func new_dialog() -> void:
 	# checks if the dialog does not already exist
-	if !dialog_exists(NewDialog.get_node("LineEdit").text):
+	if !dialog_exists(NewDialog.get_node("VBoxContainer/LineEdit").text):
 		# resets the debug message 
 		debug_msg()
 		# creates an instance of dialog
@@ -76,13 +83,13 @@ func new_dialog() -> void:
 		# sets the dialog manager to self
 		d.dialog_manager = self
 		# sets the dialogs name to the entered text
-		d.dialog_name   = NewDialog.get_node("LineEdit").text
+		d.dialog_name   = NewDialog.get_node("VBoxContainer/LineEdit").text
 		# connects the debug_text signal of the dialog to debug msg
 		d.connect("debug_text", self, "debug_msg")
 		# adds the dialog as a child of DialogList
 		DialogList.add_child(d)
 		# sets the text of LineEdit to an empty String
-		NewDialog.get_node("LineEdit").text = ""
+		NewDialog.get_node("VBoxContainer/LineEdit").text = ""
 	else:
 		# calles debug msg to display that the dialog already exists
 		debug_msg("Dialog Already exists! please enter a new name")
@@ -180,12 +187,58 @@ func set_selected_all_dialogs(selected : bool = true):
 		# sets selected
 		dialog.set_selected(selected)
 
+func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
+	
+	return ShortCut.new()
 
+# Sorting the Dialogs
+func sort_dialogs(sort_type : int, flipped : bool) -> void:
+	
+	var dialogs : Array = DialogList.get_children()
+	
+	if dialogs.size() != 0:
+		for child in dialogs:
+			DialogList.remove_child(child)
+	
+	match sort_type:
+		SORTTYPES.ID:
+			if flipped == true:
+				dialogs.sort_custom(SortDialogID, "sort_ascending")
+			else:
+				dialogs.sort_custom(SortDialogID, "sort_descending")
+		SORTTYPES.NAME:
+			if flipped == true:
+				dialogs.sort_custom(SortDialogName, "sort_ascending")
+			else:
+				dialogs.sort_custom(SortDialogName, "sort_descending")
+	
+	for node in dialogs:
+		DialogList.add_child(node)
 
+class SortDialogID:
+	static func sort_ascending(a, b) -> bool:
+		if a.get_id() < b.get_id():
+			return true
+		return false
+	
+	static func sort_descending(a, b):
+		if a.get_id() > b.get_id():
+			return true
+		return false
 
-
-
-
-
+class SortDialogName:
+	static func sort_ascending(a, b) -> bool:
+		var names : Array = [a.get_name(), b.get_name()]
+		names.sort()
+		if names[0] == a.get_name():
+			return false
+		return true
+	
+	static func sort_descending(a, b):
+		var names : Array = [a.get_name(), b.get_name()]
+		names.sort()
+		if names[0] == b.get_name():
+			return false
+		return true
 
 
