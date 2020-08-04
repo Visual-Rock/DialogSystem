@@ -1,3 +1,4 @@
+tool
 extends HBoxContainer
 
 signal debug_text(msg)
