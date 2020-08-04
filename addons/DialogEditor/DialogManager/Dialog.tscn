@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/DialogEditor/icons/Reload.svg" type="Texture" id=1]
 [ext_resource path="res://addons/DialogEditor/icons/Save.svg" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://addons/DialogEditor/DialogManager/Dialog.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="Dialog" type="HBoxContainer"]
 anchor_right = 1.0
@@ -67,19 +69,19 @@ margin_bottom = 24.0
 
 [node name="Description" type="LineEdit" parent="."]
 margin_left = 136.0
-margin_right = 932.0
+margin_right = 904.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "Description"
 
 [node name="VSeparator3" type="VSeparator" parent="."]
-margin_left = 936.0
-margin_right = 940.0
+margin_left = 908.0
+margin_right = 912.0
 margin_bottom = 24.0
 
 [node name="Save" type="Button" parent="."]
-margin_left = 944.0
-margin_right = 968.0
+margin_left = 916.0
+margin_right = 940.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 24, 24 )
 custom_styles/hover = SubResource( 1 )
@@ -88,6 +90,19 @@ custom_styles/focus = SubResource( 1 )
 custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 icon = ExtResource( 2 )
+
+[node name="Open" type="Button" parent="."]
+margin_left = 944.0
+margin_right = 968.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+hint_tooltip = "Open Graph"
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+icon = ExtResource( 3 )
 
 [node name="Bake" type="Button" parent="."]
 margin_left = 972.0

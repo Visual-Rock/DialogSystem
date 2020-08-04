@@ -1,6 +1,8 @@
 tool
 extends Control
 
+signal open_dialog_graph(graph_name)
+
 enum DIALOGMENU {
 	SELECTALL,
 	DESELECTALL,
@@ -27,7 +29,8 @@ onready var DialogList : VBoxContainer      = self.get_node("HSplitContainer/Dia
 
 var dialog : Resource = load("res://addons/DialogEditor/DialogManager/Dialog.tscn")
 
-var save_path : String = "res://addons/DialogEditor/Saves/"
+var save_path          : String = "res://addons/DialogEditor/Saves/"
+var settings_save_path : String = "res://addons/DialogEditor/settings.json"
 
 var new_dialog_size : Vector2 = Vector2(200, 70)
 
@@ -52,6 +55,9 @@ func _ready() -> void:
 	if FlipList:
 		# connects the toggled signal of DialogMenu to change_sort_flip
 		FlipList.connect("toggled", self, "change_sort_flip")
+	for sibling in get_parent().get_children():
+		if sibling.name == "Editor Settings":
+			sibling.connect("update_settings", self, "update_settings")
 	# creates a new instance of Directory
 	var dir : Directory = Directory.new()
 	# checks if all directorys of the savepath exist 
@@ -60,7 +66,8 @@ func _ready() -> void:
 		dir.make_dir_recursive(get_save_path())
 	# loads all dialogs
 	load_dialogs()
-	sort_dialogs(SORTTYPES.ID, false)
+	# sorts all dialogs
+	sort_dialogs()
 
 # returns the save path
 func get_save_path() -> String:
@@ -98,8 +105,9 @@ func new_dialog() -> void:
 		# sets the dialogs name and id
 		d.dialog_name   = NewDialog.get_node("VBoxContainer/LineEdit").text
 		d.dialog_id     = NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value
-		# connects the debug_text signal of the dialog to debug msg
+		# connects the debug_text and open graph signal of the dialog
 		d.connect("debug_text", self, "debug_msg")
+		d.connect("open_graph", self, "open_graph")
 		# adds the dialog as a child of DialogList
 		DialogList.add_child(d)
 		# sets the text of LineEdit to an empty String
@@ -170,8 +178,9 @@ func load_dialogs() -> void:
 					d = dialog.instance()
 					# calles dialog on the dialog to setup data of the dialog
 					d.dialog(data, self)
-					# connects the debug_text signal of the dialog to debug msg
+					# connects the debug_text and open graph signal of the dialog
 					d.connect("debug_text", self, "debug_msg")
+					d.connect("open_graph", self, "open_graph")
 					# adds d as a child of DialogList
 					DialogList.add_child(d)
 			# gets the next element (file or directory) in the current directory
@@ -221,9 +230,20 @@ func set_selected_all_dialogs(selected : bool = true):
 		# sets selected
 		dialog.set_selected(selected)
 
+func update_settings() -> void:
+	var f : File = File.new()
+	if f.file_exists(settings_save_path):
+		f.open(settings_save_path, f.READ)
+		var data = parse_json(f.get_as_text())
+		save_path = str(data["SavePath"], "/")
+		f.close()
+
 func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
 	
 	return ShortCut.new()
+
+func open_graph(_name : String) -> void:
+	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"))
 
 # Sorting the Dialogs
 func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipList.pressed) -> void:

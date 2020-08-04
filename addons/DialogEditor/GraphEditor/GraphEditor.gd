@@ -30,6 +30,9 @@ func _ready() -> void:
 		NodeMenu.get_popup().connect("id_pressed", self, "node_menu_id_pressed")
 	if GraphContainer:
 		GraphContainer.connect("tab_changed", self, "change_aktiv_graph")
+	for sibling in get_parent().get_children():
+		if sibling.name == "Dialog Manager":
+			sibling.connect("open_dialog_graph", self, "open_graph")
 
 func dialog_menu_id_pressed(id : int) -> void:
 	match id:
@@ -72,3 +75,5 @@ func open_graph(path : String) -> void:
 		Graph = load(path).instance()
 	else:
 		Graph = load(empty_graph).instance()
+	Graph.name = path.get_file().trim_suffix(".tscn")
+	GraphContainer.add_child(Graph)

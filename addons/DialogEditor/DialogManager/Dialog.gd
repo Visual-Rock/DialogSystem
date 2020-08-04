@@ -2,6 +2,7 @@ tool
 extends HBoxContainer
 
 signal debug_text(msg)
+signal open_graph(_name)
 
 onready var SelectedBox  : CheckBox   = self.get_node("Selected")
 onready var IdLabel      : Label      = self.get_node("ID")
@@ -10,6 +11,7 @@ onready var RenameButton : Button     = self.get_node("EditName")
 onready var TagMenu      : MenuButton = self.get_node("Tags")
 onready var Description  : LineEdit   = self.get_node("Description")
 onready var Save         : Button     = self.get_node("Save")
+onready var Open         : Button     = self.get_node("Open")
 onready var Bake         : Button     = self.get_node("Bake")
 onready var Delete       : Button     = self.get_node("Delete")
 
@@ -52,6 +54,10 @@ func _ready() -> void:
 	if DeleteDialog:
 		# connects the confirmed signal of DeleteDialog to delete
 		DeleteDialog.connect("confirmed", self, "delete")
+	# checks Open is valid
+	if Open:
+		# connects the pressed signal of Open to open
+		Open.connect("pressed", self, "open")
 	# calles all setters to update UI
 	set_des(dialog_des)
 	set_name(dialog_name)
@@ -133,6 +139,9 @@ func save_dialog() -> void:
 func popup_delete_dialog() -> void:
 	# Popup in the center of the screen relative to its current canvas transform
 	DeleteDialog.popup_centered()
+
+func open():
+	emit_signal("open_graph", dialog_name)
 
 func delete() -> void:
 	# Creates new instance of Directory and gets savepath

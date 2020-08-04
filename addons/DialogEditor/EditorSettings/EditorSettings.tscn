@@ -44,16 +44,30 @@ custom_constants/separation = 15
 
 [node name="Title" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 margin_right = 984.0
-margin_bottom = 14.0
+margin_bottom = 20.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Title"]
-margin_right = 136.0
-margin_bottom = 14.0
+margin_top = 3.0
+margin_right = 887.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
 text = "Dialog Editor Settings"
 
+[node name="SaveSettings" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/Title"]
+margin_left = 891.0
+margin_right = 932.0
+margin_bottom = 20.0
+text = "Save"
+
+[node name="ResetSettings" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/Title"]
+margin_left = 936.0
+margin_right = 984.0
+margin_bottom = 20.0
+text = "Reset"
+
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 29.0
+margin_top = 35.0
 margin_right = 984.0
 margin_bottom = 580.0
 mouse_filter = 2
@@ -62,7 +76,7 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
 margin_right = 984.0
-margin_bottom = 551.0
+margin_bottom = 545.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
