@@ -18,6 +18,8 @@ enum SORTTYPES {
 
 onready var Debug      : Label              = self.get_node("HSplitContainer/Dialog/debug")
 onready var DialogMenu : MenuButton         = self.get_node("HSplitContainer/Dialog/ToolBar/DialogMenu")
+onready var SortMenu   : OptionButton       = self.get_node("HSplitContainer/Dialog/ToolBar/SortMenu")
+onready var FlipList   : CheckBox           = self.get_node("HSplitContainer/Dialog/ToolBar/FlipList")
 
 onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/ToolBar/AddDialog")
 onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
@@ -42,6 +44,12 @@ func _ready() -> void:
 	if DialogMenu:
 		# connects the id pressed signal of DialogMenu to on Dialog item pressed
 		DialogMenu.get_popup().connect("id_pressed", self, "_on_Dialog_item_pressed")
+	# checks if SortMenu is valid
+	if SortMenu:
+		# connects the item_selected signal of DialogMenu to change_sort_type
+		SortMenu.connect("item_selected", self, "change_sort_type")
+	if FlipList:
+		FlipList.connect("toggled", self, "change_sort_flip")
 	# creates a new instance of Directory
 	var dir : Directory = Directory.new()
 	# checks if all directorys of the savepath exist 
@@ -50,7 +58,7 @@ func _ready() -> void:
 		dir.make_dir_recursive(get_save_path())
 	# loads all dialogs
 	load_dialogs()
-	sort_dialogs(SORTTYPES.NAME, true)
+	sort_dialogs(SORTTYPES.ID, false)
 
 # returns the save path
 func get_save_path() -> String:
@@ -74,16 +82,20 @@ func create_new_dialog() -> void:
 	NewDialog.popup_centered(new_dialog_size)
 
 func new_dialog() -> void:
+	var id_exists   : bool = has_dialog_id(NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value)
+	var name_exists : bool = dialog_exists(NewDialog.get_node("VBoxContainer/LineEdit").text)
+	
 	# checks if the dialog does not already exist
-	if !dialog_exists(NewDialog.get_node("VBoxContainer/LineEdit").text):
+	if !name_exists && !id_exists:
 		# resets the debug message 
 		debug_msg()
 		# creates an instance of dialog
 		var d = dialog.instance()
 		# sets the dialog manager to self
 		d.dialog_manager = self
-		# sets the dialogs name to the entered text
+		# sets the dialogs name and id
 		d.dialog_name   = NewDialog.get_node("VBoxContainer/LineEdit").text
+		d.dialog_id     = NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value
 		# connects the debug_text signal of the dialog to debug msg
 		d.connect("debug_text", self, "debug_msg")
 		# adds the dialog as a child of DialogList
@@ -91,10 +103,22 @@ func new_dialog() -> void:
 		# sets the text of LineEdit to an empty String
 		NewDialog.get_node("VBoxContainer/LineEdit").text = ""
 	else:
-		# calles debug msg to display that the dialog already exists
-		debug_msg("Dialog Already exists! please enter a new name")
+		if id_exists == true:
+			# calles debug msg to display that the dialog id already exists
+			debug_msg("Dialog ID Already exists! please enter a new ID")
+		elif name_exists == true:
+			# calles debug msg to display that the dialog already exists
+			debug_msg("Dialog Already exists! please enter a new name")
 		# opens the window again
 		create_new_dialog()
+
+func has_dialog_id(_id : int) -> bool:
+	
+	if DialogList.get_child_count() != 0:
+		for dialog in DialogList.get_children():
+			if dialog.get_id() == _id:
+				return true
+	return false
 
 func debug_msg(msg : String = "") -> void:
 	# sets the text of the debug label to the msg
@@ -192,7 +216,7 @@ func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
 	return ShortCut.new()
 
 # Sorting the Dialogs
-func sort_dialogs(sort_type : int, flipped : bool) -> void:
+func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipList.pressed) -> void:
 	
 	var dialogs : Array = DialogList.get_children()
 	
@@ -215,6 +239,12 @@ func sort_dialogs(sort_type : int, flipped : bool) -> void:
 	for node in dialogs:
 		DialogList.add_child(node)
 
+func change_sort_type(new_type : int) -> void:
+	sort_dialogs()
+
+func change_sort_flip(new_flip : bool) -> void:
+	sort_dialogs()
+
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:
 		if a.get_id() < b.get_id():
@@ -231,14 +261,14 @@ class SortDialogName:
 		var names : Array = [a.get_name(), b.get_name()]
 		names.sort()
 		if names[0] == a.get_name():
-			return false
-		return true
+			return true
+		return false
 	
 	static func sort_descending(a, b):
 		var names : Array = [a.get_name(), b.get_name()]
 		names.sort()
 		if names[0] == b.get_name():
-			return false
-		return true
+			return true
+		return false
 
 

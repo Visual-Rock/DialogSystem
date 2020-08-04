@@ -4,6 +4,7 @@ extends HBoxContainer
 signal debug_text(msg)
 
 onready var SelectedBox  : CheckBox   = self.get_node("Selected")
+onready var IdLabel      : Label      = self.get_node("ID")
 onready var NameLabel    : Label      = self.get_node("Name")
 onready var RenameButton : Button     = self.get_node("EditName")
 onready var TagMenu      : MenuButton = self.get_node("Tags")
@@ -80,6 +81,7 @@ func get_name() -> String:
 	return dialog_name
 
 func set_id(new_id : int = dialog_id) -> void:
+	IdLabel.text = str(new_id)
 	dialog_id = new_id
 
 func get_id() -> int:
