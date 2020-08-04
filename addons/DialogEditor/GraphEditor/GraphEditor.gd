@@ -19,6 +19,7 @@ enum NODEMENU {
 }
 
 onready var GraphContainer : TabContainer = self.get_node("HSplitContainer/MainWindow/TabContainer")
+onready var DebugLabel     : Label        = self.get_node("HSplitContainer/MainWindow/debug")
 
 var current_graph : GraphEdit
 var empty_graph   : String    = "res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.tscn"
@@ -60,7 +61,8 @@ func dialog_menu_id_pressed(id : int) -> void:
 					graph.queue_free()
 
 func node_menu_id_pressed(id : int) -> void:
-	current_graph.add_node(id)
+	if GraphContainer.get_child_count() != 0:
+		GraphContainer.get_child(GraphContainer.current_tab).add_node(id)
 
 func change_aktiv_graph(tab : int) -> void:
 	if current_graph:
@@ -76,4 +78,8 @@ func open_graph(path : String) -> void:
 	else:
 		Graph = load(empty_graph).instance()
 	Graph.name = path.get_file().trim_suffix(".tscn")
+	Graph.editor = self
 	GraphContainer.add_child(Graph)
+
+func debug_message(msg : String) -> void:
+	DebugLabel.text = msg

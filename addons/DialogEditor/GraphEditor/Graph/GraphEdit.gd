@@ -15,7 +15,13 @@ var nodes : Dictionary = {
 
 var editor : Control
 
+var start_node : GraphNode
+
 export var dialog_name : String = ""
+
+func _ready() -> void:
+	self.connect("connection_request", self, "connection_request")
+	self.connect("disconnection_request", self, "disconnection_request")
 
 # Saves the Graph as a .tscn file
 func save_graph() -> void:
@@ -23,4 +29,24 @@ func save_graph() -> void:
 
 # Add Node to Graph
 func add_node(node : int) -> void:
-	print("add Node of type ", node)
+	match node:
+		NODES.START:
+			if start_node != null:
+				editor.debug_message("Start Node Already Exists! can't create more than one!")
+				return
+	var n : GraphNode
+	if nodes.has(str(node)) == true:
+		n = nodes[str(node)].instance()
+	else:
+		printerr("Node Does not exists! No Node with Id ", node, " found!")
+	if node == NODES.START:
+		start_node = n
+	if n:
+		self.add_child(n)
+
+
+func connection_request(from, from_slot, to, to_slot):
+	connect_node(from, from_slot, to, to_slot)
+
+func disconnection_request(from, from_slot, to, to_slot):
+	disconnect_node(from, from_slot, to, to_slot)
