@@ -17,13 +17,13 @@ enum SORTTYPES {
 }
 
 onready var Debug      : Label              = self.get_node("HSplitContainer/Dialog/debug")
-onready var DialogMenu : MenuButton         = self.get_node("HSplitContainer/Dialog/ToolBar/DialogMenu")
-onready var SortMenu   : OptionButton       = self.get_node("HSplitContainer/Dialog/ToolBar/SortMenu")
-onready var FlipList   : CheckBox           = self.get_node("HSplitContainer/Dialog/ToolBar/FlipList")
+onready var DialogMenu : MenuButton         = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/DialogMenu")
+onready var SortMenu   : OptionButton       = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/SortMenu")
+onready var FlipList   : CheckBox           = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/FlipList")
 
-onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/ToolBar/AddDialog")
+onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/AddDialog")
 onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
-onready var DialogList : VBoxContainer      = self.get_node("HSplitContainer/Dialog/HSplitContainer/TextEdit/MarginContainer/Dialogs/List")
+onready var DialogList : VBoxContainer      = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/TextEdit/MarginContainer/Dialogs/List")
 
 var dialog : Resource = load("res://addons/DialogEditor/DialogManager/Dialog.tscn")
 
@@ -48,7 +48,9 @@ func _ready() -> void:
 	if SortMenu:
 		# connects the item_selected signal of DialogMenu to change_sort_type
 		SortMenu.connect("item_selected", self, "change_sort_type")
+	# checks if FlipList is valid
 	if FlipList:
+		# connects the toggled signal of DialogMenu to change_sort_flip
 		FlipList.connect("toggled", self, "change_sort_flip")
 	# creates a new instance of Directory
 	var dir : Directory = Directory.new()
@@ -82,10 +84,10 @@ func create_new_dialog() -> void:
 	NewDialog.popup_centered(new_dialog_size)
 
 func new_dialog() -> void:
+	# checks if dialog id and name already exists
 	var id_exists   : bool = has_dialog_id(NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value)
 	var name_exists : bool = dialog_exists(NewDialog.get_node("VBoxContainer/LineEdit").text)
-	
-	# checks if the dialog does not already exist
+	# checks if the dialog name and id does not exist
 	if !name_exists && !id_exists:
 		# resets the debug message 
 		debug_msg()
@@ -103,9 +105,11 @@ func new_dialog() -> void:
 		# sets the text of LineEdit to an empty String
 		NewDialog.get_node("VBoxContainer/LineEdit").text = ""
 	else:
+		# checks if dialog id exists
 		if id_exists == true:
 			# calles debug msg to display that the dialog id already exists
 			debug_msg("Dialog ID Already exists! please enter a new ID")
+		# checks if dialog name exists
 		elif name_exists == true:
 			# calles debug msg to display that the dialog already exists
 			debug_msg("Dialog Already exists! please enter a new name")
@@ -113,11 +117,17 @@ func new_dialog() -> void:
 		create_new_dialog()
 
 func has_dialog_id(_id : int) -> bool:
-	
+	# checks if DialogList has children
 	if DialogList.get_child_count() != 0:
+		# loops thrue all children of the DialogList
 		for dialog in DialogList.get_children():
+			# checks if the current dialogs id is equal to _id
 			if dialog.get_id() == _id:
+				# returns true because id equals _id
 				return true
+				# breaks out of the loop
+				break
+	# returns false because no matching id was found
 	return false
 
 func debug_msg(msg : String = "") -> void:
@@ -133,7 +143,7 @@ func load_dialogs() -> void:
 			c.save_dialog()
 			# queues the dialog for deleting  
 			c.queue_free()
-	# creats nnew instances of File and Directory
+	# creats new instances of File and Directory
 	var f   : File      = File.new()
 	var dir : Directory = Directory.new()
 	# opens the savepath directory and continues if
@@ -217,26 +227,34 @@ func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
 
 # Sorting the Dialogs
 func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipList.pressed) -> void:
-	
+	# gets all children of DialogList
 	var dialogs : Array = DialogList.get_children()
-	
+	# checks if DialogList has children
 	if dialogs.size() != 0:
+		# loops thrue all children of DialogList
 		for child in dialogs:
+			# removes the dialog (remove not delete) from DialogList
 			DialogList.remove_child(child)
-	
+	# Matches the sort type
 	match sort_type:
 		SORTTYPES.ID:
+			# checks if the search shud be flipped
 			if flipped == true:
+				# sorts the dialog by id ascending
 				dialogs.sort_custom(SortDialogID, "sort_ascending")
 			else:
+				# sorts the dialog by id descending
 				dialogs.sort_custom(SortDialogID, "sort_descending")
 		SORTTYPES.NAME:
 			if flipped == true:
+				# sorts the dialog by name ascending
 				dialogs.sort_custom(SortDialogName, "sort_ascending")
 			else:
+				# sorts the dialog by name descending
 				dialogs.sort_custom(SortDialogName, "sort_descending")
-	
+	# loops thrue all dialogs
 	for node in dialogs:
+		# adds them as a child of DialogList in sorted order
 		DialogList.add_child(node)
 
 func change_sort_type(new_type : int) -> void:
@@ -247,28 +265,42 @@ func change_sort_flip(new_flip : bool) -> void:
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:
+		# checks if dialog a's id is smaller then b's id
 		if a.get_id() < b.get_id():
+			# returns true because dialog a's id is smaller then b's id
 			return true
+		# returns true because dialog a's id is not smaller then b's id
 		return false
 	
 	static func sort_descending(a, b):
+		# checks if dialog a's id is bigger then b's id
 		if a.get_id() > b.get_id():
+			# returns true because dialog a's id is bigger then b's id
 			return true
+		# returns true because dialog a's id is not bigger then b's id
 		return false
 
 class SortDialogName:
 	static func sort_ascending(a, b) -> bool:
+		# creats an array with the name of a and b
 		var names : Array = [a.get_name(), b.get_name()]
+		# sorts array 
 		names.sort()
+		# checks if the first name in the array is the name of a
 		if names[0] == a.get_name():
+			# returns true because the first name in the array is the name of a
 			return true
+		# returns false because the first name in the array is not the name of a
 		return false
 	
 	static func sort_descending(a, b):
+		# creats an array with the name of a and b
 		var names : Array = [a.get_name(), b.get_name()]
+		# sorts array 
 		names.sort()
+		# checks if the first name in the array is the name of b
 		if names[0] == b.get_name():
+			# returns true because the first name in the array is the name of b
 			return true
+		# returns false because the first name in the array is not the name of b
 		return false
-
-
