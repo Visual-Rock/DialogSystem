@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/DialogEditor/GraphEditor/GraphEditor.gd" type="Script" id=2]
 
 [node name="GraphEditor" type="Control"]
@@ -47,29 +46,6 @@ margin_bottom = 582.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
-
-[node name="GraphEdit" parent="HSplitContainer/MainWindow/TabContainer" instance=ExtResource( 1 )]
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-scroll_offset = Vector2( -4, -24 )
-
-[node name="GraphEdit2" parent="HSplitContainer/MainWindow/TabContainer" instance=ExtResource( 1 )]
-visible = false
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-scroll_offset = Vector2( -4, -24 )
-
-[node name="GraphEdit3" parent="HSplitContainer/MainWindow/TabContainer" instance=ExtResource( 1 )]
-visible = false
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-scroll_offset = Vector2( -4, -24 )
 
 [node name="debug" type="Label" parent="HSplitContainer/MainWindow"]
 margin_top = 586.0
