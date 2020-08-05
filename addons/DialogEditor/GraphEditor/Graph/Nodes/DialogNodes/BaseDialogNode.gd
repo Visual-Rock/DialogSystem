@@ -1,6 +1,7 @@
 tool
 extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/BaseNode.gd"
 
+export var node_id          : int = -1
 export var node_value_start : int = 2
 
 var value_sections : Array = [
@@ -12,7 +13,7 @@ var value_sections : Array = [
 var node_values : Array = []
 
 func _ready() -> void:
-	set_node_values([{"type": 0},{"type": 1},{"type": 2}])
+	set_node_values()
 
 func set_node_values(new_values : Array = node_values) -> void:
 	if self.get_child_count() - node_value_start != 0:
@@ -22,5 +23,59 @@ func set_node_values(new_values : Array = node_values) -> void:
 				value.queue_free()
 	
 	if new_values.size() != 0:
+		var section : HBoxContainer
 		for value in new_values:
-			self.add_child(value_sections[value["type"]].instance())
+			section = value_sections[value["type"]].instance()
+			self.add_child(section)
+			section.load_from_data(value)
+
+func get_dialog(skip_empty : bool = true) -> Dictionary:
+	
+	var rtrn : Dictionary = {}
+	var val  : Array      = []
+	
+	if values_all_default() && skip_empty:
+		# Skip Node
+		pass
+	else:
+		rtrn["node_id"] = node_id
+		if self.get_child_count() - node_value_start != 0:
+			var values : Array = self.get_children()
+			for value in values:
+				if value.has_method("get_value"):
+					val.append( { "name": value.get_value_name(), "value": value.get_value() } )
+		# get Node values
+		pass
+	
+	rtrn["options"] = get_options()
+	rtrn["values"]  = val
+	return rtrn
+
+func values_all_default() -> bool:
+	if self.get_child_count() - node_value_start != 0:
+		var values : Array = self.get_children()
+		for value in values:
+			if !value.has_method("is_default_value"):
+				return false
+				break
+	return true
+
+func get_options() -> Array:
+	var rtrn : Array = []
+	var right_node : Dictionary = get_parent().get_right_connected_node(name, 0)
+	print("right connection! ", right_node)
+	if right_node.has("from"):
+		rtrn.append(get_parent().get_node(str(right_node["to"])).get_dialog())
+	else:
+		rtrn.append( { "node_id": 99 } )
+	return rtrn
+
+
+
+
+
+
+
+
+
+

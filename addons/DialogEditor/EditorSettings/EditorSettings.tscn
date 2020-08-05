@@ -102,7 +102,7 @@ margin_right = 984.0
 margin_bottom = 24.0
 default_path = "res://addons/DialogEditor/Saves"
 path_name = "Save Path"
-current_path = "res://"
+current_path = "res://addons/DialogEditor/Saves"
 
 [node name="BakePath" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 28.0
@@ -127,6 +127,7 @@ margin_right = 984.0
 margin_bottom = 24.0
 default_path = "res://Dialogs"
 path_name = "Bake Path"
+current_path = "res://Dialogs"
 
 [node name="SkipEmptyNodes" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 56.0
@@ -172,3 +173,48 @@ margin_left = 494.0
 margin_right = 984.0
 margin_bottom = 20.0
 default_language = 78
+
+[node name="DefaultNodeTemplate" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 108.0
+margin_right = 984.0
+margin_bottom = 132.0
+__meta__ = {
+"_editor_description_": "	"
+}
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate"]
+margin_top = 5.0
+margin_right = 490.0
+margin_bottom = 19.0
+hint_tooltip = "a collection of values all nodes shoud have"
+mouse_filter = 1
+size_flags_horizontal = 3
+text = "Default Node Template"
+
+[node name="PathSelect" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 24.0
+default_path = "res://DialogEditor/Template.json"
+path_name = "Node Template"
+current_path = "res://DialogEditor/Template.json"
+
+[node name="Path" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate/PathSelect" index="1"]
+margin_right = 462.0
+margin_bottom = 24.0
+text = "res://DialogEditor/Template.json"
+placeholder_text = "Node Template"
+
+[node name="SelectFolder" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate/PathSelect" index="2"]
+margin_left = 462.0
+margin_right = 490.0
+margin_bottom = 24.0
+
+[node name="FileDialog" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate/PathSelect" index="3"]
+window_title = "Datei öffnen"
+mode = 0
+filters = PoolStringArray( "*.json ; JSON File" )
+
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate/PathSelect"]

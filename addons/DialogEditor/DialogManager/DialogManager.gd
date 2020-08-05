@@ -92,10 +92,11 @@ func create_new_dialog() -> void:
 
 func new_dialog() -> void:
 	# checks if dialog id and name already exists
-	var id_exists   : bool = has_dialog_id(NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value)
-	var name_exists : bool = dialog_exists(NewDialog.get_node("VBoxContainer/LineEdit").text)
+	var id_exists      : bool = has_dialog_id(NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value)
+	var name_exists    : bool = dialog_exists(NewDialog.get_node("VBoxContainer/LineEdit").text)
+	var valid_filename : bool = str(NewDialog.get_node("VBoxContainer/LineEdit").text).is_valid_filename()
 	# checks if the dialog name and id does not exist
-	if !name_exists && !id_exists:
+	if (!name_exists && !id_exists) && valid_filename:
 		# resets the debug message 
 		debug_msg()
 		# creates an instance of dialog
@@ -121,6 +122,10 @@ func new_dialog() -> void:
 		elif name_exists == true:
 			# calles debug msg to display that the dialog already exists
 			debug_msg("Dialog Already exists! please enter a new name")
+		# checks if filename is valid
+		elif valid_filename == true:
+			# calles debug msg to display that filename has invalid Characters
+			debug_msg("Dialog Name has forbidden Characters!")
 		# opens the window again
 		create_new_dialog()
 

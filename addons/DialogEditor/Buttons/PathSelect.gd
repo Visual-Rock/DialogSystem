@@ -28,8 +28,9 @@ func _ready():
 		PathLine.placeholder_text = path_name
 	# checks if SelectDialog is valid
 	if SelectDialog:
-		# connects the dir selected signal to set_path
+		# connects the dir selected and file selected signal to set_path
 		SelectDialog.connect("dir_selected", self, "set_value")
+		SelectDialog.connect("file_selected", self, "set_value")
 	# checks if SelectFolder is valid
 	if SelectFolder:
 		# connects the pressed signal to show_file_dialog

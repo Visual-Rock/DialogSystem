@@ -24,7 +24,13 @@ onready var DebugLabel     : Label        = self.get_node("HSplitContainer/MainW
 var current_graph : GraphEdit
 var empty_graph   : String    = "res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.tscn"
 
+var settings_save_path : String     = "res://addons/DialogEditor/settings.json"
+var bake_language      : String     = "en"
+var node_template      : String     = "res://addons/DialogEditor/Template.json"
+var node_values        : Dictionary = {}
+
 func _ready() -> void:
+	update_settings()
 	if DialogMenu:
 		DialogMenu.get_popup().connect("id_pressed", self, "dialog_menu_id_pressed")
 	if NodeMenu:
@@ -34,6 +40,8 @@ func _ready() -> void:
 	for sibling in get_parent().get_children():
 		if sibling.name == "Dialog Manager":
 			sibling.connect("open_dialog_graph", self, "open_graph")
+		if sibling.name == "Editor Settings":
+			sibling.connect("update_settings", self, "update_settings")
 
 func dialog_menu_id_pressed(id : int) -> void:
 	match id:
@@ -45,7 +53,9 @@ func dialog_menu_id_pressed(id : int) -> void:
 				for graph in GraphContainer.get_children():
 					graph.save_graph()
 		DIALOGMENU.BAKE:
-			pass
+			if current_graph:
+				var result : Dictionary = current_graph.bake_graph()
+				print( { "dialog": result } )
 		DIALOGMENU.BAKEOPEN:
 			pass
 		DIALOGMENU.BAKEALL:
@@ -71,15 +81,38 @@ func change_aktiv_graph(tab : int) -> void:
 	current_graph = GraphContainer.get_children()[tab]
 
 func open_graph(path : String) -> void:
-	var Graph : GraphEdit
-	var f     : File      = File.new()
-	if f.file_exists(path):
-		Graph = load(path).instance()
-	else:
-		Graph = load(empty_graph).instance()
-	Graph.name = path.get_file().trim_suffix(".tscn")
-	Graph.editor = self
-	GraphContainer.add_child(Graph)
+	if !graph_opend(path.get_file().trim_suffix(".tscn")):
+		var Graph : GraphEdit
+		var f     : File      = File.new()
+		if f.file_exists(path):
+			Graph = load(path).instance()
+		else:
+			Graph = load(empty_graph).instance()
+			if node_values.has("node_values"):
+				Graph.node_values = node_values["node_values"]
+		Graph.name = path.get_file().trim_suffix(".tscn")
+		Graph.editor = self
+		GraphContainer.add_child(Graph)
+
+func graph_opend(graph_name : String) -> bool:
+	for graph in GraphContainer.get_children():
+		if graph.name == graph_name:
+			return true
+			break
+	return false
 
 func debug_message(msg : String) -> void:
 	DebugLabel.text = msg
+
+func update_settings() -> void:
+	var f : File = File.new()
+	if f.file_exists(settings_save_path):
+		f.open(settings_save_path, f.READ)
+		var data = parse_json(f.get_as_text())
+		bake_language = data["DefaultBakeLanguage"]
+		node_template = data["DefaultNodeTemplate"]
+		f.close()
+	if f.file_exists(node_template):
+		f.open(node_template, f.READ)
+		node_values = parse_json(f.get_as_text())
+		f.close()

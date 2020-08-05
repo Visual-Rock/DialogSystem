@@ -58,3 +58,4 @@ margin_bottom = 600.0
 window_title = "Verzeichnis wählen"
 resizable = true
 mode = 2
+show_hidden_files = true

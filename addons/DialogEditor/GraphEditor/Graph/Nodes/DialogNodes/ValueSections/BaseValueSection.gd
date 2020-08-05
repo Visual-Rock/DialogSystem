@@ -10,5 +10,8 @@ func get_data() -> Dictionary:
 func get_value():
 	pass
 
-func load_from_data(data : Dictionary) -> void:
+func get_value_name() -> String:
+	return value_name
+
+func load_from_data(data : Dictionary = {}) -> void:
 	pass

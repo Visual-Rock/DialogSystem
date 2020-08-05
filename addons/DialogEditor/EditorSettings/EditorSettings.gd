@@ -11,12 +11,14 @@ onready var Savepath     : HBoxContainer = self.get_node("MarginContainer/Scroll
 onready var Bakepath     : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/BakePath/PathSelect")
 onready var SkipNodes    : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SkipEmptyNodes/CheckBox")
 onready var BakeLanguage : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultLanguage/LanguageSelect")
+onready var NodeTemplate : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate/PathSelect")
 
 var default_settings : Dictionary = {
 	"SavePath": "res://addons/DialogEditor/Saves",
 	"BakePath": "res://Dialogs",
 	"SkipEmptyNodes": true,
-	"DefaultBakeLanguage": "en"
+	"DefaultBakeLanguage": "en",
+	"DefaultNodeTemplate": "res://DialogEditor/Template.json"
 }
 
 var settings_save_path = "res://addons/DialogEditor/settings.json"
@@ -35,6 +37,7 @@ func _ready() -> void:
 		Bakepath.set_value(settings["BakePath"])
 		SkipNodes.set_value(settings["SkipEmptyNodes"])
 		BakeLanguage.set_value(BakeLanguage.languages.find(settings["DefaultBakeLanguage"]))
+		NodeTemplate.set_value(settings["DefaultNodeTemplate"])
 	if SaveSettings:
 		SaveSettings.connect("pressed", self, "save_settings")
 	if ResetSettings:
@@ -52,10 +55,12 @@ func save_settings() -> void:
 func update_settings() -> void:
 	if Savepath.get_value().is_rel_path() || Savepath.get_value().is_abs_path():
 		settings["SavePath"] = Savepath.get_value()
-	elif Bakepath.get_value().is_rel_path() || Savepath.get_value().is_abs_path():
+	if Bakepath.get_value().is_rel_path() || Savepath.get_value().is_abs_path():
 		settings["BakePath"] = Bakepath.get_value()
 	settings["SkipEmptyNodes"] = SkipNodes.get_value()
 	settings["DefaultBakeLanguage"] = BakeLanguage.get_value()
+	if NodeTemplate.get_value().is_rel_path() || NodeTemplate.get_value().is_abs_path():
+		settings["DefaultNodeTemplate"] = NodeTemplate.get_value()
 	emit_signal("update_settings")
 
 func reset_settings() -> void:

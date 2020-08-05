@@ -15,8 +15,10 @@ var nodes : Dictionary = {
 
 var editor : Control
 
-var start_node : GraphNode
+var start_node  : GraphNode
 
+export var node_values : Array  = []
+export var connections : Array  = []
 export var dialog_name : String = ""
 
 func _ready() -> void:
@@ -26,6 +28,14 @@ func _ready() -> void:
 # Saves the Graph as a .tscn file
 func save_graph() -> void:
 	print("Saved Graph with name ", name)
+
+func bake_graph() -> Dictionary:
+	if start_node != null:
+		editor.debug_message("Started Baking!")
+		return start_node.get_dialog()
+	else:
+		editor.debug_message("No Start Node Detected!")
+		return { "node_id": 99 }
 
 # Add Node to Graph
 func add_node(node : int) -> void:
@@ -42,11 +52,27 @@ func add_node(node : int) -> void:
 	if node == NODES.START:
 		start_node = n
 	if n:
+		n.node_values = node_values
 		self.add_child(n)
-
 
 func connection_request(from, from_slot, to, to_slot):
 	connect_node(from, from_slot, to, to_slot)
+	connections = self.get_connection_list()
 
 func disconnection_request(from, from_slot, to, to_slot):
 	disconnect_node(from, from_slot, to, to_slot)
+	connections = self.get_connection_list()
+
+func get_right_connected_node(node_name : String, slot : int) -> Dictionary:
+	for connection in connections:
+		if connection["from"] == node_name && connection["from_port"] == slot:
+			return connection
+			break
+	return {}
+
+func get_left_connected_node(node_name : String, slot : int) -> Dictionary:
+	for connection in connections:
+		if connection["to"] == node_name && connection["to_slot"]:
+			return connection
+			break
+	return {}
