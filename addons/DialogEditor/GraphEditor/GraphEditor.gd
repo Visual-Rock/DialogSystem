@@ -61,7 +61,7 @@ func dialog_menu_id_pressed(id : int) -> void:
 				var result : Dictionary = current_graph.bake_graph()
 				if !dir.dir_exists(str(bake_path, bake_language)):
 					dir.make_dir_recursive(str(bake_path, bake_language))
-				f.open(str(bake_path, bake_language, current_graph.dialog_name, ".json"), f.WRITE)
+				f.open(str(bake_path, bake_language, "/",current_graph.dialog_name, ".json"), f.WRITE)
 				f.store_string(to_json(result))
 				f.close()
 				print(result)
@@ -120,7 +120,11 @@ func update_settings() -> void:
 		f.open(settings_save_path, f.READ)
 		var data = parse_json(f.get_as_text())
 		save_path     = data["SavePath"]
+		if !save_path.ends_with("/"):
+			save_path = str(save_path, "/")
 		bake_path     = data["BakePath"]
+		if !bake_path.ends_with("/"):
+			bake_path = str(bake_path, "/")
 		bake_language = data["DefaultBakeLanguage"]
 		node_template = data["DefaultNodeTemplate"]
 		f.close()
