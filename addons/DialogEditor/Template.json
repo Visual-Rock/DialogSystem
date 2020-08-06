@@ -2,6 +2,7 @@
     "node_values": [{
             "name": "Names",
             "type": 0,
+            "selected": 0,
             "value": [
                 "Name1",
                 "Name2"

@@ -25,6 +25,7 @@ var current_graph : GraphEdit
 var empty_graph   : String    = "res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.tscn"
 
 var settings_save_path : String     = "res://addons/DialogEditor/settings.json"
+var save_path          : String     = "res://addons/DialogEditor/Saves/"
 var bake_language      : String     = "en"
 var node_template      : String     = "res://addons/DialogEditor/Template.json"
 var node_values        : Dictionary = {}
@@ -90,6 +91,7 @@ func open_graph(path : String) -> void:
 			Graph = load(empty_graph).instance()
 			if node_values.has("node_values"):
 				Graph.node_values = node_values["node_values"]
+			Graph.dialog_name = path.get_file().trim_suffix(".tscn")
 		Graph.name = path.get_file().trim_suffix(".tscn")
 		Graph.editor = self
 		GraphContainer.add_child(Graph)

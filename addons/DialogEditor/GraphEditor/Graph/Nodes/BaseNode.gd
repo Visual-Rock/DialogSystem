@@ -19,3 +19,13 @@ func on_close() -> void:
 
 func on_resize(new_minsize) -> void:
 	pass
+
+func set_owner(new_owner : Node) -> void:
+	self.owner = new_owner
+	save_node()
+
+func save_node() -> void:
+	pass
+
+func node_group() -> int:
+	return -1

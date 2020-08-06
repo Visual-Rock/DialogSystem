@@ -7,6 +7,9 @@ export var value_type  : int    = -1
 func get_data() -> Dictionary:
 	return { "name": value_name, "type": value_type, "value": get_value() }
 
+func get_save_data() -> Dictionary:
+	return {}
+
 func get_value():
 	pass
 

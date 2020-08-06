@@ -24,10 +24,20 @@ export var dialog_name : String = ""
 func _ready() -> void:
 	self.connect("connection_request", self, "connection_request")
 	self.connect("disconnection_request", self, "disconnection_request")
+	if connections.size() != 0:
+		for c in connections:
+			connect_node(c["from"], c["from_port"], c["to"], c["to_port"])
 
 # Saves the Graph as a .tscn file
 func save_graph() -> void:
-	print("Saved Graph with name ", name)
+	var scene : PackedScene = PackedScene.new()
+	for child in self.get_children():
+		if child is GraphNode:
+			child.save_node()
+			child.set_owner(self)
+	scene.pack(self)
+	print(str(editor.save_path, dialog_name, ".tscn"))
+	ResourceSaver.save(str(editor.save_path, dialog_name, ".tscn"), scene)
 
 func bake_graph() -> Dictionary:
 	if start_node != null:

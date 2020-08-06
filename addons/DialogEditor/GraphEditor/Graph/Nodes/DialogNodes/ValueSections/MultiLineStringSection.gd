@@ -15,3 +15,8 @@ func load_from_data(data : Dictionary = {}) -> void:
 	Name.text = str(data["name"], ": ")
 	value_name = data["name"]
 	value_type = 2
+	if data.has("value"):
+		Text.text = data["value"]
+
+func get_save_data() -> Dictionary:
+	return get_data()

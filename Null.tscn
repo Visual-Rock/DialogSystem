@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BaseDialogNode.gd" type="Script" id=2]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/StartDialogNode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn" type="PackedScene" id=4]
+
+[node name="NPC_001" type="GraphEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+right_disconnects = true
+scroll_offset = Vector2( -8, -36 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_values = [ {
+"name": "Names",
+"type": 0.0,
+"value": [ "Name1", "Name2" ]
+}, {
+"name": "text",
+"type": 2.0,
+"value": ""
+} ]
+connections = [ {
+"from": "StartDialogNode",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+} ]
+dialog_name = ""
+
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 36.0
+margin_right = 219.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 120, 70 )
+mouse_filter = 1
+title = "Start Node"
+offset = Vector2( 20, 0 )
+show_close = true
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 0
+node_value_start = 2
+
+[node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 308.0
+margin_top = 36.0
+margin_right = 499.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 120, 70 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 300, 0 )
+show_close = true
+resizable = true
+selected = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
