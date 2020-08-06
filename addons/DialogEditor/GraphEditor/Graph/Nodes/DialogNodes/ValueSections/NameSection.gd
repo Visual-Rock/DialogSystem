@@ -20,6 +20,8 @@ func load_from_data(data : Dictionary = {}) -> void:
 		NameMenu.add_item(_name, i)
 		name_count += 1
 		i += 1
+	if data.has("default"):
+		value_default = [data["default"]]
 	if data.has("selected"):
 		NameMenu.selected = data["selected"]
 
@@ -34,5 +36,6 @@ func get_save_data() -> Dictionary:
 	val.invert()
 	rtrn["selected"] = rtrn["value"]
 	rtrn["value"]    = val
+	rtrn["default"]  = value_default[0]
 	
 	return rtrn

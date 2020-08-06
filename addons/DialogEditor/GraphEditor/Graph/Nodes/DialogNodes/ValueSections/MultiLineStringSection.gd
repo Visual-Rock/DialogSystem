@@ -17,6 +17,10 @@ func load_from_data(data : Dictionary = {}) -> void:
 	value_type = 2
 	if data.has("value"):
 		Text.text = data["value"]
+	if data.has("default"):
+		value_default = [data["default"]]
 
 func get_save_data() -> Dictionary:
-	return get_data()
+	var rtrn : Dictionary = get_data()
+	rtrn["default"]  = value_default[0]
+	return rtrn

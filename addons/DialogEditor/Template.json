@@ -3,6 +3,7 @@
             "name": "Names",
             "type": 0,
             "selected": 0,
+            "default": 0,
             "value": [
                 "Name1",
                 "Name2"
@@ -11,7 +12,8 @@
         {
             "name": "text",
             "type": 2,
-            "value": ""
+            "value": "",
+            "default": ""
         }
     ]
 }

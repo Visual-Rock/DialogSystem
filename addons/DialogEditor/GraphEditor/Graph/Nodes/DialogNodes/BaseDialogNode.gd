@@ -4,6 +4,7 @@ extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/BaseNode.gd"
 export var node_id          : int   = -1
 export var node_value_start : int   = 2
 export var dialog_values    : Array = []
+export var include_values   : bool  = true
 
 var value_sections : Array = [
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NameSection.tscn"),
@@ -32,8 +33,6 @@ func set_node_values(new_values : Array = node_values) -> void:
 			section = value_sections[value["type"]].instance()
 			self.add_child(section)
 			section.load_from_data(value)
-	
-	print("node values set!", new_values)
 
 func get_dialog(skip_empty : bool = true) -> Dictionary:
 	
@@ -47,27 +46,28 @@ func get_dialog(skip_empty : bool = true) -> Dictionary:
 		rtrn["node_id"] = node_id
 		if self.get_child_count() - node_value_start != 0:
 			var values : Array = self.get_children()
-			for value in values:
-				if value.has_method("get_value"):
-					val.append( { "name": value.get_value_name(), "value": value.get_value() } )
+			if include_values == true:
+				for value in values:
+					if value.has_method("get_value"):
+						val.append( { "name": value.get_value_name(), "value": value.get_value() } )
+				rtrn["values"]  = val
 	
 	rtrn["options"] = get_options()
-	rtrn["values"]  = val
 	return rtrn
 
 func values_all_default() -> bool:
 	if self.get_child_count() - node_value_start != 0:
 		var values : Array = self.get_children()
 		for value in values:
-			if !value.has_method("is_default_value"):
-				return false
-				break
+			if value.has_method("is_default_value"):
+				if !value.is_default_value():
+					return false
+					break
 	return true
 
 func get_options() -> Array:
 	var rtrn : Array = []
 	var right_node : Dictionary = get_parent().get_right_connected_node(name, 0)
-	print("right connection! ", right_node)
 	if right_node.has("from"):
 		rtrn.append(get_parent().get_node(str(right_node["to"])).get_dialog())
 	else:
