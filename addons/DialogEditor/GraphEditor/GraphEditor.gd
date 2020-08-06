@@ -7,7 +7,6 @@ enum DIALOGMENU {
 	SAVEALL  = 1,
 	BAKE     = 2,
 	BAKEOPEN = 3,
-	BAKEALL  = 4,
 	CLOSE    = 5,
 	CLOSEALL = 6
 }
@@ -56,19 +55,9 @@ func dialog_menu_id_pressed(id : int) -> void:
 					graph.save_graph()
 		DIALOGMENU.BAKE:
 			if current_graph:
-				var dir    : Directory  = Directory.new()
-				var f      : File       = File.new()
-				var result : Dictionary = current_graph.bake_graph()
-				if !dir.dir_exists(str(bake_path, bake_language)):
-					dir.make_dir_recursive(str(bake_path, bake_language))
-				f.open(str(bake_path, bake_language, "/",current_graph.dialog_name, ".json"), f.WRITE)
-				f.store_string(to_json(result))
-				f.close()
-				print(result)
+				bake_graph(current_graph.dialog_name)
 		DIALOGMENU.BAKEOPEN:
-			pass
-		DIALOGMENU.BAKEALL:
-			pass
+			bake_open()
 		DIALOGMENU.CLOSE:
 			if current_graph:
 				current_graph.save_graph()
@@ -78,6 +67,23 @@ func dialog_menu_id_pressed(id : int) -> void:
 				for graph in GraphContainer.get_children():
 					graph.save_graph()
 					graph.queue_free()
+
+func bake_open() -> void:
+	for graph in GraphContainer.get_children():
+		if graph.has_method("bake_graph"):
+			bake_graph(graph.dialog_name)
+
+
+
+func bake_graph(graph_name : String) -> void:
+	var dir    : Directory  = Directory.new()
+	var f      : File       = File.new()
+	var result : Dictionary = get_graph_by_name(graph_name).bake_graph()
+	if !dir.dir_exists(str(bake_path, bake_language)):
+		dir.make_dir_recursive(str(bake_path, bake_language))
+	f.open(str(bake_path, bake_language, "/",graph_name, ".json"), f.WRITE)
+	f.store_string(to_json(result))
+	f.close()
 
 func node_menu_id_pressed(id : int) -> void:
 	if GraphContainer.get_child_count() != 0:
@@ -132,3 +138,10 @@ func update_settings() -> void:
 		f.open(node_template, f.READ)
 		node_values = parse_json(f.get_as_text())
 		f.close()
+
+func get_graph_by_name(graph_name) -> Node:
+	for node in GraphContainer.get_children():
+		if node.name == graph_name:
+			return node
+	open_graph(graph_name)
+	return get_graph_by_name(graph_name)

@@ -33,7 +33,7 @@ margin_bottom = 20.0
 margin_right = 52.0
 margin_bottom = 20.0
 text = "Dialog"
-items = [ "Save", null, 0, false, false, 0, 0, null, "", false, "Save All", null, 0, false, false, 1, 0, null, "", false, "Bake", null, 0, false, false, 2, 0, null, "", false, "Bake All Opened", null, 0, false, false, 3, 0, null, "", false, "Bake All", null, 0, false, false, 4, 0, null, "", false, "close current", null, 0, false, false, 5, 0, null, "", false, "close All", null, 0, false, false, 6, 0, null, "", false ]
+items = [ "Save", null, 0, false, false, 0, 0, null, "", false, "Save All", null, 0, false, false, 1, 0, null, "", false, "Bake", null, 0, false, false, 2, 0, null, "", false, "Bake All Opened", null, 0, false, false, 3, 0, null, "", false, "close current", null, 0, false, false, 5, 0, null, "", false, "close All", null, 0, false, false, 6, 0, null, "", false ]
 
 [node name="NodeMenu" type="MenuButton" parent="HSplitContainer/MainWindow/Toolbar"]
 margin_left = 56.0
