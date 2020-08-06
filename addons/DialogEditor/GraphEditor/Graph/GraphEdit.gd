@@ -47,9 +47,13 @@ func save_graph() -> void:
 func bake_graph() -> Dictionary:
 	if start_node != null:
 		editor.debug_message("Started Baking!")
-		return start_node.get_dialog()
+		var dialog : Dictionary
+		dialog["dialog"] = start_node.get_dialog()
+		dialog["values"] = node_values
+		return dialog
 	else:
 		editor.debug_message("No Start Node Detected!")
+		printerr("No Start node on ", dialog_name, " found!")
 		return { "node_id": 99 }
 
 # Add Node to Graph

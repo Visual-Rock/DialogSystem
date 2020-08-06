@@ -26,6 +26,7 @@ var empty_graph   : String    = "res://addons/DialogEditor/GraphEditor/Graph/Gra
 
 var settings_save_path : String     = "res://addons/DialogEditor/settings.json"
 var save_path          : String     = "res://addons/DialogEditor/Saves/"
+var bake_path          : String     = "res://Dialogs"
 var bake_language      : String     = "en"
 var node_template      : String     = "res://addons/DialogEditor/Template.json"
 var node_values        : Dictionary = {}
@@ -55,8 +56,15 @@ func dialog_menu_id_pressed(id : int) -> void:
 					graph.save_graph()
 		DIALOGMENU.BAKE:
 			if current_graph:
+				var dir    : Directory  = Directory.new()
+				var f      : File       = File.new()
 				var result : Dictionary = current_graph.bake_graph()
-				print( { "dialog": result } )
+				if !dir.dir_exists(str(bake_path, bake_language)):
+					dir.make_dir_recursive(str(bake_path, bake_language))
+				f.open(str(bake_path, bake_language, current_graph.dialog_name, ".json"), f.WRITE)
+				f.store_string(to_json(result))
+				f.close()
+				print(result)
 		DIALOGMENU.BAKEOPEN:
 			pass
 		DIALOGMENU.BAKEALL:
@@ -111,6 +119,8 @@ func update_settings() -> void:
 	if f.file_exists(settings_save_path):
 		f.open(settings_save_path, f.READ)
 		var data = parse_json(f.get_as_text())
+		save_path     = data["SavePath"]
+		bake_path     = data["BakePath"]
 		bake_language = data["DefaultBakeLanguage"]
 		node_template = data["DefaultNodeTemplate"]
 		f.close()
