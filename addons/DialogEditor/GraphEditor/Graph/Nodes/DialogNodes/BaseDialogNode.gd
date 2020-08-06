@@ -86,6 +86,7 @@ func save_node() -> void:
 func node_group() -> int:
 	return 0
 
-
+func get_node_id() -> int:
+	return node_id
 
 

@@ -27,6 +27,11 @@ func _ready() -> void:
 	if connections.size() != 0:
 		for c in connections:
 			connect_node(c["from"], c["from_port"], c["to"], c["to_port"])
+	for node in self.get_children():
+		if node is GraphNode:
+			if node.node_group() == 0:
+				if node.get_node_id() == 0:
+					start_node = node
 
 # Saves the Graph as a .tscn file
 func save_graph() -> void:
