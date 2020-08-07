@@ -26,6 +26,7 @@ var empty_graph   : String    = "res://addons/DialogEditor/GraphEditor/Graph/Gra
 var settings_save_path : String     = "res://addons/DialogEditor/settings.json"
 var save_path          : String     = "res://addons/DialogEditor/Saves/"
 var bake_path          : String     = "res://Dialogs"
+var skip_empty         : bool       = true
 var bake_language      : String     = "en"
 var node_template      : String     = "res://addons/DialogEditor/Template.json"
 var node_values        : Dictionary = {}
@@ -73,12 +74,10 @@ func bake_open() -> void:
 		if graph.has_method("bake_graph"):
 			bake_graph(graph.dialog_name)
 
-
-
 func bake_graph(graph_name : String) -> void:
 	var dir    : Directory  = Directory.new()
 	var f      : File       = File.new()
-	var result : Dictionary = get_graph_by_name(graph_name).bake_graph()
+	var result : Dictionary = get_graph_by_name(graph_name).bake_graph(skip_empty)
 	if !dir.dir_exists(str(bake_path, bake_language)):
 		dir.make_dir_recursive(str(bake_path, bake_language))
 	f.open(str(bake_path, bake_language, "/",graph_name, ".json"), f.WRITE)
@@ -133,6 +132,7 @@ func update_settings() -> void:
 			bake_path = str(bake_path, "/")
 		bake_language = data["DefaultBakeLanguage"]
 		node_template = data["DefaultNodeTemplate"]
+		skip_empty    = data["SkipEmptyNodes"]
 		f.close()
 	if f.file_exists(node_template):
 		f.open(node_template, f.READ)

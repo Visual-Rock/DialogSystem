@@ -44,11 +44,11 @@ func save_graph() -> void:
 	print(str(editor.save_path, dialog_name, ".tscn"))
 	ResourceSaver.save(str(editor.save_path, dialog_name, ".tscn"), scene)
 
-func bake_graph() -> Dictionary:
+func bake_graph(skip_empty : bool) -> Dictionary:
 	if start_node != null:
 		editor.debug_message("Started Baking!")
 		var dialog : Dictionary
-		dialog["dialog"] = start_node.get_dialog()
+		dialog["dialog"] = start_node.get_dialog(skip_empty)
 		dialog["values"] = node_values
 		return dialog
 	else:

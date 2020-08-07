@@ -40,8 +40,7 @@ func get_dialog(skip_empty : bool = true) -> Dictionary:
 	var val  : Array      = []
 	
 	if values_all_default() && skip_empty:
-		# Skip Node
-		pass
+		rtrn["node_id"] = 98
 	else:
 		rtrn["node_id"] = node_id
 		if self.get_child_count() - node_value_start != 0:
@@ -51,8 +50,7 @@ func get_dialog(skip_empty : bool = true) -> Dictionary:
 					if value.has_method("get_value"):
 						val.append( { "name": value.get_value_name(), "value": value.get_value() } )
 				rtrn["values"]  = val
-	
-	rtrn["options"] = get_options()
+	rtrn["options"] = get_options(skip_empty)
 	return rtrn
 
 func values_all_default() -> bool:
@@ -65,11 +63,11 @@ func values_all_default() -> bool:
 					break
 	return true
 
-func get_options() -> Array:
+func get_options(skip_empty : bool) -> Array:
 	var rtrn : Array = []
 	var right_node : Dictionary = get_parent().get_right_connected_node(name, 0)
 	if right_node.has("from"):
-		rtrn.append(get_parent().get_node(str(right_node["to"])).get_dialog())
+		rtrn.append(get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty))
 	else:
 		rtrn.append( { "node_id": 99 } )
 	return rtrn
@@ -79,7 +77,7 @@ func save_node() -> void:
 	if self.get_child_count() - node_value_start != 0:
 		var values : Array = self.get_children()
 		for value in values:
-			if value.has_method("get_value"):
+			if value.has_method("get_save_data"):
 				val.append( value.get_save_data() )
 	dialog_values = val
 
@@ -88,5 +86,4 @@ func node_group() -> int:
 
 func get_node_id() -> int:
 	return node_id
-
 

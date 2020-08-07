@@ -8,6 +8,9 @@ export var value_default : Array  = []
 func get_data() -> Dictionary:
 	return { "name": value_name, "type": value_type, "value": get_value() }
 
+func get_value_data() -> Dictionary:
+	return {}
+
 func get_save_data() -> Dictionary:
 	return {}
 

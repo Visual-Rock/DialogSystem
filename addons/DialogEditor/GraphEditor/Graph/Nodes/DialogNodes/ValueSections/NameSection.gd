@@ -39,3 +39,16 @@ func get_save_data() -> Dictionary:
 	rtrn["default"]  = value_default[0]
 	
 	return rtrn
+
+func get_value_data() -> Dictionary:
+	var rtrn : Dictionary = self.get_data()
+	var val : Array = []
+	var nc : int = name_count
+	
+	while nc != 0:
+		val.append(NameMenu.get_item_text(nc - 1))
+		nc -= 1
+	val.invert()
+	rtrn["value"]    = val
+	
+	return rtrn
