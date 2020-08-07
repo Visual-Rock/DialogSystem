@@ -1,0 +1,28 @@
+{
+    "dialog": {
+        "node_id": 0,
+        "options": {
+            "0": {
+                "node_id": 1,
+                "options": { "0": { "node_id": 99 } },
+                "value": [
+                    { "name": "Names", "value": 1 },
+                    { "name": "text", "value": "of Linear Dialog" }
+                ]
+            }
+        },
+        "value": [
+            { "name": "Names", "value": 0 },
+            { "name": "text", "value": "Just An Example!" }
+        ]
+    },
+    "value": [{
+            "default": 0,
+            "name": "Names",
+            "selected": 0,
+            "type": 0,
+            "value": ["Name1", "Name2"]
+        },
+        { "default": "", "name": "text", "type": 2, "value": "" }
+    ]
+}
