@@ -63,13 +63,13 @@ func values_all_default() -> bool:
 					break
 	return true
 
-func get_options(skip_empty : bool) -> Array:
-	var rtrn : Array = []
+func get_options(skip_empty : bool) -> Dictionary:
+	var rtrn : Dictionary = {}
 	var right_node : Dictionary = get_parent().get_right_connected_node(name, 0)
 	if right_node.has("from"):
-		rtrn.append(get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty))
+		rtrn["0"] = get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty)
 	else:
-		rtrn.append( { "node_id": 99 } )
+		rtrn["0"] = { "node_id": 99 }
 	return rtrn
 
 func save_node() -> void:
