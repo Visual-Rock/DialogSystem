@@ -1,3 +1,4 @@
+tool
 extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BaseValueSection.gd"
 
 onready var ValueBox : SpinBox = self.get_node("SpinBox")

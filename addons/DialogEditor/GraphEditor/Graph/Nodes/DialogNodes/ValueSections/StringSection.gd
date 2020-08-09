@@ -1,3 +1,4 @@
+tool
 extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BaseValueSection.gd"
 
 onready var StringLine : LineEdit = self.get_node("LineEdit")
