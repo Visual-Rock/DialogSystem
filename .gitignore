@@ -13,3 +13,4 @@ data_*/
 *.data
 addons/DialogEditor/settings.json
 addons/DialogEditor/Saves/
+Dialogs/
