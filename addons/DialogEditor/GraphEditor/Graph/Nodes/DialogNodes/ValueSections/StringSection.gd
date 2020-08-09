@@ -1,19 +1,16 @@
-tool
 extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BaseValueSection.gd"
 
-onready var Text : TextEdit = self.get_node("VBoxContainer/TextEdit")
-onready var Name : Label    = self.get_node("VBoxContainer/Label")
+onready var StringLine : LineEdit = self.get_node("LineEdit")
 
 func get_value():
-	return Text.text
+	return StringLine.text
 
 func load_from_data(data : Dictionary = {}) -> void:
-	Text.text = data["value"]
-	Name.text = str(data["name"], ": ")
+	StringLine.placeholder_text = data["name"]
 	value_name = data["name"]
-	value_type = 2
+	value_type = 1
 	if data.has("value"):
-		Text.text = data["value"]
+		StringLine.text = data["value"]
 	if data.has("default"):
 		value_default = [data["default"]]
 

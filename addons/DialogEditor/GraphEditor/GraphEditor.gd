@@ -102,6 +102,10 @@ func open_graph(path : String) -> void:
 			Graph = load(path).instance()
 		else:
 			Graph = load(empty_graph).instance()
+			if f.file_exists(node_template):
+				f.open(node_template, f.READ)
+				node_values = parse_json(f.get_as_text())
+				f.close()
 			if node_values.has("node_values"):
 				Graph.node_values = node_values["node_values"]
 			Graph.dialog_name = path.get_file().trim_suffix(".tscn")

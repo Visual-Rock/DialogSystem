@@ -24,3 +24,4 @@ func _on_Button2_pressed():
 	d.back_to_start()
 	set_ui(d.get_values())
 	$DialogLayer/Control/VBoxContainer/HBoxContainer/Button2.hide()
+
