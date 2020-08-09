@@ -49,7 +49,7 @@ func get_dialog(skip_empty : bool = true) -> Dictionary:
 				for value in values:
 					if value.has_method("get_value"):
 						val.append( { "name": value.get_value_name(), "value": value.get_value() } )
-				rtrn["values"]  = val
+				rtrn["value"]  = val
 	rtrn["options"] = get_options(skip_empty)
 	return rtrn
 
