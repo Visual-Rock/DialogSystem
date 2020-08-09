@@ -2,15 +2,17 @@ tool
 extends GraphEdit
 
 enum NODES {
-	START = 0,
-	TEXT  = 1,
+	START  = 0,
+	TEXT   = 1,
+	BRANCH = 2,
 	
-	END   = 99,
+	END    = 99,
 }
 
 var nodes : Dictionary = {
 	"0": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/StartDialogNode.tscn"), # Start Node
 	"1": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn"),  # Text Node
+	"2": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.tscn") # Branch Node
 }
 
 var editor : Control

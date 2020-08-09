@@ -40,7 +40,7 @@ margin_left = 56.0
 margin_right = 102.0
 margin_bottom = 20.0
 text = "Node"
-items = [ "Start Node", null, 0, false, false, 0, 0, null, "", false, "Text Node", null, 0, false, false, 1, 0, null, "", false, "End Node", null, 0, false, false, 99, 0, null, "", false ]
+items = [ "Start Node", null, 0, false, false, 0, 0, null, "", false, "Text Node", null, 0, false, false, 1, 0, null, "", false, "Branch Node", null, 0, false, false, 2, 0, null, "", false, "End Node", null, 0, false, false, 99, 0, null, "", false ]
 
 [node name="TabContainer" type="TabContainer" parent="HSplitContainer/MainWindow"]
 margin_top = 24.0
