@@ -9,8 +9,6 @@ export_presets.cfg
 data_*/
 
 # Addon ignores
-*.save
-*.data
 addons/DialogEditor/settings.json
-addons/DialogEditor/Saves/
 Dialogs/
+*.tmp
