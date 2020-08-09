@@ -9,7 +9,7 @@ func get_value():
 func load_from_data(data : Dictionary = {}) -> void:
 	Name.text = str(data["name"], ": ")
 	value_name = data["name"]
-	value_type = 2
+	value_type = 3
 	if data.has("value"):
 		Checkbox.pressed = data["value"]
 	elif data.has("default"):

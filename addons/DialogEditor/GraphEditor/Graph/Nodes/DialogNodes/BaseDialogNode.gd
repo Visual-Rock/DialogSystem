@@ -10,7 +10,8 @@ var value_sections : Array = [
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NameSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/StringSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/MultiLineStringSection.tscn"),
-	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BooleanSection.tscn")
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BooleanSection.tscn"),
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NumberSection.tscn")
 ]
 
 var node_values   : Array = []

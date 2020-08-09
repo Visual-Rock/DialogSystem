@@ -128,13 +128,13 @@ func save_dialog() -> void:
 	# crears a new instance of File
 	var f : File = File.new()
 	# opens the savefile (or creates it if it does not exist) in Write mode
-	f.open(str(dialog_manager.get_save_path(), dialog_name, ".data"), f.WRITE)
-	# stores the data
-	f.store_var(data)
-	# closes the file
-	f.close()
-	
-	print("Saved ", dialog_name)
+	if f.open(str(dialog_manager.get_save_path(), dialog_name, ".data"), f.WRITE) == OK:
+		# stores the data
+		f.store_var(data)
+		# closes the file
+		f.close()
+		
+		print("Saved ", dialog_name)
 
 func popup_delete_dialog() -> void:
 	# Popup in the center of the screen relative to its current canvas transform
