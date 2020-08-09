@@ -12,7 +12,9 @@ func get_value_data() -> Dictionary:
 	return {}
 
 func get_save_data() -> Dictionary:
-	return {}
+	var rtrn : Dictionary = get_data()
+	rtrn["default"]  = value_default[0]
+	return rtrn
 
 func get_value():
 	pass

@@ -13,8 +13,3 @@ func load_from_data(data : Dictionary = {}) -> void:
 		StringLine.text = data["value"]
 	if data.has("default"):
 		value_default = [data["default"]]
-
-func get_save_data() -> Dictionary:
-	var rtrn : Dictionary = get_data()
-	rtrn["default"]  = value_default[0]
-	return rtrn

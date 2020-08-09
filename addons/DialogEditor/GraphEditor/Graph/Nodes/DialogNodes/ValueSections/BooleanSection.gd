@@ -1,17 +1,18 @@
-tool
 extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BaseValueSection.gd"
 
-onready var Text : TextEdit = self.get_node("VBoxContainer/TextEdit")
-onready var Name : Label    = self.get_node("VBoxContainer/Label")
+onready var Checkbox : CheckBox = self.get_node("CheckBox")
+onready var Name     : Label    = self.get_node("name")
 
 func get_value():
-	return Text.text
+	return Checkbox.pressed
 
 func load_from_data(data : Dictionary = {}) -> void:
 	Name.text = str(data["name"], ": ")
 	value_name = data["name"]
 	value_type = 2
 	if data.has("value"):
-		Text.text = data["value"]
+		Checkbox.pressed = data["value"]
+	elif data.has("default"):
+		Checkbox.pressed = data["default"]
 	if data.has("default"):
 		value_default = [data["default"]]
