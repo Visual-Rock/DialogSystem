@@ -13,3 +13,6 @@ addons/DialogEditor/settings.json
 Dialogs/
 *.tmp
 addons/DialogEditor/TestTemplate.json
+addons/DialogEditor/Saves/Test.data
+addons/DialogEditor/Saves/Test.tscn
+Example/Bakes/en/Test.json

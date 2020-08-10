@@ -1,6 +1,7 @@
 extends HBoxContainer
 
-export var data : Dictionary = {}
+export var branch_type : int = -1
+var branch_pos         : int = 0
 
-func save() -> void:
-	pass
+func get_branch_name() -> String:
+	return ""

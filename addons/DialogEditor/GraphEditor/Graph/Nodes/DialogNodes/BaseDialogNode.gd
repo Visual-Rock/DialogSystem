@@ -32,9 +32,10 @@ func set_node_values(new_values : Array = node_values) -> void:
 	if new_values.size() != 0:
 		var section : HBoxContainer
 		for value in new_values:
-			section = value_sections[value["type"]].instance()
-			self.add_child(section)
-			section.load_from_data(value)
+			if value:
+				section = value_sections[value["type"]].instance()
+				self.add_child(section)
+				section.load_from_data(value)
 
 func get_dialog(skip_empty : bool = true) -> Dictionary:
 	
