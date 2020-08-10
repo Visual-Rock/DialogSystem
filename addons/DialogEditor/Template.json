@@ -1,5 +1,6 @@
 {
-    "node_values": [{
+    "node_values": [
+        {
             "name": "Names",
             "type": 0,
             "selected": 0,

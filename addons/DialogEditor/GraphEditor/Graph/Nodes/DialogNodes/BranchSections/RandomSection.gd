@@ -8,3 +8,9 @@ func _ready() -> void:
 
 func get_branch_name() -> String:
 	return str(branch_pos - 1)
+
+func set_text(new_text : String) -> void:
+	TextLabel.text = str(branch_pos - 1)
+
+func get_branch_bake() -> String:
+	return str(branch_pos - 1)

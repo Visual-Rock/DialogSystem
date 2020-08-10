@@ -1,0 +1,96 @@
+{
+    "dialog": {
+        "node_id": 0,
+        "options": {
+            "0": {
+                "branch_type": 0,
+                "node_id": 2,
+                "options": {
+                    "Based on a Value": {
+                        "branch_type": 2,
+                        "branch_value_name": "",
+                        "node_id": 2,
+                        "options": {
+                            "dialog_1": {
+                                "node_id": 99
+                            },
+                            "dialog_2": {
+                                "node_id": 99
+                            }
+                        },
+                        "value": [
+                            {
+                                "name": "Names",
+                                "value": 0
+                            },
+                            {
+                                "name": "text",
+                                "value": "Value"
+                            }
+                        ]
+                    },
+                    "Random Dialog": {
+                        "branch_type": 1,
+                        "node_id": 2,
+                        "options": {
+                            "-1": {
+                                "node_id": 99
+                            },
+                            "0": {
+                                "node_id": 99
+                            }
+                        },
+                        "value": [
+                            {
+                                "name": "Names",
+                                "value": 0
+                            },
+                            {
+                                "name": "text",
+                                "value": "Random"
+                            }
+                        ]
+                    }
+                },
+                "value": [
+                    {
+                        "name": "Names",
+                        "value": 1
+                    },
+                    {
+                        "name": "text",
+                        "value": "Select the next Branch!"
+                    }
+                ]
+            }
+        },
+        "value": [
+            {
+                "name": "Names",
+                "value": 0
+            },
+            {
+                "name": "text",
+                "value": "Branching Example!"
+            }
+        ]
+    },
+    "value": [
+        {
+            "default": 0,
+            "name": "Names",
+            "selected": 0,
+            "type": 0,
+            "value": [
+                "Name1",
+                "Name2"
+            ]
+        },
+        {
+            "default": "",
+            "name": "text",
+            "type": 2,
+            "value": ""
+        }
+    ]
+}

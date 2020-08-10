@@ -12,9 +12,9 @@ onready var BranchAmount    : SpinBox       = self.get_node("VBoxContainer/HBoxC
 onready var BranchSettings  : VBoxContainer = self.get_node("VBoxContainer")
 onready var BranchValueName : LineEdit      = self.get_node("VBoxContainer/ValueName")
 
-export var branch_values   : Dictionary = {}
-export var branch_amount   : int        = 1
-export var branch_type     : int        = 0
+export var branch_values   : Array = []
+export var branch_amount   : int   = 1
+export var branch_type     : int   = 0
 
 var branch_options  : Array = []
 var branch_sections : Array = [
@@ -26,29 +26,72 @@ var branch_sections : Array = [
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if BranchAmount:
+		BranchAmount.value = branch_amount
 		BranchAmount.connect("value_changed", self, "branch_amount_update")
 	if BranchOption:
+		BranchOption.selected = branch_type
 		BranchOption.connect("item_selected", self, "branch_type_update")
-
-func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
-	branch_amount = new_branch_amount
-	branch_type = BranchOption.selected
 	if branch_options.size() != 0:
 		for branch in branch_options:
 			if branch:
 				branch.queue_free()
-	for i in self.get_child_count():
-		self.set_slot(i, false, 0, Color(1,1,1,1), false, 0, Color(1,1,1,1), null, null)
+	if branch_values.size() != 0:
+		var values         : Array         = branch_values
+		var branch_section : HBoxContainer
+		var i              : int           
+		values.invert()
+		for branch in values:
+			if branch:
+				branch_section = branch_sections[branch_type].instance()
+				i = values.find(branch)
+				branch_options.append(branch_section)
+				branch_section.branch_pos = i
+				self.add_child_below_node(BranchSettings, branch_section)
+				self.set_slot(i + 1, false, 0, Color(1,1,1,1), true, 0, Color(1,1,1,1), null, null)
+				branch_section.set_text(branch)
+	if branch_type == BRANCHTYPES.VALUE:
+		BranchValueName.show()
+	else:
+		BranchValueName.hide()
 	self.set_slot(0, true, 0, Color(1,1,1,1), false, 0, Color(1,1,1,1), null, null)
+
+func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
+	branch_amount = new_branch_amount
+	branch_type = BranchOption.selected
+	branch_values = []
+	
+	if branch_options.size() != 0:
+		for branch in branch_options:
+			if branch:
+				branch_values.append(branch.get_branch_name())
+				branch.free()
+	branch_options = []
+	self.clear_all_slots()
+	
+	branch_values.resize(new_branch_amount)
+	branch_values.invert()
 	var i : int = new_branch_amount
-	while i != 0:
-		var branch_section : HBoxContainer = branch_sections[branch_type].instance()
+	var branch_section : HBoxContainer
+	
+	for value in branch_values.size():
+		branch_section = branch_sections[branch_type].instance()
 		branch_options.append(branch_section)
-		branch_section.branch_pos = i
-		branch_section.name       = str(i)
-		self.set_slot(i, false, 0, Color(1,1,1,1), true, 0, Color(1,1,1,1), null, null)
+		i = value
+		print(value)
+		branch_section.branch_pos = branch_amount - i
 		self.add_child_below_node(BranchSettings, branch_section)
-		i -= 1
+		self.set_slot(i + 1, false, 0, Color(1,1,1,1), true, 0, Color(1,1,1,1), null, null)
+		if branch_values[value] != null:
+			branch_section.set_text(branch_values[value])
+	self.set_slot(0, true, 0, Color(1,1,1,1), false, 0, Color(1,1,1,1), null, null)
+	
+	branch_options.invert()
+	
+	branch_values = []
+	for branch in branch_options:
+		if branch:
+			branch_values.append(branch.get_branch_name())
+	
 	if branch_type == BRANCHTYPES.VALUE:
 		BranchValueName.show()
 	else:
@@ -72,7 +115,14 @@ func get_options(skip_empty : bool) -> Dictionary:
 		if branch:
 			right_node = get_parent().get_right_connected_node(name, branch.branch_pos)
 			if right_node.has("to"):
-				rtrn[branch.get_branch_name()] = get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty)
+				rtrn[branch.get_branch_bake()] = get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty)
 			else:
 				rtrn[branch.get_branch_name()] = { "node_id": 99 }
 	return rtrn
+
+func save_node() -> void:
+	.save_node()
+	branch_values = []
+	for branch in branch_options:
+		if branch:
+			branch_values.append(branch.get_branch_name())

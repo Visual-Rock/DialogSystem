@@ -7,6 +7,12 @@ func _ready() -> void:
 	LE.placeholder_text = str("Way ", branch_pos - 1)
 
 func get_branch_name() -> String:
+	return LE.text
+
+func set_text(new_text : String) -> void:
+	LE.text = new_text
+
+func get_branch_bake() -> String:
 	if LE.text != "":
 		return LE.text
 	else:
