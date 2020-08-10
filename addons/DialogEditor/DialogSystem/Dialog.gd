@@ -87,7 +87,9 @@ func start() -> int:
 	return OK
 
 func get_options() -> Array:
-	return current_dialog["options"].keys()
+	var opt : Array = current_dialog["options"].keys()
+	opt.invert()
+	return opt
 
 func get_values(dict : Dictionary = {}) -> Dictionary:
 	var rtrn : Dictionary = dict

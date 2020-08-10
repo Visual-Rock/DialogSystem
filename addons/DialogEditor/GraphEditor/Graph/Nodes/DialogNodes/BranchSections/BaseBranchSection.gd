@@ -1,3 +1,4 @@
+tool
 extends HBoxContainer
 
 export var branch_type : int = -1

@@ -31,11 +31,15 @@ func _ready() -> void:
 		BranchOption.connect("item_selected", self, "branch_type_update")
 
 func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
+	branch_amount = new_branch_amount
 	branch_type = BranchOption.selected
 	if branch_options.size() != 0:
 		for branch in branch_options:
 			if branch:
 				branch.queue_free()
+	for i in self.get_child_count():
+		self.set_slot(i, false, 0, Color(1,1,1,1), false, 0, Color(1,1,1,1), null, null)
+	self.set_slot(0, true, 0, Color(1,1,1,1), false, 0, Color(1,1,1,1), null, null)
 	var i : int = new_branch_amount
 	while i != 0:
 		var branch_section : HBoxContainer = branch_sections[branch_type].instance()
