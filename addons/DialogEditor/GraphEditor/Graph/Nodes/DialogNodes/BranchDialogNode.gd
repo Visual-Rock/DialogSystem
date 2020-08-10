@@ -100,6 +100,10 @@ func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
 func branch_type_update(_selected : int = branch_type) -> void:
 	branch_type = _selected
 	branch_amount_update()
+	if _selected == BRANCHTYPES.RANDOM || _selected == BRANCHTYPES.VALUE:
+		include_values = false
+	else:
+		include_values = true
 
 func get_dialog(skip_empty : bool = true) -> Dictionary:
 	var rtrn : Dictionary = .get_dialog(skip_empty)
