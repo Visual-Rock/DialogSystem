@@ -12,9 +12,10 @@ onready var BranchAmount    : SpinBox       = self.get_node("VBoxContainer/HBoxC
 onready var BranchSettings  : VBoxContainer = self.get_node("VBoxContainer")
 onready var BranchValueName : LineEdit      = self.get_node("VBoxContainer/ValueName")
 
-export var branch_values   : Array = []
-export var branch_amount   : int   = 1
-export var branch_type     : int   = 0
+export var branch_values   : Array  = []
+export var branch_value    : String = ""
+export var branch_amount   : int    = 1
+export var branch_type     : int    = 0
 
 var branch_options  : Array = []
 var branch_sections : Array = [
@@ -35,6 +36,8 @@ func _ready() -> void:
 		for branch in branch_options:
 			if branch:
 				branch.queue_free()
+	if branch_type == BRANCHTYPES.VALUE:
+		BranchValueName.text = branch_value
 	if branch_values.size() != 0:
 		var values         : Array         = branch_values
 		var branch_section : HBoxContainer
@@ -122,7 +125,7 @@ func get_options(skip_empty : bool) -> Dictionary:
 	var right_node : Dictionary
 	for branch in branch_options:
 		if branch:
-			right_node = get_parent().get_right_connected_node(name, branch.branch_pos)
+			right_node = get_parent().get_right_connected_node(name, branch.branch_pos + 1)
 			if right_node.has("to"):
 				rtrn[branch.get_branch_bake()] = get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty)
 			else:
@@ -131,7 +134,10 @@ func get_options(skip_empty : bool) -> Dictionary:
 
 func save_node() -> void:
 	.save_node()
+	if branch_type == BRANCHTYPES.VALUE:
+		branch_value = BranchValueName.text
 	branch_values = []
 	for branch in branch_options:
 		if branch:
 			branch_values.append(branch.get_branch_name())
+	branch_values.invert()

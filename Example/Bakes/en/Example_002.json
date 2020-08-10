@@ -8,14 +8,29 @@
                 "options": {
                     "Based on a Value": {
                         "branch_type": 2,
-                        "branch_value_name": "",
+                        "branch_value_name": "selected",
                         "node_id": 2,
                         "options": {
                             "dialog_1": {
                                 "node_id": 99
                             },
                             "dialog_2": {
-                                "node_id": 99
+                                "node_id": 1,
+                                "options": {
+                                    "0": {
+                                        "node_id": 99
+                                    }
+                                },
+                                "value": [
+                                    {
+                                        "name": "Names",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "text",
+                                        "value": "dialog 2"
+                                    }
+                                ]
                             }
                         },
                         "value": [
@@ -30,26 +45,7 @@
                         ]
                     },
                     "Random Dialog": {
-                        "branch_type": 1,
-                        "node_id": 2,
-                        "options": {
-                            "-1": {
-                                "node_id": 99
-                            },
-                            "0": {
-                                "node_id": 99
-                            }
-                        },
-                        "value": [
-                            {
-                                "name": "Names",
-                                "value": 0
-                            },
-                            {
-                                "name": "text",
-                                "value": "Random"
-                            }
-                        ]
+                        "node_id": 99
                     }
                 },
                 "value": [
