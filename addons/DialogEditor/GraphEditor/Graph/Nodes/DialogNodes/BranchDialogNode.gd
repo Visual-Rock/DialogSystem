@@ -38,7 +38,8 @@ func _ready() -> void:
 	if branch_values.size() != 0:
 		var values         : Array         = branch_values
 		var branch_section : HBoxContainer
-		var i              : int           
+		var i              : int
+		#if branch_type != BRANCHTYPES.RANDOM:         
 		values.invert()
 		for branch in values:
 			if branch:
@@ -48,7 +49,11 @@ func _ready() -> void:
 				branch_section.branch_pos = i
 				self.add_child_below_node(BranchSettings, branch_section)
 				self.set_slot(i + 1, false, 0, Color(1,1,1,1), true, 0, Color(1,1,1,1), null, null)
-				branch_section.set_text(branch)
+				if branch_type != BRANCHTYPES.RANDOM:
+					branch_section.set_text(branch)
+				else:
+					branch_section.branch_pos = (int(branch) * -1) + 1
+					branch_section.set_text(branch, true)
 	if branch_type == BRANCHTYPES.VALUE:
 		BranchValueName.show()
 	else:
@@ -64,7 +69,7 @@ func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
 		for branch in branch_options:
 			if branch:
 				branch_values.append(branch.get_branch_name())
-				branch.free()
+				branch.queue_free()
 	branch_options = []
 	self.clear_all_slots()
 	
