@@ -24,9 +24,15 @@ export var node_values : Array  = []
 export var connections : Array  = []
 export var dialog_name : String = ""
 
+var copy : Array = []
+
 func _ready() -> void:
 	self.connect("connection_request", self, "connection_request")
 	self.connect("disconnection_request", self, "disconnection_request")
+	self.connect("delete_nodes_request", self, "delete_selected_nodes")
+	self.connect("copy_nodes_request", self, "copy_selected_nodes")
+	self.connect("paste_nodes_request", self, "paste_selected_nodes")
+	self.connect("duplicate_nodes_request", self, "duplicate_selected_nodes")
 	if connections.size() != 0:
 		for c in connections:
 			connect_node(c["from"], c["from_port"], c["to"], c["to_port"])
@@ -98,3 +104,47 @@ func get_left_connected_node(node_name : String, slot : int) -> Dictionary:
 			return connection
 			break
 	return {}
+
+func delete_selected_nodes() -> void:
+	for node in self.get_children():
+		if node is GraphNode:
+			if node.is_selected():
+				node.queue_free()
+
+func copy_selected_nodes() -> void:
+	copy = []
+	for node in self.get_children():
+		if node is GraphNode:
+			if node.is_selected():
+				copy.append(node)
+
+func paste_selected_nodes() -> void:
+	print("paste")
+	var n    : GraphNode
+	var data : Dictionary
+	for node in copy:
+		data = node.get_paste_data()
+		n = nodes[str(data["node_id"])].instance()
+		n.dialog_values = data["values"]
+		if data["node_id"] == 2:
+			n.branch_type = data["branch_type"]
+			n.branch_values = data["options"]
+			n.branch_amount = data["options"].size()
+		n.offset = node.offset
+		n.offset.y += 30
+		n.offset.x += 20
+		n.selected = true
+		node.selected = false
+		self.add_child(n)
+
+func duplicate_selected_nodes() -> void:
+	copy_selected_nodes()
+	paste_selected_nodes()
+
+
+
+
+
+
+
+

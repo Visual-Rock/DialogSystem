@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="DialogSystem"
-run/main_scene="res://addons/DialogEditor/DialogEditor.tscn"
+run/main_scene="res://Example/BranchingExample.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]

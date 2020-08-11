@@ -135,7 +135,7 @@ func update_settings() -> void:
 		if !bake_path.ends_with("/"):
 			bake_path = str(bake_path, "/")
 		bake_language = data["DefaultBakeLanguage"]
-		node_template = data["DefaultNodeTemplate"]
+		#node_template = data["DefaultNodeTemplate"]
 		skip_empty    = data["SkipEmptyNodes"]
 		f.close()
 	if f.file_exists(node_template):

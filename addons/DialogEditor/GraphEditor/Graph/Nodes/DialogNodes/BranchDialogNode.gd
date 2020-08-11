@@ -145,7 +145,7 @@ func save_node() -> void:
 	else:
 		branch_values.invert()
 
-class SortRandomValues:
+class SortRandomValues: # for Saving
 	static func sort_ascending(a, b) -> bool:
 		# checks if dialog a's id is smaller then b's id
 		if int(a) < int(b):
@@ -153,3 +153,13 @@ class SortRandomValues:
 			return true
 		# returns true because dialog a's id is not smaller then b's id
 		return false
+
+func get_paste_data() -> Dictionary:
+	var opt = []
+	for branch in branch_options:
+		if branch:
+			opt.append(branch.get_branch_name())
+	var rtrn : Dictionary = .get_paste_data()
+	rtrn["branch_type"] = branch_type
+	rtrn["options"]     = opt
+	return rtrn

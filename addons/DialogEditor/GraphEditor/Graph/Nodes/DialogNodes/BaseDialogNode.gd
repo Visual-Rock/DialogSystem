@@ -84,6 +84,16 @@ func save_node() -> void:
 				val.append( value.get_save_data() )
 	dialog_values = val
 
+func get_paste_data() -> Dictionary:
+	var val : Array = []
+	if self.get_child_count() - node_value_start != 0:
+		var values : Array = self.get_children()
+		for value in values:
+			if value.has_method("get_save_data"):
+				val.append( value.get_save_data() )
+	
+	return { "node_id": node_id, "values": val }
+
 func node_group() -> int:
 	return 0
 
