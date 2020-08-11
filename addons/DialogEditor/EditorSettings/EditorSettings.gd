@@ -11,7 +11,7 @@ onready var Savepath     : HBoxContainer = self.get_node("MarginContainer/Scroll
 onready var Bakepath     : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/BakePath/PathSelect")
 onready var SkipNodes    : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SkipEmptyNodes/CheckBox")
 onready var BakeLanguage : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultLanguage/LanguageSelect")
-onready var NodeTemplate : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultNodeTemplate/PathSelect")
+onready var NodeTemplates: VBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect")
 
 var default_settings : Dictionary = {
 	"SavePath": "res://addons/DialogEditor/Saves",
@@ -37,7 +37,7 @@ func _ready() -> void:
 		Bakepath.set_value(settings["BakePath"])
 		SkipNodes.set_value(settings["SkipEmptyNodes"])
 		BakeLanguage.set_value(BakeLanguage.languages.find(settings["DefaultBakeLanguage"]))
-		NodeTemplate.set_value(settings["DefaultNodeTemplate"])
+		#NodeTemplate.set_value(settings["DefaultNodeTemplate"])
 	if SaveSettings:
 		SaveSettings.connect("pressed", self, "save_settings")
 	if ResetSettings:
@@ -59,8 +59,8 @@ func update_settings() -> void:
 		settings["BakePath"] = Bakepath.get_value()
 	settings["SkipEmptyNodes"] = SkipNodes.get_value()
 	settings["DefaultBakeLanguage"] = BakeLanguage.get_value()
-	if NodeTemplate.get_value().is_rel_path() || NodeTemplate.get_value().is_abs_path():
-		settings["DefaultNodeTemplate"] = NodeTemplate.get_value()
+	#if NodeTemplate.get_value().is_rel_path() || NodeTemplate.get_value().is_abs_path():
+	#	settings["NodeTemplates"] = NodeTemplates.get_value()
 	emit_signal("update_settings")
 
 func reset_settings() -> void:
