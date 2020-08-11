@@ -2,6 +2,14 @@ tool
 extends Resource
 class_name Dialog
 
+enum DIALOG {
+	START    = 0,
+	TEXT     = 1,
+	BRANCHED = 2,
+	
+	END      = 99
+}
+
 var complette_dialog : Dictionary = {}
 var current_dialog   : Dictionary = {}
 
@@ -11,6 +19,8 @@ var values           : Array      = []
 var valid_dialog     : bool       = true
 var keep_complette   : bool       = true
 var inited_dialog    : bool       = false
+
+var data             : Dictionary = {}       # Used for Variable Injection or Branching Based on Value
 
 # load Dialog
 func load_from_file(file_path : String = "", _keep_complette : bool = true) -> int:
@@ -72,7 +82,27 @@ func get_next_dialog() -> Dictionary:
 	return {}
 
 func next(next_name : String = "0") -> int:
-	current_dialog = current_dialog["options"][next_name]
+	if current_dialog["node_id"] != 99:
+		if current_dialog["options"].has(next_name):
+			current_dialog = current_dialog["options"][next_name]
+		else:
+			current_dialog = current_dialog["options"][get_options()[0]]
+		if branched_dialog():
+			match int(current_dialog["branch_type"]):
+				0: # On Selection
+					pass
+				1: # Random
+					var options : Array = get_options()
+					options.shuffle()
+					next(options[0])
+					print(get_values(), options)
+				2: # Based on value
+					if data.has(str(current_dialog["branch_value_name"])):
+						print(data[current_dialog["branch_value_name"]])
+						next(str(data[current_dialog["branch_value_name"]]))
+					else:
+						print(current_dialog["branch_value_name"], " not found!")
+						next(str(current_dialog["options"][get_options()[0]]))
 	return OK
 
 func back_to_start() -> int:
@@ -86,25 +116,30 @@ func start() -> int:
 	
 	return OK
 
-func get_options() -> Array:
+func get_options(inverted : bool = false) -> Array:
 	var opt : Array = current_dialog["options"].keys()
-	opt.invert()
+	if inverted == true:
+		opt.invert()
 	return opt
 
 func get_values(dict : Dictionary = {}) -> Dictionary:
 	var rtrn : Dictionary = dict
 	if inited_dialog == true:
-		for value in current_dialog["value"]:
-			if get_value_type(value["name"]) == 0:
-				rtrn[value["name"]] = get_name_value(value["name"])
-			else:
-				rtrn[value["name"]] = value["value"]
+		if current_dialog.has("value"):
+			for value in current_dialog["value"]:
+				if get_value_type(value["name"]) == 0:
+					rtrn[value["name"]] = get_name_value(value["name"])
+				else:
+					rtrn[value["name"]] = value["value"]
 	else:
 		print_debug("Init your dialog first!")
 	return rtrn
 
 func get_next_id(next_name : String = "0") -> int:
-	return current_dialog["options"][next_name]["node_id"]
+	if current_dialog.has("options"):
+		if current_dialog["options"].has(next_name):
+			return current_dialog["options"][next_name]["node_id"]
+	return 99
 
 func get_name_value(value_name : String) -> String:
 	for value in values:
@@ -127,9 +162,17 @@ func get_value_type(value_name : String) -> int:
 			return value["type"]
 	return 0
 
+func branched_dialog() -> bool:
+	if current_dialog["node_id"] == DIALOG.BRANCHED:
+		return true
+	else:
+		return false
 
-
-
+func get_branch_type() -> int:
+	if branched_dialog():
+		return current_dialog["branch_type"]
+	else:
+		return -1
 
 
 

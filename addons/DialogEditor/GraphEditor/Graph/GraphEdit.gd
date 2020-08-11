@@ -10,9 +10,10 @@ enum NODES {
 }
 
 var nodes : Dictionary = {
-	"0": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/StartDialogNode.tscn"), # Start Node
-	"1": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn"),  # Text Node
-	"2": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.tscn") # Branch Node
+	"0":  load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/StartDialogNode.tscn"),  # Start Node
+	"1":  load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn"),   # Text Node
+	"2":  load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.tscn"), # Branch Node
+	"99": load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/EndDialogNode.tscn")     # End Node
 }
 
 var editor : Control
