@@ -42,7 +42,6 @@ func _ready() -> void:
 		var values         : Array         = branch_values
 		var branch_section : HBoxContainer
 		var i              : int
-		#if branch_type != BRANCHTYPES.RANDOM:         
 		values.invert()
 		for branch in values:
 			if branch:
@@ -55,7 +54,7 @@ func _ready() -> void:
 				if branch_type != BRANCHTYPES.RANDOM:
 					branch_section.set_text(branch)
 				else:
-					branch_section.branch_pos = (int(branch) * -1) + 1
+					branch_section.branch_pos = int(branch)
 					branch_section.set_text(branch, true)
 	if branch_type == BRANCHTYPES.VALUE:
 		BranchValueName.show()
@@ -123,13 +122,14 @@ func get_dialog(skip_empty : bool = true) -> Dictionary:
 func get_options(skip_empty : bool) -> Dictionary:
 	var rtrn : Dictionary = {}
 	var right_node : Dictionary
-	for branch in branch_options:
-		if branch:
-			right_node = get_parent().get_right_connected_node(name, branch.branch_pos + 1)
-			if right_node.has("to"):
-				rtrn[branch.get_branch_bake()] = get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty)
-			else:
-				rtrn[branch.get_branch_name()] = { "node_id": 99 }
+	var options : Array = self.get_children()
+	options.resize(branch_amount + 1)
+	for branch in branch_amount:
+		right_node = get_parent().get_right_connected_node(name, branch)
+		if right_node.has("to"):
+			rtrn[options[branch + 1].get_branch_bake()] = get_parent().get_node(str(right_node["to"])).get_dialog(skip_empty)
+		else:
+			rtrn[options[branch + 1].get_branch_bake()] = { "node_id": 99 }
 	return rtrn
 
 func save_node() -> void:
@@ -140,4 +140,16 @@ func save_node() -> void:
 	for branch in branch_options:
 		if branch:
 			branch_values.append(branch.get_branch_name())
-	branch_values.invert()
+	if branch_type == BRANCHTYPES.RANDOM:
+		branch_values.sort_custom(SortRandomValues, "sort_ascending")
+	else:
+		branch_values.invert()
+
+class SortRandomValues:
+	static func sort_ascending(a, b) -> bool:
+		# checks if dialog a's id is smaller then b's id
+		if int(a) < int(b):
+			# returns true because dialog a's id is smaller then b's id
+			return true
+		# returns true because dialog a's id is not smaller then b's id
+		return false

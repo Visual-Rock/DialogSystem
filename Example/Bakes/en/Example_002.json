@@ -6,15 +6,12 @@
                 "branch_type": 0,
                 "node_id": 2,
                 "options": {
-                    "Based on a Value": {
+                    "On value": {
                         "branch_type": 2,
                         "branch_value_name": "selected",
                         "node_id": 2,
                         "options": {
-                            "dialog_1": {
-                                "node_id": 99
-                            },
-                            "dialog_2": {
+                            "false": {
                                 "node_id": 1,
                                 "options": {
                                     "0": {
@@ -28,34 +25,87 @@
                                     },
                                     {
                                         "name": "text",
-                                        "value": "dialog 2"
+                                        "value": "false"
+                                    }
+                                ]
+                            },
+                            "true": {
+                                "node_id": 1,
+                                "options": {
+                                    "0": {
+                                        "node_id": 99
+                                    }
+                                },
+                                "value": [
+                                    {
+                                        "name": "Names",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "text",
+                                        "value": "true"
                                     }
                                 ]
                             }
-                        },
-                        "value": [
-                            {
-                                "name": "Names",
-                                "value": 0
-                            },
-                            {
-                                "name": "text",
-                                "value": "Value"
-                            }
-                        ]
+                        }
                     },
-                    "Random Dialog": {
-                        "node_id": 99
+                    "Random": {
+                        "branch_type": 1,
+                        "node_id": 2,
+                        "options": {
+                            "1": {
+                                "node_id": 1,
+                                "options": {
+                                    "0": {
+                                        "node_id": 99
+                                    }
+                                },
+                                "value": [
+                                    {
+                                        "name": "Names",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "text",
+                                        "value": "Random 1"
+                                    }
+                                ]
+                            },
+                            "2": {
+                                "node_id": 1,
+                                "options": {
+                                    "0": {
+                                        "node_id": 99
+                                    }
+                                },
+                                "value": [
+                                    {
+                                        "name": "Names",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "text",
+                                        "value": "Random 2"
+                                    }
+                                ]
+                            },
+                            "3": {
+                                "node_id": 99
+                            },
+                            "4": {
+                                "node_id": 99
+                            }
+                        }
                     }
                 },
                 "value": [
                     {
                         "name": "Names",
-                        "value": 1
+                        "value": 0
                     },
                     {
                         "name": "text",
-                        "value": "Select the next Branch!"
+                        "value": "Branching Based on Selection"
                     }
                 ]
             }
@@ -63,7 +113,7 @@
         "value": [
             {
                 "name": "Names",
-                "value": 0
+                "value": 1
             },
             {
                 "name": "text",

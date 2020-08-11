@@ -8,14 +8,14 @@ func _ready() -> void:
 	print("pos: ", branch_pos)
 
 func get_branch_name() -> String:
-	return str(branch_pos - 1)
+	return str(branch_pos)
 
 func set_text(new_text : String, init : bool = false) -> void:
 	print("text: ", new_text)
 	if init == true:
 		TextLabel.text = str(branch_pos)
 	else:
-		TextLabel.text = str(branch_pos - 1)
+		TextLabel.text = str(branch_pos)
 
 func get_branch_bake() -> String:
-	return str(branch_pos - 1)
+	return str(branch_pos)
