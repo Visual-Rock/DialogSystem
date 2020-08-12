@@ -26,11 +26,13 @@ onready var FlipList   : CheckBox           = self.get_node("HSplitContainer/Dia
 onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/AddDialog")
 onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
 onready var DialogList : VBoxContainer      = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/TextEdit/MarginContainer/Dialogs/List")
+onready var Templates  : OptionButton       = self.get_node("NewDialog/VBoxContainer/Template")
 
 var dialog : Resource = load("res://addons/DialogEditor/DialogManager/Dialog.tscn")
 
 var save_path          : String = "res://addons/DialogEditor/Saves/"
 var settings_save_path : String = "res://addons/DialogEditor/settings.json"
+var templates          : Array  = []
 
 var new_dialog_size : Vector2 = Vector2(200, 70)
 
@@ -64,6 +66,8 @@ func _ready() -> void:
 	if !dir.dir_exists(get_save_path()):
 		# creates all the missing directorys
 		dir.make_dir_recursive(get_save_path())
+	# loads settings
+	update_settings()
 	# loads all dialogs
 	load_dialogs()
 	# sorts all dialogs
@@ -111,6 +115,7 @@ func new_dialog() -> void:
 		d.connect("open_graph", self, "open_graph")
 		# adds the dialog as a child of DialogList
 		DialogList.add_child(d)
+		open_graph(NewDialog.get_node("VBoxContainer/LineEdit").text, Templates.selected, true)
 		# sets the text of LineEdit to an empty String
 		NewDialog.get_node("VBoxContainer/LineEdit").text = ""
 	else:
@@ -242,14 +247,27 @@ func update_settings() -> void:
 		f.open(settings_save_path, f.READ)
 		var data = parse_json(f.get_as_text())
 		save_path = str(data["SavePath"], "/")
+		templates = data["NodeTemplates"]
 		f.close()
+		templates.push_front("res://addons/DialogEditor/DefaultTemplate.json")
+		Templates.clear()
+		var ff : File       = File.new()
+		var d  : Dictionary = {}
+		for template in templates:
+			if ff.file_exists(template):
+				ff.open(template, ff.READ)
+				d = parse_json(ff.get_as_text())
+				if d.has("node_name"):
+					Templates.add_item(d["node_name"])
+				else:
+					Templates.add_item(template.get_file().trim_suffix(".json"))
 
 func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
 	
 	return ShortCut.new()
 
-func open_graph(_name : String) -> void:
-	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"))
+func open_graph(_name : String, template_id : int, close : bool) -> void:
+	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"), template_id, close)
 
 # Sorting the Dialogs
 func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipList.pressed) -> void:

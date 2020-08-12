@@ -16,5 +16,6 @@
             "value": "",
             "default": ""
         }
-    ]
+    ],
+    "template_name": "Default Template"
 }

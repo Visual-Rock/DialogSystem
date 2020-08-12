@@ -259,3 +259,7 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 min_value = -9.22337e+18
 max_value = 9.22337e+18
+
+[node name="Template" type="OptionButton" parent="NewDialog/VBoxContainer"]
+margin_right = 29.0
+margin_bottom = 20.0

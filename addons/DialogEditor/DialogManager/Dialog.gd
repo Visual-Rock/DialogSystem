@@ -147,7 +147,7 @@ func popup_delete_dialog() -> void:
 	DeleteDialog.popup_centered()
 
 func open():
-	emit_signal("open_graph", dialog_name)
+	emit_signal("open_graph", dialog_name, -1, false)
 
 func delete() -> void:
 	# Creates new instance of Directory and gets savepath

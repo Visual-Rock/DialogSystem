@@ -28,7 +28,7 @@ var save_path          : String     = "res://addons/DialogEditor/Saves/"
 var bake_path          : String     = "res://Dialogs"
 var skip_empty         : bool       = true
 var bake_language      : String     = "en"
-var node_template      : String     = "res://addons/DialogEditor/TestTemplate.json"
+var node_templates     : Array      = [] 
 var node_values        : Dictionary = {}
 
 func _ready() -> void:
@@ -94,7 +94,7 @@ func change_aktiv_graph(tab : int) -> void:
 	GraphContainer.current_tab = tab
 	current_graph = GraphContainer.get_children()[tab]
 
-func open_graph(path : String) -> void:
+func open_graph(path : String, template : int = -1, close : bool = false) -> void:
 	if !graph_opend(path.get_file().trim_suffix(".tscn")):
 		var Graph : GraphEdit
 		var f     : File      = File.new()
@@ -102,8 +102,8 @@ func open_graph(path : String) -> void:
 			Graph = load(path).instance()
 		else:
 			Graph = load(empty_graph).instance()
-			if f.file_exists(node_template):
-				f.open(node_template, f.READ)
+			if f.file_exists(node_templates[template]):
+				f.open(node_templates[template], f.READ)
 				node_values = parse_json(f.get_as_text())
 				f.close()
 			if node_values.has("node_values"):
@@ -112,6 +112,10 @@ func open_graph(path : String) -> void:
 		Graph.name = path.get_file().trim_suffix(".tscn")
 		Graph.editor = self
 		GraphContainer.add_child(Graph)
+		Graph.save_graph()
+		if close == true:
+			print("close dialog", close)
+			Graph.queue_free()
 
 func graph_opend(graph_name : String) -> bool:
 	for graph in GraphContainer.get_children():
@@ -128,20 +132,17 @@ func update_settings() -> void:
 	if f.file_exists(settings_save_path):
 		f.open(settings_save_path, f.READ)
 		var data = parse_json(f.get_as_text())
-		save_path     = data["SavePath"]
+		save_path      = data["SavePath"]
 		if !save_path.ends_with("/"):
-			save_path = str(save_path, "/")
-		bake_path     = data["BakePath"]
+			save_path  = str(save_path, "/")
+		bake_path      = data["BakePath"]
 		if !bake_path.ends_with("/"):
-			bake_path = str(bake_path, "/")
-		bake_language = data["DefaultBakeLanguage"]
-		#node_template = data["DefaultNodeTemplate"]
-		skip_empty    = data["SkipEmptyNodes"]
+			bake_path  = str(bake_path, "/")
+		bake_language  = data["DefaultBakeLanguage"]
+		node_templates = data["NodeTemplates"]
+		skip_empty     = data["SkipEmptyNodes"]
 		f.close()
-	if f.file_exists(node_template):
-		f.open(node_template, f.READ)
-		node_values = parse_json(f.get_as_text())
-		f.close()
+		node_templates.push_front("res://addons/DialogEditor/DefaultTemplate.json")
 
 func get_graph_by_name(graph_name) -> Node:
 	for node in GraphContainer.get_children():
