@@ -188,6 +188,7 @@ func load_dialogs() -> void:
 					d.connect("open_graph", self, "open_graph")
 					# adds d as a child of DialogList
 					DialogList.add_child(d)
+					f.close()
 			# gets the next element (file or directory) in the current directory
 			file_name = dir.get_next()
 		# Closes the current stream opened with list_dir_begin()
