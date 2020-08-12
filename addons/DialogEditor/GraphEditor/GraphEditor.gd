@@ -28,7 +28,7 @@ var save_path          : String     = "res://addons/DialogEditor/Saves/"
 var bake_path          : String     = "res://Dialogs"
 var skip_empty         : bool       = true
 var bake_language      : String     = "en"
-var node_template      : String     = "res://addons/DialogEditor/Template.json"
+var node_template      : String     = "res://addons/DialogEditor/TestTemplate.json"
 var node_values        : Dictionary = {}
 
 func _ready() -> void:
