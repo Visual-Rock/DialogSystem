@@ -7,7 +7,7 @@ signal open_graph(_name)
 onready var SelectedBox  : CheckBox   = self.get_node("Selected")
 onready var IdLabel      : Label      = self.get_node("ID")
 onready var NameLabel    : Label      = self.get_node("Name")
-onready var RenameButton : Button     = self.get_node("EditName")
+onready var Rename : Button     = self.get_node("EditName")
 onready var TagMenu      : MenuButton = self.get_node("Tags")
 onready var Description  : LineEdit   = self.get_node("Description")
 onready var Save         : Button     = self.get_node("Save")
@@ -34,10 +34,10 @@ func _ready() -> void:
 	if SelectedBox:
 		# connects the toggled signal of SelectedBox to set_selected
 		SelectedBox.connect("toggled", self, "set_selected")
-	# checks if RenameButton is valid
-	if RenameButton:
-		# connects the pressed signal of RenameButton to rename
-		RenameButton.connect("pressed", self, "rename")
+	# checks if Rename is valid
+	if Rename:
+		# connects the pressed signal of Rename to rename
+		Rename.connect("pressed", self, "rename")
 	# checks if RenameDialog is valid
 	if RenameDialog:
 		# connects the confirmed signal of RenameDialog to rename_name
@@ -62,6 +62,12 @@ func _ready() -> void:
 	set_des(dialog_des)
 	set_name(dialog_name)
 	set_id(dialog_id)
+	# Adds Icons to Buttons
+	Rename.icon = load("res://addons/DialogEditor/icons/Edit.svg")
+	Save.icon   = load("res://addons/DialogEditor/icons/Save.svg")
+	Open.icon   = load("res://addons/DialogEditor/icons/Play.svg")
+	Bake.icon   = load("res://addons/DialogEditor/icons/Bake.svg")
+	Delete.icon = load("res://addons/DialogEditor/icons/Remove.svg")
 
 func dialog(data : Dictionary, manager : Control) -> void:
 	# sets all the data
