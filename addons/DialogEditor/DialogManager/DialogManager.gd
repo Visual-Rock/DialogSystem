@@ -75,8 +75,10 @@ func _ready() -> void:
 		SearchStop.connect("pressed", self, "stop_search")
 	if AddTag:
 		AddTag.connect("pressed", self, "add_tag")
+	if DeleteTag:
+		DeleteTag.connect("pressed", self, "delete_tag")
 	if TagsTree:
-		TagsTree.create_item()
+		tags_root = TagsTree.create_item()
 	for sibling in get_parent().get_children():
 		if sibling.name == "Editor Settings":
 			sibling.connect("update_settings", self, "update_settings")
@@ -378,6 +380,12 @@ func add_tag() -> void:
 	tag.set_text(0, "New Tag")
 	tag.set_editable(0, true)
 	tags.append(tag)
+
+func delete_tag() -> void:
+	var selected : TreeItem = TagsTree.get_selected()
+	if selected != null:
+		selected.deselect(0)
+		tags_root.remove_child(selected)
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:
