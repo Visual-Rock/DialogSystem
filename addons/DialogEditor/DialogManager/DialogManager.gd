@@ -193,6 +193,7 @@ func load_dialogs() -> void:
 					d.connect("open_graph", self, "open_graph")
 					# adds d as a child of DialogList
 					DialogList.add_child(d)
+					# closes file
 					f.close()
 			# gets the next element (file or directory) in the current directory
 			file_name = dir.get_next()
@@ -257,10 +258,11 @@ func update_settings() -> void:
 			if ff.file_exists(template):
 				ff.open(template, ff.READ)
 				d = parse_json(ff.get_as_text())
-				if d.has("node_name"):
-					Templates.add_item(d["node_name"])
+				if d.has("template_name"):
+					Templates.add_item(d["template_name"])
 				else:
 					Templates.add_item(template.get_file().trim_suffix(".json"))
+				ff.close()
 
 func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
 	
