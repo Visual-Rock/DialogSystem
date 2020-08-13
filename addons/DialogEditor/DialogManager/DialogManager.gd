@@ -22,6 +22,8 @@ onready var Debug      : Label              = self.get_node("HSplitContainer/Dia
 onready var DialogMenu : MenuButton         = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/DialogMenu")
 onready var SortMenu   : OptionButton       = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/SortMenu")
 onready var FlipList   : CheckBox           = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/FlipList")
+onready var SearchList : LineEdit           = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/SearchLine")
+onready var SearchType : OptionButton       = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/SearchOptionsMenu")
 
 onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/AddDialog")
 onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
@@ -57,6 +59,8 @@ func _ready() -> void:
 	if FlipList:
 		# connects the toggled signal of DialogMenu to change_sort_flip
 		FlipList.connect("toggled", self, "change_sort_flip")
+	if SearchList:
+		SearchList.connect("text_changed", self, "update_search")
 	for sibling in get_parent().get_children():
 		if sibling.name == "Editor Settings":
 			sibling.connect("update_settings", self, "update_settings")
@@ -325,6 +329,25 @@ func change_sort_type(new_type : int) -> void:
 
 func change_sort_flip(new_flip : bool) -> void:
 	sort_dialogs()
+
+func update_search(search_for : String) -> void:
+	if search_for != "":
+		match SearchType.selected:
+			SORTTYPES.NAME:
+				for dialog in DialogList.get_children():
+					if search_for in dialog.dialog_name:
+						dialog.show()
+					else:
+						dialog.hide()
+			SORTTYPES.ID:
+				for dialog in DialogList.get_children():
+					if search_for in str(dialog.dialog_id):
+						dialog.show()
+					else:
+						dialog.hide()
+	else:
+		for dialog in DialogList.get_children():
+			dialog.show()
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:

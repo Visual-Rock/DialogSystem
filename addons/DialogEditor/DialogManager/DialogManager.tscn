@@ -112,11 +112,11 @@ custom_constants/separation = 10
 
 [node name="SearchOptionsMenu" type="OptionButton" parent="HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar"]
 margin_left = 276.0
-margin_right = 326.0
+margin_right = 343.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 50, 0 )
-text = "ID"
-items = [ "ID", null, false, 0, null, "Name", null, false, 1, null, "Tag", null, false, 2, null ]
+text = "Name"
+items = [ "Name", null, false, 0, null, "ID", null, false, 1, null ]
 selected = 0
 
 [node name="SearchTag" type="OptionButton" parent="HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar"]
@@ -128,7 +128,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SearchLine" type="LineEdit" parent="HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar"]
-margin_left = 330.0
+margin_left = 347.0
 margin_right = 830.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
@@ -263,3 +263,6 @@ max_value = 9.22337e+18
 [node name="Template" type="OptionButton" parent="NewDialog/VBoxContainer"]
 margin_right = 29.0
 margin_bottom = 20.0
+text = "Default Template"
+items = [ "Default Template", null, false, 0, null, "TestTemplate", null, false, 1, null ]
+selected = 0
