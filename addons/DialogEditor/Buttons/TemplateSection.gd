@@ -1,3 +1,4 @@
+tool
 extends HBoxContainer
 
 onready var Lineedit : LineEdit = self.get_node("LineEdit")

@@ -1,3 +1,4 @@
+tool
 extends VBoxContainer
 
 onready var AddButton   : Button        = self.get_node("HBoxContainer/Add")
