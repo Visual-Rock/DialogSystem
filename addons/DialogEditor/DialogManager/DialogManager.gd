@@ -184,6 +184,8 @@ func load_dialogs() -> void:
 					f.open(str(save_path, file_name), f.READ)
 					# gets data from data file
 					data = f.get_var()
+					# closes file
+					f.close()
 					# creats an instance of dialog
 					d = dialog.instance()
 					# calles dialog on the dialog to setup data of the dialog
@@ -193,8 +195,6 @@ func load_dialogs() -> void:
 					d.connect("open_graph", self, "open_graph")
 					# adds d as a child of DialogList
 					DialogList.add_child(d)
-					# closes file
-					f.close()
 			# gets the next element (file or directory) in the current directory
 			file_name = dir.get_next()
 		# Closes the current stream opened with list_dir_begin()
@@ -262,28 +262,28 @@ func update_settings() -> void:
 		# adds the Default Template at the Start of the Array
 		templates.push_front("res://addons/DialogEditor/DefaultTemplate.json")
 		# Clears the Options of the Templates Option Button
-		Templates.clear()
-		# creates a new File 
-		var ff : File       = File.new()
-		# variable to hold the data of the Templates
-		var d  : Dictionary = {}
-		# loops through all Templates
-		for template in templates:
-			# Checks if the current Template exists
-			if ff.file_exists(template):
-				# opens the Template in Read mode
-				ff.open(template, ff.READ)
-				# parses the Templates data into d
-				d = parse_json(ff.get_as_text())
-				# checks if the Template has a template name defined
-				if d.has("template_name"):
-					# adds the Templates name to the Templates Option Button
-					Templates.add_item(d["template_name"])
-				else:
-					# adds the Templates filename to the Templates Option Button
-					Templates.add_item(template.get_file().trim_suffix(".json"))
-				# closes the current Template file
-				ff.close()
+	Templates.clear()
+	# creates a new File 
+	var ff : File       = File.new()
+	# variable to hold the data of the Templates
+	var d  : Dictionary = {}
+	# loops through all Templates
+	for template in templates:
+		# Checks if the current Template exists
+		if ff.file_exists(template):
+			# opens the Template in Read mode
+			ff.open(template, ff.READ)
+			# parses the Templates data into d
+			d = parse_json(ff.get_as_text())
+			# checks if the Template has a template name defined
+			if d.has("template_name"):
+				# adds the Templates name to the Templates Option Button
+				Templates.add_item(d["template_name"])
+			else:
+				# adds the Templates filename to the Templates Option Button
+				Templates.add_item(template.get_file().trim_suffix(".json"))
+			# closes the current Template file
+			ff.close()
 
 func open_graph(_name : String, template_id : int, close : bool) -> void:
 	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"), template_id, close)
