@@ -85,7 +85,7 @@ func _ready() -> void:
 		# connects the item selected signal to set value with 
 		# the selected item (integer) as new value
 		Language.connect("item_selected", self, "set_value")
-		# goes thrue the language array to populate
+		# goes through the language array to populate
 		# the Languages items 
 		for language in languages.size():
 			# checks if language shoud include dialekts

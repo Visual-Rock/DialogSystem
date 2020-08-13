@@ -137,7 +137,7 @@ func new_dialog() -> void:
 func has_dialog_id(_id : int) -> bool:
 	# checks if DialogList has children
 	if DialogList.get_child_count() != 0:
-		# loops thrue all children of the DialogList
+		# loops through all children of the DialogList
 		for dialog in DialogList.get_children():
 			# checks if the current dialogs id is equal to _id
 			if dialog.get_id() == _id:
@@ -155,7 +155,7 @@ func debug_msg(msg : String = "") -> void:
 func load_dialogs() -> void:
 	# checks if DialogList has children
 	if DialogList.get_child_count() != 0:
-		# goes thrue all children of DialogList
+		# goes through all children of DialogList
 		for c in DialogList.get_children():
 			# Saves the dialog
 			c.save_dialog()
@@ -223,13 +223,13 @@ func _on_Dialog_item_pressed(id : int) -> void:
 			save_all_dialogs()
 
 func save_all_dialogs() -> void:
-	# goes thrue all the childrens of the DialogList
+	# goes through all the childrens of the DialogList
 	for dialog in DialogList.get_children():
 		# Saves the current dialog
 		dialog.save_dialog()
 
 func save_selected_dialogs() -> void:
-	# goes thrue all the childrens of the DialogList
+	# goes through all the childrens of the DialogList
 	for dialog in DialogList.get_children():
 		# checks if the dialog is selected
 		if dialog.get_selected() == true:
@@ -237,36 +237,53 @@ func save_selected_dialogs() -> void:
 			dialog.save_dialog()
 
 func set_selected_all_dialogs(selected : bool = true):
-	# goes thrue all the childrens of the DialogList
+	# goes through all the childrens of the DialogList
 	for dialog in DialogList.get_children():
 		# sets selected
 		dialog.set_selected(selected)
 
+# updates settings and templates displayed in the 
+# Templates Option Button
 func update_settings() -> void:
+	# creats new File
 	var f : File = File.new()
+	# Checks if settings file exists
 	if f.file_exists(settings_save_path):
+		# opens the Settings File in Read mode
 		f.open(settings_save_path, f.READ)
+		# parses the JSON data into a data Variable
 		var data = parse_json(f.get_as_text())
+		# gets the Save path and adds a "/" at the end
 		save_path = str(data["SavePath"], "/")
+		# gets the Array of Templates
 		templates = data["NodeTemplates"]
+		# Closes the File
 		f.close()
+		# adds the Default Template at the Start of the Array
 		templates.push_front("res://addons/DialogEditor/DefaultTemplate.json")
+		# Clears the Options of the Templates Option Button
 		Templates.clear()
+		# creates a new File 
 		var ff : File       = File.new()
+		# variable to hold the data of the Templates
 		var d  : Dictionary = {}
+		# loops through all Templates
 		for template in templates:
+			# Checks if the current Template exists
 			if ff.file_exists(template):
+				# opens the Template in Read mode
 				ff.open(template, ff.READ)
+				# parses the Templates data into d
 				d = parse_json(ff.get_as_text())
+				# checks if the Template has a template name defined
 				if d.has("template_name"):
+					# adds the Templates name to the Templates Option Button
 					Templates.add_item(d["template_name"])
 				else:
+					# adds the Templates filename to the Templates Option Button
 					Templates.add_item(template.get_file().trim_suffix(".json"))
+				# closes the current Template file
 				ff.close()
-
-func create_shortcut(key : int, strg : bool, alt : bool) -> ShortCut:
-	
-	return ShortCut.new()
 
 func open_graph(_name : String, template_id : int, close : bool) -> void:
 	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"), template_id, close)
@@ -277,7 +294,7 @@ func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipLis
 	var dialogs : Array = DialogList.get_children()
 	# checks if DialogList has children
 	if dialogs.size() != 0:
-		# loops thrue all children of DialogList
+		# loops through all children of DialogList
 		for child in dialogs:
 			# removes the dialog (remove not delete) from DialogList
 			DialogList.remove_child(child)
@@ -298,7 +315,7 @@ func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipLis
 			else:
 				# sorts the dialog by name descending
 				dialogs.sort_custom(SortDialogName, "sort_descending")
-	# loops thrue all dialogs
+	# loops through all dialogs
 	for node in dialogs:
 		# adds them as a child of DialogList in sorted order
 		DialogList.add_child(node)

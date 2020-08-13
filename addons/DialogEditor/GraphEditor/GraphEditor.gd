@@ -150,3 +150,20 @@ func get_graph_by_name(graph_name) -> Node:
 			return node
 	open_graph(graph_name)
 	return get_graph_by_name(graph_name)
+
+# Creats an Shortcut
+func create_shortcut(key : int = KEY_S, strg : bool = false, alt : bool = false) -> ShortCut:
+	# creates new ShortCut
+	var s   : ShortCut      = ShortCut.new()
+	# creates new InputKeyEvent
+	var iek : InputEventKey = InputEventKey.new()
+	# sets the iek scancode
+	iek.set_scancode(key)
+	# if it should use STRG/CMD
+	iek.control = strg
+	iek.command = strg
+	# if it should use ALT
+	iek.alt     = alt
+	# sets the Shortcuts shortcut
+	s.set_shortcut(iek)
+	return s
