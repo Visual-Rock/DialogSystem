@@ -128,7 +128,7 @@ margin_right = 984.0
 margin_bottom = 24.0
 default_path = "res://Dialogs"
 path_name = "Bake Path"
-current_path = "res://Dialogs"
+current_path = "res://Example/Bakes"
 
 [node name="SkipEmptyNodes" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 56.0
@@ -152,6 +152,7 @@ margin_left = 494.0
 margin_right = 984.0
 margin_bottom = 24.0
 default = true
+current = false
 
 [node name="DefaultLanguage" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 84.0
@@ -179,18 +180,18 @@ default_language = 78
 [node name="Templates" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 108.0
 margin_right = 984.0
-margin_bottom = 538.0
+margin_bottom = 152.0
 
 [node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates"]
-margin_top = 208.0
 margin_right = 490.0
-margin_bottom = 222.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_vertical = 7
+text = "Node Value Templates"
 
 [node name="MultiplePathSelect" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 494.0
 margin_right = 984.0
-margin_bottom = 430.0
+margin_bottom = 44.0

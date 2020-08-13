@@ -8,7 +8,6 @@
 [ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.tscn" type="PackedScene" id=6]
 
 [node name="Performance_Test" type="GraphEdit"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -19,7 +18,7 @@ rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
-scroll_offset = Vector2( -172, -113 )
+scroll_offset = Vector2( -862, 289 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -503,10 +502,10 @@ connections = [ {
 dialog_name = "Performance_Test"
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 3 )]
-margin_left = -528.0
-margin_top = 73.0
-margin_right = -322.0
-margin_bottom = 317.0
+margin_left = 162.0
+margin_top = -329.0
+margin_right = 368.0
+margin_bottom = -85.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Start Node"
@@ -585,10 +584,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 732.0
-margin_top = 53.0
-margin_right = 938.0
-margin_bottom = 297.0
+margin_left = 1422.0
+margin_top = -349.0
+margin_right = 1628.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -668,10 +667,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 732.0
-margin_top = 313.0
-margin_right = 938.0
-margin_bottom = 557.0
+margin_left = 1422.0
+margin_top = -89.0
+margin_right = 1628.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -751,10 +750,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode4" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 732.0
-margin_top = 833.0
-margin_right = 938.0
-margin_bottom = 1077.0
+margin_left = 1422.0
+margin_top = 431.0
+margin_right = 1628.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -834,10 +833,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode3" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 732.0
-margin_top = 573.0
-margin_right = 938.0
-margin_bottom = 817.0
+margin_left = 1422.0
+margin_top = 171.0
+margin_right = 1628.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -917,10 +916,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode6" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1192.0
-margin_top = 313.0
-margin_right = 1398.0
-margin_bottom = 557.0
+margin_left = 1882.0
+margin_top = -89.0
+margin_right = 2088.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1000,10 +999,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode8" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 972.0
-margin_top = 313.0
-margin_right = 1178.0
-margin_bottom = 557.0
+margin_left = 1662.0
+margin_top = -89.0
+margin_right = 1868.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1083,10 +1082,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode7" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 972.0
-margin_top = 53.0
-margin_right = 1178.0
-margin_bottom = 297.0
+margin_left = 1662.0
+margin_top = -349.0
+margin_right = 1868.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1166,10 +1165,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode5" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1192.0
-margin_top = 53.0
-margin_right = 1398.0
-margin_bottom = 297.0
+margin_left = 1882.0
+margin_top = -349.0
+margin_right = 2088.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1249,10 +1248,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode9" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1632.0
-margin_top = 313.0
-margin_right = 1838.0
-margin_bottom = 557.0
+margin_left = 2322.0
+margin_top = -89.0
+margin_right = 2528.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1332,10 +1331,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode10" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1412.0
-margin_top = 313.0
-margin_right = 1618.0
-margin_bottom = 557.0
+margin_left = 2102.0
+margin_top = -89.0
+margin_right = 2308.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1415,10 +1414,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode12" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1632.0
-margin_top = 53.0
-margin_right = 1838.0
-margin_bottom = 297.0
+margin_left = 2322.0
+margin_top = -349.0
+margin_right = 2528.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1498,10 +1497,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode11" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1412.0
-margin_top = 53.0
-margin_right = 1618.0
-margin_bottom = 297.0
+margin_left = 2102.0
+margin_top = -349.0
+margin_right = 2308.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1581,10 +1580,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode13" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2072.0
-margin_top = 313.0
-margin_right = 2278.0
-margin_bottom = 557.0
+margin_left = 2762.0
+margin_top = -89.0
+margin_right = 2968.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1664,10 +1663,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode14" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1852.0
-margin_top = 313.0
-margin_right = 2058.0
-margin_bottom = 557.0
+margin_left = 2542.0
+margin_top = -89.0
+margin_right = 2748.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1747,10 +1746,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode16" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2072.0
-margin_top = 53.0
-margin_right = 2278.0
-margin_bottom = 297.0
+margin_left = 2762.0
+margin_top = -349.0
+margin_right = 2968.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1830,10 +1829,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode17" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2512.0
-margin_top = 313.0
-margin_right = 2718.0
-margin_bottom = 557.0
+margin_left = 3202.0
+margin_top = -89.0
+margin_right = 3408.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1913,10 +1912,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode18" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2292.0
-margin_top = 313.0
-margin_right = 2498.0
-margin_bottom = 557.0
+margin_left = 2982.0
+margin_top = -89.0
+margin_right = 3188.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -1996,10 +1995,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode19" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2512.0
-margin_top = 53.0
-margin_right = 2718.0
-margin_bottom = 297.0
+margin_left = 3202.0
+margin_top = -349.0
+margin_right = 3408.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2079,10 +2078,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode20" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2292.0
-margin_top = 53.0
-margin_right = 2498.0
-margin_bottom = 297.0
+margin_left = 2982.0
+margin_top = -349.0
+margin_right = 3188.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2162,10 +2161,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode15" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1852.0
-margin_top = 53.0
-margin_right = 2058.0
-margin_bottom = 297.0
+margin_left = 2542.0
+margin_top = -349.0
+margin_right = 2748.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2245,10 +2244,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode21" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2952.0
-margin_top = 313.0
-margin_right = 3158.0
-margin_bottom = 557.0
+margin_left = 3642.0
+margin_top = -89.0
+margin_right = 3848.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2328,10 +2327,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode22" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2732.0
-margin_top = 313.0
-margin_right = 2938.0
-margin_bottom = 557.0
+margin_left = 3422.0
+margin_top = -89.0
+margin_right = 3628.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2411,10 +2410,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode26" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3172.0
-margin_top = 313.0
-margin_right = 3378.0
-margin_bottom = 557.0
+margin_left = 3862.0
+margin_top = -89.0
+margin_right = 4068.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2494,10 +2493,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode27" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3392.0
-margin_top = 53.0
-margin_right = 3598.0
-margin_bottom = 297.0
+margin_left = 4082.0
+margin_top = -349.0
+margin_right = 4288.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2577,10 +2576,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode28" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3172.0
-margin_top = 53.0
-margin_right = 3378.0
-margin_bottom = 297.0
+margin_left = 3862.0
+margin_top = -349.0
+margin_right = 4068.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2660,10 +2659,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode29" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3832.0
-margin_top = 313.0
-margin_right = 4038.0
-margin_bottom = 557.0
+margin_left = 4522.0
+margin_top = -89.0
+margin_right = 4728.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2743,10 +2742,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode30" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3612.0
-margin_top = 313.0
-margin_right = 3818.0
-margin_bottom = 557.0
+margin_left = 4302.0
+margin_top = -89.0
+margin_right = 4508.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2826,10 +2825,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode31" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3832.0
-margin_top = 53.0
-margin_right = 4038.0
-margin_bottom = 297.0
+margin_left = 4522.0
+margin_top = -349.0
+margin_right = 4728.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2909,10 +2908,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode34" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4272.0
-margin_top = 53.0
-margin_right = 4478.0
-margin_bottom = 297.0
+margin_left = 4962.0
+margin_top = -349.0
+margin_right = 5168.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -2992,10 +2991,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode35" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4052.0
-margin_top = 53.0
-margin_right = 4258.0
-margin_bottom = 297.0
+margin_left = 4742.0
+margin_top = -349.0
+margin_right = 4948.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3075,10 +3074,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode23" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2732.0
-margin_top = 53.0
-margin_right = 2938.0
-margin_bottom = 297.0
+margin_left = 3422.0
+margin_top = -349.0
+margin_right = 3628.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3158,10 +3157,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode36" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3612.0
-margin_top = 53.0
-margin_right = 3818.0
-margin_bottom = 297.0
+margin_left = 4302.0
+margin_top = -349.0
+margin_right = 4508.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3241,10 +3240,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode37" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1632.0
-margin_top = 833.0
-margin_right = 1838.0
-margin_bottom = 1077.0
+margin_left = 2322.0
+margin_top = 431.0
+margin_right = 2528.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3324,10 +3323,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode39" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2072.0
-margin_top = 833.0
-margin_right = 2278.0
-margin_bottom = 1077.0
+margin_left = 2762.0
+margin_top = 431.0
+margin_right = 2968.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3407,10 +3406,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode40" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1852.0
-margin_top = 833.0
-margin_right = 2058.0
-margin_bottom = 1077.0
+margin_left = 2542.0
+margin_top = 431.0
+margin_right = 2748.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3490,10 +3489,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode41" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2072.0
-margin_top = 573.0
-margin_right = 2278.0
-margin_bottom = 817.0
+margin_left = 2762.0
+margin_top = 171.0
+margin_right = 2968.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3573,10 +3572,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode42" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2512.0
-margin_top = 833.0
-margin_right = 2718.0
-margin_bottom = 1077.0
+margin_left = 3202.0
+margin_top = 431.0
+margin_right = 3408.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3656,10 +3655,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode43" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2292.0
-margin_top = 833.0
-margin_right = 2498.0
-margin_bottom = 1077.0
+margin_left = 2982.0
+margin_top = 431.0
+margin_right = 3188.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3739,10 +3738,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode44" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2512.0
-margin_top = 573.0
-margin_right = 2718.0
-margin_bottom = 817.0
+margin_left = 3202.0
+margin_top = 171.0
+margin_right = 3408.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3822,10 +3821,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode45" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2292.0
-margin_top = 573.0
-margin_right = 2498.0
-margin_bottom = 817.0
+margin_left = 2982.0
+margin_top = 171.0
+margin_right = 3188.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3905,10 +3904,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode46" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1852.0
-margin_top = 573.0
-margin_right = 2058.0
-margin_bottom = 817.0
+margin_left = 2542.0
+margin_top = 171.0
+margin_right = 2748.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -3988,10 +3987,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode47" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2952.0
-margin_top = 833.0
-margin_right = 3158.0
-margin_bottom = 1077.0
+margin_left = 3642.0
+margin_top = 431.0
+margin_right = 3848.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4071,10 +4070,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode48" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2732.0
-margin_top = 833.0
-margin_right = 2938.0
-margin_bottom = 1077.0
+margin_left = 3422.0
+margin_top = 431.0
+margin_right = 3628.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4154,10 +4153,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode49" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2952.0
-margin_top = 573.0
-margin_right = 3158.0
-margin_bottom = 817.0
+margin_left = 3642.0
+margin_top = 171.0
+margin_right = 3848.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4237,10 +4236,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode50" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3392.0
-margin_top = 833.0
-margin_right = 3598.0
-margin_bottom = 1077.0
+margin_left = 4082.0
+margin_top = 431.0
+margin_right = 4288.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4320,10 +4319,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode51" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3172.0
-margin_top = 833.0
-margin_right = 3378.0
-margin_bottom = 1077.0
+margin_left = 3862.0
+margin_top = 431.0
+margin_right = 4068.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4403,10 +4402,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode52" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3392.0
-margin_top = 573.0
-margin_right = 3598.0
-margin_bottom = 817.0
+margin_left = 4082.0
+margin_top = 171.0
+margin_right = 4288.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4486,10 +4485,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode53" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3172.0
-margin_top = 573.0
-margin_right = 3378.0
-margin_bottom = 817.0
+margin_left = 3862.0
+margin_top = 171.0
+margin_right = 4068.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4569,10 +4568,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode54" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3832.0
-margin_top = 833.0
-margin_right = 4038.0
-margin_bottom = 1077.0
+margin_left = 4522.0
+margin_top = 431.0
+margin_right = 4728.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4652,10 +4651,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode55" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3612.0
-margin_top = 833.0
-margin_right = 3818.0
-margin_bottom = 1077.0
+margin_left = 4302.0
+margin_top = 431.0
+margin_right = 4508.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4735,10 +4734,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode56" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3832.0
-margin_top = 573.0
-margin_right = 4038.0
-margin_bottom = 817.0
+margin_left = 4522.0
+margin_top = 171.0
+margin_right = 4728.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4818,10 +4817,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode57" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4272.0
-margin_top = 833.0
-margin_right = 4478.0
-margin_bottom = 1077.0
+margin_left = 4962.0
+margin_top = 431.0
+margin_right = 5168.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4901,10 +4900,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode58" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4052.0
-margin_top = 833.0
-margin_right = 4258.0
-margin_bottom = 1077.0
+margin_left = 4742.0
+margin_top = 431.0
+margin_right = 4948.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -4984,10 +4983,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode59" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4272.0
-margin_top = 573.0
-margin_right = 4478.0
-margin_bottom = 817.0
+margin_left = 4962.0
+margin_top = 171.0
+margin_right = 5168.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5067,10 +5066,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode60" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4052.0
-margin_top = 573.0
-margin_right = 4258.0
-margin_bottom = 817.0
+margin_left = 4742.0
+margin_top = 171.0
+margin_right = 4948.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5150,10 +5149,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode61" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2732.0
-margin_top = 573.0
-margin_right = 2938.0
-margin_bottom = 817.0
+margin_left = 3422.0
+margin_top = 171.0
+margin_right = 3628.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5233,10 +5232,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode62" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3612.0
-margin_top = 573.0
-margin_right = 3818.0
-margin_bottom = 817.0
+margin_left = 4302.0
+margin_top = 171.0
+margin_right = 4508.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5316,10 +5315,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode38" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1632.0
-margin_top = 573.0
-margin_right = 1838.0
-margin_bottom = 817.0
+margin_left = 2322.0
+margin_top = 171.0
+margin_right = 2528.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5399,10 +5398,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode63" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1192.0
-margin_top = 833.0
-margin_right = 1398.0
-margin_bottom = 1077.0
+margin_left = 1882.0
+margin_top = 431.0
+margin_right = 2088.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5482,10 +5481,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode64" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 972.0
-margin_top = 833.0
-margin_right = 1178.0
-margin_bottom = 1077.0
+margin_left = 1662.0
+margin_top = 431.0
+margin_right = 1868.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5565,10 +5564,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode66" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1192.0
-margin_top = 573.0
-margin_right = 1398.0
-margin_bottom = 817.0
+margin_left = 1882.0
+margin_top = 171.0
+margin_right = 2088.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5648,10 +5647,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode67" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1412.0
-margin_top = 833.0
-margin_right = 1618.0
-margin_bottom = 1077.0
+margin_left = 2102.0
+margin_top = 431.0
+margin_right = 2308.0
+margin_bottom = 675.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5731,10 +5730,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode68" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1412.0
-margin_top = 573.0
-margin_right = 1618.0
-margin_bottom = 817.0
+margin_left = 2102.0
+margin_top = 171.0
+margin_right = 2308.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5814,10 +5813,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode65" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 972.0
-margin_top = 573.0
-margin_right = 1178.0
-margin_bottom = 817.0
+margin_left = 1662.0
+margin_top = 171.0
+margin_right = 1868.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5897,10 +5896,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode24" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2952.0
-margin_top = 53.0
-margin_right = 3158.0
-margin_bottom = 297.0
+margin_left = 3642.0
+margin_top = -349.0
+margin_right = 3848.0
+margin_bottom = -105.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -5980,10 +5979,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode25" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3392.0
-margin_top = 313.0
-margin_right = 3598.0
-margin_bottom = 557.0
+margin_left = 4082.0
+margin_top = -89.0
+margin_right = 4288.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -6063,10 +6062,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode33" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4052.0
-margin_top = 313.0
-margin_right = 4258.0
-margin_bottom = 557.0
+margin_left = 4742.0
+margin_top = -89.0
+margin_right = 4948.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -6146,10 +6145,10 @@ dialog_values = [ {
 } ]
 
 [node name="TextDialogNode32" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 4272.0
-margin_top = 313.0
-margin_right = 4478.0
-margin_bottom = 557.0
+margin_left = 4962.0
+margin_top = -89.0
+margin_right = 5168.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -6229,10 +6228,10 @@ dialog_values = [ {
 } ]
 
 [node name="BranchDialogNode3" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 152.0
-margin_top = 413.0
-margin_right = 405.0
-margin_bottom = 930.0
+margin_left = 842.0
+margin_top = 11.0
+margin_right = 1095.0
+margin_bottom = 528.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Branch Dialog Node"
@@ -6337,10 +6336,10 @@ branch_values = [ "4", "3", "2", "1" ]
 branch_amount = 4
 
 [node name="BranchDialogNode5" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 152.0
-margin_top = 813.0
-margin_right = 405.0
-margin_bottom = 1330.0
+margin_left = 842.0
+margin_top = 411.0
+margin_right = 1095.0
+margin_bottom = 928.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Branch Dialog Node"
@@ -6445,10 +6444,10 @@ branch_values = [ "4", "3", "2", "1" ]
 branch_amount = 4
 
 [node name="BranchDialogNode4" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 152.0
-margin_top = 1213.0
-margin_right = 405.0
-margin_bottom = 1730.0
+margin_left = 842.0
+margin_top = 811.0
+margin_right = 1095.0
+margin_bottom = 1328.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Branch Dialog Node"
@@ -6553,10 +6552,10 @@ branch_values = [ "4", "3", "2", "1" ]
 branch_amount = 4
 
 [node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = -288.0
-margin_top = 93.0
-margin_right = -35.0
-margin_bottom = 475.0
+margin_left = 402.0
+margin_top = -309.0
+margin_right = 655.0
+margin_bottom = 181.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Branch Dialog Node"
@@ -6661,10 +6660,10 @@ branch_values = [ "4", "3", "2", "1" ]
 branch_amount = 4
 
 [node name="BranchDialogNode2" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 152.0
-margin_top = 13.0
-margin_right = 405.0
-margin_bottom = 395.0
+margin_left = 842.0
+margin_top = -389.0
+margin_right = 1095.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Branch Dialog Node"
@@ -6708,6 +6707,30 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -6742,4 +6765,5 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+branch_values = [ "4", "3", "2", "1" ]
 branch_amount = 4

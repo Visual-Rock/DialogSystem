@@ -31,6 +31,13 @@ onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
 onready var DialogList : VBoxContainer      = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/TextEdit/MarginContainer/Dialogs/List")
 onready var Templates  : OptionButton       = self.get_node("NewDialog/VBoxContainer/Template")
 
+onready var TagsTree   : Tree               = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/TagTree")
+onready var AddTag     : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer/AddTag")
+onready var DeleteTag  : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer/DeleteTag")
+
+var tags_root : TreeItem
+var tags      : Array
+
 var dialog : Resource = load("res://addons/DialogEditor/DialogManager/Dialog.tscn")
 
 var save_path          : String = "res://addons/DialogEditor/Saves/"
@@ -66,7 +73,10 @@ func _ready() -> void:
 		SearchType.connect("item_selected", self, "update_search_type")
 	if SearchStop:
 		SearchStop.connect("pressed", self, "stop_search")
-	
+	if AddTag:
+		AddTag.connect("Pressed", self, "add_tag")
+	if TagsTree:
+		TagsTree.create_item()
 	for sibling in get_parent().get_children():
 		if sibling.name == "Editor Settings":
 			sibling.connect("update_settings", self, "update_settings")
@@ -362,6 +372,9 @@ func update_search_type(new_type : int) -> void:
 func stop_search() -> void:
 	SearchList.text = ""
 	update_search("")
+
+func add_tag() -> void:
+	pass
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:
