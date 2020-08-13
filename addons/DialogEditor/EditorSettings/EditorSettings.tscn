@@ -187,7 +187,6 @@ margin_right = 490.0
 margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Node Value Templates"
 
 [node name="MultiplePathSelect" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates" instance=ExtResource( 5 )]
 anchor_right = 0.0
@@ -195,3 +194,20 @@ anchor_bottom = 0.0
 margin_left = 494.0
 margin_right = 984.0
 margin_bottom = 44.0
+
+[node name="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect" index="0"]
+margin_right = 490.0
+
+[node name="Name" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect/HBoxContainer" index="0"]
+margin_right = 470.0
+text = "Node Value Templates"
+
+[node name="Add" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect/HBoxContainer" index="1"]
+margin_left = 474.0
+margin_right = 490.0
+
+[node name="Templates" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect" index="1"]
+margin_right = 490.0
+margin_bottom = 44.0
+
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect"]

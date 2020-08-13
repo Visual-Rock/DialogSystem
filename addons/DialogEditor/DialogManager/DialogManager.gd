@@ -74,7 +74,7 @@ func _ready() -> void:
 	if SearchStop:
 		SearchStop.connect("pressed", self, "stop_search")
 	if AddTag:
-		AddTag.connect("Pressed", self, "add_tag")
+		AddTag.connect("pressed", self, "add_tag")
 	if TagsTree:
 		TagsTree.create_item()
 	for sibling in get_parent().get_children():
@@ -374,7 +374,10 @@ func stop_search() -> void:
 	update_search("")
 
 func add_tag() -> void:
-	pass
+	var tag : TreeItem = TagsTree.create_item(tags_root)
+	tag.set_text(0, "New Tag")
+	tag.set_editable(0, true)
+	tags.append(tag)
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:
