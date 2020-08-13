@@ -35,8 +35,13 @@ func _ready() -> void:
 	update_settings()
 	if DialogMenu:
 		DialogMenu.get_popup().connect("id_pressed", self, "dialog_menu_id_pressed")
+		DialogMenu.get_popup().set_item_shortcut(1, create_shortcut(KEY_S, true))
 	if NodeMenu:
 		NodeMenu.get_popup().connect("id_pressed", self, "node_menu_id_pressed")
+		NodeMenu.get_popup().set_item_shortcut(0, create_shortcut(KEY_S, false, true))
+		NodeMenu.get_popup().set_item_shortcut(1, create_shortcut(KEY_T, false, true))
+		NodeMenu.get_popup().set_item_shortcut(2, create_shortcut(KEY_B, false, true))
+		NodeMenu.get_popup().set_item_shortcut(3, create_shortcut(KEY_E, false, true))
 	if GraphContainer:
 		GraphContainer.connect("tab_changed", self, "change_aktiv_graph")
 	for sibling in get_parent().get_children():
