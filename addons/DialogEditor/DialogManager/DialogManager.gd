@@ -24,6 +24,7 @@ onready var SortMenu   : OptionButton       = self.get_node("HSplitContainer/Dia
 onready var FlipList   : CheckBox           = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/FlipList")
 onready var SearchList : LineEdit           = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/SearchLine")
 onready var SearchType : OptionButton       = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/SearchOptionsMenu")
+onready var SearchStop : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/EndSearch")
 
 onready var Adddialog  : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar/AddDialog")
 onready var NewDialog  : ConfirmationDialog = self.get_node("NewDialog")
@@ -61,6 +62,11 @@ func _ready() -> void:
 		FlipList.connect("toggled", self, "change_sort_flip")
 	if SearchList:
 		SearchList.connect("text_changed", self, "update_search")
+	if SearchType:
+		SearchType.connect("item_selected", self, "update_search_type")
+	if SearchStop:
+		SearchStop.connect("pressed", self, "stop_search")
+	
 	for sibling in get_parent().get_children():
 		if sibling.name == "Editor Settings":
 			sibling.connect("update_settings", self, "update_settings")
@@ -243,8 +249,9 @@ func save_selected_dialogs() -> void:
 func set_selected_all_dialogs(selected : bool = true):
 	# goes through all the childrens of the DialogList
 	for dialog in DialogList.get_children():
-		# sets selected
-		dialog.set_selected(selected)
+		if dialog.visible == true:
+			# sets selected
+			dialog.set_selected(selected)
 
 # updates settings and templates displayed in the 
 # Templates Option Button
@@ -348,6 +355,13 @@ func update_search(search_for : String) -> void:
 	else:
 		for dialog in DialogList.get_children():
 			dialog.show()
+
+func update_search_type(new_type : int) -> void:
+	update_search(SearchList.text)
+
+func stop_search() -> void:
+	SearchList.text = ""
+	update_search("")
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:
