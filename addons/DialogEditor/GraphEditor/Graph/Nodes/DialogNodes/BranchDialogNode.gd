@@ -49,7 +49,7 @@ func _ready() -> void:
 			j = branch_amount - i
 			branch_options.append(branch_section)
 			branch_section.branch_pos = j
-			self.add_child_below_node(BranchSettings, branch_section)
+			self.add_child_below_node(BranchSettings, branch_section) 
 			self.set_slot(j + 1, false, 0, Color(1,1,1,1), true, 0, Color(1,1,1,1), null, null)
 			if branch_type != BRANCHTYPES.RANDOM:
 				branch_section.set_text(str(branch))
@@ -65,6 +65,7 @@ func _ready() -> void:
 	else:
 		BranchValueName.hide()
 	self.set_slot(0, true, 0, Color(1,1,1,1), false, 0, Color(1,1,1,1), null, null)
+	branch_amount_update()
 
 func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
 	branch_amount = new_branch_amount
