@@ -175,11 +175,11 @@ func delete() -> void:
 	print("Delete ", dialog_name)
 
 func update_tags(new_tags : Array) -> void:
-	
 	var current_tags : Array = []
 	for item in TagMenu.get_popup().get_item_count():
 		if TagMenu.get_popup().is_item_checked(item):
 			current_tags.append(tags[item])
+	tags = new_tags
 	TagMenu.get_popup().clear()
 	for tag in new_tags.size():
 		TagMenu.get_popup().add_item(new_tags[tag])

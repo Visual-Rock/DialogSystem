@@ -43,6 +43,7 @@ var dialog : Resource = load("res://addons/DialogEditor/DialogManager/Dialog.tsc
 
 var save_path          : String = "res://addons/DialogEditor/Saves/"
 var settings_save_path : String = "res://addons/DialogEditor/settings.json"
+var tags_save_path     : String = "res://addons/DialogEditor/tags.save"
 var templates          : Array  = []
 
 var new_dialog_size : Vector2 = Vector2(200, 70)
@@ -97,6 +98,19 @@ func _ready() -> void:
 	load_dialogs()
 	# sorts all dialogs
 	sort_dialogs()
+	# loads tags
+	var f : File = File.new()
+	if f.file_exists(tags_save_path):
+		if f.open(tags_save_path, f.READ) == OK:
+			tags = f.get_var()
+			f.close()
+			if tags.size() != 0:
+				var tagitem : TreeItem
+				for tag in tags:
+					tagitem = TagsTree.create_item(tags_root)
+					tagitem.set_text(0, tag)
+					tagitem.set_editable(0, true)
+			reload_tags()
 
 # returns the save path
 func get_save_path() -> String:
@@ -286,7 +300,7 @@ func update_settings() -> void:
 		# Closes the File
 		f.close()
 		# adds the Default Template at the Start of the Array
-		templates.push_front("res://addons/DialogEditor/DefaultTemplate.json")
+		templates.push_front("res://addons/DialogEditor/Templates/DefaultTemplate.json")
 		# Clears the Options of the Templates Option Button
 	Templates.clear()
 	# creates a new File 
@@ -346,9 +360,11 @@ func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipLis
 		# adds them as a child of DialogList in sorted order
 		DialogList.add_child(node)
 
+# Changes the Sort type and calls sort_dialogs
 func change_sort_type(new_type : int) -> void:
 	sort_dialogs()
 
+# flips the dialog list
 func change_sort_flip(new_flip : bool) -> void:
 	sort_dialogs()
 
@@ -383,18 +399,20 @@ func add_tag() -> void:
 	tag.set_text(0, "New Tag")
 	tag.set_editable(0, true)
 	tags.append(tag)
+	save_tags()
 
 func delete_tag() -> void:
 	var selected : TreeItem = TagsTree.get_selected()
 	if selected != null:
 		selected.deselect(0)
 		tags_root.remove_child(selected)
+	save_tags()
 
 func reload_tags() -> void:
 	var new_tags : Array = get_tags()
-	
 	for dialog in DialogList.get_children():
 		dialog.update_tags(new_tags)
+	save_tags()
 
 func get_tags() -> Array:
 	var new_tags : Array = []
@@ -405,6 +423,13 @@ func get_tags() -> Array:
 		item = item.get_next()
 	
 	return new_tags
+
+func save_tags() -> void:
+	var tags : Array = get_tags()
+	var f    : File  = File.new()
+	if f.open(tags_save_path, f.WRITE) == OK:
+		f.store_var(tags)
+		f.close()
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:

@@ -1,0 +1,41 @@
+{
+    "node_values": [
+        {
+            "name": "Names",
+            "type": 0,
+            "selected": 0,
+            "default": 0,
+            "value": [
+                "Name1",
+                "Name2"
+            ]
+        },
+        {
+            "name": "OneLineString",
+            "type": 1,
+            "value": "",
+            "default": ""
+        },
+        {
+            "name": "text",
+            "type": 2,
+            "value": "",
+            "default": ""
+        },
+        {
+            "name": "Boolean",
+            "type": 3,
+            "value": true,
+            "default": true
+        },
+        {
+            "name": "number",
+            "type": 4,
+            "value": 0,
+            "default": 0,
+            "step": 0.1,
+            "min": -99,
+            "max": 99
+        }
+    ]
+}
