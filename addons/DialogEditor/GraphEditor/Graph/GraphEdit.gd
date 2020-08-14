@@ -82,6 +82,8 @@ func add_node(node : int) -> void:
 	if n:
 		n.node_values = node_values
 		self.add_child(n)
+		var mouse_pos : Vector2 = get_local_mouse_position()
+		n.offset = Vector2(mouse_pos.x + scroll_offset.x, mouse_pos.y + scroll_offset.y)
 
 func connection_request(from, from_slot, to, to_slot):
 	connect_node(from, from_slot, to, to_slot)
@@ -119,7 +121,6 @@ func copy_selected_nodes() -> void:
 				copy.append(node)
 
 func paste_selected_nodes() -> void:
-	print("paste")
 	var n    : GraphNode
 	var data : Dictionary
 	for node in copy:
