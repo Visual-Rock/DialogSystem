@@ -147,7 +147,6 @@ func get_name_value(value_name : String) -> String:
 	return ""
 
 func get_selected(value_name : String) -> int:
-	
 	for value in current_dialog["value"]:
 		if value["name"] == value_name:
 			return value["value"]

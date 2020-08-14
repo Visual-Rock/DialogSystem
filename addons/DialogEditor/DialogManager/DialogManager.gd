@@ -155,7 +155,7 @@ func new_dialog() -> void:
 		d.connect("open_graph", self, "open_graph")
 		# adds the dialog as a child of DialogList
 		DialogList.add_child(d)
-		open_graph(NewDialog.get_node("VBoxContainer/LineEdit").text, Templates.selected, true)
+		open_graph(NewDialog.get_node("VBoxContainer/LineEdit").text, Templates.selected, false)
 		# sets the text of LineEdit to an empty String
 		NewDialog.get_node("VBoxContainer/LineEdit").text = ""
 	else:
