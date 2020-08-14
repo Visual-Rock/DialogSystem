@@ -15,7 +15,8 @@ enum DIALOGMENU {
 
 enum SORTTYPES {
 	NAME,
-	ID
+	ID,
+	TAG
 }
 
 onready var Debug      : Label              = self.get_node("HSplitContainer/Dialog/debug")
@@ -383,6 +384,13 @@ func update_search(search_for : String) -> void:
 						dialog.show()
 					else:
 						dialog.hide()
+			SORTTYPES.TAG:
+				for dialog in DialogList.get_children():
+					for tag in dialog.get_tags():
+						if search_for in tag:
+							dialog.show()
+						else:
+							dialog.hide()
 	else:
 		for dialog in DialogList.get_children():
 			dialog.show()

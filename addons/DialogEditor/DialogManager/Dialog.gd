@@ -175,10 +175,7 @@ func delete() -> void:
 	print("Delete ", dialog_name)
 
 func update_tags(new_tags : Array = tags, all_check : bool = false) -> void:
-	var current_tags : Array = []
-	for item in TagMenu.get_popup().get_item_count():
-		if TagMenu.get_popup().is_item_checked(item):
-			current_tags.append(tags[item])
+	var current_tags : Array = get_tags()
 	tags = new_tags
 	TagMenu.get_popup().clear()
 	for tag in new_tags.size():
@@ -187,6 +184,13 @@ func update_tags(new_tags : Array = tags, all_check : bool = false) -> void:
 		if new_tags[tag] in current_tags || all_check == true:
 			TagMenu.get_popup().set_item_checked(tag, true)
 	save_dialog()
+
+func get_tags() -> Array:
+	var rtrn : Array = []
+	for item in TagMenu.get_popup().get_item_count():
+		if TagMenu.get_popup().is_item_checked(item):
+			rtrn.append(tags[item])
+	return rtrn
 
 func on_tag_pressed(tag_id : int) -> void:
 	TagMenu.get_popup().set_item_checked(tag_id, !TagMenu.get_popup().is_item_checked(tag_id))

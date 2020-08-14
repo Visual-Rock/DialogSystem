@@ -122,16 +122,8 @@ margin_right = 343.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 50, 0 )
 text = "Name"
-items = [ "Name", null, false, 0, null, "ID", null, false, 1, null ]
+items = [ "Name", null, false, 0, null, "ID", null, false, 1, null, "Tag", null, false, 2, null ]
 selected = 0
-
-[node name="SearchTag" type="OptionButton" parent="HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar"]
-visible = false
-margin_left = 330.0
-margin_right = 659.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="SearchLine" type="LineEdit" parent="HSplitContainer/Dialog/HSplitContainer/VBoxContainer/ToolBar"]
 margin_left = 347.0
