@@ -24,7 +24,6 @@ var data             : Dictionary = {}       # Used for Variable Injection or Br
 
 # load Dialog
 func load_from_file(file_path : String = "", _keep_complette : bool = true) -> int:
-	print("load from file")
 	var f : File = File.new()
 	if f.file_exists(file_path):
 		if f.open(file_path, f.READ) == OK:
@@ -44,7 +43,6 @@ func load_from_file(file_path : String = "", _keep_complette : bool = true) -> i
 		return ERR_FILE_NOT_FOUND
 
 func load_from_dict(dict : Dictionary, _keep_complette : bool = true) -> int:
-	print("load from dict")
 	if dict.has("dialog") && dict.has("value"):
 		valid_dialog = true
 		keep_complette = _keep_complette
