@@ -26,44 +26,44 @@ after making a Graph you have to bake the Dialog baking is very easy
 for easier use of the Baked Dialogs you can use the Dialog class
 create one like this 
 
-```gdscript
+```
 var dialog : Dialog = Dialog.new()
 ```
 
 **load your dialog 
 from file:**
-```gdscript
+```
 dialog.load_from_file(path_to_file)
 ```
 **or with a Dictionary:**
-```gdscript
+```
 dialog.load_from_dict(Dictionary)
 ```
 
 **Get the Current Dialog:**
-```gdscript
+```
 dialog.get_current_dialog()
 ```
 returns a Dictionary with the Dialogs Values,Node ID and the Options
 
 **if you only want the values do this:**
-```gdscript
+```
 dialog.get_values()
 ```
 returns an Array of all the values of the current dialog
 the values are Structured like this
-```json
-{ "value_name": "value" }
+```
+{ value_name: value }
 ```
 
 **if you only want the Options you can do this:**
-```gdscript
+```
 dialog.get_options()
 ```
 this returns an Array of all the Options
 
 **progressing the dialog is done by calling next like this:**
-```gdscript
+```
 dialog.next()
 ```
 
