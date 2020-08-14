@@ -141,11 +141,3 @@ func paste_selected_nodes() -> void:
 func duplicate_selected_nodes() -> void:
 	copy_selected_nodes()
 	paste_selected_nodes()
-
-
-
-
-
-
-
-
