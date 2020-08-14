@@ -60,7 +60,6 @@ margin_right = 120.0
 margin_bottom = 24.0
 text = "Tags"
 align = 0
-items = [ "Test", null, 1, false, false, 0, 0, null, "", false, "Test1", null, 1, true, false, 1, 0, null, "", false ]
 switch_on_hover = true
 
 [node name="VSeparator2" type="VSeparator" parent="."]

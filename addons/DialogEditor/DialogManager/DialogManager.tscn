@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/DialogEditor/icons/Close.svg" type="Texture" id=1]
 [ext_resource path="res://addons/DialogEditor/icons/Add.svg" type="Texture" id=2]
 [ext_resource path="res://addons/DialogEditor/DialogManager/DialogManager.gd" type="Script" id=3]
 [ext_resource path="res://addons/DialogEditor/icons/Remove.svg" type="Texture" id=4]
+[ext_resource path="res://addons/DialogEditor/icons/Reload.svg" type="Texture" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="DialogManager" type="Control"]
 anchor_right = 1.0
@@ -202,7 +205,7 @@ margin_bottom = 24.0
 alignment = 1
 
 [node name="AddTag" type="Button" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 130.0
+margin_right = 102.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 24, 24 )
 size_flags_horizontal = 3
@@ -213,15 +216,27 @@ custom_styles/disabled = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 icon = ExtResource( 2 )
 
-[node name="DeleteTag" type="Button" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 134.0
-margin_right = 150.0
+[node name="Reload" type="Button" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 106.0
+margin_right = 130.0
 margin_bottom = 24.0
+rect_min_size = Vector2( 24, 0 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 5 )
+
+[node name="DeleteTag" type="Button" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 134.0
+margin_right = 150.0
+margin_bottom = 24.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
 icon = ExtResource( 4 )
 
 [node name="TagTree" type="Tree" parent="HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer"]

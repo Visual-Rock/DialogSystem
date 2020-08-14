@@ -34,6 +34,7 @@ onready var Templates  : OptionButton       = self.get_node("NewDialog/VBoxConta
 onready var TagsTree   : Tree               = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/TagTree")
 onready var AddTag     : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer/AddTag")
 onready var DeleteTag  : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer/DeleteTag")
+onready var ReloadTags : Button             = self.get_node("HSplitContainer/Dialog/HSplitContainer/Tag/MarginContainer/VBoxContainer/HBoxContainer/Reload")
 
 var tags_root : TreeItem
 var tags      : Array
@@ -77,6 +78,8 @@ func _ready() -> void:
 		AddTag.connect("pressed", self, "add_tag")
 	if DeleteTag:
 		DeleteTag.connect("pressed", self, "delete_tag")
+	if ReloadTags:
+		ReloadTags.connect("pressed", self, "reload_tags")
 	if TagsTree:
 		tags_root = TagsTree.create_item()
 	for sibling in get_parent().get_children():
@@ -386,6 +389,22 @@ func delete_tag() -> void:
 	if selected != null:
 		selected.deselect(0)
 		tags_root.remove_child(selected)
+
+func reload_tags() -> void:
+	var new_tags : Array = get_tags()
+	
+	for dialog in DialogList.get_children():
+		dialog.update_tags(new_tags)
+
+func get_tags() -> Array:
+	var new_tags : Array = []
+	var item : TreeItem  = tags_root.get_children()
+	
+	while item != null:
+		new_tags.append(item.get_text(0))
+		item = item.get_next()
+	
+	return new_tags
 
 class SortDialogID:
 	static func sort_ascending(a, b) -> bool:

@@ -28,6 +28,7 @@ var selected    : bool   = false
 var dialog_id   : int    = 0
 var dialog_name : String = ""
 var dialog_des  : String = ""
+var tags        : Array  = []
 
 func _ready() -> void:
 	# checks if SelectedBox is valid
@@ -62,6 +63,7 @@ func _ready() -> void:
 	set_des(dialog_des)
 	set_name(dialog_name)
 	set_id(dialog_id)
+	update_tags(tags)
 	# Adds Icons to Buttons
 	Rename.icon = load("res://addons/DialogEditor/icons/Edit.svg")
 	Save.icon   = load("res://addons/DialogEditor/icons/Save.svg")
@@ -74,6 +76,8 @@ func dialog(data : Dictionary, manager : Control) -> void:
 	dialog_name = data["name"]
 	dialog_id   = data["id"]
 	dialog_des  = data["description"]
+	if data.has("tags"):
+		tags    = data["tags"]
 	dialog_manager = manager
 
 func set_selected(_selected : bool) -> void:
@@ -125,11 +129,16 @@ func rename_name() -> void:
 		emit_signal("debug_text", "Dialog name already taken!")
 
 func save_dialog() -> void:
+	var current_tags : Array = []
+	for item in TagMenu.get_popup().get_item_count():
+		if TagMenu.get_popup().is_item_checked(item):
+			current_tags.append(tags[item])
 	# creates data Dictionary
 	var data = {
 		"id":           get_id(),
 		"name":         get_name(),
-		"description":  get_des()
+		"description":  get_des(),
+		"tags":         current_tags
 	}
 	# crears a new instance of File
 	var f : File = File.new()
@@ -139,8 +148,6 @@ func save_dialog() -> void:
 		f.store_var(data)
 		# closes the file
 		f.close()
-		
-		print("Saved ", dialog_name)
 
 func popup_delete_dialog() -> void:
 	# Popup in the center of the screen relative to its current canvas transform
@@ -164,3 +171,30 @@ func delete() -> void:
 	# queues it's self for deletion
 	self.queue_free()
 	print("Delete ", dialog_name)
+
+func update_tags(new_tags : Array) -> void:
+	
+	var current_tags : Array = []
+	for item in TagMenu.get_popup().get_item_count():
+		if TagMenu.get_popup().is_item_checked(item):
+			current_tags.append(tags[item])
+	TagMenu.get_popup().clear()
+	for tag in new_tags.size():
+		TagMenu.get_popup().add_item(new_tags[tag])
+		if tag in current_tags:
+			TagMenu.get_popup().set_item_checked(tag, true)
+	
+	save_dialog()
+
+
+
+
+
+
+
+
+
+
+
+
+
