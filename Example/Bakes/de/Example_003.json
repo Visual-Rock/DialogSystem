@@ -1,0 +1,102 @@
+{
+    "dialog": {
+        "node_id": 0,
+        "options": {
+            "0": {
+                "node_id": 1,
+                "options": {
+                    "0": {
+                        "branch_type": 0,
+                        "node_id": 2,
+                        "options": {
+                            "Bist du Dumm?": {
+                                "node_id": 1,
+                                "options": {
+                                    "0": {
+                                        "node_id": 99
+                                    }
+                                },
+                                "value": [
+                                    {
+                                        "name": "Names",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "text",
+                                        "value": "Ja! Was denkstn du"
+                                    }
+                                ]
+                            },
+                            "Was willstn du jetzt?": {
+                                "node_id": 1,
+                                "options": {
+                                    "0": {
+                                        "node_id": 99
+                                    }
+                                },
+                                "value": [
+                                    {
+                                        "name": "Names",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "text",
+                                        "value": "nix!"
+                                    }
+                                ]
+                            }
+                        },
+                        "value": [
+                            {
+                                "name": "Names",
+                                "value": 1
+                            },
+                            {
+                                "name": "text",
+                                "value": "Tach"
+                            }
+                        ]
+                    }
+                },
+                "value": [
+                    {
+                        "name": "Names",
+                        "value": 1
+                    },
+                    {
+                        "name": "text",
+                        "value": "Hier hastes"
+                    }
+                ]
+            }
+        },
+        "value": [
+            {
+                "name": "Names",
+                "value": 0
+            },
+            {
+                "name": "text",
+                "value": "Localization Beispiel!"
+            }
+        ]
+    },
+    "value": [
+        {
+            "default": 0,
+            "name": "Names",
+            "selected": 0,
+            "type": 0,
+            "value": [
+                "Bilbo",
+                "Gandalf"
+            ]
+        },
+        {
+            "default": "",
+            "name": "text",
+            "type": 2,
+            "value": ""
+        }
+    ]
+}

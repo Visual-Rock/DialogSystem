@@ -156,7 +156,7 @@ func update_settings() -> void:
 		node_templates = data["NodeTemplates"]
 		skip_empty     = data["SkipEmptyNodes"]
 		f.close()
-		node_templates.push_front("res://addons/DialogEditor/DefaultTemplate.json")
+		node_templates.push_front("res://addons/DialogEditor/Templates/DefaultTemplate.json")
 
 func get_graph_by_name(graph_name) -> Node:
 	for node in GraphContainer.get_children():
