@@ -251,10 +251,13 @@ func _on_Dialog_item_pressed(id : int) -> void:
 			set_selected_all_dialogs(false)
 		DIALOGMENU.BAKESELECTED:
 			# bakes all selected dialogs
-			pass
+			for dialog in DialogList.get_children():
+				if dialog.get_selected() == true:
+					dialog.bake()
 		DIALOGMENU.BAKEALL:
 			# bakes all dialogs
-			pass
+			for dialog in DialogList.get_children():
+				dialog.bake()
 		DIALOGMENU.SAVESELECTED:
 			# Saves all selected Dialogs
 			save_selected_dialogs()
@@ -326,8 +329,8 @@ func update_settings() -> void:
 			# closes the current Template file
 			ff.close()
 
-func open_graph(_name : String, template_id : int, close : bool) -> void:
-	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"), template_id, close)
+func open_graph(_name : String, template_id : int, bake : bool) -> void:
+	emit_signal("open_dialog_graph", str(get_save_path(), _name, ".tscn"), template_id, bake)
 
 # Sorting the Dialogs
 func sort_dialogs(sort_type : int = SortMenu.selected, flipped : bool = !FlipList.pressed) -> void:

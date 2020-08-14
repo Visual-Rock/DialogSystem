@@ -99,7 +99,7 @@ func change_aktiv_graph(tab : int) -> void:
 	GraphContainer.current_tab = tab
 	current_graph = GraphContainer.get_children()[tab]
 
-func open_graph(path : String, template : int = -1, close : bool = false) -> void:
+func open_graph(path : String, template : int = -1, bake : bool = false) -> void:
 	if !graph_opend(path.get_file().trim_suffix(".tscn")):
 		var Graph : GraphEdit
 		var f     : File      = File.new()
@@ -118,8 +118,9 @@ func open_graph(path : String, template : int = -1, close : bool = false) -> voi
 		Graph.editor = self
 		GraphContainer.add_child(Graph)
 		Graph.save_graph()
-		if close == true:
-			print("close dialog", close)
+		if bake == true:
+			print("bake dialog")
+			bake_graph(path.get_file().trim_suffix(".tscn"))
 			Graph.queue_free()
 		GraphContainer.current_tab = GraphContainer.get_child_count() - 1
 	else:

@@ -59,6 +59,8 @@ func _ready() -> void:
 	if Open:
 		# connects the pressed signal of Open to open
 		Open.connect("pressed", self, "open")
+	if Bake:
+		Bake.connect("pressed", self, "bake")
 	if TagMenu:
 		TagMenu.get_popup().connect("id_pressed", self, "on_tag_pressed")
 	# calles all setters to update UI
@@ -157,6 +159,9 @@ func popup_delete_dialog() -> void:
 
 func open():
 	emit_signal("open_graph", dialog_name, -1, false)
+
+func bake():
+	emit_signal("open_graph", dialog_name, -1, true)
 
 func delete() -> void:
 	# Creates new instance of Directory and gets savepath
