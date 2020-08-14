@@ -65,7 +65,7 @@ func _ready() -> void:
 	set_des(dialog_des)
 	set_name(dialog_name)
 	set_id(dialog_id)
-	#update_tags(tags)
+	update_tags(tags, true)
 	# Adds Icons to Buttons
 	Rename.icon = load("res://addons/DialogEditor/icons/Edit.svg")
 	Save.icon   = load("res://addons/DialogEditor/icons/Save.svg")
@@ -174,7 +174,7 @@ func delete() -> void:
 	self.queue_free()
 	print("Delete ", dialog_name)
 
-func update_tags(new_tags : Array) -> void:
+func update_tags(new_tags : Array = tags, all_check : bool = false) -> void:
 	var current_tags : Array = []
 	for item in TagMenu.get_popup().get_item_count():
 		if TagMenu.get_popup().is_item_checked(item):
@@ -184,9 +184,8 @@ func update_tags(new_tags : Array) -> void:
 	for tag in new_tags.size():
 		TagMenu.get_popup().add_item(new_tags[tag])
 		TagMenu.get_popup().set_item_as_checkable(tag, true)
-		if tag in current_tags:
+		if new_tags[tag] in current_tags || all_check == true:
 			TagMenu.get_popup().set_item_checked(tag, true)
-	
 	save_dialog()
 
 func on_tag_pressed(tag_id : int) -> void:
