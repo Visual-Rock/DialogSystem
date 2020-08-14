@@ -59,11 +59,13 @@ func _ready() -> void:
 	if Open:
 		# connects the pressed signal of Open to open
 		Open.connect("pressed", self, "open")
+	if TagMenu:
+		TagMenu.get_popup().connect("id_pressed", self, "on_tag_pressed")
 	# calles all setters to update UI
 	set_des(dialog_des)
 	set_name(dialog_name)
 	set_id(dialog_id)
-	update_tags(tags)
+	#update_tags(tags)
 	# Adds Icons to Buttons
 	Rename.icon = load("res://addons/DialogEditor/icons/Edit.svg")
 	Save.icon   = load("res://addons/DialogEditor/icons/Save.svg")
@@ -181,12 +183,14 @@ func update_tags(new_tags : Array) -> void:
 	TagMenu.get_popup().clear()
 	for tag in new_tags.size():
 		TagMenu.get_popup().add_item(new_tags[tag])
+		TagMenu.get_popup().set_item_as_checkable(tag, true)
 		if tag in current_tags:
 			TagMenu.get_popup().set_item_checked(tag, true)
 	
 	save_dialog()
 
-
+func on_tag_pressed(tag_id : int) -> void:
+	TagMenu.get_popup().set_item_checked(tag_id, !TagMenu.get_popup().is_item_checked(tag_id))
 
 
 
