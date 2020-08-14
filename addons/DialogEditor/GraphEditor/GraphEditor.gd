@@ -121,6 +121,14 @@ func open_graph(path : String, template : int = -1, close : bool = false) -> voi
 		if close == true:
 			print("close dialog", close)
 			Graph.queue_free()
+		GraphContainer.current_tab = GraphContainer.get_child_count() - 1
+	else:
+		var i : int = 0
+		for graph in GraphContainer.get_children():
+			if graph.name == path.get_file().trim_suffix(".tscn"):
+				GraphContainer.current_tab = i
+				break
+			i += 1
 
 func graph_opend(graph_name : String) -> bool:
 	for graph in GraphContainer.get_children():

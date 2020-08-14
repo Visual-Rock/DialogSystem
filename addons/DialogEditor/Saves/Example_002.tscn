@@ -8,6 +8,7 @@
 [ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn" type="PackedScene" id=6]
 
 [node name="Example_002" type="GraphEdit"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -75,10 +76,9 @@ connections = [ {
 dialog_name = "Example_002"
 
 [node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 175.333
-margin_top = 73.0
-margin_right = 459.333
-margin_bottom = 341.0
+margin_left = 183.333
+margin_right = 467.333
+margin_bottom = 268.0
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -116,18 +116,6 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
-slot/5/left_type = 0
-slot/5/left_color = Color( 1, 1, 1, 1 )
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = false
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,10 +141,10 @@ branch_amount = 2
 branch_type = 0
 
 [node name="@TextDialogNode@702" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 642.0
-margin_top = 123.0
-margin_right = 833.0
-margin_bottom = 286.0
+margin_left = 650.0
+margin_top = 50.0
+margin_right = 841.0
+margin_bottom = 213.0
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -203,10 +191,10 @@ dialog_values = [ {
 include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 642.0
-margin_top = 406.333
-margin_right = 833.0
-margin_bottom = 569.333
+margin_left = 650.0
+margin_top = 333.333
+margin_right = 841.0
+margin_bottom = 496.333
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -253,10 +241,10 @@ dialog_values = [ {
 include_values = true
 
 [node name="@BranchDialogNode@609" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 425.333
-margin_top = 39.6667
-margin_right = 678.336
-margin_bottom = 286.667
+margin_left = 433.333
+margin_top = -33.3333
+margin_right = 686.336
+margin_bottom = 213.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -294,18 +282,6 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
-slot/5/left_type = 0
-slot/5/left_color = Color( 1, 1, 1, 1 )
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = false
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -331,10 +307,10 @@ branch_amount = 2
 branch_type = 1
 
 [node name="@BranchDialogNode@631" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 425.333
-margin_top = 256.333
-margin_right = 678.336
-margin_bottom = 552.333
+margin_left = 433.333
+margin_top = 183.333
+margin_right = 686.336
+margin_bottom = 479.333
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -372,18 +348,6 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
-slot/5/left_type = 0
-slot/5/left_color = Color( 1, 1, 1, 1 )
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = false
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -409,10 +373,10 @@ branch_amount = 2
 branch_type = 2
 
 [node name="@TextDialogNode@692" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 642.0
-margin_top = 264.667
-margin_right = 833.0
-margin_bottom = 427.667
+margin_left = 650.0
+margin_top = 191.667
+margin_right = 841.0
+margin_bottom = 354.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -459,10 +423,10 @@ dialog_values = [ {
 include_values = true
 
 [node name="@TextDialogNode@712" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 642.0
-margin_top = -18.6666
-margin_right = 833.0
-margin_bottom = 144.334
+margin_left = 650.0
+margin_top = -91.6666
+margin_right = 841.0
+margin_bottom = 71.334
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -509,10 +473,8 @@ dialog_values = [ {
 include_values = true
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = -8.0
-margin_top = 73.0
-margin_right = 213.0
-margin_bottom = 236.0
+margin_right = 221.0
+margin_bottom = 163.0
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1

@@ -11,15 +11,14 @@
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 33.0
-margin_right = -5.0
-margin_bottom = -5.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
-scroll_offset = Vector2( -763.498, -156.22 )
 zoom = 0.578704
 script = ExtResource( 2 )
 __meta__ = {
@@ -504,10 +503,10 @@ connections = [ {
 dialog_name = "Performance_Test"
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 3 )]
-margin_left = 358.405
-margin_top = 133.072
-margin_right = 564.405
-margin_bottom = 377.072
+margin_left = -405.093
+margin_top = -23.1482
+margin_right = -199.093
+margin_bottom = 220.852
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -556,6 +555,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 0
+node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -585,12 +585,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.5
 } ]
+include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1087.57
-margin_top = 121.498
-margin_right = 1293.57
-margin_bottom = 365.498
+margin_left = 324.074
+margin_top = -34.7222
+margin_right = 530.074
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -669,12 +670,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1087.57
-margin_top = 271.961
-margin_right = 1293.57
-margin_bottom = 515.961
+margin_left = 324.074
+margin_top = 115.741
+margin_right = 530.074
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -753,12 +755,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode4" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1087.57
-margin_top = 572.887
-margin_right = 1293.57
-margin_bottom = 816.887
+margin_left = 324.074
+margin_top = 416.667
+margin_right = 530.074
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -837,12 +840,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode3" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1087.57
-margin_top = 422.424
-margin_right = 1293.57
-margin_bottom = 666.424
+margin_left = 324.074
+margin_top = 266.204
+margin_right = 530.074
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -921,12 +925,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode6" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1353.78
-margin_top = 271.961
-margin_right = 1559.78
-margin_bottom = 515.961
+margin_left = 590.278
+margin_top = 115.741
+margin_right = 796.278
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1005,12 +1010,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode8" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1226.46
-margin_top = 271.961
-margin_right = 1432.46
-margin_bottom = 515.961
+margin_left = 462.963
+margin_top = 115.741
+margin_right = 668.963
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1089,12 +1095,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode7" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1226.46
-margin_top = 121.498
-margin_right = 1432.46
-margin_bottom = 365.498
+margin_left = 462.963
+margin_top = -34.7222
+margin_right = 668.963
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1173,12 +1180,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode5" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1353.78
-margin_top = 121.498
-margin_right = 1559.78
-margin_bottom = 365.498
+margin_left = 590.278
+margin_top = -34.7222
+margin_right = 796.278
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1257,12 +1265,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode9" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1608.41
-margin_top = 271.961
-margin_right = 1814.41
-margin_bottom = 515.961
+margin_left = 844.908
+margin_top = 115.741
+margin_right = 1050.91
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1341,12 +1350,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode10" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1481.09
-margin_top = 271.961
-margin_right = 1687.09
-margin_bottom = 515.961
+margin_left = 717.593
+margin_top = 115.741
+margin_right = 923.593
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1425,12 +1435,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode12" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1608.41
-margin_top = 121.498
-margin_right = 1814.41
-margin_bottom = 365.498
+margin_left = 844.908
+margin_top = -34.7222
+margin_right = 1050.91
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1509,12 +1520,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode11" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1481.09
-margin_top = 121.498
-margin_right = 1687.09
-margin_bottom = 365.498
+margin_left = 717.593
+margin_top = -34.7222
+margin_right = 923.593
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1593,12 +1605,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode13" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1863.03
-margin_top = 271.961
-margin_right = 2069.03
-margin_bottom = 515.961
+margin_left = 1099.54
+margin_top = 115.741
+margin_right = 1305.54
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1677,12 +1690,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode14" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1735.72
-margin_top = 271.961
-margin_right = 1941.72
-margin_bottom = 515.961
+margin_left = 972.223
+margin_top = 115.741
+margin_right = 1178.22
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1761,12 +1775,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode16" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1863.03
-margin_top = 121.498
-margin_right = 2069.03
-margin_bottom = 365.498
+margin_left = 1099.54
+margin_top = -34.7222
+margin_right = 1305.54
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1845,12 +1860,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode17" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2117.66
-margin_top = 271.961
-margin_right = 2323.66
-margin_bottom = 515.961
+margin_left = 1354.17
+margin_top = 115.741
+margin_right = 1560.17
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -1929,12 +1945,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode18" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1990.35
-margin_top = 271.961
-margin_right = 2196.35
-margin_bottom = 515.961
+margin_left = 1226.85
+margin_top = 115.741
+margin_right = 1432.85
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2013,12 +2030,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode19" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2117.66
-margin_top = 121.498
-margin_right = 2323.66
-margin_bottom = 365.498
+margin_left = 1354.17
+margin_top = -34.7222
+margin_right = 1560.17
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2097,12 +2115,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode20" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1990.35
-margin_top = 121.498
-margin_right = 2196.35
-margin_bottom = 365.498
+margin_left = 1226.85
+margin_top = -34.7222
+margin_right = 1432.85
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2181,12 +2200,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode15" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1735.72
-margin_top = 121.498
-margin_right = 1941.72
-margin_bottom = 365.498
+margin_left = 972.223
+margin_top = -34.7222
+margin_right = 1178.22
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2265,12 +2285,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode21" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2372.29
-margin_top = 271.961
-margin_right = 2578.29
-margin_bottom = 515.961
+margin_left = 1608.8
+margin_top = 115.741
+margin_right = 1814.8
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2349,12 +2370,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode22" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2244.98
-margin_top = 271.961
-margin_right = 2450.98
-margin_bottom = 515.961
+margin_left = 1481.48
+margin_top = 115.741
+margin_right = 1687.48
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2433,12 +2455,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode26" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2499.61
-margin_top = 271.961
-margin_right = 2705.61
-margin_bottom = 515.961
+margin_left = 1736.11
+margin_top = 115.741
+margin_right = 1942.11
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2517,12 +2540,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode27" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2626.92
-margin_top = 121.498
-margin_right = 2832.92
-margin_bottom = 365.498
+margin_left = 1863.43
+margin_top = -34.7222
+margin_right = 2069.43
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2601,12 +2625,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode28" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2499.61
-margin_top = 121.498
-margin_right = 2705.61
-margin_bottom = 365.498
+margin_left = 1736.11
+margin_top = -34.7222
+margin_right = 1942.11
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2685,12 +2710,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode29" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2881.55
-margin_top = 271.961
-margin_right = 3087.55
-margin_bottom = 515.961
+margin_left = 2118.06
+margin_top = 115.741
+margin_right = 2324.06
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2769,12 +2795,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode30" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2754.24
-margin_top = 271.961
-margin_right = 2960.24
-margin_bottom = 515.961
+margin_left = 1990.74
+margin_top = 115.741
+margin_right = 2196.74
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2853,12 +2880,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode31" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2881.55
-margin_top = 121.498
-margin_right = 3087.55
-margin_bottom = 365.498
+margin_left = 2118.06
+margin_top = -34.7222
+margin_right = 2324.06
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -2937,12 +2965,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode34" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3136.18
-margin_top = 121.498
-margin_right = 3342.18
-margin_bottom = 365.498
+margin_left = 2372.69
+margin_top = -34.7222
+margin_right = 2578.69
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3021,12 +3050,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode35" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3008.87
-margin_top = 121.498
-margin_right = 3214.87
-margin_bottom = 365.498
+margin_left = 2245.37
+margin_top = -34.7222
+margin_right = 2451.37
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3105,12 +3135,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode23" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2244.98
-margin_top = 121.498
-margin_right = 2450.98
-margin_bottom = 365.498
+margin_left = 1481.48
+margin_top = -34.7222
+margin_right = 1687.48
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3189,12 +3220,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode36" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2754.24
-margin_top = 121.498
-margin_right = 2960.24
-margin_bottom = 365.498
+margin_left = 1990.74
+margin_top = -34.7222
+margin_right = 2196.74
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3273,12 +3305,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode37" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1608.41
-margin_top = 572.887
-margin_right = 1814.41
-margin_bottom = 816.887
+margin_left = 844.908
+margin_top = 416.667
+margin_right = 1050.91
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3357,12 +3390,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode39" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1863.03
-margin_top = 572.887
-margin_right = 2069.03
-margin_bottom = 816.887
+margin_left = 1099.54
+margin_top = 416.667
+margin_right = 1305.54
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3441,12 +3475,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode40" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1735.72
-margin_top = 572.887
-margin_right = 1941.72
-margin_bottom = 816.887
+margin_left = 972.223
+margin_top = 416.667
+margin_right = 1178.22
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3525,12 +3560,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode41" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1863.03
-margin_top = 422.424
-margin_right = 2069.03
-margin_bottom = 666.424
+margin_left = 1099.54
+margin_top = 266.204
+margin_right = 1305.54
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3609,12 +3645,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode42" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2117.66
-margin_top = 572.887
-margin_right = 2323.66
-margin_bottom = 816.887
+margin_left = 1354.17
+margin_top = 416.667
+margin_right = 1560.17
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3693,12 +3730,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode43" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1990.35
-margin_top = 572.887
-margin_right = 2196.35
-margin_bottom = 816.887
+margin_left = 1226.85
+margin_top = 416.667
+margin_right = 1432.85
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3777,12 +3815,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode44" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2117.66
-margin_top = 422.424
-margin_right = 2323.66
-margin_bottom = 666.424
+margin_left = 1354.17
+margin_top = 266.204
+margin_right = 1560.17
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3861,12 +3900,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode45" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1990.35
-margin_top = 422.424
-margin_right = 2196.35
-margin_bottom = 666.424
+margin_left = 1226.85
+margin_top = 266.204
+margin_right = 1432.85
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -3945,12 +3985,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode46" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1735.72
-margin_top = 422.424
-margin_right = 1941.72
-margin_bottom = 666.424
+margin_left = 972.223
+margin_top = 266.204
+margin_right = 1178.22
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4029,12 +4070,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode47" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2372.29
-margin_top = 572.887
-margin_right = 2578.29
-margin_bottom = 816.887
+margin_left = 1608.8
+margin_top = 416.667
+margin_right = 1814.8
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4113,12 +4155,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode48" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2244.98
-margin_top = 572.887
-margin_right = 2450.98
-margin_bottom = 816.887
+margin_left = 1481.48
+margin_top = 416.667
+margin_right = 1687.48
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4197,12 +4240,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode49" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2372.29
-margin_top = 422.424
-margin_right = 2578.29
-margin_bottom = 666.424
+margin_left = 1608.8
+margin_top = 266.204
+margin_right = 1814.8
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4281,12 +4325,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode50" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2626.92
-margin_top = 572.887
-margin_right = 2832.92
-margin_bottom = 816.887
+margin_left = 1863.43
+margin_top = 416.667
+margin_right = 2069.43
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4365,12 +4410,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode51" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2499.61
-margin_top = 572.887
-margin_right = 2705.61
-margin_bottom = 816.887
+margin_left = 1736.11
+margin_top = 416.667
+margin_right = 1942.11
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4449,12 +4495,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode52" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2626.92
-margin_top = 422.424
-margin_right = 2832.92
-margin_bottom = 666.424
+margin_left = 1863.43
+margin_top = 266.204
+margin_right = 2069.43
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4533,12 +4580,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode53" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2499.61
-margin_top = 422.424
-margin_right = 2705.61
-margin_bottom = 666.424
+margin_left = 1736.11
+margin_top = 266.204
+margin_right = 1942.11
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4617,12 +4665,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode54" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2881.55
-margin_top = 572.887
-margin_right = 3087.55
-margin_bottom = 816.887
+margin_left = 2118.06
+margin_top = 416.667
+margin_right = 2324.06
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4701,12 +4750,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode55" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2754.24
-margin_top = 572.887
-margin_right = 2960.24
-margin_bottom = 816.887
+margin_left = 1990.74
+margin_top = 416.667
+margin_right = 2196.74
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4785,12 +4835,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode56" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2881.55
-margin_top = 422.424
-margin_right = 3087.55
-margin_bottom = 666.424
+margin_left = 2118.06
+margin_top = 266.204
+margin_right = 2324.06
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4869,12 +4920,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode57" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3136.18
-margin_top = 572.887
-margin_right = 3342.18
-margin_bottom = 816.887
+margin_left = 2372.69
+margin_top = 416.667
+margin_right = 2578.69
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -4953,12 +5005,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode58" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3008.87
-margin_top = 572.887
-margin_right = 3214.87
-margin_bottom = 816.887
+margin_left = 2245.37
+margin_top = 416.667
+margin_right = 2451.37
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5037,12 +5090,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode59" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3136.18
-margin_top = 422.424
-margin_right = 3342.18
-margin_bottom = 666.424
+margin_left = 2372.69
+margin_top = 266.204
+margin_right = 2578.69
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5121,12 +5175,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode60" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3008.87
-margin_top = 422.424
-margin_right = 3214.87
-margin_bottom = 666.424
+margin_left = 2245.37
+margin_top = 266.204
+margin_right = 2451.37
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5205,12 +5260,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode61" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2244.98
-margin_top = 422.424
-margin_right = 2450.98
-margin_bottom = 666.424
+margin_left = 1481.48
+margin_top = 266.204
+margin_right = 1687.48
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5289,12 +5345,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode62" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2754.24
-margin_top = 422.424
-margin_right = 2960.24
-margin_bottom = 666.424
+margin_left = 1990.74
+margin_top = 266.204
+margin_right = 2196.74
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5373,12 +5430,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode38" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1608.41
-margin_top = 422.424
-margin_right = 1814.41
-margin_bottom = 666.424
+margin_left = 844.908
+margin_top = 266.204
+margin_right = 1050.91
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5457,12 +5515,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode63" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1353.78
-margin_top = 572.887
-margin_right = 1559.78
-margin_bottom = 816.887
+margin_left = 590.278
+margin_top = 416.667
+margin_right = 796.278
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5541,12 +5600,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode64" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1226.46
-margin_top = 572.887
-margin_right = 1432.46
-margin_bottom = 816.887
+margin_left = 462.963
+margin_top = 416.667
+margin_right = 668.963
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5625,12 +5685,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode66" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1353.78
-margin_top = 422.424
-margin_right = 1559.78
-margin_bottom = 666.424
+margin_left = 590.278
+margin_top = 266.204
+margin_right = 796.278
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5709,12 +5770,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode67" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1481.09
-margin_top = 572.887
-margin_right = 1687.09
-margin_bottom = 816.887
+margin_left = 717.593
+margin_top = 416.667
+margin_right = 923.593
+margin_bottom = 660.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5793,12 +5855,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode68" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1481.09
-margin_top = 422.424
-margin_right = 1687.09
-margin_bottom = 666.424
+margin_left = 717.593
+margin_top = 266.204
+margin_right = 923.593
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5877,12 +5940,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode65" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1226.46
-margin_top = 422.424
-margin_right = 1432.46
-margin_bottom = 666.424
+margin_left = 462.963
+margin_top = 266.204
+margin_right = 668.963
+margin_bottom = 510.204
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -5961,12 +6025,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode24" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2372.29
-margin_top = 121.498
-margin_right = 2578.29
-margin_bottom = 365.498
+margin_left = 1608.8
+margin_top = -34.7222
+margin_right = 1814.8
+margin_bottom = 209.278
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6045,12 +6110,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode25" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 2626.92
-margin_top = 271.961
-margin_right = 2832.92
-margin_bottom = 515.961
+margin_left = 1863.43
+margin_top = 115.741
+margin_right = 2069.43
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6129,12 +6195,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode33" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3008.87
-margin_top = 271.961
-margin_right = 3214.87
-margin_bottom = 515.961
+margin_left = 2245.37
+margin_top = 115.741
+margin_right = 2451.37
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6213,12 +6280,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="TextDialogNode32" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 3136.18
-margin_top = 271.961
-margin_right = 3342.18
-margin_bottom = 515.961
+margin_left = 2372.69
+margin_top = 115.741
+margin_right = 2578.69
+margin_bottom = 359.741
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6297,12 +6365,13 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
+include_values = true
 
 [node name="BranchDialogNode3" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 751.924
-margin_top = 329.831
-margin_right = 1004.92
-margin_bottom = 846.831
+margin_left = -11.5741
+margin_top = 173.611
+margin_right = 241.422
+margin_bottom = 690.611
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6375,6 +6444,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 2
+node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -6404,14 +6474,17 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+include_values = true
 branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
 branch_amount = 4
+branch_type = 0
 
 [node name="BranchDialogNode5" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 751.924
-margin_top = 561.313
-margin_right = 1004.92
-margin_bottom = 1078.31
+margin_left = -11.5741
+margin_top = 405.093
+margin_right = 241.422
+margin_bottom = 922.09
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6484,6 +6557,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 2
+node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -6513,14 +6587,17 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+include_values = true
 branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
 branch_amount = 4
+branch_type = 0
 
 [node name="BranchDialogNode4" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 751.924
-margin_top = 792.794
-margin_right = 1004.92
-margin_bottom = 1309.79
+margin_left = -11.5741
+margin_top = 636.574
+margin_right = 241.422
+margin_bottom = 1153.57
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6593,6 +6670,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 2
+node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -6622,14 +6700,17 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+include_values = true
 branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
 branch_amount = 4
+branch_type = 0
 
 [node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 497.294
-margin_top = 144.646
-margin_right = 750.294
-margin_bottom = 634.646
+margin_left = -266.204
+margin_top = -11.5741
+margin_right = -13.2036
+margin_bottom = 478.426
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6702,6 +6783,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 2
+node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -6731,14 +6813,17 @@ dialog_values = [ {
 "type": 4,
 "value": 2.6
 } ]
+include_values = true
 branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
 branch_amount = 4
+branch_type = 0
 
 [node name="BranchDialogNode2" type="GraphNode" parent="." instance=ExtResource( 6 )]
-margin_left = 751.924
-margin_top = 98.3495
-margin_right = 1004.92
-margin_bottom = 588.35
+margin_left = -11.5741
+margin_top = -57.8704
+margin_right = 241.422
+margin_bottom = 432.13
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.578704, 0.578704 )
 mouse_filter = 1
@@ -6812,6 +6897,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 2
+node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -6841,5 +6927,8 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+include_values = true
 branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
 branch_amount = 4
+branch_type = 0

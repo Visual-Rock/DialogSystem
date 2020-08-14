@@ -17,7 +17,6 @@ rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
-scroll_offset = Vector2( -144, -45 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -43,10 +42,8 @@ connections = [ {
 dialog_name = "Example_001"
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 1 )]
-margin_left = 144.0
-margin_top = 45.0
-margin_right = 300.0
-margin_bottom = 179.0
+margin_right = 191.0
+margin_bottom = 134.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Start Node"
@@ -91,10 +88,9 @@ dialog_values = [ {
 include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 2 )]
-margin_left = 384.0
-margin_top = 45.0
-margin_right = 575.0
-margin_bottom = 208.0
+margin_left = 240.0
+margin_right = 431.0
+margin_bottom = 163.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
