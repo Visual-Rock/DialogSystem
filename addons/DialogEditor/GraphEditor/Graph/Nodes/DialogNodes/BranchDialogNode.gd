@@ -89,7 +89,6 @@ func branch_amount_update(new_branch_amount : int = branch_amount) -> void:
 		branch_section = branch_sections[branch_type].instance()
 		branch_options.append(branch_section)
 		i = value
-		print(value)
 		branch_section.branch_pos = branch_amount - i
 		self.add_child_below_node(BranchSettings, branch_section)
 		self.set_slot(i + 1, false, 0, Color(1,1,1,1), true, 0, Color(1,1,1,1), null, null)

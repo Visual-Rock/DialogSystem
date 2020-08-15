@@ -177,7 +177,6 @@ func delete() -> void:
 		dir.remove(str(savepath, dialog_name, ".tscn"))
 	# queues it's self for deletion
 	self.queue_free()
-	print("Delete ", dialog_name)
 
 func update_tags(new_tags : Array = tags, all_check : bool = false) -> void:
 	var current_tags : Array = get_tags()

@@ -33,7 +33,6 @@ func _ready() -> void:
 	self.connect("copy_nodes_request", self, "copy_selected_nodes")
 	self.connect("paste_nodes_request", self, "paste_selected_nodes")
 	self.connect("duplicate_nodes_request", self, "duplicate_selected_nodes")
-	print("Graph Ready")
 	if connections.size() != 0:
 		for c in connections:
 			connect_node(c["from"], c["from_port"], c["to"], c["to_port"])
@@ -51,7 +50,6 @@ func save_graph() -> void:
 			child.save_node()
 			child.set_owner(self)
 	scene.pack(self)
-	print(str(editor.save_path, dialog_name, ".tscn"))
 	ResourceSaver.save(str(editor.save_path, dialog_name, ".tscn"), scene)
 
 func bake_graph(skip_empty : bool) -> Dictionary:

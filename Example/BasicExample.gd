@@ -4,7 +4,6 @@ var d : Dialog = Dialog.new()
 
 func _on_Button_pressed():
 	if d.inited_dialog == false:
-		print(d.load_from_file("res://Example/Bakes/en/Example_001.json"))
 		set_ui(d.get_values())
 		$DialogLayer/Control/VBoxContainer/HBoxContainer/Button.text = "next"
 	else:

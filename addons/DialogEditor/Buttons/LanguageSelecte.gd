@@ -120,9 +120,6 @@ func set_value(new_value : int) -> void:
 	else:
 		# hides the Reset Button
 		Reset.hide()
-	
-	# prints the selected language
-	print(languages[new_value])
 
 # Return selected Language as a String
 func get_value() -> String:

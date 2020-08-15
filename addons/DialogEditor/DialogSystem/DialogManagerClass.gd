@@ -8,9 +8,15 @@ var dialog_path       : String = ""
 var default_language  : String = "en"
 var selected_language : String = "en"
 
+var options_taken : Array = []
 
+var dialog      : Dialog
+var dialog_name : String
 
-func load_dialogs(path : String = "res://") -> int:
+func load_dialogs(path : String = "res://", _default_language : String = "en", _selected_language : String = "en") -> int:
+	default_language = _default_language
+	selected_language = _selected_language
+	dialog_path = path
 	var dir : Directory = Directory.new()
 	if dir.dir_exists(path) && dir.dir_exists(str(path, default_language, "/")):
 		if dir.open(str(path, default_language, "/")) == OK:
@@ -25,3 +31,64 @@ func load_dialogs(path : String = "res://") -> int:
 			return ERR_CANT_OPEN
 	else:
 		return ERR_CANT_RESOLVE
+
+func start(_dialog_name : String) -> int:
+	options_taken = []
+	var f : File = File.new()
+	if dialogs.has(_dialog_name):
+		if f.file_exists(str(dialog_path, selected_language, "/", dialogs[_dialog_name])):
+			dialog_name = _dialog_name
+			dialog = Dialog.new()
+			return dialog.load_from_file(str(dialog_path, selected_language, "/", dialogs[_dialog_name]))
+		else:
+			if f.file_exists(str(dialog_path, default_language, "/", dialogs[_dialog_name])):
+				dialog_name = _dialog_name
+				dialog = Dialog.new()
+				return dialog.load_from_file(str(dialog_path, default_language, "/", dialogs[_dialog_name]))
+			else:
+				return ERR_FILE_NOT_FOUND
+	else:
+		return ERR_FILE_NOT_FOUND
+
+func change_language(_new_selected_language : String = default_language) -> void:
+	selected_language = _new_selected_language
+	start(dialog_name)
+	for opt in options_taken:
+		dialog.next(dialog.get_options()[opt])
+
+# functions to ineract with dialog
+func next(_next : String = "0") -> void:
+	if dialog:
+		dialog.next(_next)
+		options_taken.append(clamp(dialog.get_options().find(_next), 0, 9223372036854775807))
+
+func restart_dialog() -> void:
+	if dialog:
+		dialog.back_to_start()
+
+func get_current_dialog() -> Dictionary:
+	if dialog:
+		return dialog.get_current_dialog()
+	else:
+		return {}
+
+func get_dialog_values() -> Dictionary:
+	if dialog:
+		return dialog.get_values()
+	else:
+		return {}
+
+func get_dialog_options() -> Array:
+	if dialog:
+		return dialog.get_options()
+	return []
+
+func get_next_dialog_id() -> int:
+	if dialog:
+		return dialog.get_next_id()
+	return -1
+
+func is_dialog_branched() -> bool:
+	if dialog:
+		return dialog.is_branched_dialog()
+	return true

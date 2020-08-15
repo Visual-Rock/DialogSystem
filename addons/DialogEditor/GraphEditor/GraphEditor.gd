@@ -119,7 +119,6 @@ func open_graph(path : String, template : int = -1, bake : bool = false) -> void
 		GraphContainer.add_child(Graph)
 		Graph.save_graph()
 		if bake == true:
-			print("bake dialog")
 			bake_graph(path.get_file().trim_suffix(".tscn"))
 			Graph.queue_free()
 		GraphContainer.current_tab = GraphContainer.get_child_count() - 1

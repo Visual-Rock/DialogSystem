@@ -17,13 +17,13 @@ func _on_Button_pressed():
 		d = Dialog.new()
 		d.load_from_file("res://Example/Bakes/en/Example_002.json")
 		d.data["selected"] = false
-		set_ui(d.get_values(), d.branched_dialog())
+		set_ui(d.get_values(), d.is_branched_dialog())
 		DialogButton.text = "Next"
 		return
 	elif DialogButton.text == "Next":
 		d.next()
 		set_ui(d.get_values(), d.branched_dialog())
-		if d.branched_dialog():
+		if d.is_branched_dialog():
 			if d.get_branch_type() == 0:
 				DialogButton.disabled = true
 		if d.get_next_id() == 99:
@@ -48,7 +48,7 @@ func option_pressed() -> void:
 		if btn.pressed == true:
 			d.next(btn.text)
 			DialogButton.disabled = false
-			set_ui(d.get_values(), d.branched_dialog())
+			set_ui(d.get_values(), d.is_branched_dialog())
 			for child in SelectButtons.get_children():
 				child.queue_free()
 			break
