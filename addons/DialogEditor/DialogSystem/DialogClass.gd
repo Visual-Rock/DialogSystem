@@ -79,9 +79,6 @@ func get_current_dialog() -> Dictionary:
 	rtrn["options"] = get_options()
 	return rtrn
 
-func get_next_dialog() -> Dictionary:
-	return {}
-
 func next(next_name : String = "0") -> int:
 	if current_dialog["node_id"] != 99:
 		if current_dialog["options"].has(next_name):
