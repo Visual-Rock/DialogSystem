@@ -6,19 +6,21 @@ signal update_settings()
 onready var SaveSettings  : Button        = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/Title/SaveSettings")
 onready var ResetSettings : Button        = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/Title/ResetSettings")
 
-onready var SettingsList : VBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer")
-onready var Savepath     : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SavePath/PathSelect")
-onready var Bakepath     : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/BakePath/PathSelect")
-onready var SkipNodes    : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SkipEmptyNodes/CheckBox")
-onready var BakeLanguage : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultLanguage/LanguageSelect")
-onready var NodeTemplates: VBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect")
+onready var SettingsList  : VBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer")
+onready var Savepath      : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SavePath/PathSelect")
+onready var Bakepath      : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/BakePath/PathSelect")
+onready var SkipNodes     : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SkipEmptyNodes/CheckBox")
+onready var BakeLanguage  : HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DefaultLanguage/LanguageSelect")
+onready var NodeTemplates : VBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Templates/MultiplePathSelect")
+onready var DialogTemplate: HBoxContainer = self.get_node("MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/DialogTemplate/DialogTemplatePath")
 
 var default_settings : Dictionary = {
 	"SavePath": "res://addons/DialogEditor/Saves",
 	"BakePath": "res://Dialogs",
 	"SkipEmptyNodes": true,
 	"DefaultBakeLanguage": "en",
-	"DefaultNodeTemplate": "res://DialogEditor/Template.json"
+	"DefaultNodeTemplate": [],
+	"DefaultDialogTemplate": "res://addons/DialogEditor/Templates/DefaultDialogTemplate.json"
 }
 
 var settings_save_path = "res://addons/DialogEditor/settings.json"
@@ -37,7 +39,9 @@ func _ready() -> void:
 		Bakepath.set_value(settings["BakePath"])
 		SkipNodes.set_value(settings["SkipEmptyNodes"])
 		BakeLanguage.set_value(BakeLanguage.languages.find(settings["DefaultBakeLanguage"]))
-		NodeTemplates.set_value(settings["NodeTemplates"])
+		NodeTemplates.set_value(settings["DefaultNodeTemplate"])
+		if settings.has("DefaultDialogTemplate"):
+			DialogTemplate.set_value(settings["DefaultDialogTemplate"])
 	if SaveSettings:
 		SaveSettings.connect("pressed", self, "save_settings")
 	if ResetSettings:
@@ -45,7 +49,6 @@ func _ready() -> void:
 
 # Saves the Editor Settings in a JSON file
 func save_settings() -> void:
-	
 	update_settings()
 	var f : File = File.new()
 	f.open(settings_save_path, f.WRITE)
@@ -59,7 +62,8 @@ func update_settings() -> void:
 		settings["BakePath"] = Bakepath.get_value()
 	settings["SkipEmptyNodes"] = SkipNodes.get_value()
 	settings["DefaultBakeLanguage"] = BakeLanguage.get_value()
-	settings["NodeTemplates"] = NodeTemplates.get_value()
+	settings["DefaultNodeTemplate"] = NodeTemplates.get_value()
+	settings["DefaultDialogTemplate"] = DialogTemplate.get_value()
 	emit_signal("update_settings")
 
 func reset_settings() -> void:

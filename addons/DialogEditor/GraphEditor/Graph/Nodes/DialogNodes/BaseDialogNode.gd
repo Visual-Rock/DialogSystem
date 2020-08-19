@@ -4,9 +4,11 @@ extends "res://addons/DialogEditor/GraphEditor/Graph/Nodes/BaseNode.gd"
 export var node_id          : int   = -1
 export var node_value_start : int   = 2
 export var dialog_values    : Array = []
+export var dialogs_values   : Array = []
 export var include_values   : bool  = true
 
-var value_sections : Array = [
+var settings_save_path : String = "res://addons/DialogEditor/settings.json"
+var value_sections     : Array = [
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NameSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/StringSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/MultiLineStringSection.tscn"),
@@ -21,6 +23,22 @@ func _ready() -> void:
 		set_node_values(dialog_values)
 	else:
 		set_node_values()
+	
+	if node_id == 0:
+		var dd : VBoxContainer = load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/DialogValues.tscn").instance()
+		self.add_child(HSeparator.new())
+		self.add_child(dd)
+		if dialogs_values == []:
+			var f : File = File.new()
+			if f.file_exists(get_dialog_template_path()):
+				print("file exists")
+				f.open(get_dialog_template_path(), f.READ)
+				dd.load_dialog_values(parse_json(f.get_as_text())["node_values"])
+				f.close()
+			else:
+				dd.load_dialog_values([])
+		else:
+			dd.load_dialog_values(dialogs_values)
 
 func set_node_values(new_values : Array = node_values) -> void:
 	if self.get_child_count() - node_value_start != 0:
@@ -82,6 +100,8 @@ func save_node() -> void:
 		for value in values:
 			if value.has_method("get_save_data"):
 				val.append( value.get_save_data() )
+			elif value.has_method("get_dialog_values"):
+				dialogs_values = value.get_dialog_values()
 	dialog_values = val
 
 func get_paste_data() -> Dictionary:
@@ -100,3 +120,15 @@ func node_group() -> int:
 func get_node_id() -> int:
 	return node_id
 
+func get_dialog_template_path() -> String:
+	var rtrn : String = ""
+	var f : File = File.new()
+	# Checks if settings file exists
+	if f.file_exists(settings_save_path):
+		# opens the Settings File in Read mode
+		f.open(settings_save_path, f.READ)
+		# parses the JSON data into a data Variable
+		var data = parse_json(f.get_as_text())
+		rtrn = data["DefaultDialogTemplate"]
+	print("rtrn: ", rtrn)
+	return rtrn

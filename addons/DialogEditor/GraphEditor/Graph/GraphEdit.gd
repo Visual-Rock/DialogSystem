@@ -78,6 +78,7 @@ func add_node(node : int) -> void:
 	else:
 		printerr("Node Does not exists! No Node with Id ", node, " found!")
 	if node == NODES.START:
+		n.node_id = 0
 		start_node = n
 	if n:
 		n.node_values = node_values

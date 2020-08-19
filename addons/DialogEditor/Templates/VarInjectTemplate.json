@@ -17,5 +17,5 @@
             "default": ""
         }
     ],
-    "template_name": "Test Template"
+    "template_name": "Var Inject Template"
 }

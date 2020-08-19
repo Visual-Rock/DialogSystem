@@ -152,7 +152,7 @@ func update_settings() -> void:
 		if !bake_path.ends_with("/"):
 			bake_path  = str(bake_path, "/")
 		bake_language  = data["DefaultBakeLanguage"]
-		node_templates = data["NodeTemplates"]
+		node_templates = data["DefaultNodeTemplate"]
 		skip_empty     = data["SkipEmptyNodes"]
 		f.close()
 		node_templates.push_front("res://addons/DialogEditor/Templates/DefaultTemplate.json")

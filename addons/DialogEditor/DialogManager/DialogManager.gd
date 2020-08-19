@@ -311,7 +311,7 @@ func update_settings() -> void:
 		# gets the Save path and adds a "/" at the end
 		save_path = str(data["SavePath"], "/")
 		# gets the Array of Templates
-		templates = data["NodeTemplates"]
+		templates = data["DefaultNodeTemplate"]
 		# Closes the File
 		f.close()
 		# adds the Default Template at the Start of the Array

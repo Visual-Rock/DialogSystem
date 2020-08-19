@@ -10,7 +10,6 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-node_id = 0
 node_value_start = 2
 
 [node name="Label" type="Label" parent="." index="0"]
