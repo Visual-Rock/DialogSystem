@@ -105,13 +105,6 @@ func back_to_start() -> int:
 	current_dialog = dialog
 	return OK
 
-func start() -> int:
-	
-	
-	
-	
-	return OK
-
 func get_options(inverted : bool = false) -> Array:
 	if current_dialog.has("options"):
 		var opt : Array = current_dialog["options"].keys()
