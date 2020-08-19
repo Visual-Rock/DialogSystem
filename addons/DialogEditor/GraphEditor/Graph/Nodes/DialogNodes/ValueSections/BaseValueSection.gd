@@ -5,6 +5,7 @@ export var value_name    : String = ""
 export var value_type    : int    = -1
 export var value_default : Array  = []
 
+
 func get_data() -> Dictionary:
 	return { "name": value_name, "type": value_type, "value": get_value() }
 

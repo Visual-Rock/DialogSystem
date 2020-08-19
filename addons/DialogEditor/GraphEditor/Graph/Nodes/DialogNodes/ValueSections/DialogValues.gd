@@ -25,3 +25,14 @@ func get_dialog_values() -> Array:
 			if value.has_method("get_save_data"):
 				val.append( value.get_save_data() )
 	return val
+
+func get_bake_data() -> Array:
+	var val : Array = []
+	if self.get_child_count() != 0:
+		for value in self.get_children():
+			if value.has_method("get_data"):
+				if value.get_data()["type"] != 0:
+					val.append( value.get_save_data() )
+				else:
+					val.append((value.get_dialog_value()))
+	return val

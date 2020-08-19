@@ -9,6 +9,9 @@ var name_count : int = 0
 func get_value() -> int:
 	return NameMenu.selected
 
+func get_dialog_value() -> Dictionary:
+	return { "name": value_name, "type": value_type, "value": NameMenu.get_item_text(get_value()) }
+
 func load_from_data(data : Dictionary = {}) -> void:
 	ValueName.text = data["name"]
 	value_name = data["name"]

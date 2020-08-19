@@ -15,6 +15,7 @@ var current_dialog   : Dictionary = {}
 
 var dialog           : Dictionary = {}
 var values           : Array      = []
+var dialog_values    : Array      = []
 
 var valid_dialog          : bool       = true
 var keep_complette        : bool       = true
@@ -63,6 +64,8 @@ func init_dialog() -> int:
 		values = complette_dialog["value"]
 	else:
 		return ERR_CANT_RESOLVE
+	if complette_dialog.has("dialog_values"):
+		dialog_values = complette_dialog["dialog_values"]
 	if keep_complette == false:
 		complette_dialog.clear()
 	current_dialog = dialog
@@ -132,6 +135,19 @@ func get_values(dict : Dictionary = {}) -> Dictionary:
 						rtrn[value["name"]] = inject_variable(value["value"])
 					else:
 						rtrn[value["name"]] = value["value"]
+	else:
+		print_debug("Init your dialog first!")
+	return rtrn
+
+func get_dialog_values() -> Dictionary:
+	var rtrn : Dictionary = {}
+	if initialized_dialog == true:
+		for value in dialog_values:
+			if get_value_type(value["name"]) == 1 || get_value_type(value["name"]) == 2 || get_value_type(value["name"]) == 0:
+				if auto_inject_variables:
+					rtrn[value["name"]] = inject_variable(value["value"])
+				else:
+					rtrn[value["name"]] = value["value"]
 	else:
 		print_debug("Init your dialog first!")
 	return rtrn

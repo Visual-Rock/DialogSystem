@@ -132,3 +132,12 @@ func get_dialog_template_path() -> String:
 		rtrn = data["DefaultDialogTemplate"]
 	print("rtrn: ", rtrn)
 	return rtrn
+
+func get_dialog_values() -> Array:
+	if self.get_child_count() - node_value_start != 0:
+		var values : Array = self.get_children()
+		for value in values:
+			if value.has_method("get_bake_data"):
+				return value.get_bake_data()
+				break
+	return []

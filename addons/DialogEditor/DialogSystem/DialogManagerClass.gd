@@ -72,11 +72,16 @@ func get_current_dialog() -> Dictionary:
 	else:
 		return {}
 
-func get_dialog_values() -> Dictionary:
+func get_dialogs_values() -> Dictionary:
 	if dialog:
 		return dialog.get_values()
 	else:
 		return {}
+
+func get_dialogs_dialog_values() -> Dictionary:
+	if dialog:
+		return dialog.get_dialogs_values()
+	return {}
 
 func get_dialog_options() -> Array:
 	if dialog:
