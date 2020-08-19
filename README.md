@@ -6,7 +6,7 @@
 Download the newest version under the Releases tab
 choose between Example(includes an Example Project) or Addon(just the plugin)
 
-if the Icons are not loading wait until it finished Importing them and turn the Plugin/Addon off and on again that should fix it
+if the Icons are not loading wait until it finished Importing them and turn the Plugin/Addon off and on again or reopen the Project. that should fix it.
 
 ### **Create your own Dialog**
 
