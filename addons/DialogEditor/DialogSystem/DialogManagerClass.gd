@@ -13,6 +13,8 @@ var options_taken : Array = []
 var dialog      : Dialog
 var dialog_name : String
 
+var changed_language : bool = false
+
 func load_dialogs(path : String = "res://", _default_language : String = "en", _selected_language : String = "en") -> int:
 	default_language = _default_language
 	selected_language = _selected_language
@@ -33,6 +35,7 @@ func load_dialogs(path : String = "res://", _default_language : String = "en", _
 		return ERR_CANT_RESOLVE
 
 func start(_dialog_name : String) -> int:
+	changed_language = false
 	var f : File = File.new()
 	if dialogs.has(_dialog_name):
 		if f.file_exists(str(dialog_path, selected_language, "/", dialogs[_dialog_name])):
@@ -49,11 +52,14 @@ func start(_dialog_name : String) -> int:
 	else:
 		return ERR_FILE_NOT_FOUND
 
-func change_language(_new_selected_language : String = default_language) -> void:
-	selected_language = _new_selected_language
-	start(dialog_name)
-	for opt in options_taken:
-		dialog.next(dialog.get_options(false)[opt])
+func change_language(_new_selected_language : String = default_language, _progress_dialog_to_current : bool = false) -> void:
+	if selected_language != _new_selected_language:
+		selected_language = _new_selected_language
+		changed_language = true
+		if _progress_dialog_to_current:
+			start(dialog_name)
+			for opt in options_taken:
+				dialog.next(dialog.get_options(false)[opt])
 
 # functions to ineract with dialog
 func next(_next : String = "0") -> void:
@@ -64,7 +70,10 @@ func next(_next : String = "0") -> void:
 func restart_dialog() -> void:
 	if dialog:
 		options_taken = []
-		dialog.back_to_start()
+		if changed_language:
+			start(dialog_name)
+		else:
+			dialog.back_to_start()
 
 func get_current_dialog() -> Dictionary:
 	if dialog:
@@ -113,10 +122,3 @@ func injekt_variable(text : String = "", data : Dictionary = {}) -> String:
 func set_data(value_name : String, new_value) -> void:
 	if dialog:
 		dialog.data[value_name] = new_value
-
-
-
-
-
-
-
