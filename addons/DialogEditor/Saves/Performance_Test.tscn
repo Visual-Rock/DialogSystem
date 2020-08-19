@@ -11,10 +11,10 @@
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 5.0
+margin_top = 33.0
+margin_right = -5.0
+margin_bottom = -5.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -550,12 +550,23 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 0
-node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -585,7 +596,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.5
 } ]
-include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 324.074
@@ -670,7 +680,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 324.074
@@ -755,7 +764,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode4" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 324.074
@@ -840,7 +848,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode3" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 324.074
@@ -925,7 +932,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode6" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 590.278
@@ -1010,7 +1016,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode8" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 462.963
@@ -1095,7 +1100,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode7" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 462.963
@@ -1180,7 +1184,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode5" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 590.278
@@ -1265,7 +1268,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode9" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 844.908
@@ -1350,7 +1352,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode10" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 717.593
@@ -1435,7 +1436,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode12" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 844.908
@@ -1520,7 +1520,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode11" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 717.593
@@ -1605,7 +1604,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode13" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1099.54
@@ -1690,7 +1688,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode14" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 972.223
@@ -1775,7 +1772,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode16" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1099.54
@@ -1860,7 +1856,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode17" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1354.17
@@ -1945,7 +1940,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode18" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1226.85
@@ -2030,7 +2024,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode19" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1354.17
@@ -2115,7 +2108,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode20" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1226.85
@@ -2200,7 +2192,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode15" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 972.223
@@ -2285,7 +2276,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode21" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1608.8
@@ -2370,7 +2360,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode22" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1481.48
@@ -2455,7 +2444,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode26" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1736.11
@@ -2540,7 +2528,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode27" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1863.43
@@ -2625,7 +2612,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode28" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1736.11
@@ -2710,7 +2696,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode29" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2118.06
@@ -2795,7 +2780,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode30" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1990.74
@@ -2880,7 +2864,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode31" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2118.06
@@ -2965,7 +2948,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode34" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2372.69
@@ -3050,7 +3032,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode35" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2245.37
@@ -3135,7 +3116,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode23" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1481.48
@@ -3220,7 +3200,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode36" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1990.74
@@ -3305,7 +3284,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode37" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 844.908
@@ -3390,7 +3368,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode39" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1099.54
@@ -3475,7 +3452,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode40" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 972.223
@@ -3560,7 +3536,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode41" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1099.54
@@ -3645,7 +3620,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode42" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1354.17
@@ -3730,7 +3704,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode43" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1226.85
@@ -3815,7 +3788,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode44" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1354.17
@@ -3900,7 +3872,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode45" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1226.85
@@ -3985,7 +3956,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode46" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 972.223
@@ -4070,7 +4040,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode47" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1608.8
@@ -4155,7 +4124,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode48" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1481.48
@@ -4240,7 +4208,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode49" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1608.8
@@ -4325,7 +4292,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode50" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1863.43
@@ -4410,7 +4376,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode51" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1736.11
@@ -4495,7 +4460,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode52" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1863.43
@@ -4580,7 +4544,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode53" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1736.11
@@ -4665,7 +4628,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode54" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2118.06
@@ -4750,7 +4712,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode55" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1990.74
@@ -4835,7 +4796,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode56" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2118.06
@@ -4920,7 +4880,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode57" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2372.69
@@ -5005,7 +4964,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode58" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2245.37
@@ -5090,7 +5048,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode59" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2372.69
@@ -5175,7 +5132,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode60" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2245.37
@@ -5260,7 +5216,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode61" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1481.48
@@ -5345,7 +5300,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode62" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1990.74
@@ -5430,7 +5384,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode38" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 844.908
@@ -5515,7 +5468,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode63" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 590.278
@@ -5600,7 +5552,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode64" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 462.963
@@ -5685,7 +5636,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode66" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 590.278
@@ -5770,7 +5720,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode67" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 717.593
@@ -5855,7 +5804,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode68" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 717.593
@@ -5940,7 +5888,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode65" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 462.963
@@ -6025,7 +5972,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode24" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1608.8
@@ -6110,7 +6056,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode25" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 1863.43
@@ -6195,7 +6140,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode33" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2245.37
@@ -6280,7 +6224,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="TextDialogNode32" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 2372.69
@@ -6365,7 +6308,6 @@ dialog_values = [ {
 "type": 4,
 "value": 19.6
 } ]
-include_values = true
 
 [node name="BranchDialogNode3" type="GraphNode" parent="." instance=ExtResource( 6 )]
 margin_left = -11.5741
@@ -6498,6 +6440,7 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "4", "3", "2", "1" ]
 branch_value = ""
@@ -6635,6 +6578,7 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "4", "3", "2", "1" ]
 branch_value = ""
@@ -6772,6 +6716,7 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "4", "3", "2", "1" ]
 branch_value = ""
@@ -6909,6 +6854,7 @@ dialog_values = [ {
 "type": 4,
 "value": 2.6
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "4", "3", "2", "1" ]
 branch_value = ""
@@ -7047,6 +6993,7 @@ dialog_values = [ {
 "type": 4,
 "value": 3.5
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "4", "3", "2", "1" ]
 branch_value = ""

@@ -9,14 +9,15 @@
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 5.0
+margin_top = 33.0
+margin_right = -5.0
+margin_bottom = -5.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
+scroll_offset = Vector2( -295, -109 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -42,8 +43,10 @@ connections = [ {
 dialog_name = "Example_001"
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 1 )]
-margin_right = 191.0
-margin_bottom = 134.0
+margin_left = 295.0
+margin_top = 109.0
+margin_right = 486.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Start Node"
@@ -67,12 +70,23 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 0
-node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -85,12 +99,12 @@ dialog_values = [ {
 "type": 2,
 "value": "Just an Example"
 } ]
-include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 2 )]
-margin_left = 240.0
-margin_right = 431.0
-margin_bottom = 163.0
+margin_left = 535.0
+margin_top = 109.0
+margin_right = 726.0
+margin_bottom = 272.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -134,4 +148,3 @@ dialog_values = [ {
 "type": 2,
 "value": "of Linear Dialog!"
 } ]
-include_values = true

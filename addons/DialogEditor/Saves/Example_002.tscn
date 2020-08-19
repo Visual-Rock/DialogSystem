@@ -11,10 +11,10 @@
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 5.0
+margin_top = 33.0
+margin_right = -5.0
+margin_bottom = -5.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -78,7 +78,7 @@ dialog_name = "Example_002"
 [node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 183.333
 margin_right = 467.333
-margin_bottom = 268.0
+margin_bottom = 301.0
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -116,18 +116,6 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
-slot/5/left_type = 0
-slot/5/left_color = Color( 1, 1, 1, 1 )
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = false
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -146,6 +134,7 @@ dialog_values = [ {
 "type": 2,
 "value": "Branching Based on Selection"
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "On value", "Random" ]
 branch_value = ""
@@ -200,7 +189,6 @@ dialog_values = [ {
 "type": 2,
 "value": "Random 2"
 } ]
-include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
 margin_left = 650.0
@@ -250,13 +238,12 @@ dialog_values = [ {
 "type": 2,
 "value": "selected == false"
 } ]
-include_values = true
 
 [node name="@BranchDialogNode@609" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 433.333
 margin_top = -33.3333
 margin_right = 686.336
-margin_bottom = 213.667
+margin_bottom = 267.667
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -294,18 +281,6 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
-slot/5/left_type = 0
-slot/5/left_color = Color( 1, 1, 1, 1 )
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = false
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -324,6 +299,7 @@ dialog_values = [ {
 "type": 2,
 "value": "Random"
 } ]
+dialogs_values = [  ]
 include_values = false
 branch_values = [ "1", "2" ]
 branch_value = ""
@@ -334,7 +310,7 @@ branch_type = 1
 margin_left = 433.333
 margin_top = 183.333
 margin_right = 686.336
-margin_bottom = 479.333
+margin_bottom = 514.333
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -372,18 +348,6 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
-slot/5/left_type = 0
-slot/5/left_color = Color( 1, 1, 1, 1 )
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = false
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -402,6 +366,7 @@ dialog_values = [ {
 "type": 2,
 "value": "On Value"
 } ]
+dialogs_values = [  ]
 include_values = false
 branch_values = [ "False", "True" ]
 branch_value = "selected"
@@ -456,7 +421,6 @@ dialog_values = [ {
 "type": 2,
 "value": "selected == true"
 } ]
-include_values = true
 
 [node name="@TextDialogNode@712" type="GraphNode" parent="." instance=ExtResource( 6 )]
 margin_left = 650.0
@@ -506,11 +470,10 @@ dialog_values = [ {
 "type": 2,
 "value": "Random 1"
 } ]
-include_values = true
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_right = 221.0
-margin_bottom = 163.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 120, 70 )
 rect_scale = Vector2( 0.833333, 0.833333 )
 mouse_filter = 1
@@ -536,12 +499,23 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 0
-node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -554,4 +528,3 @@ dialog_values = [ {
 "type": 2,
 "value": "Branching Example!"
 } ]
-include_values = true

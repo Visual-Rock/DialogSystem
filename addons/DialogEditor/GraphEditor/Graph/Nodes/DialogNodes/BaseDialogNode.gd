@@ -13,7 +13,9 @@ var value_sections     : Array = [
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/StringSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/MultiLineStringSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BooleanSection.tscn"),
-	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NumberSection.tscn")
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NumberSection.tscn"),
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/TextureValueSection.tscn"),
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/SoundValueSection.tscn")
 ]
 
 var node_values   : Array = []
@@ -31,7 +33,6 @@ func _ready() -> void:
 		if dialogs_values == []:
 			var f : File = File.new()
 			if f.file_exists(get_dialog_template_path()):
-				print("file exists")
 				f.open(get_dialog_template_path(), f.READ)
 				dd.load_dialog_values(parse_json(f.get_as_text())["node_values"])
 				f.close()
@@ -130,7 +131,6 @@ func get_dialog_template_path() -> String:
 		# parses the JSON data into a data Variable
 		var data = parse_json(f.get_as_text())
 		rtrn = data["DefaultDialogTemplate"]
-	print("rtrn: ", rtrn)
 	return rtrn
 
 func get_dialog_values() -> Array:

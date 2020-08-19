@@ -205,7 +205,6 @@ func inject_variable(text : String = "") -> String:
 		val_name = rtrn.substr(tag_start + 5, tag_end - 5)
 		rtrn.erase(tag_start, tag_end - tag_start + 6)
 		if data.has(val_name):
-			print(data[val_name])
 			rtrn = rtrn.insert(tag_start, data[val_name])
 		else:
 			rtrn = rtrn.insert(tag_start, " ERR_VALUE_NOT_FOUND ")

@@ -8,6 +8,7 @@
 [ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.gd" type="Script" id=6]
 
 [node name="Example_003" type="GraphEdit"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -18,7 +19,6 @@ rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
-scroll_offset = Vector2( -217, -210 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,10 +59,9 @@ connections = [ {
 dialog_name = "Example_003"
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 2 )]
-margin_left = 217.0
-margin_top = 170.0
-margin_right = 449.0
-margin_bottom = 346.0
+margin_top = -40.0
+margin_right = 232.0
+margin_bottom = 136.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Start Node"
@@ -87,12 +86,23 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 node_id = 0
-node_value_start = 2
 dialog_values = [ {
 "default": 0.0,
 "name": "Names",
@@ -105,13 +115,12 @@ dialog_values = [ {
 "type": 2,
 "value": "Localization Example!"
 } ]
-include_values = true
 
 [node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 477.0
-margin_top = 170.0
-margin_right = 710.0
-margin_bottom = 352.0
+margin_left = 260.0
+margin_top = -40.0
+margin_right = 493.0
+margin_bottom = 142.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -154,13 +163,12 @@ dialog_values = [ {
 "type": 2,
 "value": "here you go"
 } ]
-include_values = true
 
 [node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = 757.0
-margin_top = 170.0
-margin_right = 1010.0
-margin_bottom = 444.0
+margin_left = 540.0
+margin_top = -40.0
+margin_right = 793.0
+margin_bottom = 261.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Branch Dialog Node"
@@ -215,6 +223,7 @@ dialog_values = [ {
 "type": 2,
 "value": "hi"
 } ]
+dialogs_values = [  ]
 include_values = true
 branch_values = [ "are you stupid", "what do you want?" ]
 branch_value = ""
@@ -222,10 +231,10 @@ branch_amount = 2
 branch_type = 0
 
 [node name="TextDialogNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1077.0
-margin_top = 310.0
-margin_right = 1268.0
-margin_bottom = 473.0
+margin_left = 860.0
+margin_top = 100.0
+margin_right = 1051.0
+margin_bottom = 263.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -268,13 +277,12 @@ dialog_values = [ {
 "type": 2,
 "value": "yes of course"
 } ]
-include_values = true
 
 [node name="TextDialogNode3" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 1077.0
-margin_top = 130.0
-margin_right = 1268.0
-margin_bottom = 293.0
+margin_left = 860.0
+margin_top = -80.0
+margin_right = 1051.0
+margin_bottom = 83.0
 rect_min_size = Vector2( 120, 70 )
 mouse_filter = 1
 title = "Text Node"
@@ -317,4 +325,3 @@ dialog_values = [ {
 "type": 2,
 "value": "nothing really!"
 } ]
-include_values = true

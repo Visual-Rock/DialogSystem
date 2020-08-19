@@ -36,6 +36,18 @@
             "step": 0.1,
             "min": -99,
             "max": 99
+        },
+        {
+            "name": "Texture",
+            "type": 5,
+            "value": "res://",
+            "default": "res://"
+        },
+        {
+            "name": "Sound",
+            "type": 6,
+            "value": "res://",
+            "default": "res://"
         }
     ]
 }

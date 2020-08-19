@@ -6,7 +6,9 @@ var value_sections     : Array = [
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/StringSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/MultiLineStringSection.tscn"),
 	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/BooleanSection.tscn"),
-	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NumberSection.tscn")
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/NumberSection.tscn"),
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/TextureValueSection.tscn"),
+	load("res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/ValueSections/SoundValueSection.tscn")
 ]
 
 func load_dialog_values(new_values : Array) -> void:

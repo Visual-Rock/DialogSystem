@@ -51,6 +51,7 @@ func _ready() -> void:
 			sibling.connect("update_settings", self, "update_settings")
 
 func dialog_menu_id_pressed(id : int) -> void:
+	update_current_graph()
 	match id:
 		DIALOGMENU.SAVE:
 			if current_graph:
@@ -73,6 +74,10 @@ func dialog_menu_id_pressed(id : int) -> void:
 				for graph in GraphContainer.get_children():
 					graph.save_graph()
 					graph.queue_free()
+
+func update_current_graph():
+	if GraphContainer.get_child_count() != 0:
+		current_graph = GraphContainer.get_children()[GraphContainer.current_tab]
 
 func bake_open() -> void:
 	for graph in GraphContainer.get_children():
