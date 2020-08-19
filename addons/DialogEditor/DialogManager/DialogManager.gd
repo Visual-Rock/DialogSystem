@@ -131,6 +131,7 @@ func dialog_exists(dialog_name : String = "name") -> bool:
 		return false
 
 func create_new_dialog() -> void:
+	NewDialog.get_node("VBoxContainer/HBoxContainer/SpinBox").value = get_next_empty_dialog_id()
 	# pops the NewDialog in the center with a size  new dialog size 
 	NewDialog.popup_centered(new_dialog_size)
 
@@ -173,6 +174,16 @@ func new_dialog() -> void:
 			debug_msg("Dialog Name has forbidden Characters!")
 		# opens the window again
 		create_new_dialog()
+
+func get_next_empty_dialog_id() -> int:
+	var new_id : int = 0
+	if DialogList.get_child_count() != 0:
+		for dialog in DialogList.get_children():
+			if dialog.dialog_id == new_id:
+				new_id += 1
+			else:
+				break
+	return new_id
 
 func has_dialog_id(_id : int) -> bool:
 	# checks if DialogList has children
