@@ -33,7 +33,6 @@ func load_dialogs(path : String = "res://", _default_language : String = "en", _
 		return ERR_CANT_RESOLVE
 
 func start(_dialog_name : String) -> int:
-	options_taken = []
 	var f : File = File.new()
 	if dialogs.has(_dialog_name):
 		if f.file_exists(str(dialog_path, selected_language, "/", dialogs[_dialog_name])):
@@ -54,7 +53,7 @@ func change_language(_new_selected_language : String = default_language) -> void
 	selected_language = _new_selected_language
 	start(dialog_name)
 	for opt in options_taken:
-		dialog.next(dialog.get_options()[opt])
+		dialog.next(dialog.get_options(false)[opt])
 
 # functions to ineract with dialog
 func next(_next : String = "0") -> void:
@@ -64,6 +63,7 @@ func next(_next : String = "0") -> void:
 
 func restart_dialog() -> void:
 	if dialog:
+		options_taken = []
 		dialog.back_to_start()
 
 func get_current_dialog() -> Dictionary:
@@ -92,3 +92,26 @@ func is_dialog_branched() -> bool:
 	if dialog:
 		return dialog.is_branched_dialog()
 	return true
+
+func injekt_data(data : Dictionary) -> void:
+	if dialog:
+		for key in data.keys():
+			dialog.data[key] = data[key]
+
+func injekt_variable(text : String = "", data : Dictionary = {}) -> String:
+	if dialog:
+		for key in data.keys():
+			dialog.data[key] = data[key]
+		return dialog.injekt_variable(text)
+	return ""
+
+func set_data(value_name : String, new_value) -> void:
+	if dialog:
+		dialog.data[value_name] = new_value
+
+
+
+
+
+
+

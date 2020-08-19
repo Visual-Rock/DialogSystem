@@ -19,6 +19,7 @@ var values           : Array      = []
 var valid_dialog          : bool       = true
 var keep_complette        : bool       = true
 var initialized_dialog    : bool       = false
+var auto_inject_variables : bool       = true
 
 var data             : Dictionary = {}       # Used for Variable Injection or Branching Based on Value
 
@@ -126,8 +127,11 @@ func get_values(dict : Dictionary = {}) -> Dictionary:
 			for value in current_dialog["value"]:
 				if get_value_type(value["name"]) == 0:
 					rtrn[value["name"]] = get_name_value(value["name"])
-				else:
-					rtrn[value["name"]] = value["value"]
+				elif get_value_type(value["name"]) == 1 || get_value_type(value["name"]) == 2:
+					if auto_inject_variables:
+						rtrn[value["name"]] = inject_variable(value["value"])
+					else:
+						rtrn[value["name"]] = value["value"]
 	else:
 		print_debug("Init your dialog first!")
 	return rtrn
@@ -141,7 +145,10 @@ func get_next_id(next_name : String = "0") -> int:
 func get_name_value(value_name : String) -> String:
 	for value in values:
 		if value["name"] == value_name:
-			return value["value"][get_selected(value_name)]
+			if auto_inject_variables:
+				return inject_variable(value["value"][get_selected(value_name)])
+			else:
+				return value["value"][get_selected(value_name)]
 			break
 	return ""
 
@@ -169,3 +176,21 @@ func get_branch_type() -> int:
 		return current_dialog["branch_type"]
 	else:
 		return -1
+
+func inject_variable(text : String = "") -> String:
+	var rtrn : String = text
+	var var_tags  : int = text.count("<var>")
+	var tag_start : int
+	var tag_end   : int
+	var val_name  : String
+	for i in var_tags:
+		tag_start = rtrn.find("<var>")
+		tag_end  = rtrn.find("</var>")
+		val_name = rtrn.substr(tag_start + 5, tag_end - 5)
+		rtrn.erase(tag_start, tag_end - tag_start + 6)
+		if data.has(val_name):
+			print(data[val_name])
+			rtrn = rtrn.insert(tag_start, data[val_name])
+		else:
+			rtrn = rtrn.insert(tag_start, " ERR_VALUE_NOT_FOUND ")
+	return rtrn

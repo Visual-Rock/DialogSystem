@@ -56,6 +56,7 @@ func bake_graph(skip_empty : bool) -> Dictionary:
 	if start_node != null:
 		editor.debug_message("Started Baking!")
 		var dialog : Dictionary
+		connections = get_connection_list()
 		dialog["dialog"] = start_node.get_dialog(skip_empty)
 		dialog["value"]  = node_values
 		return dialog

@@ -8,6 +8,8 @@ var dm : DialogManager = DialogManager.new()
 var lang : Array = ["en", "de"]
 
 func _ready():
+	print(dm.load_dialogs("res://Example/Bakes/", "en", "en"))
+	dm.start("Example_003")
 	update_ui(dm.get_dialog_values(), dm.is_dialog_branched())
 
 func update_ui(data : Dictionary, is_branched : bool):
@@ -15,14 +17,14 @@ func update_ui(data : Dictionary, is_branched : bool):
 	$CanvasLayer/CenterContainer/VBoxContainer/Panel/VBoxContainer/text.text = data["text"]
 	if is_branched == true:
 		var options : Array = dm.get_dialog_options()
-		var btn : Button
+		var btns : Button
 		for child in SelectButtons.get_children():
 			child.queue_free()
 		for option in options:
-			btn = Button.new()
-			btn.connect("pressed", self, "option_pressed")
-			btn.text = option
-			SelectButtons.add_child(btn)
+			btns = Button.new()
+			btns.connect("pressed", self, "option_pressed")
+			btns.text = option
+			SelectButtons.add_child(btns)
 
 func _on_Button_pressed():
 	if btn.text == "next":

@@ -22,7 +22,7 @@ func _on_Button_pressed():
 		return
 	elif DialogButton.text == "Next":
 		d.next()
-		set_ui(d.get_values(), d.branched_dialog())
+		set_ui(d.get_values(), d.is_branched_dialog())
 		if d.is_branched_dialog():
 			if d.get_branch_type() == 0:
 				DialogButton.disabled = true
