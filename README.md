@@ -1,5 +1,6 @@
 # DialogSystem
  A Dialog System for Godot
+ 
  [wiki](https://github.com/Clon135/DialogSystem/wiki)
  
 ## **Getting Started**
