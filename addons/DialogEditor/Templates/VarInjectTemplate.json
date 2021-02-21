@@ -1,0 +1,21 @@
+{
+    "node_values": [
+        {
+            "name": "Names",
+            "type": 0,
+            "selected": 0,
+            "default": 0,
+            "value": [
+                "<var>player_name</var>",
+                "Name2"
+            ]
+        },
+        {
+            "name": "text",
+            "type": 2,
+            "value": "",
+            "default": ""
+        }
+    ],
+    "template_name": "Var Inject Template"
+}

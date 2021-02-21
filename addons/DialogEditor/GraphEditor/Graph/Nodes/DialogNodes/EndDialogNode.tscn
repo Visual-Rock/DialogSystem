@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn" type="PackedScene" id=1]
+
+[node name="EndDialogNode" instance=ExtResource( 1 )]
+title = "End Node"
+slot/0/right_enabled = false

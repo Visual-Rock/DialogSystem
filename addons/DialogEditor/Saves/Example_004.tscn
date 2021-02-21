@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/StartDialogNode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BaseDialogNode.gd" type="Script" id=3]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/EndDialogNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn" type="PackedScene" id=5]
+
+[node name="Example_004" type="GraphEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 33.0
+margin_right = -5.0
+margin_bottom = -5.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+right_disconnects = true
+scroll_offset = Vector2( -30, -133 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0.0,
+"type": 0.0,
+"value": [ "<var>player_name</var>", "Name2" ]
+}, {
+"default": "",
+"name": "text",
+"type": 2.0,
+"value": ""
+} ]
+connections = [ {
+"from": "StartDialogNode",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+}, {
+"from": "TextDialogNode",
+"from_port": 0,
+"to": "EndDialogNode",
+"to_port": 0
+} ]
+dialog_name = "Example_004"
+
+[node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 470.0
+margin_top = 73.0
+margin_right = 778.0
+margin_bottom = 236.0
+rect_min_size = Vector2( 120, 70 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 440, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 1,
+"type": 0,
+"value": [ "<var>player_name</var>", "Name2" ]
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "change the name of the player in the LineEdit Below!"
+} ]
+
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 110.0
+margin_top = 73.0
+margin_right = 418.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 120, 70 )
+mouse_filter = 1
+title = "Start Node"
+offset = Vector2( 80, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 0
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "<var>player_name</var>", "Name2" ]
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "Var Injection Example"
+} ]
+
+[node name="EndDialogNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 830.0
+margin_top = 73.0
+margin_right = 1138.0
+margin_bottom = 236.0
+rect_min_size = Vector2( 120, 70 )
+mouse_filter = 1
+title = "End Node"
+offset = Vector2( 800, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "<var>player_name</var>", "Name2" ]
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "hmmm! thats all!"
+} ]

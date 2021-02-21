@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BaseDialogNode.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.gd" type="Script" id=2]
+
+[node name="BranchDialogNode" instance=ExtResource( 1 )]
+title = "Branch Dialog Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+node_id = 2
+node_value_start = 2
+branch_values = [ "" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 197.0
+margin_bottom = 72.0
+
+[node name="BranchOptions" type="OptionButton" parent="VBoxContainer" index="0"]
+margin_right = 181.0
+margin_bottom = 20.0
+text = "Select"
+items = [ "Select", null, false, 0, null, "Random", null, false, 1, null, "Based on Value", null, false, 2, null ]
+selected = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
+margin_top = 24.0
+margin_right = 181.0
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" index="0"]
+margin_right = 103.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Branch Amount:"
+align = 1
+valign = 1
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer" index="1"]
+margin_left = 107.0
+margin_right = 181.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="ValueName" type="LineEdit" parent="VBoxContainer" index="2"]
+visible = false
+margin_top = 52.0
+margin_right = 181.0
+margin_bottom = 76.0
+placeholder_text = "Value Name"

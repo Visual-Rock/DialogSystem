@@ -1,0 +1,7001 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BaseDialogNode.gd" type="Script" id=1]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/GraphEdit.gd" type="Script" id=2]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/StartDialogNode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.gd" type="Script" id=4]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/TextDialogNode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/DialogEditor/GraphEditor/Graph/Nodes/DialogNodes/BranchDialogNode.tscn" type="PackedScene" id=6]
+
+[node name="Performance_Test" type="GraphEdit"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 33.0
+margin_right = -5.0
+margin_bottom = -5.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+right_disconnects = true
+zoom = 0.578704
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0.0,
+"type": 0.0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1.0,
+"value": ""
+}, {
+"default": "",
+"name": "text",
+"type": 2.0,
+"value": ""
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3.0,
+"value": true
+}, {
+"default": 0.0,
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4.0,
+"value": 0.0
+} ]
+connections = [ {
+"from": "StartDialogNode",
+"from_port": 0,
+"to": "BranchDialogNode",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 1,
+"to": "TextDialogNode2",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 2,
+"to": "TextDialogNode3",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 3,
+"to": "TextDialogNode4",
+"to_port": 0
+}, {
+"from": "TextDialogNode",
+"from_port": 0,
+"to": "TextDialogNode7",
+"to_port": 0
+}, {
+"from": "TextDialogNode7",
+"from_port": 0,
+"to": "TextDialogNode5",
+"to_port": 0
+}, {
+"from": "TextDialogNode5",
+"from_port": 0,
+"to": "TextDialogNode11",
+"to_port": 0
+}, {
+"from": "TextDialogNode11",
+"from_port": 0,
+"to": "TextDialogNode12",
+"to_port": 0
+}, {
+"from": "TextDialogNode12",
+"from_port": 0,
+"to": "TextDialogNode15",
+"to_port": 0
+}, {
+"from": "TextDialogNode15",
+"from_port": 0,
+"to": "TextDialogNode16",
+"to_port": 0
+}, {
+"from": "TextDialogNode16",
+"from_port": 0,
+"to": "TextDialogNode20",
+"to_port": 0
+}, {
+"from": "TextDialogNode20",
+"from_port": 0,
+"to": "TextDialogNode19",
+"to_port": 0
+}, {
+"from": "TextDialogNode19",
+"from_port": 0,
+"to": "TextDialogNode23",
+"to_port": 0
+}, {
+"from": "TextDialogNode23",
+"from_port": 0,
+"to": "TextDialogNode24",
+"to_port": 0
+}, {
+"from": "TextDialogNode24",
+"from_port": 0,
+"to": "TextDialogNode28",
+"to_port": 0
+}, {
+"from": "TextDialogNode28",
+"from_port": 0,
+"to": "TextDialogNode27",
+"to_port": 0
+}, {
+"from": "TextDialogNode27",
+"from_port": 0,
+"to": "TextDialogNode36",
+"to_port": 0
+}, {
+"from": "TextDialogNode36",
+"from_port": 0,
+"to": "TextDialogNode31",
+"to_port": 0
+}, {
+"from": "TextDialogNode31",
+"from_port": 0,
+"to": "TextDialogNode35",
+"to_port": 0
+}, {
+"from": "TextDialogNode35",
+"from_port": 0,
+"to": "TextDialogNode34",
+"to_port": 0
+}, {
+"from": "TextDialogNode2",
+"from_port": 0,
+"to": "TextDialogNode8",
+"to_port": 0
+}, {
+"from": "TextDialogNode8",
+"from_port": 0,
+"to": "TextDialogNode6",
+"to_port": 0
+}, {
+"from": "TextDialogNode6",
+"from_port": 0,
+"to": "TextDialogNode10",
+"to_port": 0
+}, {
+"from": "TextDialogNode10",
+"from_port": 0,
+"to": "TextDialogNode9",
+"to_port": 0
+}, {
+"from": "TextDialogNode9",
+"from_port": 0,
+"to": "TextDialogNode14",
+"to_port": 0
+}, {
+"from": "TextDialogNode14",
+"from_port": 0,
+"to": "TextDialogNode13",
+"to_port": 0
+}, {
+"from": "TextDialogNode13",
+"from_port": 0,
+"to": "TextDialogNode18",
+"to_port": 0
+}, {
+"from": "TextDialogNode18",
+"from_port": 0,
+"to": "TextDialogNode17",
+"to_port": 0
+}, {
+"from": "TextDialogNode17",
+"from_port": 0,
+"to": "TextDialogNode22",
+"to_port": 0
+}, {
+"from": "TextDialogNode22",
+"from_port": 0,
+"to": "TextDialogNode21",
+"to_port": 0
+}, {
+"from": "TextDialogNode21",
+"from_port": 0,
+"to": "TextDialogNode26",
+"to_port": 0
+}, {
+"from": "TextDialogNode26",
+"from_port": 0,
+"to": "TextDialogNode25",
+"to_port": 0
+}, {
+"from": "TextDialogNode25",
+"from_port": 0,
+"to": "TextDialogNode30",
+"to_port": 0
+}, {
+"from": "TextDialogNode30",
+"from_port": 0,
+"to": "TextDialogNode29",
+"to_port": 0
+}, {
+"from": "TextDialogNode29",
+"from_port": 0,
+"to": "TextDialogNode33",
+"to_port": 0
+}, {
+"from": "TextDialogNode33",
+"from_port": 0,
+"to": "TextDialogNode32",
+"to_port": 0
+}, {
+"from": "TextDialogNode3",
+"from_port": 0,
+"to": "TextDialogNode65",
+"to_port": 0
+}, {
+"from": "TextDialogNode65",
+"from_port": 0,
+"to": "TextDialogNode66",
+"to_port": 0
+}, {
+"from": "TextDialogNode66",
+"from_port": 0,
+"to": "TextDialogNode68",
+"to_port": 0
+}, {
+"from": "TextDialogNode68",
+"from_port": 0,
+"to": "TextDialogNode38",
+"to_port": 0
+}, {
+"from": "TextDialogNode38",
+"from_port": 0,
+"to": "TextDialogNode46",
+"to_port": 0
+}, {
+"from": "TextDialogNode46",
+"from_port": 0,
+"to": "TextDialogNode41",
+"to_port": 0
+}, {
+"from": "TextDialogNode41",
+"from_port": 0,
+"to": "TextDialogNode45",
+"to_port": 0
+}, {
+"from": "TextDialogNode45",
+"from_port": 0,
+"to": "TextDialogNode44",
+"to_port": 0
+}, {
+"from": "TextDialogNode44",
+"from_port": 0,
+"to": "TextDialogNode61",
+"to_port": 0
+}, {
+"from": "TextDialogNode61",
+"from_port": 0,
+"to": "TextDialogNode49",
+"to_port": 0
+}, {
+"from": "TextDialogNode49",
+"from_port": 0,
+"to": "TextDialogNode53",
+"to_port": 0
+}, {
+"from": "TextDialogNode53",
+"from_port": 0,
+"to": "TextDialogNode52",
+"to_port": 0
+}, {
+"from": "TextDialogNode52",
+"from_port": 0,
+"to": "TextDialogNode62",
+"to_port": 0
+}, {
+"from": "TextDialogNode62",
+"from_port": 0,
+"to": "TextDialogNode56",
+"to_port": 0
+}, {
+"from": "TextDialogNode56",
+"from_port": 0,
+"to": "TextDialogNode60",
+"to_port": 0
+}, {
+"from": "TextDialogNode60",
+"from_port": 0,
+"to": "TextDialogNode59",
+"to_port": 0
+}, {
+"from": "TextDialogNode4",
+"from_port": 0,
+"to": "TextDialogNode64",
+"to_port": 0
+}, {
+"from": "TextDialogNode64",
+"from_port": 0,
+"to": "TextDialogNode63",
+"to_port": 0
+}, {
+"from": "TextDialogNode63",
+"from_port": 0,
+"to": "TextDialogNode67",
+"to_port": 0
+}, {
+"from": "TextDialogNode67",
+"from_port": 0,
+"to": "TextDialogNode37",
+"to_port": 0
+}, {
+"from": "TextDialogNode37",
+"from_port": 0,
+"to": "TextDialogNode40",
+"to_port": 0
+}, {
+"from": "TextDialogNode40",
+"from_port": 0,
+"to": "TextDialogNode39",
+"to_port": 0
+}, {
+"from": "TextDialogNode39",
+"from_port": 0,
+"to": "TextDialogNode43",
+"to_port": 0
+}, {
+"from": "TextDialogNode43",
+"from_port": 0,
+"to": "TextDialogNode42",
+"to_port": 0
+}, {
+"from": "TextDialogNode42",
+"from_port": 0,
+"to": "TextDialogNode48",
+"to_port": 0
+}, {
+"from": "TextDialogNode48",
+"from_port": 0,
+"to": "TextDialogNode47",
+"to_port": 0
+}, {
+"from": "TextDialogNode47",
+"from_port": 0,
+"to": "TextDialogNode51",
+"to_port": 0
+}, {
+"from": "TextDialogNode51",
+"from_port": 0,
+"to": "TextDialogNode50",
+"to_port": 0
+}, {
+"from": "TextDialogNode50",
+"from_port": 0,
+"to": "TextDialogNode55",
+"to_port": 0
+}, {
+"from": "TextDialogNode55",
+"from_port": 0,
+"to": "TextDialogNode54",
+"to_port": 0
+}, {
+"from": "TextDialogNode54",
+"from_port": 0,
+"to": "TextDialogNode58",
+"to_port": 0
+}, {
+"from": "TextDialogNode58",
+"from_port": 0,
+"to": "TextDialogNode57",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 0,
+"to": "BranchDialogNode2",
+"to_port": 0
+}, {
+"from": "BranchDialogNode2",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+}, {
+"from": "BranchDialogNode2",
+"from_port": 1,
+"to": "TextDialogNode2",
+"to_port": 0
+}, {
+"from": "BranchDialogNode2",
+"from_port": 2,
+"to": "TextDialogNode3",
+"to_port": 0
+}, {
+"from": "BranchDialogNode2",
+"from_port": 3,
+"to": "TextDialogNode4",
+"to_port": 0
+}, {
+"from": "BranchDialogNode3",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+}, {
+"from": "BranchDialogNode3",
+"from_port": 1,
+"to": "TextDialogNode2",
+"to_port": 0
+}, {
+"from": "BranchDialogNode3",
+"from_port": 2,
+"to": "TextDialogNode3",
+"to_port": 0
+}, {
+"from": "BranchDialogNode3",
+"from_port": 3,
+"to": "TextDialogNode4",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 1,
+"to": "BranchDialogNode3",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+}, {
+"from": "BranchDialogNode5",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+}, {
+"from": "BranchDialogNode5",
+"from_port": 1,
+"to": "TextDialogNode2",
+"to_port": 0
+}, {
+"from": "BranchDialogNode5",
+"from_port": 2,
+"to": "TextDialogNode3",
+"to_port": 0
+}, {
+"from": "BranchDialogNode5",
+"from_port": 3,
+"to": "TextDialogNode4",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 2,
+"to": "BranchDialogNode5",
+"to_port": 0
+}, {
+"from": "BranchDialogNode4",
+"from_port": 0,
+"to": "TextDialogNode",
+"to_port": 0
+}, {
+"from": "BranchDialogNode4",
+"from_port": 1,
+"to": "TextDialogNode2",
+"to_port": 0
+}, {
+"from": "BranchDialogNode4",
+"from_port": 2,
+"to": "TextDialogNode3",
+"to_port": 0
+}, {
+"from": "BranchDialogNode4",
+"from_port": 3,
+"to": "TextDialogNode4",
+"to_port": 0
+}, {
+"from": "BranchDialogNode",
+"from_port": 3,
+"to": "BranchDialogNode4",
+"to_port": 0
+} ]
+dialog_name = "Performance_Test"
+
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = -405.093
+margin_top = -23.1482
+margin_right = -199.093
+margin_bottom = 220.852
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Start Node"
+offset = Vector2( -700, -40 )
+show_close = true
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 0
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "Test"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "Test"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": false
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.5
+} ]
+
+[node name="TextDialogNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 324.074
+margin_top = -34.7222
+margin_right = 530.074
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 560, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 324.074
+margin_top = 115.741
+margin_right = 530.074
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 560, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode4" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 324.074
+margin_top = 416.667
+margin_right = 530.074
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 560, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode3" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 324.074
+margin_top = 266.204
+margin_right = 530.074
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 560, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode6" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 590.278
+margin_top = 115.741
+margin_right = 796.278
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1020, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode8" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 462.963
+margin_top = 115.741
+margin_right = 668.963
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 800, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode7" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 462.963
+margin_top = -34.7222
+margin_right = 668.963
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 800, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode5" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 590.278
+margin_top = -34.7222
+margin_right = 796.278
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1020, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode9" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 844.908
+margin_top = 115.741
+margin_right = 1050.91
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1460, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode10" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 717.593
+margin_top = 115.741
+margin_right = 923.593
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1240, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode12" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 844.908
+margin_top = -34.7222
+margin_right = 1050.91
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1460, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode11" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 717.593
+margin_top = -34.7222
+margin_right = 923.593
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1240, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode13" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1099.54
+margin_top = 115.741
+margin_right = 1305.54
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1900, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode14" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 972.223
+margin_top = 115.741
+margin_right = 1178.22
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1680, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode16" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1099.54
+margin_top = -34.7222
+margin_right = 1305.54
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1900, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode17" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1354.17
+margin_top = 115.741
+margin_right = 1560.17
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2340, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode18" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1226.85
+margin_top = 115.741
+margin_right = 1432.85
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2120, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode19" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1354.17
+margin_top = -34.7222
+margin_right = 1560.17
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2340, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode20" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1226.85
+margin_top = -34.7222
+margin_right = 1432.85
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2120, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode15" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 972.223
+margin_top = -34.7222
+margin_right = 1178.22
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1680, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode21" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1608.8
+margin_top = 115.741
+margin_right = 1814.8
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2780, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode22" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1481.48
+margin_top = 115.741
+margin_right = 1687.48
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2560, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode26" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1736.11
+margin_top = 115.741
+margin_right = 1942.11
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3000, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode27" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1863.43
+margin_top = -34.7222
+margin_right = 2069.43
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3220, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode28" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1736.11
+margin_top = -34.7222
+margin_right = 1942.11
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3000, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode29" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2118.06
+margin_top = 115.741
+margin_right = 2324.06
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3660, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode30" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1990.74
+margin_top = 115.741
+margin_right = 2196.74
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3440, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode31" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2118.06
+margin_top = -34.7222
+margin_right = 2324.06
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3660, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode34" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2372.69
+margin_top = -34.7222
+margin_right = 2578.69
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 4100, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode35" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2245.37
+margin_top = -34.7222
+margin_right = 2451.37
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3880, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode23" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1481.48
+margin_top = -34.7222
+margin_right = 1687.48
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2560, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode36" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1990.74
+margin_top = -34.7222
+margin_right = 2196.74
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3440, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode37" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 844.908
+margin_top = 416.667
+margin_right = 1050.91
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1460, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode39" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1099.54
+margin_top = 416.667
+margin_right = 1305.54
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1900, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode40" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 972.223
+margin_top = 416.667
+margin_right = 1178.22
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1680, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode41" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1099.54
+margin_top = 266.204
+margin_right = 1305.54
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1900, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode42" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1354.17
+margin_top = 416.667
+margin_right = 1560.17
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2340, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode43" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1226.85
+margin_top = 416.667
+margin_right = 1432.85
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2120, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode44" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1354.17
+margin_top = 266.204
+margin_right = 1560.17
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2340, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode45" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1226.85
+margin_top = 266.204
+margin_right = 1432.85
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2120, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode46" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 972.223
+margin_top = 266.204
+margin_right = 1178.22
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1680, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode47" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1608.8
+margin_top = 416.667
+margin_right = 1814.8
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2780, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode48" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1481.48
+margin_top = 416.667
+margin_right = 1687.48
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2560, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode49" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1608.8
+margin_top = 266.204
+margin_right = 1814.8
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2780, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode50" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1863.43
+margin_top = 416.667
+margin_right = 2069.43
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3220, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode51" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1736.11
+margin_top = 416.667
+margin_right = 1942.11
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3000, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode52" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1863.43
+margin_top = 266.204
+margin_right = 2069.43
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3220, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode53" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1736.11
+margin_top = 266.204
+margin_right = 1942.11
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3000, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode54" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2118.06
+margin_top = 416.667
+margin_right = 2324.06
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3660, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode55" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1990.74
+margin_top = 416.667
+margin_right = 2196.74
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3440, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode56" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2118.06
+margin_top = 266.204
+margin_right = 2324.06
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3660, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode57" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2372.69
+margin_top = 416.667
+margin_right = 2578.69
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 4100, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode58" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2245.37
+margin_top = 416.667
+margin_right = 2451.37
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3880, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode59" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2372.69
+margin_top = 266.204
+margin_right = 2578.69
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 4100, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode60" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2245.37
+margin_top = 266.204
+margin_right = 2451.37
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3880, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode61" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1481.48
+margin_top = 266.204
+margin_right = 1687.48
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2560, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode62" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1990.74
+margin_top = 266.204
+margin_right = 2196.74
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3440, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode38" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 844.908
+margin_top = 266.204
+margin_right = 1050.91
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1460, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode63" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 590.278
+margin_top = 416.667
+margin_right = 796.278
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1020, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode64" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 462.963
+margin_top = 416.667
+margin_right = 668.963
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 800, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode66" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 590.278
+margin_top = 266.204
+margin_right = 796.278
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1020, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode67" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 717.593
+margin_top = 416.667
+margin_right = 923.593
+margin_bottom = 660.667
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1240, 720 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode68" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 717.593
+margin_top = 266.204
+margin_right = 923.593
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 1240, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode65" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 462.963
+margin_top = 266.204
+margin_right = 668.963
+margin_bottom = 510.204
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 800, 460 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode24" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1608.8
+margin_top = -34.7222
+margin_right = 1814.8
+margin_bottom = 209.278
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 2780, -60 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode25" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 1863.43
+margin_top = 115.741
+margin_right = 2069.43
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3220, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode33" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2245.37
+margin_top = 115.741
+margin_right = 2451.37
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 3880, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="TextDialogNode32" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 2372.69
+margin_top = 115.741
+margin_right = 2578.69
+margin_bottom = 359.741
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Text Node"
+offset = Vector2( 4100, 200 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 1
+node_value_start = 1
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "afwezt"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "ghWZHAEHAER"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 19.6
+} ]
+
+[node name="BranchDialogNode3" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = -11.5741
+margin_top = 173.611
+margin_right = 241.422
+margin_bottom = 690.611
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Branch Dialog Node"
+offset = Vector2( -20, 300 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
+slot/11/left_enabled = false
+slot/11/left_type = 0
+slot/11/left_color = Color( 1, 1, 1, 1 )
+slot/11/right_enabled = false
+slot/11/right_type = 0
+slot/11/right_color = Color( 1, 1, 1, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
+slot/12/right_enabled = false
+slot/12/right_type = 0
+slot/12/right_color = Color( 1, 1, 1, 1 )
+slot/13/left_enabled = false
+slot/13/left_type = 0
+slot/13/left_color = Color( 1, 1, 1, 1 )
+slot/13/right_enabled = false
+slot/13/right_type = 0
+slot/13/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 2
+node_value_start = 2
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "esgeg"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "aefEAG"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 3.5
+} ]
+dialogs_values = [  ]
+include_values = true
+branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
+branch_amount = 4
+branch_type = 0
+
+[node name="BranchDialogNode5" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = -11.5741
+margin_top = 405.093
+margin_right = 241.422
+margin_bottom = 922.09
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Branch Dialog Node"
+offset = Vector2( -20, 700 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
+slot/11/left_enabled = false
+slot/11/left_type = 0
+slot/11/left_color = Color( 1, 1, 1, 1 )
+slot/11/right_enabled = false
+slot/11/right_type = 0
+slot/11/right_color = Color( 1, 1, 1, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
+slot/12/right_enabled = false
+slot/12/right_type = 0
+slot/12/right_color = Color( 1, 1, 1, 1 )
+slot/13/left_enabled = false
+slot/13/left_type = 0
+slot/13/left_color = Color( 1, 1, 1, 1 )
+slot/13/right_enabled = false
+slot/13/right_type = 0
+slot/13/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 2
+node_value_start = 2
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "esgeg"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "aefEAG"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 3.5
+} ]
+dialogs_values = [  ]
+include_values = true
+branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
+branch_amount = 4
+branch_type = 0
+
+[node name="BranchDialogNode4" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = -11.5741
+margin_top = 636.574
+margin_right = 241.422
+margin_bottom = 1153.57
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Branch Dialog Node"
+offset = Vector2( -20, 1100 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
+slot/11/left_enabled = false
+slot/11/left_type = 0
+slot/11/left_color = Color( 1, 1, 1, 1 )
+slot/11/right_enabled = false
+slot/11/right_type = 0
+slot/11/right_color = Color( 1, 1, 1, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
+slot/12/right_enabled = false
+slot/12/right_type = 0
+slot/12/right_color = Color( 1, 1, 1, 1 )
+slot/13/left_enabled = false
+slot/13/left_type = 0
+slot/13/left_color = Color( 1, 1, 1, 1 )
+slot/13/right_enabled = false
+slot/13/right_type = 0
+slot/13/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 2
+node_value_start = 2
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "esgeg"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "aefEAG"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 3.5
+} ]
+dialogs_values = [  ]
+include_values = true
+branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
+branch_amount = 4
+branch_type = 0
+
+[node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = -266.204
+margin_top = -11.5741
+margin_right = -13.2036
+margin_bottom = 478.426
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Branch Dialog Node"
+offset = Vector2( -460, -20 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
+slot/11/left_enabled = false
+slot/11/left_type = 0
+slot/11/left_color = Color( 1, 1, 1, 1 )
+slot/11/right_enabled = false
+slot/11/right_type = 0
+slot/11/right_color = Color( 1, 1, 1, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
+slot/12/right_enabled = false
+slot/12/right_type = 0
+slot/12/right_color = Color( 1, 1, 1, 1 )
+slot/13/left_enabled = false
+slot/13/left_type = 0
+slot/13/left_color = Color( 1, 1, 1, 1 )
+slot/13/right_enabled = false
+slot/13/right_type = 0
+slot/13/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 2
+node_value_start = 2
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "ASGE"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "SGAWESG"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 2.6
+} ]
+dialogs_values = [  ]
+include_values = true
+branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
+branch_amount = 4
+branch_type = 0
+
+[node name="BranchDialogNode2" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = -11.5741
+margin_top = -57.8704
+margin_right = 241.422
+margin_bottom = 432.13
+rect_min_size = Vector2( 120, 70 )
+rect_scale = Vector2( 0.578704, 0.578704 )
+mouse_filter = 1
+title = "Branch Dialog Node"
+offset = Vector2( -20, -100 )
+show_close = true
+resizable = true
+selected = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
+slot/11/left_enabled = false
+slot/11/left_type = 0
+slot/11/left_color = Color( 1, 1, 1, 1 )
+slot/11/right_enabled = false
+slot/11/right_type = 0
+slot/11/right_color = Color( 1, 1, 1, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
+slot/12/right_enabled = false
+slot/12/right_type = 0
+slot/12/right_color = Color( 1, 1, 1, 1 )
+slot/13/left_enabled = false
+slot/13/left_type = 0
+slot/13/left_color = Color( 1, 1, 1, 1 )
+slot/13/right_enabled = false
+slot/13/right_type = 0
+slot/13/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_id = 2
+node_value_start = 2
+dialog_values = [ {
+"default": 0.0,
+"name": "Names",
+"selected": 0,
+"type": 0,
+"value": [ "Name1", "Name2" ]
+}, {
+"default": "",
+"name": "OneLineString",
+"type": 1,
+"value": "esgeg"
+}, {
+"default": "",
+"name": "text",
+"type": 2,
+"value": "aefEAG"
+}, {
+"default": true,
+"name": "Boolean",
+"type": 3,
+"value": true
+}, {
+"max": 99.0,
+"min": -99.0,
+"name": "number",
+"step": 0.1,
+"type": 4,
+"value": 3.5
+} ]
+dialogs_values = [  ]
+include_values = true
+branch_values = [ "4", "3", "2", "1" ]
+branch_value = ""
+branch_amount = 4
+branch_type = 0
