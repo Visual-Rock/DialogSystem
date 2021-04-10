@@ -58,7 +58,7 @@ onready var Language : OptionButton = self.get_node("Languages")
 export (LANGUAGES) var default_language = LANGUAGES.en
 export (LANGUAGES) var current_lanugage = default_language
 
-var include_dialeks : bool = false # currently not working shoud be true to function
+var include_dialects : bool = false # currently not working shoud be true to function
 
 func _ready() -> void:
 	
@@ -68,13 +68,10 @@ func _ready() -> void:
 	if f.file_exists("res://addons/DialogEditor/config.json"):
 		# opens the config file in read mode
 		f.open("res://addons/DialogEditor/config.json", f.READ)
-		# gets the include dialekts from config file
-		include_dialeks = JSON.parse(f.get_as_text()).result["IncludeDialekts"]
+		# gets the include dialectts from config file
+		#include_dialects = JSON.parse(f.get_as_text()).result["IncludeDialects"]
 		# closes the File
 		f.close()
-		
-		# just for WIP
-		include_dialeks = true
 	
 	# checks if Reset is valid
 	if Reset:
@@ -87,19 +84,21 @@ func _ready() -> void:
 		Language.connect("item_selected", self, "set_value")
 		# goes through the language array to populate
 		# the Languages items 
-		for language in languages.size():
-			# checks if language shoud include dialekts
-			if include_dialeks == true:
+		var tmp = 0
+		print(include_dialects)
+		for language in languages:
+			# checks if language shoud include dialects
+			if include_dialects == true:
 				# creates (addes) a new item with the name
 				# of the language
-				Language.add_item(languages[language], language)
-			# gets probebly change
+				Language.add_item(language, tmp)
 			else:
 				# checks if string doesent contain _
 				if not "_" in languages[language]:
 					# creates (addes) a new item with the name
 					# of the language
-					Language.add_item(languages[language], language)
+					Language.add_item(language, tmp)
+			tmp += 1
 
 # resets the language to default
 func reset() -> void:
@@ -109,10 +108,8 @@ func reset() -> void:
 # sets the language and updates the GUI to reflect new value
 func set_value(new_value : int) -> void:
 	# sets the current language to the new language
-	current_lanugage = new_value
-	# sets the option buttons (Language) selected value
-	Language.select(new_value)
-	
+	current_lanugage = languages.find(Language.get_item_text(new_value))
+	$Label.text = str(Language.get_item_text(new_value) + " " + str(new_value))
 	# checks if the default language is not the new value
 	if default_language != new_value:
 		# shows the Reset button
