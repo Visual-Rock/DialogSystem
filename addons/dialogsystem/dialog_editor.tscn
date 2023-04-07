@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4w1pl372ay0r"]
+
+[ext_resource type="PackedScene" uid="uid://bf8n1b5tory2e" path="res://addons/dialogsystem/overview/overview.tscn" id="1_ahu6k"]
+[ext_resource type="PackedScene" uid="uid://cdugeic2tdpi6" path="res://addons/dialogsystem/graph_editor/graph_editor.tscn" id="1_sjg53"]
+
+[node name="DialogEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overview" parent="TabContainer" instance=ExtResource("1_ahu6k")]
+layout_mode = 2
+
+[node name="GraphEditor" parent="TabContainer" instance=ExtResource("1_sjg53")]
+visible = false
+layout_mode = 2

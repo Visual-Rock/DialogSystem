@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://derruwdxwbue0"]
+
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.gd" id="1_5o7pm"]
+
+[node name="BaseNode" type="GraphNode"]
+offset_right = 36.0
+offset_bottom = 54.0
+script = ExtResource("1_5o7pm")

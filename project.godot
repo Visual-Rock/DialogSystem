@@ -6,42 +6,14 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Resource",
-"class": "Dialog",
-"language": "GDScript",
-"path": "res://addons/DialogEditor/DialogSystem/DialogClass.gd"
-}, {
-"base": "Resource",
-"class": "DialogManager",
-"language": "GDScript",
-"path": "res://addons/DialogEditor/DialogSystem/DialogManagerClass.gd"
-} ]
-_global_script_class_icons={
-"Dialog": "",
-"DialogManager": ""
-}
+config_version=5
 
 [application]
 
 config/name="DialogSystem"
-run/main_scene="res://addons/DialogEditor/DialogEditor.tscn"
-config/icon="res://icon.png"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "DialogEditor" )
-
-[locale]
-
-translations=PoolStringArray(  )
-translation_remaps={
-
-}
-locale_filter=[ 0, [  ] ]
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
+enabled=PackedStringArray("res://addons/dialogsystem/plugin.cfg")
