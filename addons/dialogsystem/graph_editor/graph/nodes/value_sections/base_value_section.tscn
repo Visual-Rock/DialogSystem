@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3qeo5oxq6paw"]
+
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/value_sections/base_value_section.gd" id="1_mjaiy"]
+
+[node name="BaseValueSection" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mjaiy")

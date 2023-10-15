@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://bf8n1b5tory2e"]
+[gd_scene load_steps=7 format=3 uid="uid://bf8n1b5tory2e"]
+
+[ext_resource type="Script" path="res://addons/dialogsystem/overview/overview.gd" id="1_0ceet"]
+[ext_resource type="Texture2D" uid="uid://cxhhb2enc2ftk" path="res://addons/dialogsystem/icons/Close.svg" id="2_uahuq"]
+[ext_resource type="Texture2D" uid="uid://dghnnewykuodg" path="res://addons/dialogsystem/icons/Play.svg" id="3_06rdb"]
+[ext_resource type="Texture2D" uid="uid://dd3f4scng5wu4" path="res://addons/dialogsystem/icons/Bake.svg" id="3_sumow"]
+[ext_resource type="Texture2D" uid="uid://ce5jg1np23ktd" path="res://addons/dialogsystem/icons/Remove.svg" id="4_kwp7p"]
+[ext_resource type="Texture2D" uid="uid://du0g6joq6g18h" path="res://addons/dialogsystem/icons/Add.svg" id="6_f7kqt"]
 
 [node name="Overview" type="Control"]
 layout_mode = 3
@@ -7,3 +14,163 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_0ceet")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="SearchBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "ID"
+popup/item_0/id = 0
+popup/item_1/text = "Name"
+popup/item_1/id = 1
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+text = "flip"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+
+[node name="OptionButton2" type="OptionButton" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Name"
+popup/item_0/id = 1
+popup/item_1/text = "ID"
+popup/item_1/id = 0
+popup/item_2/text = "Tag"
+popup/item_2/id = 2
+
+[node name="SearchBar" type="LineEdit" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+icon = ExtResource("2_uahuq")
+icon_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/SearchBar"]
+layout_mode = 2
+
+[node name="OpenSelected" type="TextureButton" parent="VBoxContainer/SearchBar"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+tooltip_text = "open all selected dialogs"
+texture_normal = ExtResource("3_06rdb")
+texture_pressed = ExtResource("3_06rdb")
+texture_hover = ExtResource("3_06rdb")
+texture_disabled = ExtResource("3_06rdb")
+texture_focused = ExtResource("3_06rdb")
+stretch_mode = 3
+
+[node name="BakeSelected" type="TextureButton" parent="VBoxContainer/SearchBar"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+tooltip_text = "bake all selected dialogs"
+texture_normal = ExtResource("3_sumow")
+texture_pressed = ExtResource("3_sumow")
+texture_hover = ExtResource("3_sumow")
+texture_disabled = ExtResource("3_sumow")
+texture_focused = ExtResource("3_sumow")
+stretch_mode = 3
+
+[node name="DeleteSelected" type="TextureButton" parent="VBoxContainer/SearchBar"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+tooltip_text = "delete all selected dialogs"
+texture_normal = ExtResource("4_kwp7p")
+texture_pressed = ExtResource("4_kwp7p")
+texture_hover = ExtResource("4_kwp7p")
+texture_disabled = ExtResource("4_kwp7p")
+texture_focused = ExtResource("4_kwp7p")
+stretch_mode = 3
+
+[node name="Panel" type="TextEdit" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+
+[node name="DialogsContainer" type="VBoxContainer" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="__AddNewDialog__" type="VBoxContainer" parent="VBoxContainer/Panel/DialogsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Add" type="TextureButton" parent="VBoxContainer/Panel/DialogsContainer/__AddNewDialog__"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+texture_normal = ExtResource("6_f7kqt")
+texture_pressed = ExtResource("6_f7kqt")
+texture_hover = ExtResource("6_f7kqt")
+texture_disabled = ExtResource("6_f7kqt")
+texture_focused = ExtResource("6_f7kqt")
+stretch_mode = 3
+
+[node name="AddDialog" type="ConfirmationDialog" parent="."]
+title = "New Dialog"
+initial_position = 1
+size = Vector2i(300, 150)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="LineEdit" parent="AddDialog/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Enter the name for the Dialog here"
+placeholder_text = "Dialog Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="AddDialog/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "ID: "
+
+[node name="ID" type="SpinBox" parent="AddDialog/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Error" type="Label" parent="AddDialog/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="toggled" from="VBoxContainer/SearchBar/CheckBox" to="." method="_on_select_all_toggled"]
+[connection signal="pressed" from="VBoxContainer/Panel/DialogsContainer/__AddNewDialog__/Add" to="." method="_on_add_pressed"]
+[connection signal="confirmed" from="AddDialog" to="." method="_on_add_dialog_confirmed"]

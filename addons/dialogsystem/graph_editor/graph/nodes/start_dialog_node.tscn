@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd3o0iklnhpji"]
+
+[ext_resource type="PackedScene" uid="uid://derruwdxwbue0" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.tscn" id="1_0esaj"]
+
+[node name="StartDialogNode" instance=ExtResource("1_0esaj")]
+offset_left = 2.0
+offset_right = 162.0
+offset_bottom = 79.0
+title = "Start Node"
+slot/0/right_enabled = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+node_id = 0
+
+[node name="Label" type="Label" parent="." index="0"]
+layout_mode = 2

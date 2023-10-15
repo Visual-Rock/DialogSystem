@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ph82fdljfjx"]
+
+[ext_resource type="PackedScene" uid="uid://b3qeo5oxq6paw" path="res://addons/dialogsystem/graph_editor/graph/nodes/value_sections/base_value_section.tscn" id="1_bwat8"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/value_sections/boolean_section.gd" id="2_yyjlk"]
+
+[node name="BooleanSection" instance=ExtResource("1_bwat8")]
+script = ExtResource("2_yyjlk")
+
+[node name="name" type="Label" parent="." index="0"]
+layout_mode = 2
+text = "value_name"
+
+[node name="CheckBox" type="CheckBox" parent="." index="1"]
+layout_mode = 2

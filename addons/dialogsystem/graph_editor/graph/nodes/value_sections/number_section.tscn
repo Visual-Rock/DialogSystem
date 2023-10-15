@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://df0jqqutlgv8h"]
+
+[ext_resource type="PackedScene" uid="uid://b3qeo5oxq6paw" path="res://addons/dialogsystem/graph_editor/graph/nodes/value_sections/base_value_section.tscn" id="1_tyqfy"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/value_sections/number_section.gd" id="2_mc11k"]
+
+[node name="NumberSection" instance=ExtResource("1_tyqfy")]
+script = ExtResource("2_mc11k")
+
+[node name="Name" type="Label" parent="." index="0"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="." index="1"]
+layout_mode = 2
+size_flags_horizontal = 3

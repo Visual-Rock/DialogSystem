@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://derruwdxwbue0"]
+[gd_scene load_steps=3 format=3 uid="uid://derruwdxwbue0"]
 
 [ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.gd" id="1_5o7pm"]
+[ext_resource type="PackedScene" uid="uid://fuea4nxq5y6g" path="res://addons/dialogsystem/graph_editor/graph/nodes/node_value_container.tscn" id="2_qkau2"]
 
 [node name="BaseNode" type="GraphNode"]
 offset_right = 36.0
 offset_bottom = 54.0
+show_close = true
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
 script = ExtResource("1_5o7pm")
+
+[node name="NodeValueContainer" parent="." instance=ExtResource("2_qkau2")]
+layout_mode = 2

@@ -8,7 +8,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_offset = Vector2(-40, -40)
 script = ExtResource("1_gqtg5")
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request"]
@@ -17,3 +16,4 @@ script = ExtResource("1_gqtg5")
 [connection signal="disconnection_request" from="." to="." method="_on_disconnection_request"]
 [connection signal="duplicate_nodes_request" from="." to="." method="_on_duplicate_nodes_request"]
 [connection signal="paste_nodes_request" from="." to="." method="_on_paste_nodes_request"]
+[connection signal="popup_request" from="." to="." method="_on_popup_request"]
