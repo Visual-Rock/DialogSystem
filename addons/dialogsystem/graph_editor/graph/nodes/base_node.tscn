@@ -6,7 +6,6 @@
 [node name="BaseNode" type="GraphNode"]
 offset_right = 36.0
 offset_bottom = 54.0
-show_close = true
 resizable = true
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -19,5 +18,5 @@ slot/0/right_icon = null
 slot/0/draw_stylebox = true
 script = ExtResource("1_5o7pm")
 
-[node name="NodeValueContainer" parent="." instance=ExtResource("2_qkau2")]
+[node name="NodeValueContainer" parent="." instance=ExtResource("2_qkau2") index="100"]
 layout_mode = 2

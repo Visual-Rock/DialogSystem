@@ -19,8 +19,7 @@ func _ready():
 	# DialogMenu.get_popup().connect("id_pressed", dialog_option_pressed)
 	pass
 
-func open_dialog(dialog: Dialog) -> void:
-	
+func open_dialog(dialog: InternalDialog) -> void:
 	for c in GraphTabContainer.get_children():
 		if (dialog.id == c.dialog.id):
 			return

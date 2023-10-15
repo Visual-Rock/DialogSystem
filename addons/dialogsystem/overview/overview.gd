@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-var manager : DialogManager 
+var manager : DialogManager : set = _on_dialog_manager_set
 
 @onready var dialogs_container : VBoxContainer = self.get_node( "VBoxContainer/Panel/DialogsContainer" )
 @onready var add_dialog : ConfirmationDialog = self.get_node( "AddDialog" )
@@ -12,7 +12,8 @@ var manager : DialogManager
 
 var graph_editor : Control
 
-func _ready( ):
+func _on_dialog_manager_set( value ) -> void:
+	manager = value
 	if manager:
 		manager.connect( "dialogs_changed", on_dialogs_changed )
 
@@ -33,7 +34,7 @@ func _on_add_pressed():
 	add_dialog.show( )
 
 func _on_add_dialog_confirmed():
-	var dialog : Dialog = Dialog.new( )
+	var dialog : InternalDialog = InternalDialog.new( )
 	dialog.init( new_dialog_id.value, new_dialog_name.text, manager.save_path, manager.loaded_templates[0])
 	manager.loaded_dialogs.append( dialog )
 	manager.load_dialogs( )

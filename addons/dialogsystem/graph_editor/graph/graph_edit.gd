@@ -13,11 +13,15 @@ enum NODES {
 @export var node_values: Array = [ ]
 @export var connections: Array = [ ]
 
-var dialog: Dialog
+var dialog: InternalDialog
+
+var StartNode : GraphNode = null
 
 var nodes : Array[ PackedScene ] = [
 	load("res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn"),
-	load("res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn")
+	load("res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn"),
+	load("res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.tscn"),
+	load("res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.tscn")
 ]
 
 var copy : Array[ GraphNode ] = [ ]
@@ -32,21 +36,31 @@ func _ready():
 	
 	if (!connections.is_empty()):
 		for connection in connections:
-			connect_node(connection["from"], connection["from_port"], connection["to"], connection["to_port"])
+			connect_node(connection["from_node"], connection["from_port"], connection["to_node"], connection["to_port"])
 	
 	for c in self.get_children( true ):
 		if c.name.contains("GraphEditFilter"):
 			for gc in c.get_children( true ):
-				if gc is HBoxContainer:
-					var save = Button.new( )
-					save.text = "Save"
-					save.connect("pressed", _on_dialog_save)
-					gc.add_child( save )
-					
-					var close = Button.new( )
-					close.text = "Close"
-					close.connect("pressed", _on_dialog_close)
-					gc.add_child( close )
+				if gc is PanelContainer:
+					for pcc in gc.get_children( true ):
+						if pcc is HBoxContainer:
+							var save = Button.new( )
+							save.text = "Save"
+							save.connect("pressed", _on_dialog_save)
+							pcc.add_child( save )
+							
+							var close = Button.new( )
+							close.text = "Close"
+							close.connect("pressed", _on_dialog_close)
+							pcc.add_child( close )
+							
+							var bake = Button.new( )
+							bake.text = "Bake"
+							bake.connect("pressed", _on_dialog_bake)
+							pcc.add_child( bake )
+		elif c is GraphNode:
+			if c.node_id == 0:
+				StartNode = c
 	loaded = true
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
@@ -100,11 +114,19 @@ func _on_popup_request(position):
 
 func add_node(idx: int) -> void:
 	var new_node : GraphNode = nodes[idx].instantiate( )
+	if idx == 0:
+		new_node.connect("start_deleted", _on_start_deleted)
+		StartNode = new_node
+	if idx == 2: # Branch Node
+		new_node.branch_template = dialog.template.branch_values
 	self.add_child(new_node)
 	new_node.apply_template(dialog.template)
 	new_node.owner = self
 	var mouse_pos : Vector2 = get_local_mouse_position()
 	new_node.position_offset = Vector2(mouse_pos.x + scroll_offset.x, mouse_pos.y + scroll_offset.y)
+
+func _on_start_deleted( ) -> void:
+	StartNode = null
 
 func _on_dialog_save( ) -> void:
 	dialog.save( )
@@ -119,10 +141,29 @@ func _on_dialog_close( ) -> void:
 	var parent = self.get_parent( )
 	parent.remove_child( self )
 
+func _on_dialog_bake( ) -> void:
+	dialog.bake()
 
+func bake() -> void:
+	if StartNode != null:
+		var out : Dictionary = {}
+		var nodes : Array[Dictionary] = []
+		var id : int = 0
+		
+		nodes.append(StartNode.get_bake_data(0))
+		
+		
+		out["nodes"] = nodes
+		out["start"] = 0
+	
+	pass
 
-
-
+func get_connected_nodes(node : String) -> Array[ Dictionary ]:
+	var arr : Array[Dictionary] = []
+	for connection in connections:
+		if connection["from_node"] == node:
+			arr.append(connection)
+	return arr
 
 
 

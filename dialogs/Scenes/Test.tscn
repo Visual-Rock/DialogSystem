@@ -1,28 +1,52 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/graph_edit.gd" id="1_eir5y"]
-[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn" id="2_gqbfy"]
-[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.gd" id="3_phj4a"]
-[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn" id="4_7svky"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/graph_edit.gd" id="1_3bnc5"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn" id="2_bjowx"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.gd" id="3_metxe"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn" id="4_i0mj4"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.gd" id="5_tqkuk"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.tscn" id="6_vsh3j"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.gd" id="7_6rjj2"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.tscn" id="8_2yoqr"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.gd" id="9_jkjyc"]
 
 [node name="Test" type="GraphEdit"]
 layout_mode = 2
-scroll_offset = Vector2(482, -41)
-script = ExtResource("1_eir5y")
+scroll_offset = Vector2(634, 50)
+script = ExtResource("1_3bnc5")
 node_values = []
-connections = []
+connections = [{
+"from_node": &"StartDialogNode",
+"from_port": 0,
+"to_node": &"TextNode",
+"to_port": 0
+}, {
+"from_node": &"TextNode",
+"from_port": 0,
+"to_node": &"BranchDialogNode",
+"to_port": 0
+}, {
+"from_node": &"BranchDialogNode",
+"from_port": 0,
+"to_node": &"EndDialogNode",
+"to_port": 0
+}, {
+"from_node": &"BranchDialogNode",
+"from_port": 1,
+"to_node": &"@GraphNode@165",
+"to_port": 0
+}]
 
-[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource("2_gqbfy")]
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource("2_bjowx")]
 layout_mode = 0
-offset_left = -162.0
-offset_top = 61.0
-offset_right = 81.0
-offset_bottom = 370.0
+offset_left = -614.0
+offset_top = 30.0
+offset_right = -369.0
+offset_bottom = 378.0
 mouse_filter = 1
-title = "Start Node"
-position_offset = Vector2(320, 20)
-show_close = true
+position_offset = Vector2(20, 80)
 resizable = true
+title = "Start Node"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -41,7 +65,7 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-script = ExtResource("3_phj4a")
+script = ExtResource("3_metxe")
 node_id = 0
 dialog_values = Array[Dictionary]([{
 "default": true,
@@ -53,32 +77,213 @@ dialog_values = Array[Dictionary]([{
 "name": "Names Test",
 "selected": 1,
 "type": 0,
-"value": 1,
+"value": "Name 2",
 "values": ["Name 1", "Name 2"]
 }, {
 "default": "Test",
 "name": "SLString",
 "type": 1,
-"value": "Test Test"
+"value": "asd"
 }, {
 "default": "Test",
 "name": "MLString",
 "type": 2,
-"value": "Test
-Test"
+"value": "Testawd"
+}, {
+"default": 42.0,
+"max": 100.0,
+"min": 0.0,
+"name": "Number",
+"step": 2.0,
+"type": 4,
+"value": 0.0
 }])
 
-[node name="TextNode" type="GraphNode" parent="." instance=ExtResource("4_7svky")]
+[node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource("6_vsh3j")]
 layout_mode = 0
-offset_left = 278.0
-offset_top = 61.0
-offset_right = 521.0
-offset_bottom = 405.0
+offset_left = 166.0
+offset_top = 30.0
+offset_right = 411.0
+offset_bottom = 559.0
 mouse_filter = 1
-title = "Text Node"
-position_offset = Vector2(760, 20)
-show_close = true
+position_offset = Vector2(800, 80)
 resizable = true
+title = "Branch Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("7_6rjj2")
+branches = Array[Array]([Array[Dictionary]([{
+"default": "Test",
+"name": "SLString",
+"type": 1,
+"value": "dgheadrtg"
+}, {
+"default": true,
+"name": "bool test",
+"type": 3,
+"value": false
+}]), Array[Dictionary]([{
+"default": "Test",
+"name": "SLString",
+"type": 1,
+"value": "awefgawergt"
+}, {
+"default": true,
+"name": "bool test",
+"type": 3,
+"value": true
+}])])
+branch_template = Array[Dictionary]([{
+"default": "Test",
+"name": "SLString",
+"type": 1.0
+}, {
+"default": true,
+"name": "bool test",
+"type": 3.0
+}])
+selected_type = 0
+node_id = 2
+dialog_values = Array[Dictionary]([{
+"default": true,
+"name": "bool test",
+"type": 3,
+"value": true
+}, {
+"default": 0.0,
+"name": "Names Test",
+"selected": 1,
+"type": 0,
+"value": "Name 2",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "Test",
+"name": "SLString",
+"type": 1,
+"value": "sdfsdfsdf"
+}, {
+"default": "Test",
+"name": "MLString",
+"type": 2,
+"value": "Testsfsdf"
+}, {
+"default": 42.0,
+"max": 100.0,
+"min": 0.0,
+"name": "Number",
+"step": 2.0,
+"type": 4,
+"value": 0.0
+}])
+
+[node name="@GraphNode@165" type="GraphNode" parent="." instance=ExtResource("8_2yoqr")]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 390.0
+offset_right = 851.0
+offset_bottom = 738.0
+mouse_filter = 1
+position_offset = Vector2(1240, 440)
+resizable = true
+title = "End Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("9_jkjyc")
+node_id = 3
+dialog_values = Array[Dictionary]([{
+"default": true,
+"name": "bool test",
+"type": 3,
+"value": true
+}, {
+"default": 0.0,
+"name": "Names Test",
+"selected": 0,
+"type": 0,
+"value": "Name 1",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "Test",
+"name": "SLString",
+"type": 1,
+"value": "ydrhydrh"
+}, {
+"default": "Test",
+"name": "MLString",
+"type": 2,
+"value": "Testyd fgdhserdhg"
+}, {
+"default": 42.0,
+"max": 100.0,
+"min": 0.0,
+"name": "Number",
+"step": 2.0,
+"type": 4,
+"value": 0.0
+}])
+
+[node name="TextNode" type="GraphNode" parent="." instance=ExtResource("4_i0mj4")]
+layout_mode = 0
+offset_left = -254.0
+offset_top = 30.0
+offset_right = -9.0
+offset_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+position_offset = Vector2(380, 80)
+resizable = true
+title = "Text Node"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -97,8 +302,8 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-script = ExtResource("3_phj4a")
-node_id = -1
+script = ExtResource("5_tqkuk")
+node_id = 1
 dialog_values = Array[Dictionary]([{
 "default": true,
 "name": "bool test",
@@ -109,18 +314,18 @@ dialog_values = Array[Dictionary]([{
 "name": "Names Test",
 "selected": 0,
 "type": 0,
-"value": 0,
+"value": "Name 1",
 "values": ["Name 1", "Name 2"]
 }, {
 "default": "Test",
 "name": "SLString",
 "type": 1,
-"value": "Test"
+"value": "awdfadf"
 }, {
 "default": "Test",
 "name": "MLString",
 "type": 2,
-"value": "Test"
+"value": "dffwfa"
 }, {
 "default": 42.0,
 "max": 100.0,
@@ -128,25 +333,25 @@ dialog_values = Array[Dictionary]([{
 "name": "Number",
 "step": 2.0,
 "type": 4,
-"value": 32.0
+"value": 0.0
 }])
 
-[node name="@GraphNode@77" type="GraphNode" parent="." instance=ExtResource("4_7svky")]
+[node name="EndDialogNode" type="GraphNode" parent="." instance=ExtResource("8_2yoqr")]
 layout_mode = 0
-offset_left = 638.0
-offset_top = 61.0
-offset_right = 881.0
-offset_bottom = 405.0
+offset_left = 606.0
+offset_top = 10.0
+offset_right = 851.0
+offset_bottom = 358.0
 mouse_filter = 1
-title = "Text Node"
-position_offset = Vector2(1120, 20)
-show_close = true
+position_offset = Vector2(1240, 60)
 resizable = true
+selected = true
+title = "End Node"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
-slot/0/right_enabled = true
+slot/0/right_enabled = false
 slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
@@ -160,8 +365,8 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-script = ExtResource("3_phj4a")
-node_id = -1
+script = ExtResource("9_jkjyc")
+node_id = 3
 dialog_values = Array[Dictionary]([{
 "default": true,
 "name": "bool test",
@@ -172,18 +377,18 @@ dialog_values = Array[Dictionary]([{
 "name": "Names Test",
 "selected": 0,
 "type": 0,
-"value": 0,
+"value": "Name 1",
 "values": ["Name 1", "Name 2"]
 }, {
 "default": "Test",
 "name": "SLString",
 "type": 1,
-"value": "Test"
+"value": "serbaetrf"
 }, {
 "default": "Test",
 "name": "MLString",
 "type": 2,
-"value": "Test"
+"value": "hsgbdrtzb"
 }, {
 "default": 42.0,
 "max": 100.0,
@@ -191,7 +396,7 @@ dialog_values = Array[Dictionary]([{
 "name": "Number",
 "step": 2.0,
 "type": 4,
-"value": 34.0
+"value": 0.0
 }])
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request" flags=18]

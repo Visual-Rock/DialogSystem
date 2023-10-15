@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd3o0iklnhpji"]
+[gd_scene load_steps=3 format=3 uid="uid://bd3o0iklnhpji"]
 
 [ext_resource type="PackedScene" uid="uid://derruwdxwbue0" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.tscn" id="1_0esaj"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.gd" id="2_nwpko"]
 
 [node name="StartDialogNode" instance=ExtResource("1_0esaj")]
 offset_left = 2.0
@@ -17,7 +18,8 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
+script = ExtResource("2_nwpko")
 node_id = 0
 
-[node name="Label" type="Label" parent="." index="0"]
+[node name="Label" type="Label" parent="." index="1"]
 layout_mode = 2

@@ -4,7 +4,6 @@
 
 [node name="GraphMenu" type="Popup"]
 size = Vector2i(100, 125)
-visible = true
 min_size = Vector2i(100, 125)
 script = ExtResource("1_f57ov")
 

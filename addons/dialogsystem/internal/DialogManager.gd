@@ -3,7 +3,7 @@ class_name DialogManager
 
 signal dialogs_changed
 
-var loaded_dialogs : Array[ Dialog ]
+var loaded_dialogs : Array[ InternalDialog ]
 var loaded_templates : Array[ Template ]
 var save_path : String = "res://dialogs"
 
@@ -26,11 +26,8 @@ func load_directory( path : String = save_path ) -> void:
 		dir.list_dir_begin( )
 		var f : String = dir.get_next( )
 		while f != "":
-			# if dir.current_is_dir( ):
-			# 	load_directory( path + "/" + f )
-			# else:
 			if !dir.current_is_dir( ):
-				var dialog : Dialog = Dialog.new( )
+				var dialog : InternalDialog = InternalDialog.new( )
 				dialog.load_from_path( path + "/" + f )
 				loaded_dialogs.append( dialog )
 				print( path + "/" + f )

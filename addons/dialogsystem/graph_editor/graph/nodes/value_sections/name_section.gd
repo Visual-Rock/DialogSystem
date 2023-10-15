@@ -9,9 +9,8 @@ var values
 func get_value():
 	return Names.selected
 
-func get_dialog_value() -> Dictionary:
+func get_data() -> Dictionary:
 	return { "name": value_name, "type": value_type, "value": Names.get_item_text(get_value()) }
-
 
 func load_from_data(data : Dictionary = {}) -> void:
 	Name.text = str(data["name"], ": ")

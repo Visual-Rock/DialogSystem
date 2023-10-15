@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://q5r8aopwnccg"]
+
+[ext_resource type="PackedScene" uid="uid://derruwdxwbue0" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.tscn" id="1_jym7d"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.gd" id="2_w1gdb"]
+
+[node name="BranchDialogNode" instance=ExtResource("1_jym7d")]
+offset_right = 151.0
+offset_bottom = 88.0
+title = "Branch Node"
+slot/0/left_enabled = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("2_w1gdb")
+branches = Array[Array]([])
+branch_template = Array[Array]([])
+selected_type = 0
+node_id = 2
+
+[node name="Branch" type="VBoxContainer" parent="." index="1"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Branch" index="0"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Select"
+popup/item_0/id = 0
+popup/item_1/text = "On Value"
+popup/item_1/id = 1
+popup/item_2/text = "Random"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Branch" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Branch/HBoxContainer" index="0"]
+layout_mode = 2
+text = "Branches: "
+
+[node name="SpinBox" type="SpinBox" parent="Branch/HBoxContainer" index="1"]
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 1.0
+
+[connection signal="value_changed" from="Branch/HBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]

@@ -16,7 +16,10 @@ func load_template(template : Array[ Dictionary ]) -> void:
 	# TODO: maybe bring changse there to the new Template
 	if self.get_child_count() != 0:
 		for c in self.get_children():
-			c.queue_free()
+			if c is HSeparator:
+				pass
+			else:
+				c.queue_free()
 	
 	for ts in template:
 		var node = sections[ts["type"]].instantiate( )

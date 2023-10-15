@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy02jnnr8b70"]
+[gd_scene load_steps=3 format=3 uid="uid://cy02jnnr8b70"]
 
 [ext_resource type="PackedScene" uid="uid://derruwdxwbue0" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.tscn" id="1_7aotk"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.gd" id="2_ou7nx"]
 
 [node name="TextNode" instance=ExtResource("1_7aotk")]
-offset_right = 156.0
-offset_bottom = 89.0
+offset_right = 108.0
+offset_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 title = "Text Node"
 slot/0/left_enabled = true
 slot/0/right_enabled = true
@@ -17,6 +20,8 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
+script = ExtResource("2_ou7nx")
+node_id = 1
 
-[node name="Label" type="Label" parent="." index="0"]
+[node name="Label" type="Label" parent="." index="2"]
 layout_mode = 2

@@ -33,5 +33,17 @@
             "max": 100
         }
     ],
+    "branch_values": [
+        {
+            "name": "SLString",
+            "type": 1,
+            "default": "Test"
+        },
+        {
+            "name": "bool test",
+            "type": 3,
+            "default": true
+        }
+    ],
     "template_name": "Test Template"
 }

@@ -23,11 +23,11 @@ func load_from_data(data : Dictionary = {}) -> void:
 	
 	if data.has("default"):
 		value_default = [data["default"]]
-		Number.set_value(value_default[0])
+		Number.set_value(int(value_default[0]))
 		Number.apply()
 	
 	if data.has("value"):
-		Number.set_value(data["value"])
+		Number.set_value(int(data["value"]))
 		Number.apply()
 
 func get_save_data() -> Dictionary:

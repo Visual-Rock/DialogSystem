@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0v61db2akncq"]
+
+[ext_resource type="PackedScene" uid="uid://derruwdxwbue0" path="res://addons/dialogsystem/graph_editor/graph/nodes/base_node.tscn" id="1_2os8b"]
+
+[node name="EndDialogNode" instance=ExtResource("1_2os8b")]
+title = "End Node"
+slot/0/left_enabled = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+node_id = 3
+
+[node name="Label" type="Label" parent="." index="2"]
+layout_mode = 2

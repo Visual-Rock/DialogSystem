@@ -7,3 +7,6 @@ offset_top = -1.0
 offset_right = 40.0
 offset_bottom = 39.0
 script = ExtResource("1_ormvq")
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
