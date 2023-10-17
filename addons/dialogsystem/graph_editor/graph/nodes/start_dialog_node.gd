@@ -1,3 +1,4 @@
+@tool
 extends "res://addons/dialogsystem/graph_editor/graph/nodes/base_node.gd"
 
 signal start_deleted()

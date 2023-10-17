@@ -22,7 +22,7 @@ func _make_visible(visible: bool):
 		dialog_window_inst.visible = visible
 
 func _get_plugin_name():
-	return "InternalDialog Editor"
+	return "Dialog Editor"
 
 func _get_plugin_icon():
 	return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
