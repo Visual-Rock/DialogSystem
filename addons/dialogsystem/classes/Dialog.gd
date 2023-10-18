@@ -26,7 +26,10 @@ var history : Array[ int ]
 func load_from_json( path: String) -> void:
 	var dict : Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
 	var file = path.get_file()
-	name = file.substr(0, file.length() - 5)
+	load_from_dictionary(dict, file.substr(0, file.length() - 5))
+
+func load_from_dictionary( dict: Dictionary, name: String ) -> void:
+	name = name
 	nodes = dict["nodes"]
 	start = nodes[dict["start"]]
 	history = [dict["start"]]
@@ -47,8 +50,10 @@ func advance( option : int = 0 ) -> void:
 	if current_node_type() == DialogNodeTypes.Branch:
 		if current["branches"].size() > option:
 			current = find_node(current["branches"][option]["next"])
+			history.append( current["id"] )
 	else:
 		current = find_node(current["next"])
+		history.append( current["id"] )
 
 ## finds a node by it's ID
 func find_node(id: int) -> Dictionary:
@@ -62,3 +67,28 @@ func current_node_type() -> DialogNodeTypes:
 	if current == {}:
 		return DialogNodeTypes.End
 	return current["type"]
+
+func get_values( ) -> Array[ Dictionary ]:
+	return current["values"]
+
+func get_value(value_name: String):
+	var values = get_values( )
+	for value in values:
+		if value["name"] == value_name:
+			return value["value"]
+
+func get_branches( ) -> Array[ Dictionary ]:
+	var branches : Array[ Dictionary ] = []
+	if current_node_type() == DialogNodeTypes.Branch:
+		for branch in current["branches"]:
+			branches.append( branch["values"] )
+	return branches
+
+func restart( ) -> void:
+	current = start
+	history.clear( )
+
+func back( ) -> void:
+	if history.size() > 1:
+		current = find_node(history[ history.size( ) - 1 ])
+		history.pop_back( )
