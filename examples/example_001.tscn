@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy8lxrufe3x8k"]
+
+[ext_resource type="Script" path="res://examples/example_001.gd" id="1_wuxfy"]
+
+[node name="Example_001" type="Node2D"]
+script = ExtResource("1_wuxfy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -272.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="branches" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="text_panel" type="Panel" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/text_panel"]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 186.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="back" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "back"
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="next" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "next"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/next" to="." method="_on_next_pressed"]

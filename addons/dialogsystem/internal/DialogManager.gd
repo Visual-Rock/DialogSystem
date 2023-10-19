@@ -8,8 +8,12 @@ var loaded_templates : Array[ Template ]
 var save_path : String = "res://dialogs"
 
 func load_templates() -> void:
+	load_template("res://addons/dialogsystem/templates/BaseTemplate.json")
+	load_template("res://addons/dialogsystem/templates/TestTemplate.json")
+
+func load_template(path: String) -> void:
 	var template = Template.new()
-	template.load("res://addons/dialogsystem/templates/TestTemplate.json")
+	template.load(path)
 	loaded_templates.append(template)
 
 func load_dialogs( ) -> void:

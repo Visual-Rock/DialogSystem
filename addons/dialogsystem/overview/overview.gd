@@ -7,6 +7,7 @@ var manager : DialogManager : set = _on_dialog_manager_set
 @onready var add_dialog : ConfirmationDialog = self.get_node( "AddDialog" )
 @onready var new_dialog_name : LineEdit = self.get_node( "AddDialog/VBoxContainer/Name" )
 @onready var new_dialog_id : SpinBox = self.get_node( "AddDialog/VBoxContainer/HBoxContainer/ID" )
+@onready var TemplateSelection : OptionButton = self.get_node("AddDialog/VBoxContainer/OptionButton")
 
 @onready var dialog_entry : PackedScene = preload( "res://addons/dialogsystem/overview/dialog_entry.tscn" )
 
@@ -31,11 +32,16 @@ func populate_dialogs( ) -> void:
 		dialogs_container.add_child( entry )
 
 func _on_add_pressed():
+	TemplateSelection.clear()
+	var i : int = 0
+	for template in manager.loaded_templates:
+		TemplateSelection.add_item(template.template_name, i)
+		i += 1
 	add_dialog.show( )
 
 func _on_add_dialog_confirmed():
 	var dialog : InternalDialog = InternalDialog.new( )
-	dialog.init( new_dialog_id.value, new_dialog_name.text, manager.save_path, manager.loaded_templates[0])
+	dialog.init( new_dialog_id.value, new_dialog_name.text, manager.save_path, manager.loaded_templates[TemplateSelection.get_selected_id()])
 	manager.loaded_dialogs.append( dialog )
 	manager.load_dialogs( )
 

@@ -30,7 +30,7 @@ func load_from_json( path: String) -> void:
 
 func load_from_dictionary( dict: Dictionary, name: String ) -> void:
 	name = name
-	nodes = dict["nodes"]
+	nodes = get_as_dict_array(dict, "nodes")
 	start = nodes[dict["start"]]
 	history = [dict["start"]]
 	current = start
@@ -50,10 +50,10 @@ func advance( option : int = 0 ) -> void:
 	if current_node_type() == DialogNodeTypes.Branch:
 		if current["branches"].size() > option:
 			current = find_node(current["branches"][option]["next"])
-			history.append( current["id"] )
+			history.append( int(current["id"]) )
 	else:
 		current = find_node(current["next"])
-		history.append( current["id"] )
+		history.append( int(current["id"]) )
 
 ## finds a node by it's ID
 func find_node(id: int) -> Dictionary:
@@ -68,8 +68,8 @@ func current_node_type() -> DialogNodeTypes:
 		return DialogNodeTypes.End
 	return current["type"]
 
-func get_values( ) -> Array[ Dictionary ]:
-	return current["values"]
+func get_values( ) -> Array[Dictionary]:
+	return get_as_dict_array(current, "values")
 
 func get_value(value_name: String):
 	var values = get_values( )
@@ -77,18 +77,37 @@ func get_value(value_name: String):
 		if value["name"] == value_name:
 			return value["value"]
 
-func get_branches( ) -> Array[ Dictionary ]:
-	var branches : Array[ Dictionary ] = []
+func get_branches( ) -> Array[ Array ]:
+	var branches : Array[ Array ] = []
 	if current_node_type() == DialogNodeTypes.Branch:
 		for branch in current["branches"]:
-			branches.append( branch["values"] )
+			branches.append( get_as_dict_array(branch, "values") )
 	return branches
 
-func restart( ) -> void:
+func get_branches_count() -> int:
+	return get_branches().size()
+
+func get_branch(branch: int) -> Array[Dictionary]:
+	return get_branches()[branch]
+
+func get_branch_value(_branch: int, name: String):
+	var branch = get_branch(_branch)
+	for value in branch:
+		if value["name"] == name:
+			return value["value"]
+
+func restart( reset_history: bool = true ) -> void:
 	current = start
-	history.clear( )
+	if reset_history:
+		history.clear( )
 
 func back( ) -> void:
 	if history.size() > 1:
-		current = find_node(history[ history.size( ) - 1 ])
+		current = find_node(history[ history.size( ) - 2 ])
 		history.pop_back( )
+
+func get_as_dict_array(dict: Dictionary, name: String) -> Array[Dictionary]:
+	var ret : Array[Dictionary] = []
+	for element in dict[name]:
+		ret.append(element)
+	return ret

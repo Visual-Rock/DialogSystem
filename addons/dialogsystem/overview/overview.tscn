@@ -168,6 +168,9 @@ text = "ID: "
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="OptionButton" type="OptionButton" parent="AddDialog/VBoxContainer"]
+layout_mode = 2
+
 [node name="Error" type="Label" parent="AddDialog/VBoxContainer"]
 layout_mode = 2
 

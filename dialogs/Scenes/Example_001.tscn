@@ -1,0 +1,353 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4ky5v66cs1mt"]
+
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/graph_edit.gd" id="1_p4vgs"]
+[ext_resource type="PackedScene" uid="uid://bd3o0iklnhpji" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn" id="2_6hdp3"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.gd" id="3_np36k"]
+[ext_resource type="PackedScene" uid="uid://cy02jnnr8b70" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn" id="4_3s5ck"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.gd" id="5_rp3h4"]
+[ext_resource type="PackedScene" uid="uid://b0v61db2akncq" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.tscn" id="6_17myl"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.gd" id="7_toiwq"]
+[ext_resource type="PackedScene" uid="uid://q5r8aopwnccg" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.tscn" id="8_7dnsq"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.gd" id="9_1nfyh"]
+
+[node name="Example_001" type="GraphEdit"]
+layout_mode = 2
+scroll_offset = Vector2(66, 86)
+script = ExtResource("1_p4vgs")
+connections = Array[Dictionary]([{
+"from_node": &"StartDialogNode",
+"from_port": 0,
+"to_node": &"TextNode",
+"to_port": 0
+}, {
+"from_node": &"TextNode",
+"from_port": 0,
+"to_node": &"BranchDialogNode",
+"to_port": 0
+}, {
+"from_node": &"BranchDialogNode",
+"from_port": 0,
+"to_node": &"@GraphNode@26965",
+"to_port": 0
+}, {
+"from_node": &"BranchDialogNode",
+"from_port": 1,
+"to_node": &"EndDialogNode",
+"to_port": 0
+}, {
+"from_node": &"@GraphNode@26965",
+"from_port": 0,
+"to_node": &"@GraphNode@26998",
+"to_port": 0
+}])
+
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource("2_6hdp3")]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 374.0
+offset_right = 884.0
+offset_bottom = 663.0
+mouse_filter = 1
+position_offset = Vector2(700, 460)
+resizable = true
+title = "Start Node"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("3_np36k")
+node_id = 0
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 0,
+"type": 0,
+"value": "Name 1",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "Hello!	"
+}])
+
+[node name="TextNode" type="GraphNode" parent="." instance=ExtResource("4_3s5ck")]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 374.0
+offset_right = 1244.0
+offset_bottom = 663.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+position_offset = Vector2(1060, 460)
+resizable = true
+title = "Text Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("5_rp3h4")
+node_id = 1
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 1,
+"type": 0,
+"value": "Name 2",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "Hi!"
+}])
+
+[node name="EndDialogNode" type="GraphNode" parent="." instance=ExtResource("6_17myl")]
+layout_mode = 0
+offset_left = 1774.0
+offset_top = 694.0
+offset_right = 2024.0
+offset_bottom = 983.0
+mouse_filter = 1
+position_offset = Vector2(1840, 780)
+resizable = true
+title = "End Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("7_toiwq")
+node_id = 3
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 1,
+"type": 0,
+"value": "Name 2",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "Have a nice day!"
+}])
+
+[node name="@GraphNode@26998" type="GraphNode" parent="." instance=ExtResource("6_17myl")]
+layout_mode = 0
+offset_left = 2214.0
+offset_top = 274.0
+offset_right = 2464.0
+offset_bottom = 563.0
+mouse_filter = 1
+position_offset = Vector2(2280, 360)
+resizable = true
+title = "End Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("7_toiwq")
+node_id = 3
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 0,
+"type": 0,
+"value": "Name 1",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "Ok! Have a nice day!"
+}])
+
+[node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource("8_7dnsq")]
+layout_mode = 0
+offset_left = 1294.0
+offset_top = 374.0
+offset_right = 1707.0
+offset_bottom = 850.0
+mouse_filter = 1
+position_offset = Vector2(1360, 460)
+resizable = true
+title = "Branch Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("9_1nfyh")
+branches = Array[Array]([Array[Dictionary]([{
+"default": "",
+"name": "Option Name",
+"type": 1,
+"value": "I would like to buy a sword"
+}]), Array[Dictionary]([{
+"default": "",
+"name": "Option Name",
+"type": 1,
+"value": "I need nothing"
+}])])
+branch_template = Array[Dictionary]([{
+"default": "",
+"name": "Option Name",
+"type": 1.0
+}])
+node_id = 2
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 0,
+"type": 0,
+"value": "Name 1",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "How may I help you!"
+}])
+
+[node name="@GraphNode@26965" type="GraphNode" parent="." instance=ExtResource("4_3s5ck")]
+layout_mode = 0
+offset_left = 1774.0
+offset_top = 274.0
+offset_right = 2113.0
+offset_bottom = 585.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+position_offset = Vector2(1840, 360)
+resizable = true
+selected = true
+title = "Text Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("5_rp3h4")
+node_id = 1
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 1,
+"type": 0,
+"value": "Name 2",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "I currently do not have swords!"
+}])
+
+[connection signal="connection_request" from="." to="." method="_on_connection_request" flags=18]
+[connection signal="copy_nodes_request" from="." to="." method="_on_copy_nodes_request" flags=18]
+[connection signal="delete_nodes_request" from="." to="." method="_on_delete_nodes_request" flags=18]
+[connection signal="disconnection_request" from="." to="." method="_on_disconnection_request" flags=18]
+[connection signal="duplicate_nodes_request" from="." to="." method="_on_duplicate_nodes_request" flags=18]
+[connection signal="paste_nodes_request" from="." to="." method="_on_paste_nodes_request" flags=18]
+[connection signal="popup_request" from="." to="." method="_on_popup_request" flags=18]
