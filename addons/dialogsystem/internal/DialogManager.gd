@@ -6,10 +6,18 @@ signal dialogs_changed
 var loaded_dialogs : Array[ InternalDialog ]
 var loaded_templates : Array[ Template ]
 var save_path : String = "res://dialogs"
+var templates_path : String = "res://addons/dialogsystem/templates/"
 
 func load_templates() -> void:
-	load_template("res://addons/dialogsystem/templates/BaseTemplate.json")
-	load_template("res://addons/dialogsystem/templates/TestTemplate.json")
+	loaded_templates.clear()
+	var dir : DirAccess = DirAccess.open( templates_path )
+	if dir:
+		dir.list_dir_begin( )
+		var f : String = dir.get_next( )
+		while f != "":
+			if !dir.current_is_dir( ):
+				load_template( templates_path + f )
+			f = dir.get_next( )
 
 func load_template(path: String) -> void:
 	var template = Template.new()
@@ -36,3 +44,18 @@ func load_directory( path : String = save_path ) -> void:
 				loaded_dialogs.append( dialog )
 				print( path + "/" + f )
 			f = dir.get_next( )
+
+func delete_dialog( dialog: InternalDialog ) -> void:
+	DirAccess.remove_absolute(dialog.path)
+	DirAccess.remove_absolute(dialog.get_scene_path())
+	DirAccess.remove_absolute(dialog.get_bake_path())
+	loaded_dialogs.erase(dialog)
+	load_dialogs()
+
+func delete_dialogs( dialogs: Array[ InternalDialog ] ) -> void:
+	for dialog in dialogs:
+		DirAccess.remove_absolute(dialog.path)
+		DirAccess.remove_absolute(dialog.get_scene_path())
+		DirAccess.remove_absolute(dialog.get_bake_path())
+		loaded_dialogs.erase(dialog)
+	load_dialogs()

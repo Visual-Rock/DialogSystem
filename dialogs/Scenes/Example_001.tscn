@@ -1,20 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4ky5v66cs1mt"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/graph_edit.gd" id="1_p4vgs"]
-[ext_resource type="PackedScene" uid="uid://bd3o0iklnhpji" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn" id="2_6hdp3"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn" id="2_6hdp3"]
 [ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.gd" id="3_np36k"]
-[ext_resource type="PackedScene" uid="uid://cy02jnnr8b70" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn" id="4_3s5ck"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn" id="4_3s5ck"]
 [ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.gd" id="5_rp3h4"]
-[ext_resource type="PackedScene" uid="uid://b0v61db2akncq" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.tscn" id="6_17myl"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.tscn" id="6_17myl"]
 [ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.gd" id="7_toiwq"]
-[ext_resource type="PackedScene" uid="uid://q5r8aopwnccg" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.tscn" id="8_7dnsq"]
+[ext_resource type="PackedScene" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.tscn" id="8_7dnsq"]
 [ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/branch_dialog_node.gd" id="9_1nfyh"]
 
 [node name="Example_001" type="GraphEdit"]
-layout_mode = 2
-scroll_offset = Vector2(66, 86)
 script = ExtResource("1_p4vgs")
-connections = Array[Dictionary]([{
+node_values = []
+connections = [{
 "from_node": &"StartDialogNode",
 "from_port": 0,
 "to_node": &"TextNode",
@@ -39,14 +38,14 @@ connections = Array[Dictionary]([{
 "from_port": 0,
 "to_node": &"@GraphNode@26998",
 "to_port": 0
-}])
+}]
 
 [node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource("2_6hdp3")]
 layout_mode = 0
-offset_left = 634.0
-offset_top = 374.0
-offset_right = 884.0
-offset_bottom = 663.0
+offset_left = 700.0
+offset_top = 460.0
+offset_right = 950.0
+offset_bottom = 749.0
 mouse_filter = 1
 position_offset = Vector2(700, 460)
 resizable = true
@@ -87,10 +86,10 @@ dialog_values = Array[Dictionary]([{
 
 [node name="TextNode" type="GraphNode" parent="." instance=ExtResource("4_3s5ck")]
 layout_mode = 0
-offset_left = 994.0
-offset_top = 374.0
-offset_right = 1244.0
-offset_bottom = 663.0
+offset_left = 1060.0
+offset_top = 460.0
+offset_right = 1310.0
+offset_bottom = 749.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
@@ -133,10 +132,10 @@ dialog_values = Array[Dictionary]([{
 
 [node name="EndDialogNode" type="GraphNode" parent="." instance=ExtResource("6_17myl")]
 layout_mode = 0
-offset_left = 1774.0
-offset_top = 694.0
-offset_right = 2024.0
-offset_bottom = 983.0
+offset_left = 1840.0
+offset_top = 780.0
+offset_right = 2090.0
+offset_bottom = 1069.0
 mouse_filter = 1
 position_offset = Vector2(1840, 780)
 resizable = true
@@ -177,10 +176,10 @@ dialog_values = Array[Dictionary]([{
 
 [node name="@GraphNode@26998" type="GraphNode" parent="." instance=ExtResource("6_17myl")]
 layout_mode = 0
-offset_left = 2214.0
-offset_top = 274.0
-offset_right = 2464.0
-offset_bottom = 563.0
+offset_left = 2280.0
+offset_top = 360.0
+offset_right = 2530.0
+offset_bottom = 649.0
 mouse_filter = 1
 position_offset = Vector2(2280, 360)
 resizable = true
@@ -221,10 +220,10 @@ dialog_values = Array[Dictionary]([{
 
 [node name="BranchDialogNode" type="GraphNode" parent="." instance=ExtResource("8_7dnsq")]
 layout_mode = 0
-offset_left = 1294.0
-offset_top = 374.0
-offset_right = 1707.0
-offset_bottom = 850.0
+offset_left = 1360.0
+offset_top = 460.0
+offset_right = 1773.0
+offset_bottom = 936.0
 mouse_filter = 1
 position_offset = Vector2(1360, 460)
 resizable = true
@@ -282,6 +281,7 @@ branch_template = Array[Dictionary]([{
 "name": "Option Name",
 "type": 1.0
 }])
+selected_type = 0
 node_id = 2
 dialog_values = Array[Dictionary]([{
 "default": 0.0,
@@ -299,10 +299,10 @@ dialog_values = Array[Dictionary]([{
 
 [node name="@GraphNode@26965" type="GraphNode" parent="." instance=ExtResource("4_3s5ck")]
 layout_mode = 0
-offset_left = 1774.0
-offset_top = 274.0
-offset_right = 2113.0
-offset_bottom = 585.0
+offset_left = 1840.0
+offset_top = 360.0
+offset_right = 2110.0
+offset_bottom = 642.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1

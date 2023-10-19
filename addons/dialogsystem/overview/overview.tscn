@@ -135,6 +135,10 @@ texture_disabled = ExtResource("6_f7kqt")
 texture_focused = ExtResource("6_f7kqt")
 stretch_mode = 3
 
+[node name="TempDialogs" type="Control" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
 [node name="AddDialog" type="ConfirmationDialog" parent="."]
 title = "New Dialog"
 initial_position = 1
@@ -175,5 +179,8 @@ layout_mode = 2
 layout_mode = 2
 
 [connection signal="toggled" from="VBoxContainer/SearchBar/CheckBox" to="." method="_on_select_all_toggled"]
+[connection signal="pressed" from="VBoxContainer/SearchBar/OpenSelected" to="." method="_on_open_selected_pressed"]
+[connection signal="pressed" from="VBoxContainer/SearchBar/BakeSelected" to="." method="_on_bake_selected_pressed"]
+[connection signal="pressed" from="VBoxContainer/SearchBar/DeleteSelected" to="." method="_on_delete_selected_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/DialogsContainer/__AddNewDialog__/Add" to="." method="_on_add_pressed"]
 [connection signal="confirmed" from="AddDialog" to="." method="_on_add_dialog_confirmed"]

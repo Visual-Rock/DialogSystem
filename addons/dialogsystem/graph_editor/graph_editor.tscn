@@ -22,15 +22,6 @@ grow_vertical = 2
 [node name="ToolBox" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DialogMenu" type="MenuButton" parent="VBoxContainer/ToolBox"]
-layout_mode = 2
-text = "Dialog"
-item_count = 2
-popup/item_0/text = "New"
-popup/item_0/id = 0
-popup/item_1/text = "Save"
-popup/item_1/id = 1
-
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3

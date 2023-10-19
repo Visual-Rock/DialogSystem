@@ -89,3 +89,5 @@ texture_focused = ExtResource("5_gql3g")
 stretch_mode = 3
 
 [connection signal="pressed" from="Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Bake" to="." method="_on_bake_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

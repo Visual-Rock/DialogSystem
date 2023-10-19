@@ -23,5 +23,5 @@ slot/1/draw_stylebox = true
 script = ExtResource("2_ou7nx")
 node_id = 1
 
-[node name="Label" type="Label" parent="." index="2"]
+[node name="Label" type="Label" parent="." index="1"]
 layout_mode = 2

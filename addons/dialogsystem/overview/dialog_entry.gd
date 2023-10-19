@@ -2,6 +2,8 @@
 extends HBoxContainer
 
 signal open_dialog(dialog: InternalDialog)
+signal delete_dialog(dialog: InternalDialog)
+signal bake_dialog(dialog: InternalDialog)
 
 var dialog : InternalDialog
 
@@ -19,3 +21,9 @@ func _ready():
 
 func _on_open_pressed():
 	emit_signal("open_dialog", dialog)
+
+func _on_bake_pressed():
+	emit_signal("bake_dialog", dialog)
+
+func _on_delete_pressed():
+	emit_signal("delete_dialog", dialog)
