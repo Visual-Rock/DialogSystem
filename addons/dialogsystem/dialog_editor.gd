@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-var manager : DialogManager = DialogManager.new()
+var manager : InternalDialogManager = InternalDialogManager.new()
 
 @onready
 var overview : Control = self.get_node("TabContainer/Overview")

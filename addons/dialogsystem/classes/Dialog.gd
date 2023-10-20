@@ -19,6 +19,8 @@ var name : String
 ## current node
 var current : Dictionary
 
+var injection_data : Dictionary = { }
+
 ## array containing the id of the previously visited nodes
 var history : Array[ int ]
 
@@ -28,8 +30,8 @@ func load_from_json( path: String) -> void:
 	var file = path.get_file()
 	load_from_dictionary(dict, file.substr(0, file.length() - 5))
 
-func load_from_dictionary( dict: Dictionary, name: String ) -> void:
-	name = name
+func load_from_dictionary( dict: Dictionary, _name: String ) -> void:
+	name = _name
 	nodes = get_as_dict_array(dict, "nodes")
 	start = nodes[dict["start"]]
 	history = [dict["start"]]
@@ -71,11 +73,27 @@ func current_node_type() -> DialogNodeTypes:
 func get_values( ) -> Array[Dictionary]:
 	return get_as_dict_array(current, "values")
 
-func get_value(value_name: String):
+func get_value(value_name: String, inject: bool = true):
 	var values = get_values( )
 	for value in values:
 		if value["name"] == value_name:
-			return value["value"]
+			if inject && value["value"] is String:
+				return inject(value["value"])
+			else:
+				return value["value"]
+
+func inject(data: String) -> String:
+	var injected : String = data
+	var count : int = data.count("{{")
+	for i in range(0, count):
+		var start = injected.find("{{")
+		var end = injected.find("}}")
+		var var_name = injected.substr(start + 2, end - start - 2)
+		var val : String = ""
+		if injection_data.has(var_name):
+			val = str(injection_data[var_name])
+		injected = injected.replace("{{" + var_name + "}}", val)
+	return injected
 
 func get_branches( ) -> Array[ Array ]:
 	var branches : Array[ Array ] = []

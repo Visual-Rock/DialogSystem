@@ -9,10 +9,7 @@ signal button_pressed(idx: int)
 @onready var EndButton : Button = self.get_node("Panel/VBoxContainer/End")
 
 func _ready():
-	# StartButton.connect("pressed", _on_start_pressed)
-	# TextButton.connect("pressed", _on_text_pressed)
-	# BranchButton.connect("pressed", _on_branch_pressed)
-	# EndButton.connect("pressed", _on_end_pressed)
+	self.min_size = Vector2(125, StartButton.size.y * 4)
 	pass
 
 func _on_start_pressed():

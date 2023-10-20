@@ -1,5 +1,5 @@
 extends Resource
-class_name DialogManager
+class_name InternalDialogManager
 
 signal dialogs_changed
 

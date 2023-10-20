@@ -1,0 +1,168 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8igij4om01gj"]
+
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/graph_edit.gd" id="1_xwoot"]
+[ext_resource type="PackedScene" uid="uid://bd3o0iklnhpji" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.tscn" id="2_5j61v"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/start_dialog_node.gd" id="3_pq62u"]
+[ext_resource type="PackedScene" uid="uid://cy02jnnr8b70" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.tscn" id="4_8tdyp"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/text_node.gd" id="5_7qhf7"]
+[ext_resource type="PackedScene" uid="uid://b0v61db2akncq" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.tscn" id="6_la31l"]
+[ext_resource type="Script" path="res://addons/dialogsystem/graph_editor/graph/nodes/end_dialog_node.gd" id="7_7mnst"]
+
+[node name="Example_002" type="GraphEdit"]
+layout_mode = 2
+scroll_offset = Vector2(-51, -20)
+script = ExtResource("1_xwoot")
+connections = Array[Dictionary]([{
+"from_node": &"StartDialogNode",
+"from_port": 0,
+"to_node": &"TextNode",
+"to_port": 0
+}, {
+"from_node": &"TextNode",
+"from_port": 0,
+"to_node": &"EndDialogNode",
+"to_port": 0
+}])
+
+[node name="StartDialogNode" type="GraphNode" parent="." instance=ExtResource("2_5j61v")]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 380.0
+offset_right = 797.0
+offset_bottom = 676.0
+mouse_filter = 1
+position_offset = Vector2(440, 360)
+resizable = true
+title = "Start Node"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("3_pq62u")
+node_id = 0
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 0,
+"type": 0,
+"value": "Name 1",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "Hello {{player_name}}!"
+}])
+
+[node name="TextNode" type="GraphNode" parent="." instance=ExtResource("4_8tdyp")]
+layout_mode = 0
+offset_left = 911.0
+offset_top = 380.0
+offset_right = 1219.0
+offset_bottom = 675.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+position_offset = Vector2(860, 360)
+resizable = true
+title = "Text Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("5_7qhf7")
+node_id = 1
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 1,
+"type": 0,
+"value": "Name 2",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "Hi!"
+}])
+
+[node name="EndDialogNode" type="GraphNode" parent="." instance=ExtResource("6_la31l")]
+layout_mode = 0
+offset_left = 1311.0
+offset_top = 380.0
+offset_right = 1613.0
+offset_bottom = 681.0
+mouse_filter = 1
+position_offset = Vector2(1260, 360)
+resizable = true
+selected = true
+title = "End Node"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("7_7mnst")
+node_id = 3
+dialog_values = Array[Dictionary]([{
+"default": 0.0,
+"name": "Name",
+"selected": 0,
+"type": 0,
+"value": "Name 1",
+"values": ["Name 1", "Name 2"]
+}, {
+"default": "",
+"name": "Text",
+"type": 2,
+"value": "See you next time {{player_name}}"
+}])
+
+[connection signal="connection_request" from="." to="." method="_on_connection_request" flags=18]
+[connection signal="copy_nodes_request" from="." to="." method="_on_copy_nodes_request" flags=18]
+[connection signal="delete_nodes_request" from="." to="." method="_on_delete_nodes_request" flags=18]
+[connection signal="disconnection_request" from="." to="." method="_on_disconnection_request" flags=18]
+[connection signal="duplicate_nodes_request" from="." to="." method="_on_duplicate_nodes_request" flags=18]
+[connection signal="paste_nodes_request" from="." to="." method="_on_paste_nodes_request" flags=18]
+[connection signal="popup_request" from="." to="." method="_on_popup_request" flags=18]

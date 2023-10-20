@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-var manager : DialogManager : set = _on_dialog_manager_set
+var manager : InternalDialogManager : set = _on_dialog_manager_set
 
 @onready var dialogs_container : VBoxContainer = self.get_node( "VBoxContainer/Panel/DialogsContainer" )
 @onready var add_dialog : ConfirmationDialog = self.get_node( "AddDialog" )

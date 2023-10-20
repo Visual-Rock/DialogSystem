@@ -109,7 +109,7 @@ func _on_duplicate_nodes_request( ):
 
 func _on_popup_request(position):
 	# position.y += 100
-	var rect = Rect2(position, Vector2(150, 200))
+	var rect = Rect2(position + global_position, Vector2(0, 0))
 	MenuPopup.popup(rect)
 
 func add_node(idx: int) -> void:
