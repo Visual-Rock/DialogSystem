@@ -12,6 +12,8 @@ func _enter_tree():
 
 func _exit_tree():
 	if dialog_window_inst:
+		for dialog: InternalDialog in dialog_window_inst.manager.loaded_dialogs:
+			dialog.save()
 		dialog_window_inst.queue_free()
 
 func _has_main_screen():

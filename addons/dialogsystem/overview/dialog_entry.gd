@@ -27,3 +27,6 @@ func _on_bake_pressed():
 
 func _on_delete_pressed():
 	emit_signal("delete_dialog", dialog)
+
+func _on_description_text_submitted(new_text):
+	dialog.description = new_text

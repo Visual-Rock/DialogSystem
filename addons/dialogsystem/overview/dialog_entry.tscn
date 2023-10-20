@@ -88,6 +88,7 @@ texture_disabled = ExtResource("5_gql3g")
 texture_focused = ExtResource("5_gql3g")
 stretch_mode = 3
 
+[connection signal="text_submitted" from="Description" to="." method="_on_description_text_submitted"]
 [connection signal="pressed" from="Open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="Bake" to="." method="_on_bake_pressed"]
 [connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

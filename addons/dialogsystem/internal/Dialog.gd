@@ -39,6 +39,7 @@ func init( _id : int, _name : String, _path : String, _template: Template ) -> v
 	ResourceSaver.save(s, get_scene_path())
 
 func save( ) -> void:
+	print("Hello")
 	var file : FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	file.store_var( id )
 	file.store_var( name )

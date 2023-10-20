@@ -82,3 +82,7 @@ func _on_bake_selected_pressed():
 					TempDialogs.add_child(child.dialog.scene)
 					TempDialogs.remove_child(child.dialog.scene)
 				child.dialog.bake()
+
+func _on_save_all_pressed():
+	for dialog: InternalDialog in manager.loaded_dialogs:
+		dialog.save()
