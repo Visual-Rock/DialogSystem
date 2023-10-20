@@ -2,7 +2,7 @@
 extends "res://addons/dialogsystem/graph_editor/graph/nodes/base_node.gd"
 
 @export var branches : Array[ Array ] = [ ]
-@export var branch_template : Array[ Dictionary ] = [ ]
+@export var branch_template : Array = [ ]
 @export var selected_type : int = 0
 
 @onready var BranchHeader : VBoxContainer = self.get_node("Branch")

@@ -10,6 +10,7 @@ signal button_pressed(idx: int)
 
 func _ready():
 	self.min_size = Vector2(125, StartButton.size.y * 4)
+	self.hide()
 	pass
 
 func _on_start_pressed():

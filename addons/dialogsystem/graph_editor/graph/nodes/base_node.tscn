@@ -18,5 +18,5 @@ slot/0/right_icon = null
 slot/0/draw_stylebox = true
 script = ExtResource("1_5o7pm")
 
-[node name="NodeValueContainer" parent="." instance=ExtResource("2_qkau2") index="100"]
+[node name="NodeValueContainer" parent="." instance=ExtResource("2_qkau2")]
 layout_mode = 2

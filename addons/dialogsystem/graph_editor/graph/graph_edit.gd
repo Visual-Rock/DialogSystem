@@ -32,8 +32,6 @@ func _ready():
 	self.add_child(MenuPopup)
 	MenuPopup.connect("button_pressed", add_node)
 	
-	# self.connect("popup_request", _on_popup_request)
-	
 	if (!connections.is_empty()):
 		for connection in connections:
 			connect_node(connection["from_node"], connection["from_port"], connection["to_node"], connection["to_port"])
@@ -66,7 +64,6 @@ func _ready():
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
 	connections = self.get_connection_list()
-
 
 func _on_disconnection_request(from_node, from_port, to_node, to_port):
 	disconnect_node(from_node, from_port, to_node, to_port)
@@ -151,12 +148,8 @@ func bake() -> void:
 		var id : int = 0
 		
 		nodes.append(StartNode.get_bake_data(0))
-		
-		
 		out["nodes"] = nodes
 		out["start"] = 0
-	
-	pass
 
 func get_connected_nodes(node : String) -> Array[ Dictionary ]:
 	var arr : Array[Dictionary] = []
@@ -164,24 +157,3 @@ func get_connected_nodes(node : String) -> Array[ Dictionary ]:
 		if connection["from_node"] == node:
 			arr.append(connection)
 	return arr
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

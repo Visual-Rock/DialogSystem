@@ -42,7 +42,6 @@ func load_directory( path : String = save_path ) -> void:
 				var dialog : InternalDialog = InternalDialog.new( )
 				dialog.load_from_path( path + "/" + f )
 				loaded_dialogs.append( dialog )
-				print( path + "/" + f )
 			f = dir.get_next( )
 
 func delete_dialog( dialog: InternalDialog ) -> void:
